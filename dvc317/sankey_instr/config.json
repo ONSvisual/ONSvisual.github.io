@@ -7,9 +7,9 @@
              
     },
     "optional" : {
-            "margin_sm": [20, 0, 15, 0],
-            "margin_md": [20, 0, 15, 0],
-            "margin_lg": [20, 0, 15, 0],
+            "margin_sm": [20, 0, 5, 0],
+            "margin_md": [20, 0, 5, 0],
+            "margin_lg": [20, 0, 5, 0],
         
             "aspectRatio_sm" : [6,6],
             "aspectRatio_md" : [16,12],

@@ -128,7 +128,7 @@ h5{
 		}
 		
 		#info{
-			padding-top:15px;
+			padding-top:5px;
 			height:50px;	
 			color:#636363;
 		}
@@ -366,7 +366,7 @@ h5{
 	
 
 #info{
-	padding-top:15px;
+	padding-top:5px;
 	height:30px;	
 	color:#636363;
 }
@@ -609,8 +609,12 @@ h5{
 	
 }
 .footnote{
-	padding-bottom:15px;
+	padding-bottom:10px;
 	font-size:11px;
+}
+
+.footnote2{
+	padding-top:5px;
 }	
 	
 	    </style>
@@ -695,11 +699,11 @@ h5{
                 <div class="col-sm-3 col-xs-4 text-center">Instrument</div>
                 <div class="col-sm-3 col-xs-4 text-right">Asset</div>
            </div>
-           <div class="row explanation">
+<!--           <div class="row explanation">
            		<div class="col-sm-3 col-xs-4">(e.g money given)</div>
                 <div class="col-sm-3 col-xs-4 text-center">(e.g form of funds)</div>
                 <div class="col-sm-3 col-xs-4 text-right">(e.g money received)</div>
-           </div>
+           </div>-->
            <div class="row">
            		<div class="col-sm-9  text-center" id="info"></div>   
            </div>
@@ -1122,7 +1126,8 @@ h5{
 					    .attr("text-anchor", "end")
 					    .attr("transform", null)
 					    .text(function(d) { 
-				  		 asset = d.name.replace(" asset", "");
+				  		  name = d.name.replace("_", "&");
+						 asset = name.replace(" asset", "");
 						 liability =asset.replace(" liability", "");
 						return liability; 
 					})
@@ -1135,6 +1140,8 @@ h5{
           
 				d3.select(".footer").append("div").attr("class", "footnote").append("p").text("E&IFS: Equity and investment fund shares")
 				d3.select(".footnote").append("p").text("I,P&SGS : Insurance, pension and standardised guarantee schemes")
+				
+				d3.select(".footnote").append("p").attr("class", "footnote2").text("Note: the sector-to-sector counterparty statistics in this diagram have been rounded to the nearest £1 billion")
 								
 				//create link to source				
 				d3.select(".footer").append("p")

@@ -125,7 +125,7 @@
 		}
 		
 		#info{
-			padding-top:15px;
+			padding-top:5px;
 			height:50px;	
 			color:#636363;
 		}
@@ -361,7 +361,7 @@
 }
 
 #info{
-	padding-top:15px;
+	padding-top:5px;
 	height:30px;	
 	color:#636363;
 }
@@ -604,7 +604,7 @@
 	
 }
 .footnote{
-	padding-bottom:15px;
+	padding-bottom:10px;
 	font-size:11px;
 }	
 		
@@ -690,11 +690,11 @@
                 <div class="col-sm-3 col-xs-4 text-center"></div>
                 <div class="col-sm-3 col-xs-4 text-right">Asset</div>
            </div>
-           <div class="row explanation">
+<!--           <div class="row explanation">
            		<div class="col-sm-3 col-xs-4">(e.g money given)</div>
                 <div class="col-sm-3 col-xs-4 text-center"></div>
                 <div class="col-sm-3 col-xs-4 text-right">(e.g money received)</div>
-           </div>
+           </div>-->
            <div class="row">
            		<div class="col-sm-9  text-center" id="info"></div>   
            </div>
@@ -1114,6 +1114,7 @@
 
 		  }
 
+				d3.select(".footer").append("div").attr("class", "footnote").append("p").append("p").attr("class", "footnote2").text("Note: the sector-to-sector counterparty statistics in this diagram have been rounded to the nearest £1 billion")
 								
 				//create link to source				
 				d3.select(".footer").append("p")
