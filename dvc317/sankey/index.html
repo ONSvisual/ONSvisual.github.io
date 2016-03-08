@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title></title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="css/globalStyle.css" />
+    <link rel="stylesheet" href="css/style-chosen.css">
+    
+    <style type="text/css">
+	
+	body {
+		max-width:800px;
+		margin: 0px auto;	
+	}
+	
+		
+	h3{
+		font-weight:600;
+		font-size: 17px;
+	}
+	
+	h5{
+		font-weight:500;
+		font-size: 15px;
+	}
+
+	
+.clearfix:before,
+.clearfix:after,
+.dl-horizontal dd:before,
+.dl-horizontal dd:after,
+.container:before,
+.container:after,
+.container-fluid:before,
+.container-fluid:after,
+.row:before,
+.row:after,
+.form-horizontal .form-group:before,
+.form-horizontal .form-group:after,
+.btn-toolbar:before,
+.btn-toolbar:after,
+.btn-group-vertical > .btn-group:before,
+.btn-group-vertical > .btn-group:after,
+.nav:before,
+.nav:after,
+.navbar:before,
+.navbar:after,
+.navbar-header:before,
+.navbar-header:after,
+.navbar-collapse:before,
+.navbar-collapse:after,
+.pager:before,
+.pager:after,
+.panel-body:before,
+.panel-body:after,
+.modal-footer:before,
+.modal-footer:after {
+  content: " ";
+  display: table;
+}
+    
+.clearfix:after,
+.dl-horizontal dd:after,
+.container:after,
+.container-fluid:after,
+.row:after,
+.form-horizontal .form-group:after,
+.btn-toolbar:after,
+.btn-group-vertical > .btn-group:after,
+.nav:after,
+.navbar:after,
+.navbar-header:after,
+.navbar-collapse:after,
+.pager:after,
+.panel-body:after,
+.modal-footer:after {
+  clear: both;
+}	
+		.node text {
+		  pointer-events: none;
+		  font-size:11px;
+		  font-weight:200;
+		  fill:#7d7d7d;
+		}
+		.table > tbody > tr > td {
+		  pointer-events: none;
+		  font-size:11px;
+		  font-weight:200;
+		  fill:#999;
+		  border-top: 2px solid white;
+
+		}
+		
+		.text-left {
+		  text-align: left;
+		}
+		.text-right {
+		  text-align: right;
+		}
+		.text-center {
+		  text-align: center;
+		}
+		
+		.bold{
+			font-size: 18px;
+			font-weight:700;
+		}
+		
+		
+		.link {
+		  fill: none;
+		  stroke: #000;
+		  stroke-opacity: 0.1;
+		}
+		
+		.link:hover {
+		  stroke-opacity: 0.5;
+		}
+		
+		#info{
+			padding-top:15px;
+			height:50px;	
+			color:#636363;
+		}
+    
+		
+		.node .highlight{
+			opacity: 0.9;	
+		}
+		
+		.node rect {
+ 			opacity: 0.7;
+		}
+		
+		.headings{
+			font-size:22px;
+			font-weight:200;	
+			padding-top:5px;	
+		}
+		.explanation{
+			font-size:14px;
+			font-weight:200;		
+		}
+		#dropdown{
+			display:inline-block;
+		
+		}
+		.yearTxt{
+			line-height:2.9em;	
+			display:inline-block;
+		}
+		
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 4px;
+  line-height: 1.42857143;
+  vertical-align: middle;
+}
+	
+		
+		.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.row {
+/*  margin-left: -15px;
+  margin-right: -15px;
+*/}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+  float: left;
+}
+.col-xs-12 {
+  width: 100%;
+}
+.col-xs-11 {
+  width: 91.66666667%;
+}
+.col-xs-10 {
+  width: 83.33333333%;
+}
+.col-xs-9 {
+  width: 75%;
+}
+.col-xs-8 {
+  width: 66.66666667%;
+}
+.col-xs-7 {
+  width: 58.33333333%;
+}
+.col-xs-6 {
+  width: 50%;
+}
+.col-xs-5 {
+  width: 41.66666667%;
+}
+.col-xs-4 {
+  width: 33.33333333%;
+}
+.col-xs-3 {
+  width: 25%;
+}
+.col-xs-2 {
+  width: 16.66666667%;
+}
+.col-xs-1 {
+  width: 8.33333333%;
+}
+.col-xs-pull-12 {
+  right: 100%;
+}
+.col-xs-pull-11 {
+  right: 91.66666667%;
+}
+.col-xs-pull-10 {
+  right: 83.33333333%;
+}
+.col-xs-pull-9 {
+  right: 75%;
+}
+.col-xs-pull-8 {
+  right: 66.66666667%;
+}
+.col-xs-pull-7 {
+  right: 58.33333333%;
+}
+.col-xs-pull-6 {
+  right: 50%;
+}
+.col-xs-pull-5 {
+  right: 41.66666667%;
+}
+.col-xs-pull-4 {
+  right: 33.33333333%;
+}
+.col-xs-pull-3 {
+  right: 25%;
+}
+.col-xs-pull-2 {
+  right: 16.66666667%;
+}
+.col-xs-pull-1 {
+  right: 8.33333333%;
+}
+.col-xs-pull-0 {
+  right: auto;
+}
+.col-xs-push-12 {
+  left: 100%;
+}
+.col-xs-push-11 {
+  left: 91.66666667%;
+}
+.col-xs-push-10 {
+  left: 83.33333333%;
+}
+.col-xs-push-9 {
+  left: 75%;
+}
+.col-xs-push-8 {
+  left: 66.66666667%;
+}
+.col-xs-push-7 {
+  left: 58.33333333%;
+}
+.col-xs-push-6 {
+  left: 50%;
+}
+.col-xs-push-5 {
+  left: 41.66666667%;
+}
+.col-xs-push-4 {
+  left: 33.33333333%;
+}
+.col-xs-push-3 {
+  left: 25%;
+}
+.col-xs-push-2 {
+  left: 16.66666667%;
+}
+.col-xs-push-1 {
+  left: 8.33333333%;
+}
+.col-xs-push-0 {
+  left: auto;
+}
+.col-xs-offset-12 {
+  margin-left: 100%;
+}
+.col-xs-offset-11 {
+  margin-left: 91.66666667%;
+}
+.col-xs-offset-10 {
+  margin-left: 83.33333333%;
+}
+.col-xs-offset-9 {
+  margin-left: 75%;
+}
+.col-xs-offset-8 {
+  margin-left: 66.66666667%;
+}
+.col-xs-offset-7 {
+  margin-left: 58.33333333%;
+}
+.col-xs-offset-6 {
+  margin-left: 50%;
+}
+.col-xs-offset-5 {
+  margin-left: 41.66666667%;
+}
+.col-xs-offset-4 {
+  margin-left: 33.33333333%;
+}
+.col-xs-offset-3 {
+  margin-left: 25%;
+}
+.col-xs-offset-2 {
+  margin-left: 16.66666667%;
+}
+.col-xs-offset-1 {
+  margin-left: 8.33333333%;
+}
+.col-xs-offset-0 {
+  margin-left: 0%;
+}
+@media (min-width: 650px) {
+	
+.table {  
+  max-width: 100%;
+  margin-left:10px;
+}
+
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 2px;
+  line-height: 1.42857143;
+  vertical-align: middle;
+}
+
+#info{
+	padding-top:15px;
+	height:30px;	
+	color:#636363;
+}
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-sm-11 {
+    width: 91.66666667%;
+  }
+  .col-sm-10 {
+    width: 83.33333333%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-8 {
+    width: 66.66666667%;
+  }
+  .col-sm-7 {
+    width: 58.33333333%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-5 {
+    width: 41.66666667%;
+  }
+  .col-sm-4 {
+    width: 33.33333333%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-2 {
+    width: 16.66666667%;
+  }
+  .col-sm-1 {
+    width: 8.33333333%;
+  }
+  .col-sm-pull-12 {
+    right: 100%;
+  }
+  .col-sm-pull-11 {
+    right: 91.66666667%;
+  }
+  .col-sm-pull-10 {
+    right: 83.33333333%;
+  }
+  .col-sm-pull-9 {
+    right: 75%;
+  }
+  .col-sm-pull-8 {
+    right: 66.66666667%;
+  }
+  .col-sm-pull-7 {
+    right: 58.33333333%;
+  }
+  .col-sm-pull-6 {
+    right: 50%;
+  }
+  .col-sm-pull-5 {
+    right: 41.66666667%;
+  }
+  .col-sm-pull-4 {
+    right: 33.33333333%;
+  }
+  .col-sm-pull-3 {
+    right: 25%;
+  }
+  .col-sm-pull-2 {
+    right: 16.66666667%;
+  }
+  .col-sm-pull-1 {
+    right: 8.33333333%;
+  }
+  .col-sm-pull-0 {
+    right: auto;
+  }
+  .col-sm-push-12 {
+    left: 100%;
+  }
+  .col-sm-push-11 {
+    left: 91.66666667%;
+  }
+  .col-sm-push-10 {
+    left: 83.33333333%;
+  }
+  .col-sm-push-9 {
+    left: 75%;
+  }
+  .col-sm-push-8 {
+    left: 66.66666667%;
+  }
+  .col-sm-push-7 {
+    left: 58.33333333%;
+  }
+  .col-sm-push-6 {
+    left: 50%;
+  }
+  .col-sm-push-5 {
+    left: 41.66666667%;
+  }
+  .col-sm-push-4 {
+    left: 33.33333333%;
+  }
+  .col-sm-push-3 {
+    left: 25%;
+  }
+  .col-sm-push-2 {
+    left: 16.66666667%;
+  }
+  .col-sm-push-1 {
+    left: 8.33333333%;
+  }
+  .col-sm-push-0 {
+    left: auto;
+  }
+  .col-sm-offset-12 {
+    margin-left: 100%;
+  }
+  .col-sm-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  .col-sm-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  .col-sm-offset-9 {
+    margin-left: 75%;
+  }
+  .col-sm-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  .col-sm-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  .col-sm-offset-6 {
+    margin-left: 50%;
+  }
+  .col-sm-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  .col-sm-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  .col-sm-offset-3 {
+    margin-left: 25%;
+  }
+  .col-sm-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  .col-sm-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  .col-sm-offset-0 {
+    margin-left: 0%;
+  }
+}
+	
+		
+.visible-xs,
+.visible-sm,
+.visible-md,
+.visible-lg {
+  display: none !important;
+}
+.visible-xs-block,
+.visible-xs-inline,
+.visible-xs-inline-block,
+.visible-sm-block,
+.visible-sm-inline,
+.visible-sm-inline-block,
+.visible-md-block,
+.visible-md-inline,
+.visible-md-inline-block,
+.visible-lg-block,
+.visible-lg-inline,
+.visible-lg-inline-block {
+  display: none !important;
+}
+@media (max-width: 650px) {
+  .visible-xs {
+    display: block !important;
+  }
+  table.visible-xs {
+    display: table;
+  }
+  tr.visible-xs {
+    display: table-row !important;
+  }
+  th.visible-xs,
+  td.visible-xs {
+    display: table-cell !important;
+  }
+  
+}
+@media (max-width: 650px) {
+  .visible-xs-block {
+    display: block !important;
+  }
+}
+@media (max-width: 650px) {
+  .visible-xs-inline {
+    display: inline !important;
+  }
+}
+@media (max-width: 650px) {
+  .visible-xs-inline-block {
+    display: inline-block !important;
+  }
+}	
+			
+		
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+@media (max-width: 650px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
+@media (min-width: 650px) and (max-width: 938px) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+@media (min-width: 939px) and (max-width: 1199px) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .hidden-lg {
+    display: none !important;
+  }	
+	
+}
+.footnote{
+	padding-bottom:15px;
+	font-size:11px;
+}	
+		
+    </style>
+    
+</head>
+<body>
+
+	<div id="altern">
+    	<p>Unfortunately your browser cannot display this graphic. You might need to upgrade to a modern browser - Find out more information here <a href="https://www.gov.uk/help/browsers">https://www.gov.uk/help/browsers</a></p>
+        <img src="alt.png"></img>
+    </div>
+    
+    <div class="container-fluid">
+           <div class="row header"> 
+      <!--         <h3>UK Flow of Funds</h3>
+               <h5>Sector-to-sector interactions for financial balance sheets</h5>-->
+           </div>
+           <div class="row">
+           		<div class="yearTxt" > Selected year: </div>
+                <div id="dropdown"></div>
+                
+           </div>
+           <div class="row">
+           	 <div class="col-sm-3 col-xs-12 visible-xs" >
+                	<div  id="legend table-responsive">
+                		<br>
+	                	<table class="table  col-sm-12 col-xs-6">
+						    <tbody>
+						    <tr>
+						        <td style = "background-color: rgba(23, 51, 91, 0.7); text-align: center; width: 64px; ">PC</td>
+						        <td>Public Corporation</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(180, 213, 97, 0.7); text-align: center; width: 64px;">PNFC</td>
+						        <td>Private Non-Financial Corporation</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(0, 124, 139, 0.7); text-align: center; width: 64px">MFI</td>
+						        <td>Monetary Financial Institutions</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(47, 137, 201, 0.7); text-align: center; width: 64px">OFI</td>
+						        <td>Other Financial Intermediaries and Financial Auxiliaries</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(79, 194, 190, 0.7); text-align: center; width: 64px">ICPF</td>
+						        <td>Insurance Corporations and Pension Funds</td>
+						      </tr>
+						    </tbody>
+					  </table>
+                      <table class="table table-condensed col-sm-12 col-xs-6">
+						    <tbody>
+						      <tr>
+						        <td style = "background-color: rgba(105, 175, 125, 0.7); text-align: center; width: 64px">CG</td>
+						        <td>Central Government</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(0, 81, 114, 0.7); text-align: center; width: 64px">LG</td>
+						        <td>Local Government</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(252, 176, 23, 0.7); text-align: center; width: 64px">HH & NPISH</td>
+						        <td>Households and Non-Profit Institutions Serving Households</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(241, 90, 49, 0.7); text-align: center; width: 64px">RoW</td>
+						        <td>Rest of the World</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(228, 105, 103, 0.7); text-align: center; width: 64px">Unknown</td>
+						        <td>Unknown</td>
+						      </tr>
+
+						    </tbody>
+					  </table>
+                	</div>
+                </div>
+           </div>
+
+           <div class="row headings">
+           		<div class="col-sm-3 col-xs-4">Liability</div>
+                <div class="col-sm-3 col-xs-4 text-center"></div>
+                <div class="col-sm-3 col-xs-4 text-right">Asset</div>
+           </div>
+           <div class="row explanation">
+           		<div class="col-sm-3 col-xs-4">(e.g money given)</div>
+                <div class="col-sm-3 col-xs-4 text-center"></div>
+                <div class="col-sm-3 col-xs-4 text-right">(e.g money received)</div>
+           </div>
+           <div class="row">
+           		<div class="col-sm-9  text-center" id="info"></div>   
+           </div>
+           <div class="row">
+           		<div class="col-sm-9 col-xs-12" >
+           			<div id="graphic"></div>
+           		</div>
+                <div class="col-sm-3 col-xs-12  hidden-xs" >
+                	<div  id="legend table-responsive">
+                		<br>
+	                	<table class="table col-sm-12 col-xs-6">
+						    <tbody>
+						    <tr>
+						        <td style = "background-color: rgba(23, 51, 91, 0.7); text-align: center; width: 64px; ">PC</td>
+						        <td>Public Corporation</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(180, 213, 97, 0.7); text-align: center; width: 64px;">PNFC</td>
+						        <td>Private Non-Financial Corporation</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(0, 124, 139, 0.7); text-align: center; width: 64px">MFI</td>
+						        <td>Monetary Financial Institutions</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(47, 137, 201, 0.7); text-align: center; width: 64px">OFI</td>
+						        <td>Other Financial Intermediaries and Financial Auxiliaries</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(79, 194, 190, 0.7); text-align: center; width: 64px">ICPF</td>
+						        <td>Insurance Corporations and Pension Funds</td>
+						      </tr>
+						    </tbody>
+					  </table>
+                      <table class="table col-sm-12 col-xs-6">
+						    <tbody>
+						      <tr>
+						        <td style = "background-color: rgba(105, 175, 125, 0.7); text-align: center; width: 64px">CG</td>
+						        <td>Central Government</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(0, 81, 114, 0.7); text-align: center; width: 64px">LG</td>
+						        <td>Local Government</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(252, 176, 23, 0.7); text-align: center; width: 64px">HH & NPISH</td>
+						        <td>Households and Non-Profit Institutions Serving Households</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(241, 90, 49, 0.7); text-align: center; width: 64px">RoW</td>
+						        <td>Rest of the World</td>
+						      </tr>
+						      <tr>
+						        <td style = "background-color: rgba(228, 105, 103, 0.7); text-align: center; width: 64px">Unknown</td>
+						        <td>Unknown</td>
+						      </tr>
+
+						    </tbody>
+					  </table>
+                	</div>
+                </div>
+           </div>
+              
+           <div class="row footer"></div>
+    </div> <!--end container-fluid-->
+  
+    
+   
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+ 	<script src="js/modernizr.custom.56904.js"></script>
+    <script src="js/chosen.jquery.js"></script>
+    <script src="js/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/pym.js" charset="utf-8"></script>
+	<script src="js/sankey.js"></script>
+	<script></script>
+    
+
+    
+    <script>
+
+		var graphic = $('#graphic');
+		var keypoints = $('#keypoints');
+		var footer = $(".footer");
+		var pymChild = null;
+
+		
+
+		function drawGraphic(width) {
+		   var threshold_md = 788;
+		   var threshold_sm = dvc.optional.mobileBreakpoint; 
+		  
+		  	//set variables for chart dimensions dependent on width of #graphic
+		    if (graphic.width() < threshold_sm) {        	
+		            var margin = {top: dvc.optional.margin_sm[0], right: dvc.optional.margin_sm[1], bottom: dvc.optional.margin_sm[2], left: dvc.optional.margin_sm[3]}; 
+					var width = graphic.width() - margin.left - margin.right;
+		            var height = Math.ceil((width * dvc.optional.aspectRatio_sm[1]) / dvc.optional.aspectRatio_sm[0]) - margin.top - margin.bottom;
+		    } else if (graphic.width() < threshold_md){
+		        	var margin = {top: dvc.optional.margin_md[0], right: dvc.optional.margin_md[1], bottom: dvc.optional.margin_md[2], left: dvc.optional.margin_md[3]}; 
+					var width = graphic.width() - margin.left - margin.right;
+		            var height = Math.ceil((width * dvc.optional.aspectRatio_md[1]) / dvc.optional.aspectRatio_md[0]) - margin.top - margin.bottom;
+		  	} else {
+		        	var margin = {top: dvc.optional.margin_lg[0], right: dvc.optional.margin_lg[1], bottom: dvc.optional.margin_lg[2], left: dvc.optional.margin_lg[3]}
+					var width = graphic.width() - margin.left - margin.right;
+		            var height = Math.ceil((width * dvc.optional.aspectRatio_lg[1]) / dvc.optional.aspectRatio_lg[0]) - margin.top - margin.bottom;
+			}
+
+		    // clear out existing graphics
+		    graphic.empty();
+			keypoints.empty();
+			footer.empty();
+			
+			fmt = d3.format("0,.0f")
+		
+		   var colors = d3.scale.ordinal()
+                  .domain([	
+				  "PC", 
+				  "LG", 
+				  "MFI", 
+				  "OFI", 
+				  "ICPF", 
+				  "CG", 
+				  "PNFC", 
+				  "HH&NPISH", 
+				  "RoW", 
+				  "Unknown"])
+                  .range([
+				  "#17335b", 
+				  "#005172", 
+				  "#007c8b", 
+				  "#2f89c9", 
+				  "#4fc2be", 
+				  "#69af7d", 
+				  "#b4d561", 
+				  "#fcb017", 
+				  "#f15a31", 
+				  "#e46967" ]);
+			
+		
+		FoF_labels={  "PC" : "Public Corporation",
+					  "LG": "Private Non-Financial Corporation",
+					  "MFI": "Monetary Financial Institutions",
+					  "OFI": "Other Financial Intermediaries and Financial Auxiliaries",
+					  "ICPF": "Insurance Corporations and Pension Funds",
+					  "CG": "Central Government",
+					  "PNFC": "Local Government",
+					  "HH&NPISH": "Households and Non-Profit Institutions Serving Households", 
+					  "RoW": "Rest of the World",
+					  "Unknown": "Unknown"
+					}
+			
+			//create svg  
+		   	var svg = d3.select("#graphic").append("svg")
+				.attr("width",  width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+			  	.append("g")
+				.attr("transform", 	"translate(" + margin.left + "," + margin.top + ")");
+
+	
+			// Set the sankey diagram properties
+			var sankey = d3.sankey()
+				.nodeWidth(20)
+				.nodePadding(7)
+				.size([width, height])
+				.nodes(nodes)
+				.links(linksX)
+				.layout(32);
+	
+			var path = sankey.link();
+			
+			// add in the links
+			var link = svg.append("g").selectAll(".link")
+				  .data(linksX)
+				  .enter()
+				  .append("path")
+				  .attr("class", function (d) {
+						return "link" + " " + d.liaIns + " " + d.color + " " + d.first + "L" + " " + d.third + "A";
+					})
+				  .attr("d", path)
+				  .style("stroke-width", function(d) {
+					   if (d.dy > 0.0006){
+						    return Math.max(1, d.dy); 
+						} else {
+						 	 return 0;
+						}
+					})
+				  .style("stroke", function (d) {
+						
+						return colors(d.color);
+					})
+				  .sort(function(a, b) { return b.dy - a.dy; })
+				  .on('mouseover',function(d) {
+                    			source= d.source.name.replace(/ liability| asset|/gi, "");
+								target= d.target.name.replace(/ liability| asset|/gi, "");
+							
+								d3.select("#info").html(FoF_labels[source] + " &#8594; "+FoF_labels[target] + ": <span class='bold'> £" +fmt(d.value)+" billion </span>")
+								
+								d3.select(this).style("stroke-opacity", 0.5)
+								
+							  })
+				    .on('mouseout',function() {
+							$("#info").empty();
+							d3.selectAll("path").style("stroke-opacity", 0.1)
+					})
+		
+		
+			  // add in the nodes
+			  var node = svg.append("g").selectAll(".node")
+				  .data(nodes)
+				.enter().append("g")
+				  .attr("class", "node")
+				  .attr("transform", function(d) { 
+					  return "translate(" + d.x + "," + d.y + ")"; })
+				
+					
+				// add the rectangles for the nodes
+			  node.append("rect")
+				  .attr("height", function(d) { return d.dy; })
+				  .attr("width", sankey.nodeWidth())
+				  .style("fill", function (d) {
+					  var name = d.name.replace(/ liability| asset|/gi, "");
+					  return d.color = colors(name);
+         		 })
+				  .on('mouseover',function(d) {
+                    	
+						node = d.name.replace(/ liability| asset|/gi, "");
+						
+						if(d.name.substr(d.name.lastIndexOf(" ass")+1) == "asset") {
+							text = "asset"
+							label = node.replace("&", "") + "A"
+
+						} else if(d.name.substr(d.name.lastIndexOf(" lia")+1) == "liability"){
+							text = "liability"
+							label = node.replace("&", "") + "L"
+						} else {
+							text = "";
+						}
+
+
+						
+						d3.select("#info").html(FoF_labels[node] + " " + text + ": <span class='bold'> £" + fmt(d.value) + " billion </span>");
+						d3.select(this).classed("highlight", true);	
+						var name = d.name.replace(/ liability| asset|/gi, "");
+						
+						d3.selectAll("." + label).style("stroke-opacity", 0.5)				
+					})
+				  .on('mouseout',function(d) {
+                    	$("#info").empty();
+						d3.select(this).classed("highlight", false)
+						d3.selectAll("path").style("stroke-opacity", 0.1)		
+					})
+				
+		
+		
+		
+				// add in the title for the nodes
+			  node.append("text")
+				  .attr("x", -6)
+				  .attr("y", function(d) { return d.dy / 2; })
+				  .attr("dy", ".35em")
+				  .attr("text-anchor", "end")
+				  .attr("transform", null)
+				  .text(function(d) { 
+				  		 asset = d.name.replace(" asset", "");
+						 liability =asset.replace(" liability", "");
+						return liability; 
+					})
+				.filter(function(d) { return d.x <  width / 2; })
+				  .attr("x", 6 + sankey.nodeWidth())
+				  .attr("text-anchor", "start");
+				
+				
+				years = [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014]
+				
+				
+				
+
+				var opts = d3.select("#dropdown").append("select")
+						.attr("id","dropdown3")
+						.attr("style","width:100px")
+						.attr("class","chosen-select")
+					
+					//set option for placeholder text
+					opts.append("option")
+						.attr("value","first")
+						.text("");
+					
+					opts.selectAll("p")
+						.data(years) //loop through the loaded data
+						.enter()
+						.append("option")
+						.attr("value", function(d){ return "Y"+d}) 
+						.text(function(d){ return d})
+						
+				$('#dropdown3').chosen({ 
+							"disable_search": true,
+							placeholder_text_single:"2014"
+						})
+					   .on('change',function(evt,params){	
+					   		updateSankey(params.selected);
+						});
+		
+				
+				
+				
+				
+				
+				
+		
+				
+          function updateSankey(year) {
+				var linksX = [];
+	
+				  links.forEach(function (d) {
+						if (d[year] != 0) {
+						  linksX.push({
+							source: d.source,
+							target: d.target,
+							"value": d[year],
+							"color": d.color,
+							"liaIns": "L" + d.liability + d.asset, // + d.instrument,
+							"liaIns2": d.first + /*"_" + d.second + */ "_" + d.third,
+							"first": d.first.replace("&", ""),
+							"third": d.third.replace("&", "")
+						  });
+						}
+				  });
+	
+			sankey = d3.sankey()
+				.nodeWidth(20)
+				.nodePadding(7)
+				.size([width, height])
+				.nodes(nodes)
+				.links(linksX)
+				.layout(32);
+					
+				  path = sankey.link();
+	
+				  // add the rectangles for the nodes
+				  d3.selectAll(".node").data(nodes)
+						.transition()
+						.duration(1000)
+						.attr("transform", function(d) {
+						  return "translate(" + d.x + "," + d.y + ")";
+						})
+		
+				  d3.selectAll("rect").data(nodes)
+						.transition()
+						.duration(1000)
+						 .attr("height", function (d) {
+                         	return d.dy;
+                		 })
+                		.attr("width", sankey.nodeWidth())
+						
+		
+				linkme = d3.selectAll(".link")
+					.data(linksX, function(d) {
+						  return d.liaIns; //d.liaIns2;
+					});
+				 
+								
+			//Update
+              linkme.transition()
+                .duration(1000) 
+                .attr("d", path)
+                .style("stroke-width", function(d) {
+				   if (d.dy > 0.0006){
+						return Math.max(1, d.dy); 
+					} else {
+						 return 0;
+					}
+				})
+				.sort(function(a, b) { return b.dy - a.dy; });
+			
+			
+			//Enter	(not working?)
+				linkme.enter().append("path")
+                  .attr("class", function (d) {
+                    return "link" + " " + d.liaIns;
+                  })
+				.attr({"d": path })
+				.style("stroke-width", function(d) {
+					   if (d.dy > 0.0006){
+						    return Math.max(1, d.dy); 
+						} else {
+							 return 0;
+						}
+					})
+                  .style("stroke", function (d) {
+                    return colors(d.color);
+                  })
+                  .sort(function(a, b) { return b.dy - a.dy; })
+ 
+				
+			//Exit (would normally remove - but here setting to 0 width - so it doesn't disappear from DOM
+				linkme.exit().style("stroke-width", 0)
+				
+				
+				  d3.selectAll("text")
+						.data(nodes)
+						.transition()
+						.duration(1000)
+						.attr("x", -6)
+					    .attr("y", function (d) { return d.dy / 2; })
+					    .attr("dy", ".35em")
+					    .attr("text-anchor", "end")
+					    .attr("transform", null)
+					    .text(function(d) { 
+				  		 asset = d.name.replace(" asset", "");
+						 liability = asset.replace(" liability", "");
+						return liability; 
+					})
+					  .filter(function (d) { return d.x < width / 2; })
+					    .attr("x", 6 + sankey.nodeWidth())
+					   .attr("text-anchor", "start");
+
+
+		  }
+
+								
+				//create link to source				
+				d3.select(".footer").append("p")
+					.text("Source: ")
+					.append("a")
+					.attr("href", dvc.essential.sourceURL)
+					.attr("target", "_blank")
+					.html(dvc.essential.sourceText);
+						
+			//use pym to calculate chart dimensions	
+		    if (pymChild) {
+		        pymChild.sendHeight();
+		    }
+		}// end drawGraphic
+
+
+		//check whether browser can cope with svg	
+		if (Modernizr.svg) {
+		   d3.select("#altern").remove();
+		   
+		   //load config 
+			d3.json("config.json", function(error, config) {
+			dvc=config
+
+				//d3.json("sankey-formatted.json", function(error, data) {
+				d3.csv("data.csv", function(error, csvData) {	
+					graphic_data=csvData;
+					//console.log(data)
+					
+								
+					csvData.forEach(function(d) {
+						d.Y2006 = parseFloat(d.Y2006);
+						d.Y2007 = parseFloat(d.Y2007);
+						d.Y2008 = parseFloat(d.Y2008);
+						d.Y2009 = parseFloat(d.Y2009);
+						d.Y2010 = parseFloat(d.Y2010);
+						d.Y2011 = parseFloat(d.Y2011);
+						d.Y2012 = parseFloat(d.Y2012);
+						d.Y2013 = parseFloat(d.Y2013);
+						d.Y2014 = parseFloat(d.Y2014);
+					});
+					
+		
+					links = [];
+					nodes = [];
+		
+				
+					//get all source and target into nodes
+					//will reduce to unique in the next step
+					//also get links in object form
+					csvData.forEach(function (d) {
+						// nodes.push({ "name": d.Instrument });
+						nodes.push({ "name": d.Asset + " asset"});
+						nodes.push({ "name": d.Liability + " liability"});
+						links.push({ "source": d.Liability + " liability", //d.Instrument, 
+									"target": d.Asset + " asset", 
+									"Y2006": d.Y2006, 
+									"Y2007": d.Y2007, 
+									"Y2008": d.Y2008, 
+									"Y2009": d.Y2009, 
+									"Y2010": d.Y2010, 
+									"Y2011": d.Y2011, 
+									"Y2012": d.Y2012, 
+									"Y2013": d.Y2013, 
+									"Y2014": d.Y2014, 
+									"liability": d.Liability + " liability", 
+									"asset": d.Asset + " asset", 
+									// "instrument": d.Instrument, 
+									"color": d.Liability, 
+									"first": d.Liability.replace("&", ""), 
+									// "second": d.Instrument, 
+									"third": d.Asset.replace("&", "")
+								});
+					}); 
+		
+		
+					// Reduce to unique set of nodes
+					nodes = d3.keys(d3.nest()
+						.key(function (d) { return d.name; })
+						.map(nodes));
+		
+					
+		
+					// Substitute source and target with node id
+					links.forEach(function (d) {
+						d.source = nodes.indexOf(d.source);
+						d.target = nodes.indexOf(d.target);
+				  		d.liability = nodes.indexOf(d.liability);
+				  		d.asset = nodes.indexOf(d.asset);
+					});
+				
+		
+					// Get back nodes as an array of objects
+					nodes.forEach(function (d, i) {
+					nodes[i] = { "name": d };
+					});
+		
+		
+					 linksX = [];
+					var year = "Y2014" // change this to change the year
+					$("#selector").val("2014").trigger("liszt:updated");
+					
+					links.forEach(function (d) {
+		
+						if (d[year] != 0) {
+							linksX.push({
+								"source": d.source,
+								"target": d.target,
+								"value": d[year],
+								"color": d.color,
+								"liaIns": "L" + d.liability + d.asset, // + d.instrument,
+								"liaIns2": d.first + /*"_" + d.second + */ "_" + d.third,
+								"first": d.first,
+								"third": d.third
+								
+							});
+						}
+					
+				});
+		
+					//use pym to create iframed chart dependent on specified variables
+					pymChild = new pym.Child({ renderCallback: drawGraphic});
+					
+				})
+			})
+
+		} else {
+			 $('.container-fluid').remove();
+			 //use pym to create iframe containing fallback image (which is set as default)
+			 pymChild = new pym.Child();
+			 
+			// console.log(pymChild);
+			 
+			if (pymChild) {
+		        pymChild.sendHeight();
+		    }
+		}
+    </script>
+</body>
+</html>

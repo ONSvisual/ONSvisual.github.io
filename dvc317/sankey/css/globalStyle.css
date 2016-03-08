@@ -1,0 +1,343 @@
+
+
+
+        html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed, 
+		figure, figcaption, footer, header, hgroup, 
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video
+		{
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			/*font: inherit;*/
+			vertical-align: baseline;
+		}
+		
+		
+		
+        html
+		{
+			-webkit-text-size-adjust: none; /* prevent font scaling in landscape */
+		}
+
+
+
+        body /* required */
+		{
+            font-family: 'Open Sans', sans-serif;
+			font-weight:400;
+        }
+		
+		
+
+        a, /* required */
+		a:link,
+		a:visited
+		{
+            color: #4774CC;
+            text-decoration: none;
+        }
+		
+		
+		
+        a:hover, /* required */
+		a:active
+		{
+			opacity: 0.7;
+		}
+		
+		
+		
+        /*.footnotes p,*/
+        .footer  /* required */
+		{
+            font-size: 14px;
+            color: #808080;
+			font-weight:100;
+			padding-bottom:15px;
+        }
+		
+		
+		
+        /* chart */
+        #graphic /* required */
+		{
+            width: 100%;
+        }
+		
+		
+		
+        #graphic:before, /* required */
+        #graphic:after
+		{
+            content: " "; /* 1 */
+            display: table; /* 2 */
+        }
+		
+		
+		
+        #graphic:after /* required */
+		{
+			clear: both;
+		}
+		
+		
+
+        #graphic img /* required */
+		{
+            max-width: 100%;
+            height: auto;
+        }
+		
+		.svgRect{
+			fill: white;	
+		}
+		
+		.textper, .labelling{
+			font-size: 12px;
+            fill: #666;	
+			
+			text-anchor:end;
+		}
+		
+		/* y-axis tick labels */
+		@media (min-width: 767px) {
+        #graphic .axis, #static_graphic .axis  /* required */
+		{
+            font-size: 12px;
+            fill: #666;
+			
+        }
+		
+		
+		
+		.textper {
+			font-size: 12px;
+            fill: #666;	
+			text-anchor:end;
+		}
+		
+		#sortby {
+			text-align:right;
+			right:10px;
+			line-height:37px;	
+		}
+		
+		#pcText, .chosen-container-single .chosen-single{
+			height:39px;
+		}
+		
+		
+		}
+		
+		@media (max-width: 766px) {
+        #graphic .axis, #static_graphic .axis  /* required */
+		{ 
+            font-size: 10px;
+            fill: #666;
+        }
+		
+		#sortoptions, .btn, #pcText .chosen-container{
+			font-size:13px;
+			line-height:1em;
+				
+		}
+		
+		
+	
+		.textper {
+			font-size: 10px;
+            fill: #666;	
+			
+		}
+		
+		#pcText, .chosen-container-single .chosen-single{
+			line-height:28px;
+			height:30px;
+		}
+
+		
+		#sortby {
+			width:100%;
+			text-align:start;
+			line-height:37px;	
+		}
+	
+		}
+		#graphic .y .tick text {
+		text-anchor:start !important;
+		}
+		/* x-axis baseline; not to be confused with centreline. Can consider overlaying this with #centreline */
+        #graphic .axis path  /* required */
+		{
+            fill: none;
+            stroke: #none;
+            /*shape-rendering: crispEdges;*/
+        }
+		
+		
+		#graphic .axis line, #static_graphic .axis line /* required */
+		{
+            fill: none;
+            stroke: #ccc;
+            shape-rendering: crispEdges;
+        }
+		
+		#graphic .y.axis .tick line, #static_graphic .y.axis .tick line 
+		{
+            fill: none;
+            stroke: none ;
+            shape-rendering: crispEdges;
+        }
+				
+		
+		/* x-axis line path */
+        #graphic .axis.x path /* required */
+		{
+			display: none;
+		}
+		
+	
+		
+		/* y-axis full width grid lines */
+        #graphic .grid .tick /* required */
+		{
+            stroke: #CCC;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+		
+		
+		
+		/* ploted graph line */
+        #graphic .line /* required */
+		{
+            fill: none; /* must be 'none' */
+            stroke-width: 3px;
+			stroke-linecap:round;
+			stroke-linejoin:round;
+        }
+		
+	    #static_graphic .key, #graphic .key/* required */
+		{
+			float: left;
+    		padding-left: 35px
+        }	
+		
+		/* legend elements */
+        #static_graphic .key li, #graphic .key li/* required */
+		{
+            display: inline-block;
+            margin: 4px 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+        }
+		
+		
+
+        /* legend coloured elements */
+        #static_graphic .key b, #graphic .key b/* required */
+		{
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+			border-radius:6px;
+            margin: 4px 7px 10px 5px;
+            float: left;
+        }
+
+				
+		
+		/* legend element labels */
+        #static_graphic .key label, #graphic .key label/* required */
+		{
+            white-space: nowrap;
+			font-size: 12px;
+            fill: #666;	
+			font-weight:bold;
+			margin-top: 3px;
+			
+
+        }
+
+		
+		
+		/* y-axis units label */
+        #static_graphic .unit, #graphic .unit/* required */
+		{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            fill: #333333;
+            text-align: left;
+			width:130px;
+			height:20px;
+			display:block;
+			float:none;
+			
+        }
+		
+		.annotext0, .annotext1, .annotext2, .annotext3 {
+		    font-family: 'Open Sans', sans-serif;
+			font-size: 16px;
+			fill: #666;
+			font-weight:500;
+		}	
+
+		
+		
+     	.annocirc0, .annocirc1, .annocirc2, .annocirc3{
+			stroke:#E66500;
+			stroke-width:2px;
+			fill: #E66500;	
+			display:inline;	
+		}
+	 	 
+		#centreline /* required */
+		{
+			stroke:#666;
+			stroke-width:3px;		
+		}
+		
+		
+	
+		/* y- and x-axis tick text */
+		.domain/* required. BOTH MUST BE NONE */
+		{
+			fill:none;
+			stroke:none;	
+		}
+		
+		
+		.circles
+		{
+			float:left;	
+		}
+		
+		
+		/* footnotes to graph */
+		#keypoints/* required. */
+		{
+			margin-bottom:10px;
+			color:#666;
+			font-weight:700;	
+		}
+
+		#keypoints p/* required. */
+		{
+			margin-bottom:0.6em;
+		}
+		
+		.bar{
+			opacity:0.8;
+		}
+		

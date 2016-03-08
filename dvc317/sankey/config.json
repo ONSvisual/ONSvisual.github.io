@@ -1,0 +1,24 @@
+{
+    "essential" : {
+            
+            "sourceText":["UK Flow of Funds Project"],
+            "sourceURL":["http://www.ons.gov.uk/ons/rel/naa1-rd/national-accounts-articles/the-uk-flow-of-funds-project--comprehensive-review-of-the-uk-financial-accounts/rft-table-1.xls"]
+        
+             
+    },
+    "optional" : {
+            "margin_sm": [20, 0, 35, 0],
+            "margin_md": [20, 0, 35, 0],
+            "margin_lg": [20, 0, 35, 0],
+        
+            "aspectRatio_sm" : [6,6],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,12],
+        
+            "mobileBreakpoint" : 610
+    }
+}
+
+
+
+
