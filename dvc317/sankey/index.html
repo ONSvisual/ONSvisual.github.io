@@ -887,13 +887,14 @@
 					})
 				  .sort(function(a, b) { return b.dy - a.dy; })
 				  .on('mouseover',function(d) {
-                    			source= d.source.name.replace(/ liability| asset|/gi, "");
-								target= d.target.name.replace(/ liability| asset|/gi, "");
-							
-								d3.select("#info").html(FoF_labels[source] + " &#8594; "+FoF_labels[target] + ": <span class='bold'> £" +fmt(d.value)+" billion </span>")
-								
-								d3.select(this).style("stroke-opacity", 0.5)
-								
+									if(d.value != 0.0006){
+										source= d.source.name.replace(/ liability| asset|/gi, "");
+										target= d.target.name.replace(/ liability| asset|/gi, "");
+									
+										d3.select("#info").html(FoF_labels[source] + " &#8594; "+FoF_labels[target] + ": <span class='bold'> £" +fmt(d.value)+" billion </span>")
+										
+										d3.select(this).style("stroke-opacity", 0.5)
+									}
 							  })
 				    .on('mouseout',function() {
 							$("#info").empty();
@@ -970,7 +971,7 @@
 				years = [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014]
 				
 				
-				
+				d3.select("#dropdown").empty();
 
 				var opts = d3.select("#dropdown").append("select")
 						.attr("id","dropdown3")
