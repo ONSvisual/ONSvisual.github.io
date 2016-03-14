@@ -861,12 +861,12 @@ h5{
 			
 		
 		FoF_labels={	  "PC" : "Public Corporation",
-					  "LG": "Private Non-Financial Corporation",
+					  "PNFC": "Private Non-Financial Corporation",
 					  "MFI": "Monetary Financial Institutions",
 					  "OFI": "Other Financial Intermediaries and Financial Auxiliaries",
 					  "ICPF": "Insurance Corporations and Pension Funds",
 					  "CG": "Central Government",
-					  "PNFC": "Local Government",
+					  "LG": "Local Government",
 					  "HH_NPISH": "Households and Non-Profit Institutions Serving Households",
 					  "RoW": "Rest of the World",
 					  "Unknown": "Unknown",
@@ -923,6 +923,7 @@ h5{
 				  .sort(function(a, b) { return b.dy - a.dy; })
 				  .on('mouseover',function(d) {
                     			if(d.value != 0.0006){
+												
 									source= d.source.name.replace(/ liability| asset|/gi, "");
 									target= d.target.name.replace(/ liability| asset|/gi, "");
 								
