@@ -1,0 +1,64 @@
+
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "dateFormat":"%Y",
+        
+            "legendLabels" : ["debt", "deficit"],
+        
+            "sourceText":["Public Sector Finances, ONS"],
+            "sourceURL":["http://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/publicsectorfinance/bulletins/publicsectorfinances/january2016"],
+        
+            "annotationChart": [
+                "",
+                "",
+                ""
+            ],
+            "annotationBullet": [
+               
+            ],
+            "annotationXY":[
+                ["1890","15"],
+                ["1960","4"],
+                ["1989","10"]
+            ],
+            "annotationAlign":[
+                "middle",
+                "middle",
+                "middle"
+            ],
+        
+            "circles" : false,    
+            "annotationCXCY":[
+                ["1908","0"],
+                ["1940","20"],
+                ["2011","20"]
+            ],
+            
+            "yAxisLabel":"billion (£)",
+            "yAxisScale":[-200,1600],   
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [34.5,39,39]            
+    },
+    "optional" : {
+            "margin_sm": [10, 20, 25, 40],
+            "margin_md": [20, 20, 25, 40],
+            "margin_lg": [20, 20, 25, 40],
+        
+            "aspectRatio_sm" : [16,13],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,10],
+        
+            "mobileBreakpoint" : 610, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%Y"], 
+                
+            "x_num_ticks_sm_md_lg" : [7,12,17],    
+            "y_num_ticks_sm_md_lg" : [7,8,10],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+
