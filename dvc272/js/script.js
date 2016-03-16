@@ -87,9 +87,9 @@ function handleOrientation() {
 			
 			
 			$("#revealrow").append('<td class="' + classes[i] + '" width=' + percentshare + '%</td>');
-			$("#textrev" + i).append("<span>£" + Math.round(ActualSplit[i]/100).toLocaleString() + "bn</span><br>" + percentshare + "%");
+			$("#textrev" + i).append("<span>£" + Math.round(ActualSplit[i]/1000).toLocaleString() + "bn</span><br>" + percentshare + "%");
 			$("#initialrow").append('<td class="' + classes[i] + '" width=' + startshare + '%</td>');
-			$("#textnx" + i).append("<span>£" + Math.round(startshare/100).toLocaleString() + "bn</span><br>" + Math.round(startshareper) + "%");
+			$("#textnx" + i).append("<span>£" + Math.round(startshare/1000).toLocaleString() + "bn</span><br>" + Math.round(startshareper) + "%");
 
 		};
 	
@@ -114,7 +114,7 @@ function handleOrientation() {
 				carriage = ranges[i]-w
 				
 				s =Math.round(ranges[i]) + "%";	
-				number = Math.round((ranges[i]/100)*Totalspent)
+				number = Math.round((ranges[i]/1000)*Totalspent)
 				
 				$("#textnx" + i).html("<span>£" + Math.round(number/100).toLocaleString() + "bn</span><br> ("+ s + ")");
 		
