@@ -1,0 +1,60 @@
+{
+    "essential" : {
+		
+			"GraphType" : "clusterBar" , 
+			
+            "graphic_data_url": "Cluster.csv",
+        
+            "dateFormat":"%Y-%y",
+        
+            "legendLabels" :[ "2003" , "2013" ],
+			
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages"
+			],
+        
+        
+            "annotationChart": [
+              
+            ],
+            "annotationBullet": [
+                
+            ],
+            "annotationXY":[
+                
+            ],
+            "annotationAlign":[
+                
+            ],
+        
+            "circles" : false,    
+            "annotationCXCY":[
+                
+            ],
+        
+            "yAxisLabel":"",
+            "yAxisScale":[0,50],  
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65]            
+    },
+    "optional" : {
+            "margin_sm": [40, 10, 35, 75],
+            "margin_md": [40, 10, 35, 75],
+            "margin_lg": [40, 10, 35, 75],
+        
+            "aspectRatio_sm" : [8,4],
+            "aspectRatio_md" : [8,4],
+            "aspectRatio_lg" : [8,4],
+        
+            "mobileBreakpoint" : 610, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%Y-%y", "%Y-%y", "%Y-%y"], 
+                
+            "x_num_ticks_sm_md_lg" : [8,8,8],    
+            "y_num_ticks_sm_md_lg" : [6,8,10],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+
