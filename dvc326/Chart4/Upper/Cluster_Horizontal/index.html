@@ -18,17 +18,42 @@
 	}
 	
 	.yearheading {
-		font-size:50px;
+		font-size:40px;
 		margin-top:10px;
 		margin-bottom:10px;
 		color:grey;
 }
+    	#ChartTitleDiv {
+			font-weight:600;
+			font-size:17px;
+			line-height:24px;
+			margin: 16px 0;
+			padding: 5px 0 3px 0;
+			font-family: Helvetica,sans-serif;
+			color: #414042;
+			box-sizing: border-box;
+		}
+		
+		#ChartSubtitleDiv {
+			font-weight:600;
+			font-size:16px;
+			line-height:24px;
+			margin: 16px 0;
+			padding: 5px 0 3px 0;
+			font-family: Helvetica,sans-serif;
+			color: #414042;
+			box-sizing: border-box;
+		}
+
+
     </style>
 
 </head>
 
 <body>
 
+<div id="ChartTitleDiv">Chart title blah blah blah</div>
+<div id="ChartSubtitleDiv">Chart subtitle</div>
     <!--This is the title of the overall chart - Interesting/engaging title?-->
 <!--    <h1>Top 10 countries of birth of non-UK born resident population, 2013</h1>-->
     
@@ -350,7 +375,7 @@
 				.attr("y", 6)
 				.attr("dy", ".71em")
 				.style("text-anchor", "end")
-				.text("Men marrying per 1,000 unmarried Men in age group");	
+				.text("Men marrying per 1,000 unmarried men in age group");	
 			
 			var state = svg.selectAll(".state")
 				.data(graphic_data)

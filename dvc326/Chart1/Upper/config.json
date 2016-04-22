@@ -55,7 +55,7 @@
             "aspectRatio_md" : [14,4],
             "aspectRatio_lg" : [14,3],
         
-            "mobileBreakpoint" : 610, 
+            "mobileBreakpoint" : 550, 
             
             "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%Y"], 
                 
