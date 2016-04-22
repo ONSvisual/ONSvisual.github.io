@@ -77,9 +77,15 @@
     <div id="keypoints">
         <p></p>
     </div>
-
+    
    <div class="footer">        
    </div>
+   
+      <div id="ChartFooterDiv">Download this chart</div>
+    
+    <div id="submitbut">Image</div>
+    <div id="submitbut">.csv</div>
+    <div id="submitbut">.xls</div>
     
     <script src="../lib/jquery.js" type="text/javascript"></script>
     <script src="../lib/d3.v3.min.js" type="text/javascript"></script>
@@ -459,10 +465,7 @@
 				.attr("target", "_blank")
 				.html(function(d,i){return dvc.essential.sourceText[i]})
 						
-			//use pym to calculate chart dimensions	
-		    if (pymChild) {
-		        pymChild.sendHeight();
-		    }
+
 		}
 
 		//check whether browser can cope with svg	
@@ -482,6 +485,11 @@
 					
 					//use pym to create iframed chart dependent on specified variables
 					pymChild = new pym.Child({ renderCallback: drawGraphic});
+					
+					//use pym to calculate chart dimensions	
+					if (pymChild) {
+						pymChild.sendHeight();
+					}
 				});
 			})
 
@@ -494,11 +502,7 @@
 		}
     </script>
     
-    <div id="ChartFooterDiv">Download this chart</div>
-    
-    <div id="submitbut">Image</div>
-    <div id="submitbut">.csv</div>
-    <div id="submitbut">.xls</div>
+
     
     
 </body>
