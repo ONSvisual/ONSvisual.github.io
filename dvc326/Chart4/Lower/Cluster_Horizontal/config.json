@@ -43,8 +43,8 @@
             "margin_lg": [40, 10, 35, 75],
         
             "aspectRatio_sm" : [8,7],
-            "aspectRatio_md" : [8,7],
-            "aspectRatio_lg" : [8,7],
+            "aspectRatio_md" : [8,5],
+            "aspectRatio_lg" : [8,5],
         
             "mobileBreakpoint" : 550, 
             
