@@ -1,0 +1,57 @@
+{
+    "essential" : {
+        
+            "dataSets_url": [ "data", "data1"],
+			
+            "num_lines_url": [ "scrap00.csv","scrap01.csv" ],
+			 
+            "chart_type": [ "line", "line"],
+        
+            "buttonNames": [ "Monthly Index",  "Weekly Index" ],
+        
+            "dateFormat": [ "%b-%y", "%d/%m/%Y" ],
+        
+            "legendLabels" : ["Scrapped", "Collected" ],
+        
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/"],
+        
+            "annotationChart": [ ],
+        
+            "annotationBullet": [ ],
+        
+            "annotationXY":[ ],
+        
+            "annotationAlign":[ ],
+        
+            "circles" : false,    
+            "annotationCXCY":[ ],
+        
+            "xAxisLabel":[],
+        
+            "yAxisLabel": "%",
+            "yAxisScaleDivisor": 1,
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65],
+			
+			"numColumns_sm_md_lg":[1,3,4]
+								
+    },
+    "optional" : {
+            "margin_sm": [15, 5, 0, 15],
+            "margin_md": [5, 5, 0, 20],
+            "margin_lg": [5, 5, 0, 20],
+            "aspectRatio_sm" : [16,16],
+            "aspectRatio_md" : [16,18],
+            "aspectRatio_lg" : [14,16],
+        
+            "mobileBreakpoint" : 400, 
+            "xAxisTextFormat_sm_md_lg" : ["%b %y", "%b %y", "%b %y"], 
+            "x_num_ticks_sm_md_lg" : [3,6,6],    
+            "y_num_ticks_sm_md_lg" : [1,1,1],    
+            "centre_line" : false,
+            "centre_line_value" :0    
+    }
+}
+
+

@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    
+    <title>CPI tool 21</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="../lib/globalStyle.css" /> 
+    
+	<link rel="stylesheet" href="../lib/styles.css" media="screen">
+    <link rel="stylesheet" href="../lib/jquery-ui-1.10.4.custom.min.css">
+    <link rel="stylesheet" href="../lib/jquery.ui.labeledslider.css">
+    <link rel="stylesheet" href="../lib/style-chosen.css">
+    <link rel="stylesheet" href="../lib/bootstrap.min.css">
+    
+    <style type="text/css">
+		/*
+		@media (min-width: 401px) {
+			
+			.text{
+				font-family:"open_sansbold",sans-serif,Helvetica,Arial;
+				font-size:0.5em;
+				color:green;
+				vertical-align:middle;
+				text-align:center;
+				height: 100%;
+			}
+			
+		} 
+		
+		
+		@media (min-width: 768px) {
+		
+			.text{
+				font-family:"open_sansbold",sans-serif,Helvetica,Arial;
+				font-size:0.75em;
+				color:red;
+				vertical-align:middle;
+				text-align:center;
+				height: 100%;				
+			}
+			
+		}  */
+		
+		.text{
+				font-family:"open_sansbold",sans-serif,Helvetica,Arial;
+				font-size:11px;
+			}
+			
+			
+				
+    	.line-0 { stroke:#274796; }
+    	.line-1 { stroke:#F90; }
+    	.line-2 { stroke:#F00; }
+		
+		
+    	.circle {
+			fill:#F90;
+			stroke:#F90;
+		}
+		
+		.squares {
+			fill:white;
+			fill-opacity:0;
+			stroke-width:0px;
+			stroke:#F90;
+			border-radius: 5px; 
+			-moz-border-radius: 5px; 
+			-webkit-border-radius: 5px; 
+			/*border: 2px solid #800000;  */
+		}
+		
+		.svgRect{
+			fill: white;	
+			fill-opacity:0.0;
+		}
+		
+		#centreline{
+			stroke-width:2px;
+		}
+		
+		#header{			
+			height:100px;
+		}
+		
+			#switchSel{
+				position:relative;
+				background-color:#eee;
+			}
+		#breader{			
+			font-size:11px;
+		}	
+		#breadCrum
+		{
+			position:relative;
+		}
+		/*.text{
+			color:#666;	
+			font-size:16px;
+			font-weight:bold;
+		}*/
+		
+		.area {
+		    fill: lightsteelblue;
+		    stroke-width: 2px;
+		}
+		
+		.area.above {
+			fill: #E89B9B;
+		}
+		
+		.area.below {
+			fill: blue;
+		}
+		
+		.bars{
+			stroke:none;	
+			fill:#274796;
+			fill-opacity:0.5;
+		}
+		
+			
+		.circle:hover,
+		.bars:hover
+		{	
+			cursor:pointer;	
+		}
+	
+    </style>
+    
+    <!-- 
+    <script>
+
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37894017-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+    </script>
+    -->
+    
+    
+	</head>
+
+	<body>
+        
+        <div class="container-fluid">
+               
+            <div class="row">
+                <div class="col-sm-12 col-xs-12" id="header">
+                </div> 
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12 col-xs-12" id="breader">
+                </div> 
+            </div>
+        
+        
+            <div class="row">
+                <div class="col-sm-12 col-xs-12" id="graphic">
+               		<img src="fallback.png" alt="[Chart]" />
+                </div> 
+            </div>
+                
+            <div class="row">
+                <div class="col-sm-12 col-xs-12" id="keypoints">
+                	
+                </div> 
+            </div>
+            
+            <div class="row">  
+                <div class="col-sm-12 col-xs-12" id="footer">
+                	
+                </div>       
+            </div>
+
+		</div>
+        
+
+        <script src="../lib/jquery-1.11.1.min.js"></script>
+        <script src="../lib/bootstrap.min.js"></script>
+        <script src="../lib/modernizr.custom.56904.js"></script>
+        <script src="../lib/d3.v3.5.min.js" type='text/javascript'></script>
+        <script src="../lib/pym.js" charset="utf-8"></script>
+	    <script src="../lib/jquery-ui-1.10.4.custom.min.js"></script>    
+        <script src="../lib/chosen.jquery.js" type="text/javascript"></script>
+        <script src="../lib/d3-jetpack.js" type="text/javascript"></script>
+
+	<script>
+        
+        var header = $('#header');
+		var breader = $('#breader');
+		breader.html("&nbsp;");
+        var graphic = $('#graphic');
+        var keypoints = $('#keypoints');
+        var footer = $("#footer");
+        var height;           
+        var dvc = {}; // global object variable to contain all variables prefixed with 'dvc.'
+		var charts;	
+        var pymChild = null;
+        var graphHeight; 
+        var numberCharts = 2; // to start the program off - first draw
+        var firstGo = true;  //draw first chart
+		var counter = 0; // breadcrumb hack
+		var jump = false;
+		
+		list = ' column !== "010000FOOD AND NON-ALCOHOLIC BEVERAGES" && column !== "020000ALCOHOLIC BEVERAGES TOBACCO" && column !== "030000CLOTHING AND FOOTWEAR" && column !== "040000HOUSING WATER ELECTRICITY GAS AND OTHER FUELS" && column !== "050000FURNITURE HOUSEHOLD EQUIPMENT AND ROUTINE MAINTENANCE" && column !== "060000HEALTH" && column !== "070000TRANSPORT" && column !== "080000COMMUNICATION" && column !== "090000RECREATION AND CULTURE" && column !== "100000EDUCATION" && column !== "110000RESTAURANTS AND HOTELS" && column !== "120000MISCELLANEOUS GOODS AND SERVICES" ';
+		
+		
+		//'column !== "60000HEALTH" && column !== "80000COMMUNICATION"';
+		
+        /*
+            NAME: 			drawGraphic
+            DESCRIPTION: 	
+            CALLED FROM:	
+            CALLS:			
+            REQUIRES: 		
+            RETURNS: 		
+        */
+	function drawGraphic()
+		{ 		
+			charts = list;
+			console.log("F charts");  // + charts);
+					
+			if(firstGo === true){
+									dataIndex = 0; // do we start with lines or bars
+									firstGo = false;
+									//console.log("draw12");
+								}
+				
+				//console.log("counter =" + counter+" numberCharts="+numberCharts + "  dataIndex="+dataIndex + "  list="+list); 
+
+				// you must clear everything maybe not header with buttons and spark CPI
+				graphic.empty();
+				keypoints.empty();
+				footer.empty();
+				//breader.empty();
+				d3.select("#selectorLabel").remove();
+				
+				keypoints.html("Note: this data has been collected from three supermarkets: Sainsbury's, Tesco, Asda.");
+
+				var threshold_md = 801;
+				var threshold_sm = dvc.optional.mobileBreakpoint;
+				 
+				var innerPadding_values = {								// May need to make dynamic" && ie 2 charts displayed. Could put this in with button creation.
+										"sm":[ 20 , 20 , 30 , 25 ],
+										"md":[ 40 , 20 , 30 , 25 ],
+										"lg":[ 40 , 25 , 45 , 45 ]
+										/* top , right , bottom , left */
+									}
+								
+				//set variables for chart dimensions dependent on width of #graphic. Could put this in with button creation
+				if (graphic.width() < threshold_sm) {
+						var margin = {top: dvc.optional.margin_sm[0], right: dvc.optional.margin_sm[1], bottom: dvc.optional.margin_sm[2], left: dvc.optional.margin_sm[3]}; 
+						var chart_width = graphic.width()/* - margin.left - margin.right*/;
+						height = (Math.ceil((chart_width * dvc.optional.aspectRatio_sm[1]) / dvc.optional.aspectRatio_sm[0]) - margin.top - margin.bottom);
+						
+						var innerPadding = { top : innerPadding_values.sm[0] ,  right : innerPadding_values.sm[1] ,  bottom : innerPadding_values.sm[2] ,  left : innerPadding_values.sm[3] }
+						
+						//numberRows = parseInt(dvc.essential.numRows_sm_md_lg[dvc.selectedVariableIndex][0]);
+						numberColumns = dvc.essential.numColumns_sm_md_lg[0];
+												
+				} else if (graphic.width() < threshold_md){
+						var margin = {top: dvc.optional.margin_md[0], right: dvc.optional.margin_md[1], bottom: dvc.optional.margin_md[2], left: dvc.optional.margin_md[3]}; 
+						var chart_width = graphic.width()/* - margin.left - margin.right*/;
+						height = (Math.ceil((chart_width * dvc.optional.aspectRatio_md[1]) / dvc.optional.aspectRatio_md[0]) - margin.top - margin.bottom);
+						
+						var innerPadding = { top : innerPadding_values.md[0] ,  right : innerPadding_values.md[1] ,  bottom : innerPadding_values.md[2] ,  left : innerPadding_values.md[3] }
+						
+						//numberRows = parseInt(dvc.essential.numRows_sm_md_lg[dvc.selectedVariableIndex][1]);
+						numberColumns = dvc.essential.numColumns_sm_md_lg[1];
+												
+				} else {
+						var margin = {top: dvc.optional.margin_lg[0], right: dvc.optional.margin_lg[1], bottom: dvc.optional.margin_lg[2], left: dvc.optional.margin_lg[3]}
+						var chart_width = graphic.width()/* - margin.left - margin.right*/;
+						height = (Math.ceil((chart_width * dvc.optional.aspectRatio_lg[1]) / dvc.optional.aspectRatio_lg[0]) - margin.top - margin.bottom);
+						
+						var innerPadding = { top : innerPadding_values.lg[0] ,  right : innerPadding_values.lg[1] ,  bottom : innerPadding_values.lg[2] ,  left : innerPadding_values.lg[3] }
+						
+						//numberRows = parseInt(dvc.essential.numRows_sm_md_lg[dvc.fileReadCount][2]);
+						numberColumns = dvc.essential.numColumns_sm_md_lg[2];
+						//numberColumns = parseInt(config.essential.numColumns_sm_md_lg[dvc.dataIndex][2]);
+				}
+		
+		console.log("chart_width ="+ chart_width + "  height ="+ height);
+		
+				// clear out existing graphics
+				graphic.empty();
+				keypoints.empty();
+				footer.empty()
+										
+
+				var l = 0;
+				// parse data into columns
+				var lines = {};
+				graphic_data = dvc.graphic_data_full;// [obj]					
+		
+		//console.log("graphic_data[dvc.essential.graphic_data_url[dataSets = 3]][Months]  "+graphic_data["dataitem0.csv"]); // =15 months of data
+		var myMinimum = 0;
+		var myMaximum = 0;
+		
+			for ( var numLines = 0; numLines<dvc.essential.num_lines_url.length; numLines++ ) {  // 2 files at present
+					
+					lines[numLines] = {}; // two objects then
+					
+					for (var column in graphic_data[dataIndex][numLines][0]) { //console.log(column); //  dvc.essential.graphic_data_url[numLines]
+						
+						if (eval(charts)) continue;
+						//{
+								lines[numLines][column] = graphic_data[dataIndex][numLines].map(function(d, i) {
+																			//if(dataSet === dataIndex){ == lines or bars, DataSet
+																			
+																					//console.log(dataIndex+"  "+d[column]+"  "+column);
+																					if (+d[column] > myMaximum){ myMaximum = d[column]}	
+																					if (+d[column] < myMinimum){ myMinimum = d[column]}
+																			//}
+									return {			// map data
+										'date': d.date,
+										'amt': d[column]
+									};
+		
+								});  // end lines
+						//console.log(numLines + " " + column + " min :" + myMinimum + " Max :" + myMaximum);
+					l++;					
+					}  // end column in graphic_data
+					
+			} // end num_lines_url.length
+			
+				
+		// lines now has JUST the data needed for all the charts at the current level.
+		//myMaxi = myMaximum.toFixed(1);
+									
+								
+										if(myMinimum < 0 && myMaximum > (myMinimum)*(-1))
+										{
+											myMinimum = myMaximum*(-1);
+										}
+										else if(myMinimum < 0 && myMaximum < (myMinimum)*(-1))
+										{
+											myMaximum = myMinimum*(-1);
+										}
+										console.log("min,max in "+ myMinimum + " , " + myMaximum);
+								
+									dvc.mrtsTicks = calcOptimumTicks(myMinimum,myMaximum);
+									console.log("min,max,ticks,steps size: "+dvc.mrtsTicks + " " + dvc.mrtsTicks[1].toFixed(1));
+																			
+								var yDomain = [dvc.mrtsTicks[0], dvc.mrtsTicks[1]]; //.toFixed(1)];
+			
+				
+				// use Bootstrap !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				//numberColumns = parseInt(dvc.essential.numColumns_sm_md_lg[2]);  // xs-sm-lg [lg]
+				
+				
+				numberRows = Math.ceil(numberCharts / numberColumns);
+				
+				console.log("numberRows = "+numberRows+"  "+"numberColumns = "+numberColumns);
+				
+									// my interpolator 
+										dvc.line = d3.svg.line()
+											.defined(function(d) { return d.amt != ''; })
+											.x(function(d) { return x(d.date); })
+											.y(function(d) { return y(+d.amt); });
+											
+					
+				// calcualte SM graph dimensions, and set up margins for base SM SVG
+				var graph_unitWidth = (chart_width-1) / numberColumns;
+				var graph_unitHeight = graph_unitWidth;
+				//var graph_unitMargins = { top : 0, right : 0, bottom : 0, left : 0 }; // spacing the charts
+				
+				
+				// initial SM graph count variable (k = SM number being created			
+				var k = 0;
+				var graphLines = {};
+				var currentColoumn;
+				
+				// for each row ... 				
+				for ( var i=1; i<=parseInt(numberRows); i++ ) {	
+				
+					// for each column ... 				
+					for ( var j=1; j<=parseInt(numberColumns); j++ ) {
+						
+						// if graph panel [to draw] is greater than for which data is provided in data files ... 
+						if ( k >= l ) { continue; }
+						
+						graphLines = {};
+						
+						// for each input data file...
+						for ( y=0; y<dvc.essential.num_lines_url.length; y++ ) {   //y = 0 then 1
+
+							// define and initialise data file column counter .. 
+							var l = 0;
+							
+							// for each 'column in data file'														
+							for (var column in lines[y] ) {
+								
+								// if column counter is equal to graph panel number to draw
+								if ( l == k ) {
+									//console.log("l "+ l);  //12 charts
+									
+									// initialise inner object to store data asscoaited with a single line (i.e. one column in a single file)
+									graphLines[y] = {};
+									
+									// create lines object
+									graphLines[y][column] = lines[y][column].map(function(d, i) {	
+									
+										currentColoumn = column;
+										
+										return {
+											'date': d.date,
+											'amt': +d.amt
+										};
+									});
+									
+										
+										
+																		
+								}       //   end if l == the 
+							
+								l++;		
+								 // console.log("l "+ l); 1-120 header length
+							}// column in lines[y] 
+							
+						} // end num_lines_url.length loop
+										
+				
+						dvc.numGraphs = k;
+						xCoord = (i-1)*graph_unitWidth;
+						yCoord = (j-1)*graph_unitHeight;
+													
+						// create and append small SVG panel for each individual graph, k
+						var svg = d3.select('#graphic')
+							.append('svg')
+							.attr("class" , "graphUnitSVGs")
+							.attr("id" , "svg" + (k+1))
+							.attr("x",xCoord)  // (i-1)*graph_unitWidth + graph_unitMargins.left )
+							.attr("y",yCoord )  //(j-1)*graph_unitHeight + graph_unitMargins.top )
+							.attr("width", graph_unitWidth )
+							.attr("height", graph_unitHeight )
+							.append("g")
+							.attr("transform", "translate(" + (0) + "," + (0) + ")");
+													
+					 
+										
+													
+						// define x-axis 
+						x = d3.time.scale().range([0, (graph_unitWidth - innerPadding.left - innerPadding.right)]);
+						//x.domain(d3.extent(graphic_data[0][0], function(d) { return d.date; }));
+						x.domain(d3.extent(graphic_data[dataIndex][0], function(d) { return d.date; }));
+					
+					
+						xAxis = d3.svg.axis()
+							.scale(x)
+							.orient("bottom")
+							.tickFormat(function(d,i) {
+								//specify date format for x axis depending on #graphic width
+								if (graphic.width() <= threshold_sm) {
+									var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[0]);
+									str = fmt(d);
+									return i % 2 ? "": '\u2019' + str;
+								} else if (graphic.width() <= threshold_md){
+									var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[1]);
+									str = fmt(d);
+									return i % 4 ? "": '\u2019' + str;
+								} else {
+									var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[2]);
+									str = fmt(d);
+									return i % 2 ? "": '\u2019' + str;
+								}
+							})
+							.tickPadding(5);
+						
+						//specify number of ticks on x axis and whether 1st and last data point labels are included
+						if(graphic.width()<threshold_sm){
+							xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[0]).concat( x.domain() ));
+										}
+						else if (graphic.width() <= threshold_md){
+							xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[1]));
+										}
+						else {
+							xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[2]));
+										}
+						
+						//create x axis, if y axis doesn't start at 0 drop x axis accordingly	
+						svg.append('g')
+							.attr('class', 'x axis')
+							.attr('id', 'focusXAxis' + k)
+							.attr('transform', function(d, i){ 
+								if(yDomain[0] != 0) { return "translate(" + (innerPadding.left) + "," + (graph_unitHeight - innerPadding.bottom) + ")" }
+								else { return "translate(" + (innerPadding.left) + "," + (graph_unitHeight - innerPadding.bottom) + ")"; }
+							})
+							.call(xAxis);
+						
+						
+												
+						//set up y-axis scsale ... 
+						y = d3.scale.linear().domain(yDomain).range([ (graph_unitHeight - innerPadding.top - innerPadding.bottom) , 0 ]);
+						yAxis = d3.svg.axis().scale(y).orient("left");  //.tickFormat(d3.format(",.00f"));
+						
+						
+						//specify number or ticks on y axis
+						if (graphic.width() <= threshold_sm) 
+										{ yAxis.ticks(dvc.mrtsTicks[2]/dvc.optional.y_num_ticks_sm_md_lg[0]) }
+						else if (graphic.width() <= threshold_md)
+										{ yAxis.ticks(dvc.mrtsTicks[2]/dvc.optional.y_num_ticks_sm_md_lg[1]) }
+						else 
+										{ yAxis.ticks(dvc.mrtsTicks[2]/dvc.optional.y_num_ticks_sm_md_lg[2]) }					
+						//yAxis.ticks(dvc.mrtsTicks[2]/dvc.optional.y_num_ticks_sm_md_lg[2]);
+														
+						svg.append("g")
+							.attr("class", "y axis")
+							.attr("id", "focusYAxis" + k)
+							.attr("transform", "translate(" + (innerPadding.left) + "," + (innerPadding.top) + ")")
+							.call(yAxis);	
+							
+														
+						// draw tick grid lines extending from y-axis ticks on axis across scatter graph
+						yticks = svg.selectAll('#focusYAxis' + k).selectAll('.tick');					 
+						yticks.append('svg:line')
+							.attr( 'id' , "yAxisTicks" )
+							.attr( 'y0' , 0 )
+							.attr( 'y1' , 0 )
+							.attr( 'x1' , 0 )
+							.attr( 'x2', graph_unitWidth - innerPadding.right - innerPadding.left );
+							//.style("opacity" , 0.5);
+													
+															
+						//create centre line if required
+						if (dvc.optional.centre_line == true) {
+							
+							svg.append("line")
+								.attr("id","centreline")
+								.attr('y1',y(dvc.optional.centre_line_value) + innerPadding.top)
+								.attr('y2',y(dvc.optional.centre_line_value) + innerPadding.top)
+								.attr('x1',innerPadding.left)
+								.attr('x2',graph_unitWidth-innerPadding.right);
+						}
+						else if(yDomain[0]<0) {
+							
+							svg.append("line")
+								.attr("id","centreline")
+								.attr('y1',y(0) + innerPadding.top)
+								.attr('y2',y(0) + innerPadding.top)
+								.attr('x1',innerPadding.left)
+								.attr('x2',graph_unitWidth - innerPadding.right);
+								
+						}  // end else if...
+						
+						
+						// only draw y-axis config labels if drawing graphs in first COLUMN  - find Bootstrap alternative
+						if ( j == 1 ) { 
+							
+							svg.append("text")
+								.attr("class" , "label")
+								.attr("id" , "yAxisLabel" + k)
+								.attr("x" , innerPadding.left/2)
+								.attr("y" , innerPadding.top-10)
+								.style("font-size" , "10px" )
+								.style("font-weight" , "normal" )
+								.style("text-anchor" , "start" )
+								.text(dvc.essential.yAxisLabel);
+								
+						} // end if ... 
+						
+						
+						// only draw x-axis config labels if drawing graphs in final ROW
+						if ( i == numberRows ) {
+							
+							svg.append("text")
+								.attr("class" , "label")
+								.attr("id" , "xAxisLabel" + k)
+								.attr("x" , graph_unitWidth - innerPadding.right)
+								.attr("y" , function (d,i){
+									if (graphic.width() < threshold_sm) { return graph_unitHeight - (0); }
+									else if (graphic.width() < threshold_md) { return graph_unitHeight - (0); }
+									else { return graph_unitHeight - (10); }
+								})
+								.style("font-size" , "10px" )
+								.style("font-weight" , "normal" )
+								.style("text-anchor" , "end" )
+								.text(dvc.essential.xAxisLabel);
+								
+						} // end if ... 
+						
+						if(dvc.essential.chart_type[dataIndex] == "line")
+							{
+								
+							//console.log("currentColoumn "+currentColoumn);
+												
+						//create lines 		
+						svg.append('g')
+							.attr("id", function(d, i) { return 'group' + k; })
+							.attr("transform", "translate(" + (innerPadding.left) + "," + (innerPadding.top) + ")")
+							.selectAll('path')
+							.data(d3.values(graphLines))
+							//.data(graphLines[0])
+							.enter()
+							.append('path')
+								.attr('class', function(d, i) { return 'line line-' + i; })
+								.attr('id', function(d, i) { return 'smallLine' + k + "-" + i; })
+								.attr('d', function(d , i) { //  console.log("data "+ d[currentColoumn]);  // sends the value part only
+															return dvc.line(d[currentColoumn]); });  // value means the value of
+						}
+						else
+						{
+						// OR bars
+								var barData = [];
+								
+								lines[dataIndex][currentColoumn].forEach(function(d,i){ barData[i] = d; })
+																		
+								svg.append('g').attr("class","bars")
+									.selectAll('rect')
+									.data(barData)
+									.enter()
+									.append('rect')
+									.attr('class', function(d, i) {
+										if ( d.amt < 0 ) { return 'bar_neg bars' + k + " barsNumber" + i; }
+										else { return 'bar_pos bars' + k + " barsNumber" + i; }
+									})
+									.attr('id', function(d, i) { return 'bar' + k + "-" + i; })
+									//.attr("width", x.rangeBand())
+									.attr("width", graph_unitWidth/24)
+									.attr("x", function(d,i) { return x(d.date); })
+									.attr("y", function(d,i) { return y(Math.max(0, d.amt)); })
+									.attr("height", function(d,i) { return 0 + Math.abs(y(d.amt) - y(0)); })
+									.attr("transform", "translate(" + innerPadding.left + "," + innerPadding.top + ")");	
+								
+						}
+									
+						// only draws one bar			
+						// draw text in upper right corner of each graph with the associated title from data.csv
+						svg.append("text")
+							//.data(d3.entries(/*lines*/graphLines))
+							//.data(         	function(d,i) { return d; } ) 
+							.attr('class', 'text') //  wrapword
+							.attr('id', function(d){ return currentColoumn.replace(/\d/g,''); })
+							.attr("x" , 20)
+							.attr("y" , 15)
+							//.style("display" , "block")
+							//.style("pointer-events" , "none")
+							//.style("text-anchor" , "end")
+							.tspans(function(d,i){
+												if(jump === true) {
+																	return d3.wordwrap(currentColoumn.substring(7), 20); 
+																} else
+																   {return d3.wordwrap(currentColoumn.substring(6), 20); }
+												});
+
+							
+						// call function to write annocation to individual graphs if defined in config
+						//if ( graphic.width() > threshold_sm ) {
+							//writeAnnotation(k);
+							//console.log("k "+k);
+						//}// end if ... 
+							
+							
+							svg.append("rect")
+							 .attr('class', 'squares')
+							 .attr("id", currentColoumn) 
+							//.attr("id",  function(d){ return 'celeb'+currentColoumn.substring(0,6); })  //'currentColoumn.substring(6)')
+							.attr("x", 0 ) // row
+							.attr("y", 0 )  // col
+							.attr("width", graph_unitWidth-8)
+							.attr("height", graph_unitHeight-8 )
+							.on("mouseover", function(){d3.select(this).style("stroke-width", 4);})
+							.on("mouseout", function(){d3.select(this).style("stroke-width", 0);})
+							.on("click",calcCharts);
+
+
+						k++;  // next row
+						
+					}  // ends columns j
+					
+				} // finally end the rows K *********************************
+				
+				
+	//write Annotation was ere				
+
+				//create link to source				
+				d3.select("#footer").append("p")
+					.text("Source: ")
+					.append("a")
+					.attr("href", dvc.essential.sourceURL)
+					.attr("target", "_blank")
+					.html(dvc.essential.sourceText);
+					
+				d3.select("#header")
+					.append("label")
+					.attr("id" , "selectorLabel")
+					.style("position" , "absolute")
+					.style("left" , margin.left + "px")
+					.style("top"  , margin.top + "px")
+					.style("font-size" , "20px")
+					.text("CPI tool Draft");
+//					.style("display" , function(d,i){						
+//						if ( dvc.essential.variables.length > 1 ) { return "inline"; }
+//						else { return "none"; } 
+//					});	
+							
+				var selectionWidth = (((chart_width / numberColumns) / chart_width) * 100);
+				d3.select("#selectionArray_chosen")
+					.style( "top" , (50) + "px" )
+					.style( "left" , (margin.left) + "px" )
+					.style( "width" , (selectionWidth) + "%" );
+					
+					
+		
+							
+				//use pym to calculate chart dimensions	
+				if (pymChild) {
+					pymChild.sendHeight();
+				}
+						
+			
+		//return;
+			
+	} // end function drawGraphic()
+		 
+
+	 function calcCharts()
+				{
+					++counter;
+					console.log("calcCharts c="+counter);  // sort later
+					/*if(counter == 4)
+					{
+						d3.select(".squares").remove();
+					}*/
+					
+					oldList = charts;
+					oldNoCharts = numberCharts;	
+									
+					 	store = [];
+					var codeNum = [];
+					var turn = 0;
+					var filter;
+					
+					if (counter == 1)  // get first two digits
+					{
+						dvc.myId = d3.select(this).attr("id");  //evt; //.target.getAttribute("class");	
+						console.log("dvc.myId ="+dvc.myId.substring(6));
+						dvc.firstN = dvc.myId.substring(0,2); // take first two chars
+						console.log("dvc.firstN = " + dvc.firstN);
+						
+						bread1 = dvc.myId.substring(6);
+						d3.select('#breader')
+						  .append('text')
+						  .attr("id", function() { return 'bread' + counter; })
+						  .text(bread1 +" > ");  
+						//  d3.select('#breader').append('text').text('&#92';);  U+005C
+					}
+					if (counter == 2)
+					{
+						dvc.myId = d3.select(this).attr("id");  //evt; //.target.getAttribute("class");	
+						
+					bread2 = dvc.myId.substring(6);
+						dvc.secN = dvc.myId.slice(2,4);  //  replace(/\D/g,'')
+						console.log("dvc.secN =" +bread2);
+						
+						d3.select('#breader')
+						 .append('text')
+						 .attr("id", function() { return 'bread' + counter; })
+						 .text(bread2 +" > ");  
+					}
+					
+					if (counter == 3)  // item level
+					{
+						jump = true;
+						dvc.myId = d3.select(this).attr("id");  //evt; //.target.getAttribute("class");	
+						
+					bread3 = dvc.myId.substring(6); // replace(/\d/g,''); // replace numbers with nothing
+						//val2 = dvc.myId.replace(/\D/g,'');// replace text with nothing
+						dvc.trdN = dvc.myId.slice(4,6);  //  replace(/\D/g,'')
+						console.log("dvc.trdN =" +dvc.trdN+"  id ="+dvc.myId.substring(0,6)+bread3);
+						
+						d3.select('#breader')
+						 .append('text')
+						 .attr("id", function() { return 'bread' + counter; })
+						 .text(bread3);
+						 
+						 //d3.selectAll(".squares").select('rect').remove();  //style('opacity',0.2);
+						 //d3.selectAll('#'+dvc.myId.substring(0,6)).on('click',null);
+					}	
+					
+				dvc.heading = d3.keys(graphic_data[dataIndex][0][0]).filter(function(key) { return key !== "date";});
+				//console.log("heading "+ dvc.heading);		
+					
+			//for (var loop in dvc.heading)
+			for ( var loop=0; loop<dvc.heading.length; loop++ ) 
+			{			
+			 // This must always loop ALL the data to filter just what's needed	
+					//console.log(dvc.heading[loop].lastIndexOf(dvc.secN));
+					if (counter === 1){ // set bc to Group  
+					 filter = ' dvc.heading[loop].substring(0,2) == dvc.firstN && dvc.heading[loop].substring(4,6) === "00" && dvc.heading[loop].substring(3,6) !== "000"  && dvc.heading[loop].substring(6,7) !== "$" '; //
+					 
+									  }
+									  
+					if (counter === 2){  // && dvc.firstN < 10){ ; // set bc to Class
+					 filter = ' dvc.heading[loop].substring(0,2) == dvc.firstN && dvc.heading[loop].substring(4,6) !== "00" && dvc.heading[loop].substring(3,6) !=="000" && dvc.heading[loop].substring(2,4) === dvc.secN && dvc.heading[loop].substring(6,7) !== "$" ';   // && dvc.heading[loop].lastIndexOf("10") === -3
+					 //console.log("dvc.heading[loop]2 ="+dvc.heading[loop].substring(2,4));
+										}
+										
+					if (counter === 3){  // && dvc.firstN < 10){ ; // set bc to Class
+					 filter = ' dvc.heading[loop].substring(0,2) == dvc.firstN && dvc.heading[loop].substring(4,6) !== "00" && dvc.heading[loop].substring(3,6) !=="000" && dvc.heading[loop].substring(2,4) === dvc.secN && dvc.heading[loop].substring(6,7) === "$" && dvc.heading[loop].substring(4,6) === dvc.trdN ';
+					// console.log("At trdN");
+										}
+									 
+											
+				if (eval(filter))
+				 {
+						 store[turn] = '" && column !== "' + dvc.heading[loop];
+						//console.log(turn +"  store "+ store[turn]);
+					 ++turn;
+				 }
+			} // end loop
+			//console.log(turn+"  first store  "+ store);
+			
+			if(turn === 0){  // DOESN'T WORK FOR EDUCATION 100000
+				jump = true;
+				alert("no more charts at this level. Refresh to go again. "+counter);
+				
+				for ( var loop=0; loop<dvc.heading.length; loop++ ) 
+						{
+							 filter = ' dvc.heading[loop].substring(0,2) == dvc.firstN && dvc.heading[loop].substring(3,6) !=="000" && dvc.heading[loop].substring(2,4) === dvc.secN && dvc.heading[loop].substring(6,7) === "$" '; 
+															
+							if (eval(filter))
+							 {
+									 store[turn] = '" && column !== "' + dvc.heading[loop];
+									console.log(turn +"  store "+ store[turn]);
+								 ++turn;
+							 }
+						} // end loop
+			
+			
+			} // end turn === 0
+			
+			//else{
+			
+			numberCharts = turn;
+			
+			var stored = store + ""   // convert to string
+			//console.log('$ push quote ='+ store);
+			
+			var cutStrt = stored.slice(4);  // cut first bit off
+			
+			// bin commas
+			list = cutStrt.replace (/,/g, "");
+			list = list +'"';
+			//console.log("add ' at start ="+ list);
+			
+		drawGraphic();		
+			//}
+					
+	}	// end calcCharts
+
+	
+function upHome()
+{
+	console.log("filterCharts");
+	jump = false;
+	var buttonId = document.querySelectorAll('.active').item("id").id;
+	//buttonId = document.getElementsById('active').item("id").id;
+						console.log("buttonId ="+buttonId);
+						upOrDown = buttonId.substring(6,8); // take first two chars
+						console.log("upOrDown = " + upOrDown);
+						
+						d3.select('#bread'+counter).remove();  
+						
+				if(upOrDown == 0)
+				{
+				console.log("reduce breader " + oldNoCharts+"  "+oldList);
+				--counter;
+				list = oldList;
+				numberCharts = oldNoCharts;
+				
+				}else{
+					breader.empty();
+					counter = 0;
+					numberCharts = 12;
+					list = ' column !== "010000FOOD AND NON-ALCOHOLIC BEVERAGES" && column !== "020000ALCOHOLIC BEVERAGES TOBACCO" && column !== "030000CLOTHING AND FOOTWEAR" && column !== "040000HOUSING WATER ELECTRICITY GAS AND OTHER FUELS" && column !== "050000FURNITURE HOUSEHOLD EQUIPMENT AND ROUTINE MAINTENANCE" && column !== "060000HEALTH" && column !== "070000TRANSPORT" && column !== "080000COMMUNICATION" && column !== "090000RECREATION AND CULTURE" && column !== "100000EDUCATION" && column !== "110000RESTAURANTS AND HOTELS" && column !== "120000MISCELLANEOUS GOODS AND SERVICES" ';
+				}
+		drawGraphic();
+		
+} // end filterCharts
+
+
+function dataSetChange()
+{
+	console.log("dataSetChange");
+	
+	var dataSetId = document.querySelectorAll('.dataSets.active').item("id").id; //switchSel  nav.active name chage the class to distinguidshor #
+				console.log("dataSetId ="+dataSetId);
+				
+				dataIndex = dataSetId.substr(7,1);
+					console.log("dataSetId no =" + dataIndex); 
+	drawGraphic();
+}
+	
+function calcOptimumTicks(inputMin, inputMax)
+{
+	    var mrtsMin; 
+        var mrtsMax; 
+        var myRange; 
+        var myMagnitudeUnrounded; 
+        var myMagnitudeFloor;
+		var myMagnitudeCeil; 
+        var myRoundingValue; 
+        var myBigArray=[];
+		var mrtsArray=[];
+        var myWinner; 
+        var mrtsArray; 
+        
+//        Calculate 
+        if (inputMin>inputMax) {mrtsMin=inputMax; mrtsMax=inputMin;}
+		else {mrtsMin=inputMin; mrtsMax=inputMax;}
+		
+        myRange = mrtsMax-mrtsMin;
+		
+        if (myRange==0) {myMagnitudeUnrounded=1;}
+		else {myMagnitudeUnrounded=Math.log(myRange)/Math.log(10);} 
+		
+		//myMagnitudeCeil = Math.ceil(myMagnitudeUnrounded.toFixed(1)); 
+        myMagnitudeFloor = Math.floor(myMagnitudeUnrounded); 
+        myRoundingValue  = Math.pow(10,(myMagnitudeFloor-1)); 
+      
+        myBigArray[0]=calculateTicksForGivenStepLength(1*myRoundingValue,mrtsMin,mrtsMax); 
+        myBigArray[1]=calculateTicksForGivenStepLength(2*myRoundingValue,mrtsMin,mrtsMax); 
+        myBigArray[2]=calculateTicksForGivenStepLength(5*myRoundingValue,mrtsMin,mrtsMax); 
+        myBigArray[3]=calculateTicksForGivenStepLength(10*myRoundingValue,mrtsMin,mrtsMax); 
+        myBigArray[4]=calculateTicksForGivenStepLength(20*myRoundingValue,mrtsMin,mrtsMax); 
+        myBigArray[5]=calculateTicksForGivenStepLength(50*myRoundingValue,mrtsMin,mrtsMax); 
+        
+        if (myBigArray[0][2]<9) { myWinner=0; } else 
+        if (myBigArray[1][2]<9) { myWinner=1; } else 
+        if (myBigArray[2][2]<9) { myWinner=2; } else         
+        if (myBigArray[3][2]<9) { myWinner=3; } else 
+        if (myBigArray[4][2]<9) { myWinner=4; } else { myWinner=5; } 
+        
+        //Display 
+//        console.log("*********************************************************** calculateOptimumTicks"); 
+//        console.log("myRange                                = "+myRange                                        ); 
+//        console.log("myMagnitudeUnrounded        = "+myMagnitudeUnrounded        ); 
+//        console.log("myMagnitudeFloor                = "+myMagnitudeFloor                );
+//		console.log("myMagnitudeCeil                = "+myMagnitudeCeil               ); 
+//        console.log("myRoundingValue                = "+myRoundingValue                        ); 
+//        console.log("myWinner                         = "+myWinner                                ); 
+//        console.log("myLowestTick                 = "+myBigArray[myWinner][0]        ); 
+//        console.log("myHighestTick                 = "+myBigArray[myWinner][1]        ); 
+//        console.log("myTicks                                 = "+myBigArray[myWinner][2]        ); 
+//        console.log("myStep                                 = "+myBigArray[myWinner][3]        ); 
+//        console.log("*********************************************************** calculateOptimumTicks"); 
+      
+	    
+      //Handover 
+        mrtsArray[0]=myBigArray[myWinner][0]; 
+        mrtsArray[1]=myBigArray[myWinner][1]; 
+        mrtsArray[2]=myBigArray[myWinner][2]; 
+        mrtsArray[3]=myBigArray[myWinner][3];
+		return mrtsArray;
+}
+
+function calculateTicksForGivenStepLength(inputStep, inputMin, inputMax)
+{ 
+//        Define local variables 
+        var i; 
+        var myStep; 
+        var myMin; 
+        var myMax; 
+        var myTicks; 
+        var myLowestTick; 
+        var myHighestTick; 
+        var tickArray=[]; 
+        
+//        Calculate 
+        if (inputStep==0)
+					{myStep=1;}
+					else {myStep=inputStep};
+					 
+        if (inputMin>inputMax)         
+		{myMin=inputMax; myMax=inputMin;}
+		else {myMin=inputMin; myMax=inputMax;} 
+		
+        myLowestTick =myStep*Math.floor(myMin/myStep); 
+        myHighestTick=myLowestTick; 
+		
+        i=0; 
+        do { 
+                //myHighestTick=myHighestTick+myStep; 
+                myHighestTick=((myHighestTick*1000000)+(myStep*1000000))/1000000; 
+                i++; 
+        } while (myHighestTick<myMax); 
+        myTicks=i; 
+        
+//        Display 
+      /*console.log("*********************************************************** calculateTicksForGivenStepLength"); 
+        console.log("inputStep                 ="+inputStep); 
+        console.log("inputMin                 ="+inputMin); 
+        console.log("inputMax                 ="+inputMax); 
+        console.log("myStep                         ="+myStep); 
+        console.log("myMin                         ="+myMin); 
+        console.log("myMax                         ="+myMax); 
+        console.log("myLowestTick         ="+myLowestTick); 
+        console.log("myHighestTick         ="+myHighestTick); 
+        console.log("myTicks                         ="+myTicks); 
+        console.log("myStep                         ="+myStep); 
+        console.log("*********************************************************** calculateTicksForGivenStepLength"); 
+        */
+//  Handover 
+        tickArray[0]=myLowestTick; 
+        tickArray[1]=myHighestTick; 
+        tickArray[2]=myTicks; 
+        tickArray[3]=myStep; 
+        return tickArray; 
+        
+	} // end calcTicks
+	
+			
+			
+			//then, onload, check to see if the web browser can handle 'inline svg'
+			if (Modernizr)
+			{
+				
+				// open and load configuration file. 					
+				d3.json("config.json", function(error, json)
+				{					
+					// strore read in json data from config file as as global dvc. variable ...	
+					dvc = json;					
+					
+					// buttons
+					d3.select('#header')
+						.append('div')
+						.attr('id','switchSel')
+						
+						.style('top', '40px')  //  margin.top
+						.style('left', '20px')
+						//.append('div')
+						.attr('class', 'btn-group')
+						.attr('role', 'group');
+					
+					dvc.essential.buttonNames.forEach(function(d,i){  d3.select('#switchSel')
+																		.append('button')
+																		.attr('type', 'button')
+																		.attr('id','dataSet'+i)
+																		.attr("class" , "dataSets btn btn-default")
+																									//(this).parent('li').addClass('active')
+																									//drawGraphic();	
+																		.on('click', (function (e) { 
+																								//console.log("e "+this)//removeClass('active')
+																								d3.select('.active').classed('active', false);
+																								d3.select(this).classed('active', true)
+																								dataSetChange();
+																									})  )						
+																		.html(dvc.essential.buttonNames[i]); });
+							// set to first dataSet
+								d3.select('#dataSet0')
+								  .attr('class', 'active dataSets btn btn-default');
+								  
+								  
+			  // buttons upDown
+			  dvc.upDown = ["Up a level","Back to top"];
+					d3.select('#header')
+						.append('div')
+						.attr('id','breadButtons')
+						
+						.style('top', '40px')  //  margin.top
+						.style('left', '40px')
+						//.append('div')
+						.attr('class', 'btn-group')
+						.attr('role', 'group');
+					
+					dvc.upDown.forEach(function(d,i){  d3.select('#breadButtons')
+														.append('button')
+														.attr('type', 'button')
+														.attr('id','upDown'+i)
+														.attr("class" , "btn btn-default")
+																					//(this).parent('li').addClass('active')
+																					//drawGraphic();	
+														.on('click', (function (e) { 
+																				//console.log("e "+this)//removeClass('active')
+																				d3.select('.active').classed('active', false);
+																				d3.select(this).classed('active', true)
+																				upHome();
+																					})  )						
+														.html(dvc.upDown[i]); });
+										readData();	
+				})	
+			
+			} // end if ... 
+			else
+			{
+					 //use pym to create iframe containing fallback image (which is set as default)
+					 pymChild = new pym.Child();
+					if (pymChild) {
+						pymChild.sendHeight();
+					}
+			}
+									
+										
+			
+	function readData(){
+
+		dvc.graphic_data_full = [];
+		
+			dvc.essential.dataSets_url.forEach(function(dat,j){
+									
+				dvc.essential.num_lines_url.forEach(function(d,i){
+					
+					//num_lines_url = "data/" + dvc.essential.num_lines_url[dvc.fileReadCount] + "/" + d;  //  was [dvc.selectedVariableIndex]  if you wish to put the files in another folder and name the folder
+					graphic_data_url = "data/scrapped" + j + i; 
+					//console.log(" data sync "+ graphic_data_url);
+					
+					dvc.graphic_data_full[j] = [];
+
+					//load chart data
+					d3.csv(graphic_data_url, function(error, data) {
+												dvc.graphic_data_full[j][i] = data;  // objName
+						
+												dvc.graphic_data_full[j][i].forEach(function(d,i) {
+																			d.date = d3.time.format(dvc.essential.dateFormat).parse(d.date);
+																						});
+						
+					//	if ( dvc.fileReadCount == dvc.essential.graphic_data_url.length ) { 
+																					pymChild = new pym.Child({renderCallback: drawGraphic}); 
+																						//	}
+								})						
+				})	// end for each	num_lines_url
+				
+			})	// end for each	dataSets_url
+				//return;	
+				
+	}// end function readData() 
+			
+
+		
+		</script>
+  </body>
+</html>
