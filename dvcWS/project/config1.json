@@ -47,7 +47,7 @@
         
             "mobileBreakpoint" : 400, 
             "xAxisTextFormat_sm_md_lg" : ["%b %y", "%b %y", "%b %y"], 
-            "x_num_ticks_sm_md_lg" : [3,6,6],    
+            "x_num_ticks_sm_md_lg" : [6,6,6],    
             "y_num_ticks_sm_md_lg" : [1,1,1],    
             "centre_line" : false,
             "centre_line_value" :0    

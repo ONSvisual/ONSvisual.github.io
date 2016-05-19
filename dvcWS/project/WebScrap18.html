@@ -515,22 +515,22 @@
 								if (graphic.width() <= threshold_sm) {
 									var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[0]);
 									str = fmt(d);
-									return i % 2 ? "": '\u2019' + str;
+									return i % 2 ? "": str;
 								} else if (graphic.width() <= threshold_md){
 									var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[1]);
 									str = fmt(d);
-									return i % 4 ? "": '\u2019' + str;
+									return i % 2 ? "": str;
 								} else {
 									var fmt = d3.time.format(dvc.optional.xAxisTextFormat_sm_md_lg[2]);
 									str = fmt(d);
-									return i % 2 ? "": '\u2019' + str;
+									return i % 2 ? "": str;
 								}
 							})
 							.tickPadding(5);
 						
 						//specify number of ticks on x axis and whether 1st and last data point labels are included
 						if(graphic.width()<threshold_sm){
-							xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[0]).concat( x.domain() ));
+							xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[0]));
 										}
 						else if (graphic.width() <= threshold_md){
 							xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[1]));
