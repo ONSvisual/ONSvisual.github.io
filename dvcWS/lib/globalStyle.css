@@ -266,8 +266,8 @@
 		#keypoints/* required. */
 		{
 			margin-bottom:10px;
+			margin-top:10px;
 			color:#666;
-			font-weight:700;	
 		}
 
 		#keypoints p/* required. */

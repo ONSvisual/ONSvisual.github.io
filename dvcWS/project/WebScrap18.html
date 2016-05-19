@@ -49,7 +49,9 @@
 		
 		.text{
 				font-family:"open_sansbold",sans-serif,Helvetica,Arial;
-				font-size:11px;
+				font-size:12px;
+				font-color:#666;
+				/*font-weight:400;*/
 			}
 			
 		.border0 { border-top: 2px solid #274796; }
@@ -70,8 +72,8 @@
 			fill:white;
 			fill-opacity:0;
 			stroke-width:0px;
-			stroke:#C2095A;
-			border-radius: 2px;
+			stroke:#999E53;
+			border-radius: 2em;
 			opacity: 0.6; 
 			-moz-border-radius: 5px; 
 			-webkit-border-radius: 5px; 
@@ -224,7 +226,7 @@
 		var counter = 0; // breadcrumb hack
 		var jump = false;
 		
-		list = ' column !== "010000Food And Non-Alcoholic Beverages" && column !== "020000Alcoholic Beverages" ';
+		list = ' column !== "010000Food & Non-Alcoholic Beverages" && column !== "020000Alcoholic Beverages" ';
 		
 		
 		//'column !== "60000HEALTH" && column !== "80000COMMUNICATION"';
@@ -240,7 +242,7 @@
 	function drawGraphic()
 		{ 		
 			charts = list;
-			console.log("F charts");  // + charts);
+			//console.log("F charts");  // + charts);
 					
 			if(firstGo === true){
 									dataIndex = 0; // do we start with lines or bars
@@ -257,7 +259,14 @@
 				//breader.empty();
 				//d3.select("#selectorLabel").remove();
 				
-				//keypoints.html("Note: this data has been collected from three supermarkets: Sainsbury's, Tesco, Asda.");
+				d3.select("#keypoints")
+					.append("p")
+					.attr("id" , "keypoints")
+					//.style("position" , "absolute")
+					//.style("left" , "1px")
+					//.style("top"  , "5px")
+					.style("font-size" , "12px")
+					.html("Notes:" + "<br/>" + "1) The monthly series is indexed to June 2014 = 100." + "<br/>" + "2) The weekly series is indexed to the week beginning 2 June 2014 = 100.");
 
 				var threshold_md = 800;
 				var threshold_sm = dvc.optional.mobileBreakpoint;
@@ -265,8 +274,8 @@
 				var innerPadding_values = {	// May need to make dynamic" && ie 2 charts displayed. Could put this in with button creation.
 											//  t    r    b    l
 										"sm":[ 50 , 25 , 50 , 40 ],
-										"md":[ 45 , 10 , 40 , 40 ],
-										"lg":[ 50 , 20 , 50 , 40 ]
+										"md":[ 35 , 10 , 40 , 40 ],
+										"lg":[ 35 , 20 , 50 , 40 ]
 										/* top , right , bottom , left */
 									}
 								
@@ -304,12 +313,7 @@
 				}
 		
 		console.log("chart_width ="+ chart_width + "  height ="+ height);
-		
-				// clear out existing graphics
-				graphic.empty();
-				keypoints.empty();
-				footer.empty()
-				
+						
 					//create legend
 							if(dvc.essential.legendLabels.length > 1)
 								{
@@ -348,7 +352,7 @@
 								lines[numLines][column] = graphic_data[dataIndex][numLines].map(function(d, i) {
 																			//if(dataSet === dataIndex){ == lines or bars, DataSet
 																			
-																					console.log(dataIndex+"  "+column);
+																					//console.log(dataIndex+"  "+column);
 																					if (+d[column] > myMaximum){ myMaximum = d[column]}	
 																					if (+d[column] < myMinimum){ myMinimum = d[column]}
 																			//}
@@ -368,7 +372,7 @@
 		// lines now has JUST the data needed for all the charts at the current level.
 		//myMaxi = myMaximum.toFixed(1);
 									
-								console.log("1min, 1max in "+ myMinimum + " , " + myMaximum);
+								//console.log("1min, 1max in "+ myMinimum + " , " + myMaximum);
 										if(myMinimum < 0 && myMaximum > (myMinimum)*(-1))
 										{
 											myMinimum = myMaximum*(-1);
@@ -377,14 +381,14 @@
 										{
 											myMaximum = myMinimum*(-1);
 										}
-										console.log("min,max in "+ myMinimum + " , " + myMaximum);
+										//console.log("min,max in "+ myMinimum + " , " + myMaximum);
 								
 								myMinimum = 60;
 									dvc.mrtsTicks = calcOptimumTicks(myMinimum,myMaximum);
 									dvc.mrtsTicks[0] = dvc.mrtsTicks[0] - 0.0000001;
 									dvc.mrtsTicks[1] = dvc.mrtsTicks[1] + 0.0000001;
 									
-									console.log("min,max,ticks,steps size: "+dvc.mrtsTicks);
+									//console.log("min,max,ticks,steps size: "+dvc.mrtsTicks);
 																			
 								var yDomain = [dvc.mrtsTicks[0], dvc.mrtsTicks[1]]; //.toFixed(1)];
 			
@@ -406,7 +410,7 @@
 				var graph_unitWidth = (chart_width-1) / numberColumns;
 				var graph_unitHeight = graph_unitWidth;
 				
-				/*if(graphic.width() < threshold_sm){  console.log("MOBILE");
+				/*if(graphic.width() < threshold_sm){  //console.log("MOBILE");
 														//var graph_unitHeight_shrink = graph_unitWidth * 0.9;
 														var graph_drop = graph_unitHeight * 0;
 													}	
@@ -420,7 +424,7 @@
 				
 				
 				//var graph_unitMargins = { top : 0, right : 0, bottom : 0, left : 0 }; // spacing the charts
-				console.log("numberRows = "+numberRows+"  "+"  numberColumns = "+numberColumns );//+ "  graph_drop " + graph_drop + "  graph_unitHeight " + graph_unitHeight);
+				//console.log("numberRows = "+numberRows+"  "+"  numberColumns = "+numberColumns );//+ "  graph_drop " + graph_drop + "  graph_unitHeight " + graph_unitHeight);
 				
 				// initial SM graph count variable (k = SM number being created			
 				var k = 0;
@@ -486,13 +490,13 @@
 							.append('svg')
 							.attr("class" , "graphUnitSVGs")
 							.attr("id" , "svg" + (k+1))
-							.attr("x",xCoord)  // (i-1)*graph_unitWidth + graph_unitMargins.left )
-							.attr("y",yCoord )  //(j-1)*graph_unitHeight + graph_unitMargins.top )
+							//.attr("x",xCoord)  // (i-1)*graph_unitWidth + graph_unitMargins.left )
+							//.attr("y",yCoord)  //(j-1)*graph_unitHeight + graph_unitMargins.top )
 							.attr("width", graph_unitWidth )
 							.attr("height", graph_unitHeight )
 							//.style("background-color", "#eee")
 							.append("g")
-							.attr("transform", "translate(" + (0) + "," + (0) + ")");
+							//.attr("transform", "translate(" + (0) + "," + (0) + ")");
 													
 					 
 										
@@ -694,13 +698,13 @@
 							.attr("y" , 10)
 							//.style("display" , "block")
 							//.style("pointer-events" , "none")
-							//.style("text-anchor" , "end")
+							.style("fill" , "#666")
 							.attr('transform', 'translate(10,0)')
 							.tspans(function(d,i){
 												if(jump === true) {
-																	return d3.wordwrap(currentColoumn.substring(7), 28); 
+																	return d3.wordwrap(currentColoumn.substring(7), 40); 
 																} else
-																   {return d3.wordwrap(currentColoumn.substring(6), 28); }
+																   {return d3.wordwrap(currentColoumn.substring(6), 40); }
 												});
 
 							
@@ -735,28 +739,28 @@
 	//write Annotation was ere				
 
 				//create link to source				
-				d3.select("#footer").append("p")
-					.text("Source: ")
-					.append("a")
-					.attr("href", dvc.essential.sourceURL)
-					.attr("target", "_blank")
-					.html(dvc.essential.sourceText);
+//				d3.select("#footer").append("p")
+//					.text("Source: ")
+//					.append("a")
+//					.attr("href", dvc.essential.sourceURL)
+//					.attr("target", "_blank")
+//					.html(dvc.essential.sourceText);
+					
+		
+//			What do I do ?!?!?		
+//				var selectionWidth = (((chart_width / numberColumns) / chart_width) * 100);
+//				d3.select("#selectionArray_chosen")
+//					.style( "top" , (50) + "px" )
+//					.style( "left" , (margin.left) + "px" )
+//					.style( "width" , (selectionWidth) + "%" );
+					
 					
 		
 							
-				var selectionWidth = (((chart_width / numberColumns) / chart_width) * 100);
-				d3.select("#selectionArray_chosen")
-					.style( "top" , (50) + "px" )
-					.style( "left" , (margin.left) + "px" )
-					.style( "width" , (selectionWidth) + "%" );
-					
-					
-		
-							
-				//use pym to calculate chart dimensions	
-				if (pymChild) {
-					pymChild.sendHeight();
-				}
+			//use pym to calculate chart dimensions	
+			if (pymChild) {
+				pymChild.sendHeight();
+			}
 						
 			
 		//return;
@@ -767,7 +771,7 @@
 	 function calcCharts()
 				{
 					++counter;
-					console.log("calcCharts counter:"+counter);  // sort later
+					//console.log("calcCharts counter:"+counter);  // sort later
 					/*if(counter == 4)
 					{
 						d3.select(".squares").remove();
@@ -786,7 +790,7 @@
 						dvc.myId = d3.select(this).attr("id");  //evt; //.target.getAttribute("class");	
 						console.log("dvc.myId ="+dvc.myId.substring(6));
 						dvc.firstN = dvc.myId.substring(0,2); // take first two chars
-						console.log("dvc.firstN = " + dvc.firstN);
+						//console.log("dvc.firstN = " + dvc.firstN);
 						
 						bread1 = dvc.myId.substring(6);
 						d3.select('#breader')
@@ -873,8 +877,8 @@
 															
 							if (eval(filter))
 							 {
-									 store[turn] = '" && column !== "' + dvc.heading[loop];
-									console.log(turn +"  store "+ store[turn]);
+									store[turn] = '" && column !== "' + dvc.heading[loop];
+									//console.log(turn +"  store "+ store[turn]);
 								 ++turn;
 							 }
 						} // end loop
@@ -904,19 +908,19 @@
 	
 function upHome()
 {
-	console.log("filterCharts");
+	//console.log("filterCharts");
 	jump = false;
 	var buttonId = document.querySelectorAll('.active').item("id").id;
 	//buttonId = document.getElementsById('active').item("id").id;
-						console.log("buttonId ="+buttonId);
+						//console.log("buttonId ="+buttonId);
 						upOrDown = buttonId.substring(6,8); // take first two chars
-						console.log("upOrDown = " + upOrDown);
+						//console.log("upOrDown = " + upOrDown);
 						
 						d3.select('#bread'+counter).remove();  
 						
 				if(upOrDown == 0)
 				{
-				console.log("reduce breader " + oldNoCharts+"  "+oldList);
+				//console.log("reduce breader " + oldNoCharts+"  "+oldList);
 				--counter;
 				list = oldList;
 				numberCharts = oldNoCharts;
@@ -934,13 +938,13 @@ function upHome()
 
 function dataSetChange()
 {
-	console.log("dataSetChange");
+	//console.log("dataSetChange");
 	
 	var dataSetId = document.querySelectorAll('.dataSets.active').item("id").id; //switchSel  nav.active name chage the class to distinguidshor #
-				console.log("dataSetId ="+dataSetId);
+				//console.log("dataSetId ="+dataSetId);
 				
 				dataIndex = dataSetId.substr(7,1);
-					console.log("dataSetId no =" + dataIndex); 
+					//console.log("dataSetId no =" + dataIndex); 
 	drawGraphic();
 }
 	
@@ -1081,8 +1085,9 @@ function calculateTicksForGivenStepLength(inputStep, inputMin, inputMax)
 					//.style("position" , "absolute")
 					.style("left" , "1px")
 					.style("top"  , "5px")
-					.style("font-size" , "20px")
-					.text("CPI tool Draft");
+					.style("font-size" , "16px")
+					//.style("font-color" , "#666")
+					.text("Research indices using web scraped data: May 2016 update");
 //					.style("display" , function(d,i){						
 //						if ( dvc.essential.variables.length > 1 ) { return "inline"; }
 //						else { return "none"; } 

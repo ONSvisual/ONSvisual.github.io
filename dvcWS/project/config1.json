@@ -11,10 +11,10 @@
         
             "dateFormat": [ "%b-%y", "%d/%m/%Y" ],
         
-            "legendLabels" : ["Scrapped", "Collected" ],
+            "legendLabels" : ["Daily Chained Index", "Unit Price Index" ],
         
-            "sourceText":["Office for National Statistics"],
-            "sourceURL":["http://www.ons.gov.uk/"],
+            "sourceText":[],
+            "sourceURL":[],
         
             "annotationChart": [ ],
         
@@ -38,9 +38,9 @@
 								
     },
     "optional" : {
-            "margin_sm": [15, 5, 0, 15],
-            "margin_md": [5, 5, 0, 20],
-            "margin_lg": [5, 5, 0, 20],
+            "margin_sm": [15, 5, 20, 15],
+            "margin_md": [5, 5, 20, 20],
+            "margin_lg": [5, 5, 20, 20],
             "aspectRatio_sm" : [16,16],
             "aspectRatio_md" : [16,18],
             "aspectRatio_lg" : [14,16],
