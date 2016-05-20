@@ -11,7 +11,7 @@
         
             "dateFormat": [ "%b-%y", "%d/%m/%Y" ],
         
-            "legendLabels" : ["Daily Chained Index", "Unit Price Index" ],
+            "legendLabels" : ["GEKSJ Index", "Unit Price Index" ],
         
             "sourceText":[],
             "sourceURL":[],
