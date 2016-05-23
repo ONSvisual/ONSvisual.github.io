@@ -313,7 +313,7 @@
 						//numberColumns = parseInt(config.essential.numColumns_sm_md_lg[dvc.dataIndex][2]);
 				}
 		
-		console.log("chart_width ="+ chart_width + "  height ="+ height);
+		//console.log("chart_width ="+ chart_width + "  height ="+ height);
 						
 					//create legend
 							if(dvc.essential.legendLabels.length > 1)
@@ -789,7 +789,7 @@
 				//	if (counter == 1)  // get first two digits
 				//	{
 						dvc.myId = d3.select(this).attr("id");  //evt; //.target.getAttribute("class");	
-						console.log("dvc.myId ="+dvc.myId.substring(6));
+						//console.log("dvc.myId ="+dvc.myId.substring(6));
 						dvc.firstN = dvc.myId.substring(0,2); // take first two chars
 						//console.log("dvc.firstN = " + dvc.firstN);
 						
@@ -915,23 +915,24 @@ function upHome()
 	//buttonId = document.getElementsById('active').item("id").id;
 						//console.log("buttonId ="+buttonId);
 						upOrDown = buttonId.substring(6,8); // take first two chars
-						//console.log("upOrDown = " + upOrDown);
+						//console.log(counter+" upOrDown = " + upOrDown);
 						
 						d3.select('#bread'+counter).remove();  
 						
-				if(upOrDown == 0)
+				if(upOrDown == 0 && counter == 1)
 				{
 				//console.log("reduce breader " + oldNoCharts+"  "+oldList);
 				--counter;
 				list = oldList;
 				numberCharts = oldNoCharts;
 				
-				}else{
-					breader.empty();
-					counter = 0;
-					numberCharts = 12;
-					list = ' column !== "010000FOOD AND NON-ALCOHOLIC BEVERAGES" && column !== "020000ALCOHOLIC BEVERAGES TOBACCO" && column !== "030000CLOTHING AND FOOTWEAR" && column !== "040000HOUSING WATER ELECTRICITY GAS AND OTHER FUELS" && column !== "050000FURNITURE HOUSEHOLD EQUIPMENT AND ROUTINE MAINTENANCE" && column !== "060000HEALTH" && column !== "070000TRANSPORT" && column !== "080000COMMUNICATION" && column !== "090000RECREATION AND CULTURE" && column !== "100000EDUCATION" && column !== "110000RESTAURANTS AND HOTELS" && column !== "120000MISCELLANEOUS GOODS AND SERVICES" ';
 				}
+//				else{
+//					breader.empty();
+//					counter = 0;
+//					numberCharts = 12;
+//					list = ' column !== "010000FOOD & NON-ALCOHOLIC BEVERAGES" && column !== "020000ALCOHOLIC BEVERAGES TOBACCO" ';
+//				}
 		drawGraphic();
 		
 } // end filterCharts
