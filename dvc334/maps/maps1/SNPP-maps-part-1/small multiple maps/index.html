@@ -913,7 +913,7 @@
 //						}
 //						
 //					})
-					.html(function(){
+					.html(function(d,i){
 						var fmt = d3.format(".1f")
 						if(linevalues[0][vals[i]]=="null"||[vals[i]]=="undefined"){
 							return headers[i];
