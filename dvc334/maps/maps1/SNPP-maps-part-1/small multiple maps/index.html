@@ -440,21 +440,7 @@
       <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
       <script src="../bower_components/respond/dest/respond.min.js"></script>
     <![endif]-->
-    <script>
-
-
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-37894017-1']);
-		  _gaq.push(['_trackPageview']);
-		
-		
-		  (function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-
-    </script>
+   
 	</head>
 
 	<body>
@@ -794,9 +780,34 @@
 							.text(function(d,i){ 
 									return headers[k];
 							})
+						svg.append("text")
+							.attr("x" , graph_unitWidth-45)
+							.attr("y" , 12 )
+							//.attr("id", "varval_"+k)
+							.attr("class", "percent_label")
+							//.attr("font-weight","bold")
+							.attr("fill","#666")
+							.text("%")
 							
 							
 						k++;
+					
+					if (graphic.width() < threshold_sm) { 
+							d3.select("#svg4").remove();
+							d3.select("#svg5").remove();	
+						} else if (graphic.width() < threshold_md) { 
+							d3.select("#svg4").remove();
+							d3.select("#svg5").remove();
+							d3.select("#svg0").select(".percent_label").remove();
+							d3.select("#svg2").select(".percent_label").remove(); 	
+						} else { 
+							d3.select("#svg4").remove();
+							d3.select("#svg5").remove();
+							d3.select("#svg0").select(".percent_label").remove();
+							d3.select("#svg2").select(".percent_label").remove();
+							}
+					
+					
 					}
 						
 				} // end for ...
@@ -809,7 +820,7 @@
 					.append("a")
 					.attr("href", "https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/bulletins/subnationalpopulationprojectionsforengland/2016-05-25")
 					.attr("target", "_blank")
-					.html("2014-based Sub National Population Projections, ONS");
+					.html("2014-based Subnational Population Projections, ONS");
 			
 			
 			d3.selectAll(".graphUnitSVGs").call(zoom)
@@ -900,7 +911,9 @@
 //							return xScale(linevalues[0][vals[i]])-3
 //						}
 //					})
-					
+				
+				console.log(d3.select("#varval_"+i).text())
+				console.log(d3.select("#varval_"+i).html())
 				
 				d3.select("#varval_"+i)
 					//.transition()
@@ -913,14 +926,14 @@
 //						}
 //						
 //					})
-					.html(function(d,i){
+					.text(function(){
 						var fmt = d3.format(".1f")
 						if(linevalues[0][vals[i]]=="null"||[vals[i]]=="undefined"){
 							return headers[i];
 						} else if(linevalues[0][vals[i]]=="0"){
-							return "less than 0.01% "+ headers[i];;
+							return "less than 0.01% "+ headers[i];
 						} else {
-							 return /*numFormat*/headers[i]+ ": <tspan id='boldtext'>"+fmt(linevalues[0][vals[i]])+"% </tspan>";
+							 return /*numFormat*/headers[i]+ ": "+fmt(linevalues[0][vals[i]]) + "%";
 							//return /*numFormat*/fmt(linevalues[0][vals[i]])+" "+headers[i];;
 						}
 					})
@@ -1204,7 +1217,7 @@
 					.tickValues(color.domain());
 	
 				svgkey.append("rect")
-					.attr("transform", "translate(0,18)")
+					.attr("transform",  "translate("+(graph_unitWidth-54)+",18)")
 					.attr("height",graph_unitHeight)
 					.attr("width", 40)
 					.style("fill", "#fff")
@@ -1212,7 +1225,7 @@
 					.style("opacity",0.8);
 			
 				var g = svgkey.append("g")
-					.attr("transform", "translate("+(graph_unitWidth-50)+",10)");
+					.attr("transform", "translate("+(graph_unitWidth-50)+",30)");
 					
 //				var g2 = details.append("g")
 //					.attr("transform", "translate(10,0)");
@@ -1481,7 +1494,8 @@
 		  })();
 
 
-    </script>    
+    </script>   
+     
     
   </body>
 </html>
