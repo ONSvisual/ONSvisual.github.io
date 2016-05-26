@@ -1,0 +1,47 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "dateFormat":"%Y",
+        
+            "legendLabels" : ["Non-UK born population (>12 months)", "Short-term migrants resident in E&W"],
+        
+            "sourceText0":["Annual Population Survey"],
+            
+            "sourceURL0":["http://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/datasets/populationoftheunitedkingdombycountryofbirthandnationality"],
+
+            "sourceText1":["Short-term International Migration Estimates"],
+            
+            "sourceURL1":["http://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/"],
+        
+            "annotationChart": [],
+
+            "annotationBullet": [],
+            "annotationXY":[],
+
+            "annotationAlign":[
+                "middle",
+                "middle"
+            ],
+        
+            "xAxisLabel":"Millions",
+            "xAxisScale":[0,8]            
+    },
+    "optional" : {
+            "margin_sm": [5, 20, 5, 150],
+            "margin_md": [5, 20, 5, 225],
+            "margin_lg": [5, 20, 5, 225],
+        
+            "aspectRatio_sm" : [5,2.5],
+            "aspectRatio_md" : [5,1.5],
+            "aspectRatio_lg" : [5,1],
+        
+            "mobileBreakpoint" : 510, 
+                           
+            "x_num_ticks_sm_md_lg" : [6,8,10],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+

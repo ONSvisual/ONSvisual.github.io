@@ -1,0 +1,57 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "dateFormat":"%Y",
+			
+            "legendLabels":["Usually resident non-UK born population","Short-term immigrants"],
+        
+			"sourceText":["Annual Population Survey, ONS"],
+            "sourceURL":["https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/datasets/populationoftheunitedkingdombycountryofbirthandnationality"],
+            "sourceText1":["Short-term International Migration Estimates, ONS"],
+            "sourceURL1":["https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/bulletins/shortterminternationalmigrationannualreport/previousReleases"],
+        
+            "annotationChart": [],
+            "annotationBullet": [],
+			
+            "annotationXY":[
+                [0,0],
+                [-50,50]
+            ],
+            "annotationAlign":[
+                "middle",
+                "middle"
+            ],
+        
+            "circles" : true,    
+            "annotationCXCY":[
+                [0,0],
+                [-50,50]
+            ],
+        
+            "yAxisLabel":"yAxisUnit",
+            "yAxisScale":"auto_zero_max",   
+            "yAxisBreak": true,
+            "yAxisBreak_sm_md_lg": [65,65,65]            
+    },
+    "optional" : {
+            "margin_sm": [10, 50, 35, 40],
+            "margin_md": [10, 250, 35, 40],
+            "margin_lg": [10, 450, 35, 40],
+        
+            "aspectRatio_sm" : [16,13],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,10],
+        
+            "mobileBreakpoint" : 610, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%b %y"], 
+                
+            "x_num_ticks_sm_md_lg" : [7,17,17],    
+            "y_num_ticks_sm_md_lg" : [6,8,10],
+            "centre_line" : true,
+            "centre_line_value" : 0
+    }
+}
+
+
