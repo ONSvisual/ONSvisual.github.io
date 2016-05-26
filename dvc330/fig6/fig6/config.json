@@ -1,0 +1,50 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "dateFormat":"%Y",
+        
+            "legendLabels" : ["British", "EU", "Non-EU"],
+        
+           "sourceText0":["International Migration Time Series"], 
+        
+"sourceText1":["Long-Term International Migration Estimates, ONS"],
+        
+            "sourceURL0":["http://www.neighbourhood.statistics.gov.uk/HTMLDocs/dvc123/data14.xls"],
+        
+            "sourceURL1":["https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/datasets/migrationstatisticsquarterlyreportprovisionallongterminternationalmigrationltimestimates"],
+        
+            "annotationChart": [],
+            "annotationBullet": [],
+            "annotationXY":[],
+            "annotationAlign":[],
+        
+            "circles" : false,    
+            "annotationCXCY":[],
+        
+            "yAxisLabel":"thousands",
+            "yAxisScale":[-125,300],   
+            "yAxisBreak": true,
+            "yAxisBreak_sm_md_lg": [65,65,65]            
+    },
+    "optional" : {
+            "margin_sm": [10, 10, 35, 35],
+            "margin_md": [10, 15, 35, 35],
+            "margin_lg": [10, 10, 35, 35],
+        
+            "aspectRatio_sm" : [16,13],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,10],
+        
+            "mobileBreakpoint" : 610, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%Y"], 
+                
+            "x_num_ticks_sm_md_lg" : [9,9,18],    
+            "y_num_ticks_sm_md_lg" : [6,8,10],
+            "centre_line" : true,
+            "centre_line_value" : 0
+    }
+}
+
+
