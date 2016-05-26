@@ -4,7 +4,7 @@
         
             "dateFormat":"%Y",
         
-            "legendLabels" : ["Inflow for 1-12 months", "Outflow for 3-12 months", "Inflow UN definition (3-12)", "Outflow for 1-12 months", "Inflow for 3-12 months", "Outflow UN definition (3-12)"],
+            "legendLabels" : ["Inflow for 1-12 months", "Inflow for 3-12 months", "Inflow UN definition (3-12)", "Outflow for 1-12 months", "Outflow for 3-12 months", "Outflow UN definition (3-12)"],
         
             "sourceText":["Short-Term International Migration Estimates, ONS"],
             "sourceURL":["https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/datasets/shorttermmigrationestimatesforenglandandwalesstim01citizenshipbymainreasonformigrationflows"],
