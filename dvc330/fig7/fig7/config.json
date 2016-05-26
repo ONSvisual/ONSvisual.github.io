@@ -1,0 +1,51 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "dateFormat":"%Y",
+        
+            "legendLabels" : ["Inflow for 1-12 months", "Outflow for 3-12 months", "Inflow UN definition (3-12)", "Outflow for 1-12 months", "Inflow for 3-12 months", "Outflow UN definition (3-12)"],
+        
+            "sourceText":["Short-Term International Migration Estimates, ONS"],
+            "sourceURL":["https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/datasets/shorttermmigrationestimatesforenglandandwalesstim01citizenshipbymainreasonformigrationflows"],
+        
+            "annotationChart": [],
+
+            "annotationBullet": [],
+
+            "annotationXY":[],
+
+            "annotationAlign":[
+                "middle",
+                "middle"
+            ],
+        
+            "circles" : false,    
+            "annotationCXCY":[],
+        
+            "yAxisLabel":"thousands",
+            "yAxisScale": [0,3000],   
+            "yAxisBreak": false ,
+            "yAxisBreak_sm_md_lg": [65,65,65]            
+    },
+    "optional" : {
+            "margin_sm": [20, 15, 15, 40],
+            "margin_md": [20, 15, 15, 40],
+            "margin_lg": [20, 15, 15, 40],
+        
+            "aspectRatio_sm" : [16,13],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,10],
+        
+            "mobileBreakpoint" : 610, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%Y"], 
+                
+            "x_num_ticks_sm_md_lg" : [7,17,17],    
+            "y_num_ticks_sm_md_lg" : [6,8,10],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+
