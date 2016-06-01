@@ -20,10 +20,10 @@
 		.line-5 { stroke: #F1C40F; }
 	
 		.border0 { border-top: 2px dashed #1695A3; }
-        .border1 { border-top: 2px solid #004358; }
+        .border1 { border-top: 2px dashed #004358; }
         .border2 { border-top: 2px dashed #F1C40F; }
 		.border3 { border-top: 2px solid #1695A3; }
-		.border4 { border-top: 2px dashed #004358; }
+		.border4 { border-top: 2px solid #004358; }
 		.border5 { border-top: 2px solid #F1C40F; }
     
     </style>
@@ -107,9 +107,9 @@
 	        if(graphic.width()<threshold_sm){		
 	            xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[0]).concat( x.domain() ));
 	        } else if (graphic.width() <= threshold_md){
-				xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[1])/*.concat( x.domain() )*/);
+				xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[1]).concat( x.domain() ));
 			} else {
-	            xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[2])/*.concat( x.domain() )*/);		
+	            xAxis.tickValues(x.ticks(dvc.optional.x_num_ticks_sm_md_lg[2]).concat( x.domain() ));		
 	        }
 		    
 		    var yAxis = d3.svg.axis()
@@ -296,7 +296,7 @@
 			            })
 			            .attr("stroke-dasharray", "0,0");   	
 
-			    d3.selectAll(".line-0, .line-2, .line-4")
+			    d3.selectAll(".line-0, .line-2, .line-1")
 			    	.attr("stroke-dasharray", "5,5");     
 							
 			writeAnnotation();
