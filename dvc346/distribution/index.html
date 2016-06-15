@@ -17,6 +17,11 @@
     <link rel="stylesheet" href="../lib/styles.css" media="screen">
     <style type="text/css">
 		
+		body{
+			max-width:600px;
+			margin:0px auto;	
+		}
+		
 		.border0 { border-top: 2px solid #CCC; }
         .border1 { border-top: 2px solid #2a6fa4; } 
 		
@@ -63,11 +68,20 @@
 		float:left!important;
 	}
     	
+	#subTitle{
+		font-size:12px;
+		line-height:0.7em;	
+	}
     </style>
 </head>
 <body>
 <div class="container-fluid">
-	<div class="row" id="graphic">
+	
+   <div class="header"> 
+   	<p>Middle layer super output areas (MSOAs) by median price band</p>
+    <p id="subTitle">1995 to 2015, England and Wales</p>
+   </div>
+    <div class="row" id="graphic">
     	<img src="fallback.png" alt="[Chart]" />
     </div>
     
@@ -79,7 +93,7 @@
         <p></p> 
        
     </div>
- <p style="font-size:12px;">*Note: MSOA = Middle layer super output area</p>
+ <!--<p style="font-size:12px;">*Note: MSOA = Middle layer super output area</p>-->
    <div class="footer"> 
    
    </div>

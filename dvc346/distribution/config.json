@@ -1,10 +1,10 @@
-﻿{
+{
     "essential" : {
             "graphic_data_url": "data.csv",
         
             "dateFormat":"%Y",
         
-            "legendLabels" : ["1995 *MSOAs", "selected year *MSOAs"],
+            "legendLabels" : ["1995 MSOAs", "selected year MSOAs"],
         
             "sourceText":["Office for National Statistics and Land Registry under the Open Government Licence v3.0"],
             "sourceURL":["https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housepricestatisticsforsmallareas/yearendingdec1995toyearendingsept2015"],
@@ -37,7 +37,7 @@
             "annoAlign":["start","start","start","start","start","start","start","start", "start", "start", "start", "start", "start", "start","start","start","start","start","start","start","start"],
             "yearArray":["1995","1996","1997", "1998", "1999", "2000", "2001",	"2002",	"2003",	"2004",	"2005",	"2006",	"2007",	"2008",	"2009",	"2010",	"2011",	"2012",	"2013","2014",	"2015" ],
             "startYear":0, 
-            "yAxisLabel":"number of *MSOAs",
+            "yAxisLabel":"number of MSOAs",
             "yAxisScale":[0,3500],   
             "yAxisBreak": true,
             "yAxisBreak_sm_md_lg": [65,65,65]            
@@ -51,7 +51,7 @@
             "aspectRatio_md" : [16,10],
             "aspectRatio_lg" : [16,10],
         
-            "mobileBreakpoint" : 599, 
+            "mobileBreakpoint" : 500, 
             "x_num_ticks_sm_md_lg" : [5,5,5],              
             "y_num_ticks_sm_md_lg" : [6,8,10],
             "centre_line" : false,
