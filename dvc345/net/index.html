@@ -1,0 +1,1253 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head><!--
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>-->
+    
+    <title>Small Multiples - Maps</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="../lib/globalStyle.css" /> 
+    
+	<link rel="stylesheet" href="../lib/styles_.css" media="screen">
+    <link rel="stylesheet" href="../lib/jquery-ui-1.10.4.custom.min.css">
+    <link rel="stylesheet" href="../lib/jquery.ui.labeledslider.css">
+    <link rel="stylesheet" href="../lib/style-chosen.css">
+    <link rel="stylesheet" href="../lib/owl.carousel.css">
+    <link rel="stylesheet" href="../lib/owl.theme.default.css">
+    
+    <style type="text/css">
+		
+		
+		body {
+			padding-bottom: 60px;
+		}
+		
+		#areanm {
+			font-size: 18px;
+			font-weight: bold;
+			color:#666;
+			height:30px;
+		}
+		
+		@media (min-width: 1000px) {
+			
+			#yearLabel{
+				font-family:"open_sansbold",sans-serif,Helvetica,Arial;
+				font-size:7.5em;
+				color:red;
+				vertical-align:middle;
+				text-align:center;				
+			}
+			
+		} /* end @media (min-width: 1000px) */
+		
+		
+		@media screen and (min-width: 768px) {
+			
+			#yearLabel{
+				font-family:"open_sansbold",sans-serif,Helvetica,Arial;
+				font-size:7.5em;
+				color:blue;
+				vertical-align:middle;
+				text-align:center;				
+			}
+			
+		} /* end @media screen and (min-width: 768px) */
+		
+		
+		@media (min-width: 700px) {
+			
+			#yearLabel{
+				font-family:"open_sansbold",sans-serif,Helvetica,Arial;
+				font-size:7.5em;
+				color:green;
+				vertical-align:middle;
+				text-align:center;				
+			}
+			
+		} /* end @media (min-width: 700px) */
+		
+		
+		
+		
+		@media (max-width: 400px) {
+			
+			#yearLabel{
+				font-family:"open_sansbold",sans-serif,Helvetica,Arial;
+				font-size:7.5em;
+				color:black;
+				vertical-align:middle;
+				text-align:center;				
+			}
+			
+		} /* end @media (min-width: 400px) */
+		
+		
+		@media (min-width: 401px) {
+			
+			#yearLabel{
+				font-family:"open_sansbold",sans-serif,Helvetica,Arial;
+				font-size:3.5em;
+				color:#666;
+				vertical-align:middle;
+				text-align:center;				
+			}
+			
+			
+			.text{
+				font-family:"open_sansbold",sans-serif,Helvetica,Arial;
+				font-size:1.0em;
+				color:green;
+				vertical-align:middle;
+				text-align:center;				
+			}
+			
+		} /* end @media (min-width: 401px) */
+		
+		
+		@media (min-width: 768px) {
+			
+			#yearLabel{
+				font-family:"open_sansbold",sans-serif,Helvetica,Arial;
+				font-size:4.0em;
+				color:#666;
+				vertical-align:middle;
+				text-align:center;				
+			}
+			
+			
+			.text{
+				font-family:"open_sansbold",sans-serif,Helvetica,Arial;
+				font-size:1.0em;
+				color:red;
+				vertical-align:middle;
+				text-align:center;				
+			}
+			
+		} /* end @media (min-width: 768px) */
+		
+
+		
+		 .keys path {
+		  display: none;
+		  
+		}
+		
+		 .keys line {
+		  stroke: #000;
+		  shape-rendering: crispEdges;
+		}
+		
+	 .keys {
+			font-size:10px;
+			fill:#666;
+		}
+		
+		.selected{
+			stroke:#990000;	
+			stroke-width:2px;
+		}
+		
+		#key rect {
+			stroke:#666;
+			stroke-width:0.5px;
+			z-index:+1;
+		}		
+		
+		
+	
+    	.line-0 { stroke:#274796; }
+    	.line-1 { stroke:#F90; }
+    	.line-2 { stroke:#F00; }
+		
+		
+    	.circle {
+			fill:#F90;
+			stroke:#F90;
+		}
+		
+		.svgRect{
+			fill: white;	
+			fill-opacity:0.0;
+		}
+		
+		.yearLines {
+			stroke:#666;
+			stroke-width:2px;
+			display:none;
+			stroke-dasharray:10 5;
+		}
+		
+		
+		#header{			
+			
+		}/*
+		
+		.text{
+			color:#666;	
+			font-size:16px;
+			font-weight:bold;
+		}*/
+		
+		.area {
+		    fill: lightsteelblue;
+		    stroke-width: 2px;
+		}
+		
+		.area.above {
+			fill: #E89B9B;
+		}
+		
+		.area.below {
+			fill: blue;
+		}
+		
+		.bars{
+			stroke:none;	
+			fill:#274796;
+			fill-opacity:0.5;
+		}
+		
+			
+		.circle:hover,
+		.bars:hover
+		{	
+			cursor:pointer;	
+		}
+		
+		/*
+		#yearLabel{
+			color:#666;	
+			font-size:56px;
+			font-weight:bolder;
+		}*/
+    
+	/* Zoom CSS */
+
+		.zoom-control-zoom a, .zoom-control-layers-toggle {
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		display: block;
+		}
+		.zoom-control-zoom a {
+		width: 22px;
+		height: 22px;
+		text-align: center;
+		text-decoration: none;
+		color: #5381ca;
+		}
+		
+		.zoom-control-zoom-in {
+		cursor:pointer;
+		font: bold 18px/24px Arial, Helvetica, sans-serif;
+		}
+		
+		.zoom-control-zoom-in:hover {
+			color: #fff;
+			background-color: #5381ca;	
+		}
+		.zoom-bar-part-top {
+		}
+		.zoom-bar-part {
+		background-color: rgba(255, 255, 255, 0.8);
+		border-bottom: 1px solid #aaa;
+		}
+		
+		.zoom-control-zoom-out {
+		cursor:pointer;
+		font: bold 23px/20px Tahoma, Verdana, sans-serif;
+		}
+		
+		.zoom-control-zoom-out:hover {
+			color: #fff;
+			background-color: #5381ca;	
+		}
+		.zoom-bar-part-bottom {
+		border-bottom: none;
+		}
+		
+		.zoom-container {
+		margin-left: 5px;
+		margin-top: 30px;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		}
+		
+		.zoom-bar {
+		
+		border: 1px solid #59a4da;
+		}
+		.zoom-popup-pane, .zoom-control {
+		cursor: auto;
+		}
+		.zoom-control {
+		float: left;
+		clear: both;
+		}
+		.zoom-control {
+		
+		z-index: 7;
+		pointer-events: auto;
+		}
+		
+		.areaname{
+			margin:0px;	
+			font-size:12px;	
+		}
+		
+		.graphUnitSVGs {
+			border: 2px solid #fff;
+		}
+
+		
+		.graphUnitSVGs text{
+			font-size:14px;	
+			fill:#AAAAAA;
+		}
+
+		.keys text{
+			font-size:12px;	
+			fill:#AAAAAA;
+		}
+
+		.graphUnitSVGs line, .keys line{
+			font-size:11px;	
+			stroke:#AAAAAA;
+		}
+		
+		.svgTitle{
+			text-anchor:start;	
+		}
+		
+		#pcText {
+			width: 140px;
+			height:30px;
+			padding: 3px;
+			color: #999999;
+		}
+		
+		.picaarticle {
+			font-size:13px;
+						
+			
+		}
+	
+		.btnEnable, .clearBtn {
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			width: 40px;
+			border: none;
+			padding: 6px 0;
+			background-color: #0084d1;
+			font: 700 14px Arial;
+			color: #FFF;
+			filter: inherit;
+			-webkit-appearance: button;
+			cursor: pointer;
+		}	
+		.showHideBtn {
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			width: 160px;
+			border: none;
+			padding: 6px 0;
+			background-color: #0084d1;
+			font: 700 14px Arial;
+			color: #FFF;
+			filter: inherit;
+			-webkit-appearance: button;
+			cursor: pointer;
+		}	
+		
+		#intro{
+			display:none;
+		}
+	
+		#ztable{
+			font-size:11px !important;	
+		}
+		.tablehead{
+			font-weight:800 !important;	
+		}
+		
+		.total {
+			max-width:600px;
+			margin: 0 auto;
+		}
+		
+		#boldtext {
+			font-weight:bold;
+		}
+		
+				#ChartFooterDiv, .footer {
+			font-weight:600!important;
+			font-size:14px!important;
+			line-height:24px!important;
+			margin: opx 0!important;
+			padding: 5px 0 3px 0!important;
+			font-family: Helvetica,sans-serif!important;
+			color: #414042!important;
+			box-sizing: border-box!important;
+			margin-top:8px;
+		}
+		
+		#submitbut {
+			background-color:#0F8243;
+			display:block;
+			width:200px;
+			text-align:center;
+			font-size:14px;
+			color:white;
+			font-weight:100;
+			text-decoration:underline;
+			width:70px;
+			height:43px;
+			padding-top:12px;
+			margin-right:6px;
+			float:left;
+		}
+		#submitbut:hover {
+			cursor:hand;
+			cursor:pointer;
+			display:block;
+			background-color:rgb(11,93,48)!important;
+			width:200px;
+			text-align:center;
+			font-size:14px;
+			color:white;
+			font-weight:100;
+			text-decoration:underline;
+			width:70px;
+			height:43px;
+			padding-top:12px;
+			margin-right:6px;
+			float:left;
+		}
+		#notesdiv {
+			width:480px;
+		}
+    
+		
+		
+		
+    </style>
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+      <script src="../bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+   
+	</head>
+
+	<body>
+        <div class="total">
+        <div class="container-fluid" >
+<!--            <div class="row">
+               <div class="col-sm-3" id="postcode">
+                        <form id="pcForm">
+                             <input id="pcText" class="picaarticle" type="text" tabindex="1" placeholder="enter your postcode">
+                             <button class="btnEnable" id="submitPost" type="buttton">GO!</button>
+                        </form>
+               </div>
+               <div class="col-sm-2" id="clear">
+                    <button class="clearBtn hide" id="clearBtn" type="buttton">clear</button>
+                </div>
+           </div>-->
+           <div class="row">
+                <div class="col-sm-6 col-sm-push-6" id="chosensel" style="padding-bottom:15px"></div>
+                <div class="col-sm-6 col-sm-pull-6" id="areanm"></div>
+           </div>
+           <div class="row">    
+                <div id="mults" class="col-sm-12 col-xs-12">
+                   <div id="graphic">
+                        <img src="fallback.png" />
+                   </div> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12" id="footer">
+                	<p></p>
+                </div> 
+            </div>
+		</div>
+        
+        
+            <div id="ChartFooterDiv">Download this chart</div>
+    
+            <a href="fallback.png" target="_blank"><div id="submitbut">Image</div></a>
+            <a href="data.csv" target="_blank"><div id="submitbut">.csv</div></a>
+            <a href="data.xls" target="_blank"><div id="submitbut">.xls</div></a>
+            
+    
+        
+        
+        </div>       
+
+        <script src="../lib/jquery-1.11.1.min.js"></script>
+        <script src="../lib/bootstrap.min.js"></script>
+        <script src="../lib/modernizr.custom.56904.js"></script>
+        <script src="../lib/d3.v3.5.min.js" type='text/javascript'></script>
+        <script src="../lib/pym.js" charset="utf-8"></script>
+	    <script src="../lib/jquery-ui-1.10.4.custom.min.js"></script>    
+    	<script src="../lib/jquery.ui.labeledslider.js"></script>
+        <script src="../lib/chosen_jquery.js" type="text/javascript"></script>
+        <script src="../lib/queue.js" charset="utf-8"></script>
+        <script src="../lib/topojson.js"></script>
+		<script src="../lib/ss.js"></script>   
+          
+        <script>
+            
+		
+			
+				
+			
+			var header = $('#header');
+            var graphic = $('#graphic');
+            var keypoints = $('#keypoints');
+            var footer = $("#footer");
+            var pymChild = null;
+            var height;           
+            var dvc = {}; // global object variable to contain all variables prefixed with 'dvc.'	
+            var pymChild = null;
+            var graphHeight;
+			var headers = [];
+			var mapScale;
+			
+			dvc.data;
+			
+			var numFormat = d3.format(".1f");
+	
+			function drawGraphic()
+			{
+			
+			
+				var threshold_md = 650;
+				var threshold_sm = dvc.optional.mobileBreakpoint;
+				
+				var innerPadding_values = {
+										"sm":[ 20 , 20 , 30 , 25 ],
+										"md":[ 40 , 20 , 30 , 25 ],
+										"lg":[ 40 , 25 , 45 , 45 ]
+										/* top , right , bottom , left */
+									}
+									
+				//var mapScales = [ 10000 , 6500 , 9000 ];
+				var mapScales = [ 10000 , 12000 , 10000 ];
+			
+				//set variables for chart dimensions dependent on width of #graphic
+				if (graphic.width() < threshold_sm) {
+						var margin = {top: dvc.optional.margin_sm[0], right: dvc.optional.margin_sm[1], bottom: dvc.optional.margin_sm[2], left: dvc.optional.margin_sm[3]}; 
+						chart_width = graphic.width()/* - margin.left - margin.right*/;
+						mults_width = $("#mults").width();
+						height = (Math.ceil((chart_width * dvc.optional.aspectRatio_sm[1]) / dvc.optional.aspectRatio_sm[0]) - margin.top - margin.bottom);
+						
+						var innerPadding = { top : innerPadding_values.sm[0] ,  right : innerPadding_values.sm[1] ,  bottom : innerPadding_values.sm[2] ,  left : innerPadding_values.sm[3] }
+						
+						numberRows = parseInt(dvc.essential.numRows_sm_md_lg[0]);
+						numberColumns = parseInt(dvc.essential.numColumns_sm_md_lg[0]);
+						mapScale = mapScales[0];
+												
+				} else if (graphic.width() < threshold_md){
+						var margin = {top: dvc.optional.margin_md[0], right: dvc.optional.margin_md[1], bottom: dvc.optional.margin_md[2], left: dvc.optional.margin_md[3]}; 
+						 chart_width = graphic.width()/* - margin.left - margin.right*/;
+						 mults_width = $("#mults").width();
+						height = (Math.ceil((chart_width * dvc.optional.aspectRatio_md[1]) / dvc.optional.aspectRatio_md[0]) - margin.top - margin.bottom);
+						
+						var innerPadding = { top : innerPadding_values.md[0] ,  right : innerPadding_values.md[1] ,  bottom : innerPadding_values.md[2] ,  left : innerPadding_values.md[3] }
+						
+						numberRows = parseInt(dvc.essential.numRows_sm_md_lg[1]);
+						numberColumns = parseInt(dvc.essential.numColumns_sm_md_lg[1]);
+						mapScale = mapScales[1];
+												
+				} else {
+						var margin = {top: dvc.optional.margin_lg[0], right: dvc.optional.margin_lg[1], bottom: dvc.optional.margin_lg[2], left: dvc.optional.margin_lg[3]}
+						chart_width = graphic.width()/* - margin.left - margin.right*/;
+						mults_width = $("#mults").width();
+						height = (Math.ceil((chart_width * dvc.optional.aspectRatio_lg[1]) / dvc.optional.aspectRatio_lg[0]) - margin.top - margin.bottom);
+						
+						var innerPadding = { top : innerPadding_values.lg[0] ,  right : innerPadding_values.lg[1] ,  bottom : innerPadding_values.lg[2] ,  left : innerPadding_values.lg[3] }
+						
+						numberRows = parseInt(dvc.essential.numRows_sm_md_lg[2]);
+						numberColumns = parseInt(dvc.essential.numColumns_sm_md_lg[2]);
+						mapScale = mapScales[2];
+												
+				}
+		
+						dvc.scale = 1;
+						dvc.translate = [0,0];
+						
+						
+				
+				
+				
+				zoom = d3.behavior.zoom()
+					.scaleExtent([0.5, 12])
+					.on("zoom", zoomed);
+									
+				// clear out existing graphics
+				graphic.empty();
+				keypoints.empty();
+				footer.empty();				
+					
+
+				// calcualte SM graph dimensions, and set up maegins for base SM SVG
+				var graph_unitWidth = (mults_width) / numberColumns;
+				var graph_unitHeight = graph_unitWidth;
+				var graph_unitMargins = { top : 5, right : 5 , bottom : 5 , left : 5 };
+
+			
+				var projection = d3.geo.albers()
+					.center([3, 52.75])
+					.rotate([3.2, 1])
+					.parallels([50, 60])
+					.scale(mapScale)
+					.translate([graph_unitWidth / 2, graph_unitHeight / 2]);
+	
+			
+				// Set up a scaling variable effectively tells D3 how to interpret your lat - long coordinates into pixel positions.	
+				var path = d3.geo.path().projection(projection);					
+				
+				
+				// initial SM graph count variable (k = SM number being created	)		
+				var k = 0;
+				var l = 0;
+				var graphLines = {};
+				var currentColoumn;
+		
+				
+				// for each row ... 				
+				for ( var i=1; i<=parseInt(numberRows); i++ ) {	
+				
+					// for each column ... 				
+					for ( var j=1; j<=parseInt(numberColumns); j++ ) {
+						
+						// if graph panel [to draw] is greater than for which data is provided in data files ... 
+						if ( headers[k] === undefined ) { continue; }
+						
+						dvc.numGraphs = k;
+													
+						// create and append small SVG panel for each individual graph, k
+						var svg = d3.select('#graphic')
+							.append('svg')
+							.attr("class" , "graphUnitSVGs")
+							.attr("id" , "svg" + k)
+							.attr("x", function(d,i){ return (i-1)*graph_unitWidth + graph_unitMargins.left; })
+							.attr("y", (j-1)*graph_unitHeight + graph_unitMargins.top )
+							.attr("width", graph_unitWidth-10 )
+							.attr("height", graph_unitHeight*0.75)
+							.append("g")
+							.attr("transform", "translate(" + (0) + "," + (0) + ")");	
+						
+						
+						
+												
+						rateById = {};
+						dvc.data.forEach(function(d,i) { rateById[d.AREACD] = [d[headers[k]]]; });
+						
+						
+					
+						var values =  dvc.data.map(function(d) { return +d[headers[k]]; }).filter(function(d){  return !isNaN(d)}).sort(d3.ascending);
+			
+						if(dvc.essential.breaks =="jenks"){
+							breaks = ss.jenks(values, dvc.essential.breakDivisions);
+
+							console.log("hello")
+							
+						} else {
+							breaks = dvc.essential.breaks[k];
+						};
+					
+					
+
+						color = d3.scale.threshold()
+								.domain(breaks.slice(1,dvc.essential.breakDivisions))	
+								.range(dvc.essential.colour);
+				
+						createKey(k , graph_unitWidth, graph_unitHeight , margin , innerPadding);							
+						
+								
+								
+						// Use the normal d3 pattern - select all path elements (even though they haven't yet been created)
+						// Then append a path element for every bit of data you've just binded.				
+						g = svg.append("g").attr("id", "group_"+k);
+	
+						zoomed();
+		
+		  				g.attr("class", "pcon")
+							.selectAll("path")
+							.data(topojson.feature(dvc.pcon, dvc.pcon.objects.LA2013EW).features)
+							.enter()
+							.append("path")
+							.attr("id",function(d){return "reg" + d.properties.AREACD})
+							.attr("data-nm",function(d){return d.properties.AREANM})
+							.attr("data_val", function(d) {return rateById[d.properties.AREACD]})
+							.attr("d" , path )
+							.style("fill", function(d) {
+								if(rateById[d.properties.AREACD] =="null"||rateById[d.properties.AREACD] ==undefined){ 
+									return "white"
+								
+								} else {
+									
+									return color(rateById[d.properties.AREACD]);
+								}
+							})
+							.style("stroke", function(d) {
+								if(rateById[d.properties.AREACD] =="null"||rateById[d.properties.AREACD] ==undefined){ 
+									return "#bdbdbd"
+								} else {
+									
+									return "none";
+								}
+							})
+							.on("mouseout",unhighlight)
+		  					.on("mouseover",function(d){
+								highlight(d.properties.AREACD);
+								plot(d.properties.AREACD);
+							});						
+									
+						// draw text in upper right corner of each graph with the associated title from data.csv
+						svg.append("rect")/*
+							.data(headers)*/
+							.attr("x", 0)
+							.attr("y", 0 )
+							.attr("height",18)
+							.attr("width", graph_unitWidth)
+							.style("fill", "#fff")
+							.style("stroke","none")
+							.style("opacity",0.8);
+						
+						
+						svg.append("text")
+							.attr("x" , 0)
+							.attr("y" , 12 )
+							.attr("id", "varval_"+k)
+							.attr("class", "areaname")
+//							.attr("font-weight","bold")
+							.attr("fill","#666")
+							.text(function(d,i){ 
+									return headers[k];
+							})
+							
+						k++;
+					
+					if (graphic.width() < threshold_sm) { 
+							d3.select("#svg4").remove();
+							d3.select("#svg5").remove();	
+						} else if (graphic.width() < threshold_md) { 
+							d3.select("#svg4").remove();
+							d3.select("#svg5").remove();
+						} else { 
+							d3.select("#svg4").remove();
+							d3.select("#svg5").remove();
+							}
+					
+					
+					}
+						
+				} // end for ...
+
+				center = [$("#svg0").width() / 2, $("#svg0").height() / 2];
+
+	//			//create link to source				
+				d3.select("#footer").append("p")
+					.text("Source: ")
+					.append("a")
+					.attr("href","https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/migrationwithintheuk/datasets/matricesofinternalmigrationmovesbetweenlocalauthoritiesandregionsincludingthecountriesofwalesscotlandandnorthernireland ")
+					.attr("target", "_blank")
+					.html("Internal migration, ONS");
+			
+			
+			d3.selectAll(".graphUnitSVGs").call(zoom)
+				.call(zoom.event);
+				
+		
+		
+			
+				//use pym to calculate chart dimensions	
+				setTimeout( function(){
+					if (pymChild) {
+						pymChild.sendHeight();
+					}
+				}, 1500)
+						
+			
+				return;
+				 
+				 
+			 
+		
+		
+					
+	 } // end function drawGraphic()
+	 
+	 	 
+	 	function plot  (area){
+			
+			 linevalues =  dvc.data.map(function(d) { return d; }).filter(function(d){ return d.AREACD== area});
+			
+			
+			
+			vals = d3.keys(linevalues[0]).filter(function(key) {
+							if ( dvc.essential.fieldsToIgnore.indexOf(key) == -1 ) { return key; }
+						});
+					
+				
+			for (i = 0; i < headers.length; i++) { 
+			
+				
+				console.log(d3.select("#varval_"+i).text())
+				console.log(d3.select("#varval_"+i).html())
+				
+				d3.select("#varval_"+i)
+					.text(function(){
+						var fmt = d3.format(".1f")
+						if(linevalues[0][vals[i]]=="null"||[vals[i]]=="undefined"){
+							return headers[i];
+						} else {
+							 return /*numFormat*/headers[i]+ ": "+fmt(linevalues[0][vals[i]]) + " per 1,000 residents";
+							//return /*numFormat*/fmt(linevalues[0][vals[i]])+" "+headers[i];;
+						}
+					})
+					
+			}
+			
+		}
+		
+	 	function highlight(area) {		
+			var reg=document.getElementById("reg" + area);
+			
+			var name =d3.select("#reg" + area).attr("data-nm")
+			
+			 d3.selectAll('.pcon')
+					.append("path")
+					.attr("d", d3.select(reg).attr("d"))
+					.attr("id","selected")
+					.attr("class", "arcSelection")
+					.attr("pointer-events", "none")
+					.style("fill", "none")
+					.style("stroke", function(d){
+							if(area.substr(0,1)=="E" || area.substr(0,1)=="W"){
+									return "#990000"
+							}
+						})
+					.style("stroke-width", 2/dvc.scale);
+					
+			details = d3.select("#details")
+			
+			if(area.substr(0,1)=="E" || area.substr(0,1)=="W"){
+				d3.select("#areanm").text(name);
+			}
+		}
+	
+		/* Remove the current selected polygon */
+		function unhighlight() {
+			d3.selectAll('#selected').remove();
+			d3.select("#areanm").text("");			
+			d3.selectAll(".areaname").text(function(d,i){ return headers[i];})
+		}	
+	 
+		 function zoomed() {
+			
+			  dvc.scale = zoom.scale();
+					
+			  d3.selectAll(".pcon").style("stroke-width",(0.5/zoom.scale()))
+				.attr("transform", "translate(" + zoom.translate() + ")scale(" + zoom.scale() + ")");
+				
+				
+		}
+			
+			
+	 function zoom_by(factor){
+	
+				var scale = zoom.scale(),
+					extent = zoom.scaleExtent(),
+					translate = zoom.translate(),
+					x = translate[0], y = translate[1],
+					target_scale = scale * factor;
+		
+				// If we're already at an extent, done
+				if (target_scale === extent[0] || target_scale === extent[1]) { return false; }
+				// If the factor is too much, scale it down to reach the extent exactly
+				var clamped_target_scale = Math.max(extent[0], Math.min(extent[1], target_scale));
+				if (clamped_target_scale != target_scale){
+					target_scale = clamped_target_scale;
+					factor = target_scale / scale;
+				}
+		
+				// Center each vector, stretch, then put back
+				x = (x - center[0]) * factor + center[0];
+				y = (y - center[1]) * factor + center[1];
+			
+				dvc.scale = zoom.scale();
+				dvc.translate = zoom.translate();
+				
+							
+				// Enact the zoom immediately
+				zoom.scale(target_scale)
+					.translate([x,y]);
+				
+				zoomed(); 
+				
+			   
+			}
+	 
+	function zoomcontrols(){
+	 
+		zoomcontrols = d3.select("#graphic").append('div').attr("class","zoom-container zoom-control-zoom zoom-bar zoom-control");
+		
+		zoomcontrols.append("a").attr("id","zoom_in").attr("class","zoom-control-zoom-in zoom-bar-part zoom-bar-part-top").attr("title","Zoom in").text("+")
+		zoomcontrols.append("a").attr("id","zoom_out").attr("class","zoom-control-zoom-out zoom-bar-part zoom-bar-part-bottom").attr("title","Zoom out").text(" -")
+		
+	var intervalID;
+
+	d3.selectAll('.zoom-bar-part').on('mousedown', function(){
+		
+		d3.event.preventDefault();
+		var factor = (this.id === 'zoom_in') ? 1.1 : 1/1.1;
+		intervalID = setInterval(zoom_by, 40, factor);
+	
+	}).on('mouseup', function(){
+		d3.event.preventDefault();
+		clearInterval(intervalID);
+		intervalID = undefined;
+	})
+
+	}
+
+
+	
+										
+			
+			//then, onload, check to see if the web browser can handle 'inline svg'
+			if (Modernizr.svg)
+			{
+				
+				// open and load configuration file. 					
+				d3.json("config.json", function(error, json)
+				{					
+					// store read in json data from config file as as global dvc. variable ...	
+					dvc = json;
+											
+					d3.csv(dvc.essential.graphic_data_url, function(error, data) {
+						
+						graphic_data = data;
+						dvc.data = graphic_data;
+						
+						headers = d3.keys(graphic_data[0]).filter(function(key) {
+							if ( dvc.essential.fieldsToIgnore.indexOf(key) == -1 ) { return key; }// end else ... 
+							else { } // end else ... 
+						});
+											
+						queue()
+							.defer(d3.json, "geography.json")
+							.defer(d3.csv, "data.csv")
+							.await(ready);						
+					})						
+				})
+			
+			} // end if ... error
+			else
+			{
+				//use pym to create iframe containing fallback image (which is set as default)
+				pymChild = new pym.Child();
+				if (pymChild) { pymChild.sendHeight(); }
+				
+			}// end else ...
+			
+
+		
+			function ready(error, pcon, data) {
+				
+				dvc.pcon = pcon;
+				dvc.data = data;
+				
+				
+				//selectlist();
+				
+				pymChild = new pym.Child({renderCallback: drawGraphic});
+				
+				var IE = (!! window.ActiveXObject && +(/msie\s(\d+)/i.exec(navigator.userAgent)[1])) || NaN;
+				if (IE != 9) {
+					zoomcontrols();
+				}
+					
+							
+				var divs = d3.select('.tbody').selectAll('td').data(dvc.vars).enter().append('tr');
+
+				divs.append('td').text(function(d){ return d})
+				divs.append('td').text(function(d, i){ return dvc.ref[i]})	
+				divs.append('td').text(function(d, i){ return dvc.desc[i]})
+				
+				var sources = divs.append('td').attr("class", "sources")
+				
+				sources.append("a")
+						.attr("href", function(d,i){
+								
+							}
+						)
+						.attr("target", "_blank")
+						.html(function(d,i){ return dvc.source[i][0]})	
+						
+				sources.append("a")
+						.attr("href", function(d,i){
+								
+							}
+						)
+						.attr("target", "_blank")
+						.html(function(d,i){ return dvc.source[i][1]})	
+				
+				sources.append("a")
+						.attr("href", function(d,i){
+								
+							}
+						)
+						.attr("target", "_blank")
+						.html(function(d,i){ return dvc.source[i][2]})		
+				
+				sources.append("a")
+						.attr("href", function(d,i){
+								
+							}
+						)
+						.attr("target", "_blank")
+						.html(function(d,i){ return dvc.source[i][3]})		
+				
+				selectlist();
+						}// end function ready()
+			
+
+			function createKey(k, graph_unitWidth, graph_unitHeight, margin, innerPadding){
+				
+/*
+				var svgkey = d3.select("#map")
+					.append("svg")
+					.attr("id", "key")
+					.attr("height", 500)
+					.attr("width", 95);
+*/
+					
+				var svgkey = d3.select("#svg" + k)
+					.append("svg")
+					.attr("id", "key")
+					.attr("class", "keys")
+//					
+//
+//				var row = d3.select("#details")
+//					.append("div")
+//					.attr("id", "var_"+k)
+//					.attr("class", "name row")
+//					
+//				var div = row.append("div")
+//					.attr("id", "key_svg")
+//					.attr("class", "col-sm-12 col-xs-12")
+//					
+//				var	svg_width= $("#key_svg").width();
+//					
+//				var details = div.append("svg")
+//					.attr("id", "key_"+k)
+//					.attr("class", "keys detail_key")
+//					.attr("height", 50)
+//					.attr("width", svg_width); 
+//				
+				newbreaks = breaks;
+				//newbreaks[0] = 0;
+								
+			
+				
+				var color = d3.scale.threshold()
+				   .domain(newbreaks)
+				   .range(dvc.essential.colour);
+		
+				y = d3.scale.linear()
+					.domain([breaks[0], breaks[dvc.essential.breakDivisions]]) /*range for data*/
+					.range([graph_unitHeight-190, 0]); /*range for pixels*/
+		
+				key_svg =$("#key_svg").width()
+		
+				x = d3.scale.linear()
+					.domain([breaks[0], breaks[dvc.essential.breakDivisions]]) /*range for data*/
+					.range([0, key_svg-30 ]); /*range for pixels*/
+		
+				var yAxis = d3.svg.axis()
+					.scale(y)
+					.orient("right")
+					.tickSize(8)
+					.tickValues(color.domain())
+					
+				
+				var xAxis = d3.svg.axis()
+					.scale(x)
+					.orient("bottom")
+					.tickSize(25)
+					.tickFormat(function(d,i){ 
+						
+					//	if (i==0 || i==4 || i==5){ 
+							return /*numFormat*/(d)// }
+						
+						})
+					.tickValues(color.domain());
+	
+				svgkey.append("rect")
+					.attr("transform",  "translate("+(graph_unitWidth-54)+",18)")
+					.attr("height",graph_unitHeight)
+					.attr("width", 40)
+					.style("fill", "#fff")
+					.style("stroke","none")
+					.style("opacity",0.8);
+			
+				var g = svgkey.append("g")
+					.attr("transform", "translate("+(graph_unitWidth-50)+",30)");
+					
+//				var g2 = details.append("g")
+//					.attr("transform", "translate(10,0)");
+//				
+				
+				g.selectAll("rect")
+					.data(color.range().map(function(d, i) {
+					  return {
+						y0: i ? y(color.domain()[i]) : y.range()[0],
+						y1: i < color.domain().length ? y(color.domain()[i+1]) : y.range()[1],
+						z: d
+					  };
+					}))
+					.enter().append("rect")
+					.attr("width", 5)
+					.attr("y", function(d,i) { return d.y1; })
+					.attr("height", function(d) { return d.y0 - d.y1; })
+					.style("fill", function(d) {return d.z; });
+				
+				g.call(yAxis).append("text");
+
+			
+				
+				setTimeout( function(){
+					if (pymChild) {
+						pymChild.sendHeight();
+					}
+				}, 1500)
+						
+								
+			}// end function createKey() 
+		
+		
+		function selectlist() {
+	
+			var areacodes =  dvc.data.map(function(d) { return d.AREACD; })
+			
+			var areanames =  dvc.data.map(function(d) { return d.AREANM; })
+			
+			var menuarea = d3.zip(areanames,areacodes).sort(function(a, b){ return d3.ascending(a[0], b[0]); }).	filter(function(d){  				
+				return d[1].substr(0,1) == "E"
+			})
+			
+						
+			// Build option menu for occupations
+			var optns = d3.select("#chosensel").append("div").attr("id","sel").append("select")
+				.attr("id","occselect")
+				.attr("style","width:98%")
+				.attr("class","chosen-select");
+			
+			
+			optns.append("option")
+				.attr("value","first")
+				.text("");
+			
+			optns.selectAll("p").data(menuarea).enter().append("option")
+				.attr("value", function(d){ return d[1]}) 
+				.text(function(d){ return d[0]});
+			
+			
+			$('#occselect').chosen({width: "98%", allow_single_deselect:true}).on('change',function(evt,params){
+				if(typeof params != "undefined"){
+				
+						area=params.selected
+						areaName=d3.select("#occselect_chosen").select("span").html()
+												
+						d3.selectAll('#selected').remove();
+						d3.select("#areanm").empty();
+						
+						var reg=document.getElementById("reg" + area);
+						
+						var name =d3.select("#reg" + area).attr("data-nm")
+						
+						 d3.selectAll('.pcon')
+								.append("path")
+								.attr("d", d3.select(reg).attr("d"))
+								.attr("id","selected")
+								.attr("class", "arcSelection")
+								.attr("pointer-events", "none")
+								.style("fill", "none")
+								.style("stroke", "#990000")
+								.style("stroke-width", 2/dvc.scale);
+								
+						details = d3.select("#details")
+						
+						d3.select("#areanm").text(areaName);
+						
+						d3.selectAll(".pcon").selectAll("path").attr("pointer-events", "none")
+						
+						//d3.select("#clearBtn").classed("hide", false);
+								
+						plot(area);
+				} else {
+						d3.selectAll("path").attr("pointer-events", "all")
+						//d3.select("#clearBtn").classed("hide", true);
+		
+						d3.selectAll(".lines")
+							.attr("y1", 0)
+							.attr("y2", 0)
+							.attr("x1", 0)					
+							.attr("x2", 0)
+							
+												
+						d3.selectAll('#selected').remove();
+						d3.selectAll(".areaname").text(function(d,i){ return headers[i]})
+						d3.select("#areanm").text("");			
+			
+				}
+					
+			});
+	
+	};
+	
+		$('#collapse').hide();
+
+
+		$('.coll').on('click',function(){
+				$('#intro').toggle('slide');
+				$('#collapse').toggle(); 
+				$('#expand').toggle();        
+		});		
+		
+		</script>
+         
+        <script>
+	
+		  /* Analytics */
+
+		  /* Google */
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37894017-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+
+    </script>   
+     
+    
+  </body>
+</html>
