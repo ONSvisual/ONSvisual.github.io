@@ -1,0 +1,64 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "dateFormat":"%Y",
+        
+            "legendLabels" : ["Males", "Females"],
+        
+            "sourceText":["Deaths by underlying cause, sex and single year of age, 2015, England and Wales"],
+            "sourceURL":["https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/deathregistrationssummarytablesenglandandwalesreferencetables/2015/syoacause2015.xls"],
+        
+            "annotationChart": [
+                "Number of deaths generally higher for men  than for woman until age 83  when the situation is reversed",
+                "Peak in deaths at age 67  as a result of the increased  population due to post  WWII baby boom"
+            ],
+
+            "annotationBullet": [
+                "Number of deaths generally higher for men  than for woman until age 83  when the situation is reversed",
+                "Peak in deaths at age 67  as a result of the increased  population due to post  WWII baby boom"
+            ],
+
+            "annotationXY":[
+                ["52","9000"],
+                ["48","5500"]
+            ],
+            "annotationAlign":[
+                "middle",
+                "middle"
+            ],
+        
+            "circles" : true,    
+            "annotationCXCY":[
+                ["83","8800"],
+                ["67","4910"]
+            ],
+
+            "xAxisLabel":"Age",
+        
+            "yAxisLabel":"Number of deaths",
+            "yAxisScale":"auto_min_max",   
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65]            
+    },
+    "optional" : {
+            "margin_sm": [20, 20, 5, 50],
+            "margin_md": [20, 20, 5, 50],
+            "margin_lg": [20, 20, 5, 50],
+        
+            "aspectRatio_sm" : [18,12],
+            "aspectRatio_md" : [18,12],
+            "aspectRatio_lg" : [20,10],
+        
+            "mobileBreakpoint" : 610, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%b %y"], 
+                
+            "x_num_ticks_sm_md_lg" : [7,17,17],    
+            "y_num_ticks_sm_md_lg" : [7,7,7],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+

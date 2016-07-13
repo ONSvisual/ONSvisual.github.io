@@ -1,0 +1,22 @@
+[
+   {
+       "term":"immigration",
+       "type":"0",
+       "definition":"Immigration is the movement of people into another country or region to which they are not native in order to settle there"
+   },
+   {
+       "term":"emmigration",
+       "type":"0",
+       "definition":"Emigration is the act of leaving one's country or region with the intent to settle permanently in another."
+   },
+   {
+       "term":"statistically significant",
+       "type":"0",
+       "definition":"You tell me"
+   },
+   {
+       "term":"zGlossary plugin",
+       "type":"3",
+       "definition":"http://www.zazar.net/developers/jquery/zglossary/"
+   }
+]

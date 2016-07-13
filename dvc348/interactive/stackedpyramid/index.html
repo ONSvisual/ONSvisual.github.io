@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title>Mortality 2015</title>
+
+    <meta name="description" content="Stack">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="../lib/globalStyle.css" />
+    
+    <style type="text/css">
+	
+		body {
+			max-width:800px;
+			margin: 0px auto;	
+		}
+
+		button{
+			margin:10px;
+		}
+			
+		/*.toggle-button { background-color: #7DA652; margin: 5px 0; border-radius: 20px; border: 2px solid #7DA652; height: 24px; cursor: pointer; width: 50px; position: relative; display: inline-block; user-select: none; -webkit-user-select: none; -ms-user-select: none; -moz-user-select: none; }
+		
+		.toggle-button button { cursor: pointer; outline: 0; display:block; position: absolute; left: 0; top: 0; border-radius: 100%; width: 30px; height: 30px; background-color: white; float: left; margin: -3px 0 0 -3px; border: 2px solid #7DA652; transition: left 0.3s; }
+
+		.toggle-button-selected { background-color: #7DA652; border: 2px solid #7DA652; }
+
+		.toggle-button-selected button { left: 26px; top: 0; margin: 0; border: none; width: 24px; height: 24px; box-shadow: 0 0 4px rgba(0,0,0,0.1); }
+		*/
+		
+		#header{
+			text-align:center;
+		}
+		
+		#toprow{
+			display: inline-block; 
+			float:none;
+		}
+
+		.toggle-button { 
+			background-color: #cce6f6; 
+			margin: 5px 0; 
+			border-radius: 20px; 
+			border: 2px solid #0084d1; 
+			height: 24px; 
+			cursor: pointer; 
+			width: 50px; 
+			position: relative; 
+			display: inline-block; 
+			user-select: none; 
+			-webkit-user-select: none; 
+			-ms-user-select: none; 
+			-moz-user-select: none; 
+			float:left;
+			
+		}
+		
+		.toggle-button button { 
+			cursor: pointer; 
+			outline: 0; 
+			display:block; 
+			position: absolute; 
+			left: 0; 
+			top: 0; 
+			border-radius: 100%; 
+			width: 30px; 
+			height: 30px; 
+			background-color: white; 
+			float: left; 
+			margin: -3px 0 0 -3px; 
+			border: 2px solid #0084d1; 
+			transition: left 0.3s; 
+		}
+		
+		.toggle-button-selected { 
+			background-color: #0084d1; 
+			border: 2px solid #0084d1; 
+		}
+		
+		.toggle-button-selected button { 
+			left: 26px; 
+			top: 0; 
+			margin: 0; 
+			border: none; 
+			width: 24px; 
+			height: 24px; 
+			box-shadow: 0 0 4px rgba(0,0,0,0.1);
+		}
+		
+		.toggleText{
+			width:80px;
+			padding-left:0px;
+			float:left;
+			line-height:37px;
+			display:block;
+			font-size: 14px;
+			font-color: #444;
+		}
+		table {
+				width: 100%;
+				text-align: right;
+			}
+			
+		#dash0, #dash4, #dash1, #dash5 {
+			cursor:pointer;
+		}
+			
+		numStyle {
+				text-align: right;
+			}
+			
+		tbody tr td {
+			font-size: 12px;
+		}
+		thead tr td {
+			font-size: 15px;
+		}
+		
+		#zeroCentre {
+			font-size:12px;	
+			fill:#666;
+		}
+   </style>
+        
+    <script src="../lib/d3.v3.5.min.js" type="text/javascript"></script>
+    <script src="../lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="../lib/jquery.js" type="text/javascript"></script>
+    <script src="../lib/pym.js" type="text/javascript"></script>
+    
+    
+</head>
+<body>
+	
+      <div id="header">
+    		
+        		<!--<button></button>-->
+          
+     
+            	 <div id = "legendTab">
+                     <table>
+                      <thead>
+                        <tr><td></td><td></td><td>Male</td><td>Female</td><td></td><td></td><td>Male</td><td>Female</td></tr>
+                      </thead>
+                      <tbody>
+                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                      </tbody>
+                    </table>
+                 </div>
+                 
+            <div id="toprow">
+    		</div>
+      </div>
+    
+       <div id="graphic"><img src="fallback.png" alt="[Chart]" />
+       </div>
+    
+    <div id="keypoints">
+        <p></p>
+    </div>
+    
+   <div class="footer">        
+   </div>
+    
+    
+    <script>
+
+		var graphic = d3.select('#graphic');
+		var keypoints = d3.select('#keypoints');
+		var footer = d3.select(".footer");
+		var pymChild = null;
+ 		var dvc = {};
+		var first = true;
+		
+			//console.log(c10(1));
+	
+
+function drawGraphic()
+		{
+			
+			var first = true;
+			dvc.graphic_data_full = [];
+			dvc.graphic_data_full[0] = dvc.csv1;
+			dvc.graphic_data_full[1] = dvc.csv2;
+			
+			//console.log(csv1);
+			
+			
+			c10 = d3.scale.category20().domain(d3.range(0,20));
+			
+		   var threshold_md = 810;
+		   	dvc.threshold_sm = dvc.optional.mobileBreakpoint; 
+		  
+		  	//set variables for chart dimensions dependent on width of #graphic
+		    if (parseInt(graphic.style("width")) < dvc.threshold_sm) {    // console.log("Small");	
+												var margin = {
+																top: 	dvc.optional.margin_sm[0], 
+																right: 	dvc.optional.margin_sm[1], 
+																bottom: dvc.optional.margin_sm[2],
+																left: 	dvc.optional.margin_sm[3]
+															};
+												var size = 0;	// used for margin_centre and x_ticks		
+												var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+												var height = Math.ceil((chart_width * dvc.optional.aspectRatio_sm[1]) / dvc.optional.aspectRatio_sm[0]) - margin.top - margin.bottom;
+		    									}
+												
+			else if (parseInt(graphic.style("width")) < threshold_md){ //console.log("medium");	
+		        								var margin = {
+																top: 	dvc.optional.margin_md[0],
+																right: 	dvc.optional.margin_md[1],
+																bottom: dvc.optional.margin_md[2],
+																left: 	dvc.optional.margin_md[3]
+															};
+												var size = 1;			 
+												var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+		            							var height = Math.ceil((chart_width * dvc.optional.aspectRatio_md[1]) / dvc.optional.aspectRatio_md[0]) - margin.top - margin.bottom;
+												}
+												
+		  	 else {   //console.log("Large");
+		        								var margin = {  	
+																top: 	dvc.optional.margin_lg[0],
+																right: 	dvc.optional.margin_lg[1],
+																bottom: dvc.optional.margin_lg[2],
+																left: 	dvc.optional.margin_lg[3]
+															};
+												var size = 2;			
+												var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
+		            							var height = Math.ceil((chart_width * dvc.optional.aspectRatio_lg[1]) / dvc.optional.aspectRatio_lg[0]) - margin.top - margin.bottom;
+												}
+			
+			if (parseInt(graphic.style("width")) > 800)
+												{ maxWidth = 800; chart_width = maxWidth - margin.left - margin.right }
+			else	
+												{ maxWidth = chart_width + margin.left + margin.right	} // old chartwidth remains 
+			
+			//.log("graphic width =" +parseInt(graphic.style("width")) + "  chart_width =" + chart_width + "  maxWidth =" + maxWidth +"  height ="+ height);
+			
+			//graphic_data = graphic_data_full[i];
+			//console.log("graphic_data :"+dvc.graphic_data_full+" gd0:"+ dvc.graphic_data_full[0] +" len:"+dvc.essential.graphic_data_url.length);
+				
+		    // clear out existing graphics
+		    graphic.selectAll("*").remove();
+			keypoints.selectAll("*").remove();
+			footer.selectAll("*").remove();
+			
+						
+			colNames = d3.keys(dvc.graphic_data_full[0][0]).filter(function(key) { return key  !== "spine" && key !=="vars"; });
+	
+			dvc.lengData = dvc.graphic_data_full[0].length;
+			
+			 // parse data into columns
+			var myMaximum = 0;
+			var myMinimum = 0;  // only catches negative
+			
+		    var bars = {};
+			dvc.maxBarLen = {};
+			dvc.biggestSum = {};
+			
+			for ( var LandR = 0; LandR < dvc.essential.graphic_data_url.length; LandR++ ) {  // x2
+				bars[LandR] = [];
+				dvc.maxBarLen[LandR] = [];
+				dvc.biggestSum[LandR] = [];
+				topMaxBarLen = 0;
+				inc = 0;
+				//console.log("LandR ="+ LandR + "inc =" + inc);
+								
+					dvc.graphic_data_full[LandR].forEach(function(d) {  //  therefore 2 x 95
+					
+					dvc.maxBarLen[LandR][inc] = [];
+					
+					var x0 = 0;
+					
+					d.vars = colNames.map(function(name){ // map each column by name x13
+					 						//console.log(d[name]);
+											dvc.maxBarLen[LandR][inc].push(+d[name]);  // pushes 13 values in
+											//console.log("name =" + name);
+											
+											if (name == 'Other'){
+												
+												dvc.biggestSum[LandR][inc] = dvc.maxBarLen[LandR][inc].reduce(function(a, b) { return a + b; }, 0);
+											//console.log(" inc =" + inc + " [LandR][inc] =" + dvc.biggestSum[LandR][inc] + " dvc.biggestSum " + dvc.biggestSum);
+													++inc;
+													}
+											
+												if (+d[name] > myMaximum){ myMaximum = d[name]}	
+												if (+d[name] < myMinimum){ myMinimum = d[name]}
+												if (dvc.biggestSum[LandR][inc] > topMaxBarLen)  { topMaxBarLen = dvc.biggestSum[LandR][inc]; }
+												//++inc;
+								return {
+									//  var : data  - this is only mapped for using the d.vars x0, x1, x2 matrix
+										name: name, 
+										x0: x0, 
+										x1: x0 += +d[name],
+										x2: d[name]
+										}; 
+					 });  // end mapping data under each colNames headers to d.vars. therefore 13 variables to each
+																		
+					});  // for both male and female
+				
+				 }  // LandR loop
+				
+				//dvc.graphic_data_full[1].pop();
+				
+				holdArray = [];
+				workArray = []; 
+				
+		//console.log("dvc.graphic_data_full[0] "+dvc.graphic_data_full[0] ); // 95 objects
+		for ( var mf=0; mf < dvc.essential.graphic_data_url.length; mf++ ) {  // x2
+		 	holdArray[mf] = [];
+			var row = 0;
+		    	for (var column in dvc.graphic_data_full[mf][0]) { //console.log("col:"+column);  // x14 d.vars bolts on???
+											
+											holdArray[mf][row] = [];
+												dvc.graphic_data_full[mf].map(function(d) {  // 14 columns
+															holdArray[mf][row].push(+d[column]);
+															});
+															//console.log(row + " row");
+															++row;
+		    									}; // end for
+							holdArray[mf].pop()		// remove that blooming d.vars that adds itself to the end of the array!!??!!
+							holdArray[mf].shift() // remove the first column of ages
+							workArray[mf] = d3.transpose(holdArray[mf]);
+
+			} // ends for
+							numRecords = holdArray[0].length; // 0-13
+							//console.log(numRecords+ " holdArray = " +" [0] "+ holdArray[0][0]+" [1][1] "+ holdArray[0][0][numRecords]);  // + holdArray
+											
+			myMaximum = Math.ceil(myMaximum / dvc.essential.multiplier) * dvc.essential.multiplier
+			//console.log("myMax =" + myMaximum );
+			
+			topMaxBarLen = Math.ceil(topMaxBarLen / dvc.essential.multiplier) * dvc.essential.multiplier
+			//console.log("myMaxBar =" + topMaxBarLen );
+			
+			myMaximum = dvc.essential.xAxisScale;  //10000;
+			dvc.pixelWidth = chart_width/2.1;
+			
+			//create x axis scales
+			
+			dvc.x = d3.scale.linear()
+				.domain([myMaximum, 0])
+		        .range([0, dvc.pixelWidth]);
+				
+				dvc.x1 = d3.scale.linear()
+					.domain([0, myMaximum])
+					.range([0, dvc.pixelWidth]);
+					
+					// and for the percent display
+					dvc.xPerc = d3.scale.linear()
+							.domain([100, 0])
+							.range([0, dvc.pixelWidth ]);
+							
+							dvc.x1Perc = d3.scale.linear()
+								.domain([0, 100])
+								.range([0, dvc.pixelWidth]);
+					
+			// percentage axis'
+			dvc.xAxisPerc = d3.svg.axis().scale(dvc.xPerc).orient('top').tickSize(-height, 0, 0).ticks(5);
+			dvc.x1AxisPerc = d3.svg.axis().scale(dvc.x1Perc).orient('top').tickSize(-height, 0, 0).ticks(5);
+
+
+			dvc.y = d3.scale.ordinal()			// If this is ordinal I don't believe you can use ticks(). What goes between apples an oranges??
+					  .domain(dvc.graphic_data_full[0].map(function(d,i) { return d.spine; } ) )
+					 // .domain(holdArray.shift()) // we shifted the array out 
+					  .rangeBands( [0, height] )  
+			
+			/*
+			var theYears = ["1945","1965","1985","2005","2015"];	
+			dvc.yr = d3.scale.ordinal()		
+					  .domain(theYears)  // dvc.graphic_data_full[0].map(function(d,i) { return d.spine; } ) )
+					 // .domain(holdArray.shift()) // we shifted the array out 
+					  .rangeBands( [0, height] );
+					  console.log('yr.rangeBand() =' + dvc.yr.rangeBand());
+			 */
+
+		    var yAxis = d3.svg.axis()
+		        .scale(dvc.y)
+		        .orient("left");
+				
+			// for the rightside age
+			/*var yrAxis = d3.svg.axis()
+		        .scale(dvc.yr)
+		        .orient("right");
+			*/
+			
+		    dvc.x1Axis = d3.svg.axis()
+		        			.scale(dvc.x1)
+		        			.orient('top')
+							.tickSize(-height, 0, 0)
+							.ticks(dvc.optional.x_num_ticks_sm_md_lg[size]);
+							
+			 dvc.xAxis = d3.svg.axis()
+		        			.scale(dvc.x)
+		        			.orient('top')
+							.tickSize(-height, 0, 0)
+							.ticks(dvc.optional.x_num_ticks_sm_md_lg[size]);
+				
+			
+			//var halfWidth =  margin.left + chart_width/2.4 + dvc.essential.margin_centre[size]/2;
+			var halfWidth =  (chart_width/2.1) + dvc.essential.margin_centre[size]/2;
+			//console.log("halfWidth =" + halfWidth + "  legend =" + (maxWidth - halfWidth*2));
+			
+			col = ['#e3b135','#79c8cc','#ff6059','#59c580','#377eb8','#ff93f2','#fffa56','#f32300','#003799','#984ea3','#ff7f00','#888888','#ccc'];
+		
+		//create svg 
+		    var svg = d3.select('#graphic')
+						 .append('svg')
+				         .attr("width", maxWidth) //margin.left + halfWidth*2 + margin.right) // 200 for the legend
+				         .attr("height", height + margin.top + margin.bottom )  //+ 20 adds a little extra
+							 
+		 
+		//create chart left	
+			dvc.svgL = d3.select('svg').append('g')
+						.attr("id", "leftSide")
+			 			.attr("width", halfWidth ) // + margin.left     
+				        .attr("height", height )  // + margin.top + margin.bottom 
+				        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+						
+					dvc.svgL.append("rect")
+						.attr("class","svgRect")
+						.attr("width", dvc.pixelWidth)
+						.attr("height", height);
+			    
+				    dvc.svgL.append('g')
+				        .attr('class', 'x axis')
+				        //.attr("transform", "translate(0, "+height+")")
+						.attr("transform", "translate(0, 0)")
+				        .call(dvc.xAxis);
+
+//				    dvc.svgL.append('g')
+//				        .attr('class', 'x grid')
+//				        .call(x_axis_grid()
+//				            .tickSize(height, 0, 0)
+//				            .tickFormat('')
+//				        );
+						
+					// create y axis
+					dvc.svgL.append('g')
+				        .attr('class', 'y axis')
+				        .call(yAxis);
+						
+					
+		// right container			
+		dvc.svgR = d3.select('svg').append('g')
+						.attr("id", "rightSide")
+			 			.attr("width", halfWidth) // (chart_width/2.4) + dvc.essential.margin_centre[size]/2 )   
+				        .attr("height", height )  // + margin.top  + margin.bottom
+				        .attr("transform", "translate(" + ( margin.left + (chart_width/2.1) + dvc.essential.margin_centre[size] ) + "," + margin.top + ")");
+						//var halfWidth =  (chart_width/2) + dvc.essential.margin_centre[size]/2;
+					dvc.svgR.append("rect")
+						.attr("class","svgRect")
+						.attr("width", dvc.pixelWidth)
+						.attr("height", height);
+			    
+				    dvc.svgR.append('g')
+				        .attr('class', 'x axis')
+				       // .attr("transform", "translate(0, "+height+")")
+						.attr("transform", "translate(0, 0)")
+				        .call(dvc.x1Axis);
+					
+//					// create y axis	FOR right axis if you want a central spine
+					dvc.svgR.append('g')
+				        .attr('class', 'y axis')
+						.attr("transform", "translate(" + (dvc.pixelWidth + margin.left) + ",0)")
+//				        .attr('transform', function(d){ 
+//													return 'translate(' + ( - dvc.essential.margin_centre[size]/3 ) + ',0)'
+//												})
+				       // .call(yrAxis);
+//						
+//						d3.select(".y.axis").selectAll("text").attr("id", function(d,i) {return "axisText" + i});
+//						
+//						d3.select('g.y.axis').select('.domain').remove();					// removes y line
+//						d3.select('g.y.axis').selectAll('.tick').select('line').remove();	// removes inner ticks
+//						d3.select('g.y.axis').selectAll('.tick').select('text').style('text-anchor', 'middle');
+						
+
+				
+					d3.select('g.y.axis').select('.domain').remove();					// removes y line
+					d3.select('g.y.axis').selectAll('.tick').select('line').remove();	// removes inner ticks
+					d3.select('g.y.axis').selectAll('.tick').select('text').style('text-anchor', 'end');
+					
+					d3.select(".y.axis").selectAll(".tick").attr("id", function(d,i) {return "axisText" + i}); // add id
+					
+						d3.select(".y.axis").select("#axisText100").select('text').text(">1");
+						d3.select(".y.axis").select("#axisText0").select('text').html("+100");
+						
+						//d3.select('g.y.axis').select('#axisText9').remove(); // prove it works
+						d3.selectAll('g.y.axis').selectAll("text").style("opacity",function(d,i) {
+																	if (i % 5 !== 0) {  return 0;
+																					}
+																				});
+						
+						
+						
+						// now x-axis ZEROs
+						svg.selectAll(".x.axis").selectAll(".tick").attr("id", function(d,i) {return "axisTick" + i});
+					
+						svg.selectAll('#axisTick0').style("opacity",0);
+						
+						//svg.selectAll("#zeroCentre").remove();
+						
+						svg.append('text')
+								.attr("id", "zeroCentre")
+								.text("0")
+								.attr("transform", "translate(" + (margin.left+dvc.pixelWidth-dvc.essential.margin_centre[size]-2) + "," + (margin.top-2) + ")");
+								
+						// Add AGE
+						svg.append('text')
+							.attr('id', 'zeroCentre')
+							.attr('fill', '#444')
+							.attr('x', dvc.x(9730))
+							.attr('y', dvc.y(97)+margin.top + 2)
+							.text('yrs');
+						   
+						   											
+						// Add toggle button in d3
+						
+						
+						topRow = d3.select('#header').select('#toprow');
+						
+						topRow.selectAll("*").remove();
+						
+						topRow.style('text-align', 'center')
+						
+						//topRow.append("div").attr("class", "Text").append("text").text("Age");
+						topRow.append("div").attr("class", "toggleText").append("text").text("Numbers");
+						topRow.append('div').attr('id', 'togSwitch')
+								
+								.attr('class', 'toggle-button')
+								.append("button");
+						topRow.append("div").attr("class", "toggleText").append("text").text("Percent");
+								
+//						innerRow.append('div')
+//								.style('display', 'table-cell')
+//								.append('text')
+//								.attr('id', 'year');		
+						
+						
+						//dvc.toggle.style("left", dvc.pixelWidth+"px")//.append('text').text('Precent');
+						//if(dvc.toggle.classed("toggle-button-selected")){ 
+						
+						$(document).on('click', '.toggle-button', function() {
+							$(this).toggleClass('toggle-button-selected'); 
+
+							if(d3.select(".toggle-button").classed("toggle-button-selected")){ 
+								//console.log("selected");
+								
+								drawPercent();
+												
+							} else{
+								//console.log("NOT selected");
+								
+								drawFigs();	
+							}
+						});
+
+
+//					d3.select('#tog').on('click', '.toggle-button', function() { console.log("tog on");
+//							d3.select('#tog').toggleClass('toggle-button-selected'); 
+//								});
+		
+		// if not small		
+		 if (maxWidth > dvc.threshold_sm) {  							
+									topBars();	//this adds whole widthbars for ease of use.	
+								 }
+		drawFigs();
+		writeAnnotation();
+		legend();  // no need to function off now as always there
+		
+
+							
+	function legend()
+	{			
+  //  create Table using d3
+						
+		var td = d3.select("tbody").selectAll("tr").selectAll("td");
+		var th = d3.select("thead").selectAll("tr").selectAll("td");
+			th.style("color", "#444");
+			td.style("color", "#666");
+			
+			//d3.selectAll("#dash0, #dash4").selectAll("td").style("font-size", "12px").style("color", "#666");  // Set cat styles
+			//d3.selectAll("#dash2, #dash3", "#dash6", "#dash7").selectAll("td").style("font-size", "12px").style("font-weight", "bold").style("color", "#444");  // Set data
+		
+		    td.attr("id", function(d,i) { return "dash"+i; });  // add 0-7 to each row as a column id
+			th.attr("id", function(d,i) { return "hdash"+i; });  // add 0-7 to each row
+		
+		// add categories
+		var shortNames = ["Cancer","Circulatory","Respiratory","Mental & behavioural","Nervous","Digestive","External","Genitourinary","Infection","Musculoskeletal","Endocrine & nutritional","Other"];
+		
+		 if (maxWidth > dvc.threshold_sm) {    // console.log("egs used");			
+		 	d3.selectAll("#dash0, #dash4").attr('cursor', 'pointer').text( function(d,i){ return colNames[i] } );
+		 }
+		 else{
+			d3.selectAll("#dash0, #dash4").attr('cursor', 'pointer').text( function(d,i){ return shortNames[i] } ); 
+		 }
+		 //d3.select("tbody").selectAll("tr").selectAll('.cat').style("font-size", '11px');
+		 
+		 d3.selectAll("#dash1, #dash5").selectAll("*").remove();
+		 
+		// the squares
+		 d3.selectAll("#dash1, #dash5").append('b')//     function(d,i){return "border" + i})  FOR CSS
+		 								.style("background-color", function(d,i){ return col[i] })
+										.attr("id","key") // function(d,i){return "border" + i})  FOR CSS
+										.attr("class",function(d,i){return "catsqrs" + i})
+										.attr('cursor', 'pointer') // diesn't work
+										.on("mouseover",function(){ 
+																	showlight(this);
+																  })
+										.on("mouseout", function(){ 
+																	 d3.selectAll('.indBars').style('opacity', 0.8);
+																	 d3.selectAll("td").selectAll('b').style("opacity", 1); 
+																	 d3.selectAll("td").style("color", "#666");
+		 														});
+		 
+		 // add male & Female data IDs    VERTICAL IDs
+		 d3.selectAll("#dash2, #dash6").text('-').attr("class",function(d,i){return "mData" + i});
+		 d3.selectAll("#dash3, #dash7").text('-').attr("class",function(d,i){return "fData" + i});
+		
+		// the text
+		  d3.selectAll("#dash0, #dash4").attr("class",function(d,i){return "catData" + i})
+		 								.attr('cursor', 'pointer')
+										.on("mouseover",function(){ 
+																	showlight(this);
+																  })
+										.on("mouseout", function(){ d3.selectAll('.indBars').style('opacity', 0.8);
+																	d3.selectAll("td").selectAll('b').style("opacity", 1); 
+																	d3.selectAll("td").style("color", "#666");
+																	});
+		 
+		 //if small collapse
+		 if (maxWidth < dvc.threshold_sm) {     //console.log("no dash 3,7");
+		 										d3.selectAll("#dash3, #dash7, #dash2, #dash6").style("display", "none").style("width",0);
+												d3.selectAll("#hdash3, #hdash7, #hdash2, #hdash6").style("display", "none").style("width",0);
+		 										}
+		 
+		
+	} // end legend
+
+
+function showlight(evt) {
+		
+				d3.selectAll('.indBars').style('opacity', 0.2);
+				// querySelectorAll IE
+				evtId = d3.select(evt).attr("class");
+				show = evtId.substring(7);
+				//console.log(evtId+"  "+show); // show+ 
+				
+				d3.selectAll("#barL_"+show).style('opacity', 0.8);
+				d3.selectAll("#barR_"+show).style('opacity', 0.8);
+				
+				// highlight background
+				d3.selectAll("td").style("color", "#dadada");
+				selection = ".catData"+ show;
+				d3.select(selection).style("color", "#888");
+				
+				selectsqr = ".catsqrs"+show;
+				d3.selectAll("td").selectAll('b').style("opacity", 0.2); 
+				d3.select(selectsqr).style("opacity", 1); 
+				
+//				var td = d3.select("tbody").selectAll("tr").selectAll("td");
+//		var th = d3.select("thead").selectAll("tr").selectAll("td");
+//			th.style("color", "#444");  .select(td)
+		
+}
+
+
+function writeAnnotation(){
+				dvc.essential.annotationChart.forEach(function(d,i) {	
+					// draw annotation text based on content of var annotationArray ...
+					
+					svg.append("text")
+						.text(dvc.essential.annotationChart[i])
+						.attr("class","annotext" + i)
+						.attr("text-anchor", dvc.essential.annotationAlign[i])
+						.attr('y',dvc.y(dvc.essential.annotationXY[i][1]))
+						.attr('x', function(){  if(i == 0) { 	return dvc.x(dvc.essential.annotationXY[i][0] );  }
+														else {	return dvc.x1(dvc.essential.annotationXY[i][0] );  }
+														  })
+						.attr("transform", function(){ if(i == 0) { return "translate(0, 0) ";	}
+													else { return "translate(" + ( margin.left + (chart_width/2.4) + dvc.essential.margin_centre[size] ) + ", 0) "; }
+													});
+								
+					d3.selectAll(".annotext" + (i))
+						.each(insertLinebreaks)
+						.each(createBackRect);	
+						
+						
+					function insertLinebreaks() {
+						
+						var str = this;
+	
+						var el1 = dvc.essential.annotationChart[i];
+						var el = el1.data;
+				
+						var words = el1.split('  ');
+						
+						d3.select(this).text('');
+					
+						for (var j = 0; j < words.length; j++) {
+							var tspan = d3.select(this).append('tspan').text(words[j]);
+							if (j > 0)
+								tspan.attr('x', dvc.x(dvc.essential.annotationXY[i][0])).attr('dy', '22');													
+						}
+					};					
+											
+							function createBackRect() {
+								
+							var BBox = this.getBBox()
+									svg.insert("rect", ".annotext" + (i))
+										.attr("width", BBox.width)
+										.attr("height", BBox.height)
+										.attr("x", BBox.x)
+										.attr("y", BBox.y)
+										.attr("fill", "white")
+										.attr("opacity", 0.4)
+										.attr("transform", function(){ if(i == 0) { return "translate(0, 0) ";	}
+										
+										else { return "translate(" + ( margin.left + (chart_width/2.4) + dvc.essential.margin_centre[size] ) + ", 0) "; }
+															});
+										
+							}; // end function createBackRect()
+
+				});	// end foreach 		
+			
+
+								
+	function insertLinebreaksLabels()
+		{
+			var str = this.textContent;
+
+			var words = str.split('  ');
+			
+			d3.select(this).text('');
+		
+			for (var j = 0; j < words.length; j++) {
+				var tspan = d3.select(this).append('tspan').text(words[j]);
+				if (j > 0)
+					tspan
+					.attr('x', -10)			
+					.attr('dy', '1em');													
+					}
+			};	
+		
+		d3.selectAll(".y text").each(insertLinebreaksLabels)
+		
+		
+	} // end function writeAnnotation()
+	
+
+	function topBars()
+	{ 
+			thous = d3.format(',f');
+			perCt = d3.format(',.1%');
+			
+			svg.selectAll("rect.roll")
+					.data(workArray[0])
+					.enter()
+					.append("rect")
+					.attr("class","barNone")
+					.attr("id", function(d,i) { return "rollover" + i; } )
+					.attr("fill", "#333")
+					.attr("opacity", 0)
+					.attr("x", margin.left)
+					.attr("y",function(d,i){  
+												return dvc.y(i) + margin.top ; // (lengData-1) - 
+											})
+					.attr("height", dvc.y.rangeBand() + 0.5 ) 
+					.attr("width", dvc.pixelWidth * 2)
+					.attr('cursor', 'pointer')
+					.on("mouseout", function(){ 
+							d3.selectAll("#dash2, #dash6").text('-');
+							d3.selectAll("#dash3, #dash7").text('-');
+							d3.select('#rollover'+touchNum).attr('opacity', 0);
+						})
+					.on("mouseover", function(d,i){ //console.log("d "+d);
+								touch = this.id;
+								touchNum = touch.substr(8,3); // need 3 for the 100
+								d3.select('#rollover'+touchNum).attr('opacity', 0.3);
+						 if (parseInt(graphic.style("width")) > dvc.threshold_sm) { 		
+								d.forEach(function(d,i) {	
+												if(d3.select(".toggle-button").classed("toggle-button-selected")){ 
+						d3.select('.mData'+i).text( perCt( (workArray[0][dvc.lengData-touchNum-1][i]/dvc.biggestSum[0][dvc.lengData-touchNum-1] )  ) );
+						d3.select('.fData'+i).text( perCt( (workArray[1][dvc.lengData-touchNum-1][i]/dvc.biggestSum[1][dvc.lengData-touchNum-1] )  ) );
+																	}
+													else{  //console.log("NOT selected");
+						d3.select('.mData'+i).text( thous(workArray[0][dvc.lengData-touchNum-1][i]) );
+						d3.select('.fData'+i).text( thous(workArray[1][dvc.lengData-touchNum-1][i]) );	
+													} // end else
+													
+												}); // end forEach
+						 } // end if small
+										})
+
+											
+//		// the squares
+//		 d3.selectAll("#dash1, #dash5").append('b').attr("class",function(d,i){return "border" + i}).style('border-top', function(d,i){   return c10(i);  } );
+//		 
+//		 // add colour male & Female data IDs
+//		 d3.selectAll("#dash2, #dash6").text('M').attr("class",function(d,i){return "mData" + i});
+//		 d3.selectAll("#dash3, #dash7").text('F').attr("class",function(d,i){return "fData" + i});
+									
+		
+	}
+			
+				//create link to source				
+				d3.select(".footer").append("p")
+					.text("Source: ")
+					.append("a")
+					.attr("href", dvc.essential.sourceURL)
+					.attr("target", "_blank")
+					.html(dvc.essential.sourceText);
+							
+				//use pym to calculate chart dimensions	
+				if (pymChild) {
+					pymChild.sendHeight();
+				}
+				
+}  // ends drawGraphic
+
+
+	function delXaxisZerosP()
+	
+		{  //console.log("del ZERO P");
+		
+		console.log("opacity");
+			d3.selectAll(".x.axis").selectAll(".tick").attr("id", function(d,i) {return "axisTick" + i});
+			if (maxWidth > dvc.threshold_sm) {  	
+			
+			 						d3.selectAll('g.x.axis').selectAll('#axisTick0').style("opacity",0);				
+									//d3.selectAll('#axisTick5').style("opacity",0);
+										
+								 }else{
+								 //d3.selectAll('g.x.axis').selectAll('#axisTick2').remove(); // gets rid of 0 when going from % to N
+								 
+								 console.log("opacity");
+								 //d3.selectAll('g.x.axis').selectAll('#axisTick5').style("opacity",0);	
+								 d3.selectAll('g.x.axis').selectAll('#axisTick0').style("opacity",0);
+								 	}
+		}
+		
+	function delXaxisZerosN()
+		{  //console.log("del ZERO N");
+	
+				d3.selectAll(".x.axis").selectAll(".tick").attr("id", function(d,i) {return "axisTick" + i});
+				//if (maxWidth > dvc.threshold_sm) {  							
+									//	d3.selectAll('g.x.axis').selectAll('#axisTick5').remove();		
+									// }else{
+									 //d3.selectAll('g.x.axis').selectAll('#axisTick2').remove();
+									// d3.selectAll('g.x.axis').selectAll('#axisTick5').remove();
+									 d3.selectAll('g.x.axis').selectAll('#axisTick0').style("opacity",0);
+							//	 	}
+		}
+					
+	
+	
+	function drawFigs()
+	{
+	 	d3.selectAll(".bars").remove();
+			
+		// if first time
+		if(first !== true){         // No transition first time
+		
+		
+		//console.log("drawFigs ");
+		d3.select('#PerVal').attr('display', 'none');
+		d3.select('#PerPer').attr('display', 'show');
+					
+		d3.select("#leftSide").select(".x.axis")	
+							.transition()
+							//.delay(100)
+							.duration(2000)
+							.call(dvc.xAxis);
+							
+			d3.select("#rightSide").select(".x.axis")	
+							.transition()
+							//.delay(100)
+							.duration(2000)
+							.call(dvc.x1Axis);
+		}
+		first = false;
+		setTimeout(function(){delXaxisZerosN()},2050); 
+			
+			//delXaxisZerosN(); // remove axis bits we don't want inside this function
+			
+										
+	 		 var groupL = dvc.svgL.append('g').attr("class","bars").selectAll('.year') //   x13
+										  //.data(dvc.graphic_data_full[0])
+										  .data(workArray[0])
+										  .enter()
+										  .append("g")
+										  .attr("id",function(d,i) { return "barAgeL" +  ((dvc.lengData-1) - i) } ) // 
+										  .attr("transform", function(d,i) { return "translate( 0," + dvc.y((dvc.lengData-1) - i) + ")"; });
+				var countL=[];	
+					for (l=0; l<dvc.lengData; l++) 
+							{countL[l] = 0;}
+					var numL = 0;	
+						
+					workArray[0].forEach(function(d,i) {	//  95  console.log(i+" d "+d);
+							var thisBarL = d3.select('#barAgeL' + i); //((dvc.lengData-1) - i) );
+							//var addBarL = Math.abs(x(0));  // 312.5 pixels	
+							
+								  thisBarL.selectAll("rect") // thisBarL
+										  .data(function(d) { //console.log("d =" + d);  // 95 objects
+																return d; }) 
+										  .enter()
+										  .append("rect")
+										  .attr("class","indBars")
+										  .attr("id",function(d,i){return "barL_" + i})
+										  //.attr('fill', function(d,i){   return col[i];  } )
+										  .attr('fill', function(d,i){   return col[i];  } )
+										  .attr("height", dvc.y.rangeBand()+0.5)
+										  .attr("x", 	function(d) {	
+																		countL[numL] += d; // add 312.5 even with ZERO
+																		//console.log(i+", "+num+" : "+d + "  countve " + x(countve[num]-d) );
+																		return dvc.x(countL[numL]); 
+																	}) 
+										  .attr("width", function(d) {  
+										  								return Math.abs( dvc.x(0) - dvc.x(d) );
+										  							})
+										  .style("opacity", 0.8);
+										  
+									 ++numL;
+								});
+										  
+										  
+		var groupR = dvc.svgR.append('g').attr("class","bars").selectAll('.year') //svg.selectAll(".year")
+							  .data(workArray[1])
+							  .enter()
+							  .append("g")
+							  .attr("id",function(d,i) { return "barAgeR" + ((dvc.lengData-1) - i) } ) //  bar_pos
+							  .attr("transform", function(d,i) { return "translate(0," + dvc.y((dvc.lengData-1) - i) + ")"; });
+				var countR=[];	
+					for (r=0; r<dvc.lengData; r++) 
+							{countR[r] = 0;}
+					var numR = 0;
+						
+					workArray[1].forEach(function(d,i) {	//  95  console.log(i+" d "+d);
+					var thisBarR = d3.select('#barAgeR' + i); //((dvc.lengData-1) - i) );
+						
+					  thisBarR.selectAll("rect")
+							  .data(function(d) { //console.log("d =" + d);  // 95 objects
+							  						return d; })
+							  .enter()
+							  .append("rect")
+							  .attr("class","indBars")
+							  .attr("id",function(d,i){return "barR_" + i})
+							  //.attr('fill', function(d,i){   return col[i];  } )
+							  .attr('fill', function(d,i){   return col[i];  } )
+							  .attr("height", dvc.y.rangeBand()+0.5)
+							  .attr("x", function(d,i) { 
+														countR[numR] += d; // add 312.5 even with ZERO
+														//console.log(i+", "+numR+" : "+d + "  countR " + x1(countR[numR]-d) );
+														return dvc.x1(countR[numR] - d); // add 312.5 even with ZERO
+													})
+							  .attr("width", function(d) { 
+										//console.log("wid D =" + d);
+										return Math.abs(dvc.x1(d)); 
+							  })
+							  .style("opacity", 0.8);
+						 ++numR;
+					});
+					
+				
+}
+	
+	function drawPercent()
+		{
+			//console.log("drawPercent ");
+			d3.select('#PerVal').attr('display', 'show');
+			d3.select('#PerPer').attr('display', 'none');
+			
+			d3.select('#cPanel').remove();
+			d3.select('.legPanel').select('rect').remove();
+			
+			//button = "Numbers";
+			
+			d3.select("#leftSide").select(".x.axis")	
+							.transition()
+							//.delay(100)
+							.duration(2000)
+							.call(dvc.xAxisPerc);
+							
+			d3.select("#rightSide").select(".x.axis")	
+							.transition()
+							//.delay(100)
+							.duration(2000)
+							.call(dvc.x1AxisPerc);		
+			
+			
+			
+			d3.select('#rightSide').select('g.x.axis').select('#axisTick0').style("opacity",0);
+				
+	
+			dvc.maxBarLen[0].forEach(function(d,i){  // 95 - each row
+				
+				var thisBar = d3.select('#barAgeL' + ((dvc.lengData-1) - i));
+				var addUpBar = Math.abs(dvc.x(0));
+				// get thesum of my bar
+				barSum = dvc.maxBarLen[0][i].reduce(function(a, b) { return a + b; }, 0); // 95 totals
+				//console.log('barSum ' + barSum);
+						
+						dvc.maxBarLen[0][i].forEach(function(d,j){  // 13 headers to the bar
+						
+							 addUpBar -= (dvc.pixelWidth / barSum) * d; 
+							//if(j==0){ console.log("addUpBar >" + addUpBar)  };
+							
+						  	thisBar.select('#barL_' + j)
+								   .transition()
+								   .duration(500)
+								   //	.attr("x", Math.abs(x(0)) - ((dvc.pixelWidth / barSum) * d ) )
+								   .attr("x", addUpBar )  
+								   .attr("width", (dvc.pixelWidth / barSum) * d );
+								   
+				}); // ends header loop
+			});  // ends bar row loop
+			
+			
+			// Now for Mr rightside
+			
+				dvc.maxBarLen[1].forEach(function(d,i){  // 95 - each row
+				
+				var thisBarR = d3.select('#barAgeR' + ((dvc.lengData-1) - i));
+				var addUpBarR = 0;
+				// get thesum of my bar
+				barSumR = dvc.maxBarLen[1][i].reduce(function(a, b) { return a + b; }, 0);
+				//console.log('barSumR ' + barSumR);
+						
+						dvc.maxBarLen[1][i].forEach(function(d,j){  // 13 headers to the bar
+							//addUpBarR += Math.abs(x(addUpBarR)) ; //(dvc.pixelWidth / barSum) * d; 
+							
+							//if(i==0){ console.log("addUpBarR >" + addUpBarR)  };
+							//if(j==0){ console.log("j "+j + ", d "+ d ); };
+							
+						  	thisBarR.select('#barR_' + j)
+									.transition()
+								    .duration(500)
+								    .attr("x", addUpBarR )  
+								    .attr("width", (dvc.pixelWidth / barSumR) * d );
+								  
+						// addUpBarR += Math.abs(x1(d)) ; 
+					addUpBarR += (dvc.pixelWidth / barSumR) * d; 
+				});
+			});
+			dvc.essential.percent = 'false'
+			
+			setTimeout(function(){delXaxisZerosP()},2001); // remove axis bits we don't want
+}  // end drawPercent
+
+// All functions ended		
+		
+	
+	//check whether browser can cope with svg	
+	if (Modernizr.svg) {
+			
+			dvc.percent = true;
+		   //load config 
+			d3.json("config.json", function(error, json) {
+															dvc = json;
+								var man = "../data/"+dvc.essential.graphic_data_url[0];	
+								var woman = "../data/"+dvc.essential.graphic_data_url[1];					
+					 			var remaining = 2//, foo, bar;
+								
+									
+									  d3.csv(man, function(csv1) { 
+												
+												dvc.csv1 = csv1;
+												
+												
+													d3.csv(woman, function(csv2) { 
+														//dvc.graphic_data_full[1] = csv2;
+														dvc.csv2 = csv2; 
+														pymChild = new pym.Child({renderCallback: drawGraphic}); 
+													 });
+																			
+									  });
+									
+									  
+											}); // ends d3.json
+						}
+		
+						else {
+							 //use pym to create iframe containing fallback image (which is set as default 700-900px ?!?)
+							 pymChild = new pym.Child();
+							if (pymChild) {
+								pymChild.sendHeight();
+							}
+	}
+	
+		
+    </script>
+</body>
+</html>

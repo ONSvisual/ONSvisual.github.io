@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Maps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css" media="screen">
+  <link rel="stylesheet" href="css/style-chosen.css">
+  <link rel="stylesheet" href="css/bootstrap-slider.css">
+
+
+  <style>
+  
+  body {
+	max-width:600px;
+	
+  }
+ .container-fluid, .footer{
+fill:white;	 
+	}
+ 
+  *{
+    margin:0;
+    padding:0;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+  }
+  body,html{
+	display:inline-block;
+	width:100%;
+  }
+  
+  #map{
+    height:550px;
+  }
+  
+  body{
+    color:#333;
+  }
+  
+  @font-face {
+		font-family: 'open_sanslight';		
+		src: url('assets/OpenSans-Light-webfont.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	
+	}
+	
+	@font-face {
+		font-family: 'open_sansitalic';		
+		src: url('assets/OpenSans-Italic-webfont.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	
+	}
+	
+	@font-face {
+		font-family: 'open_sansregular';		
+		src: url('assets/OpenSans-Regular-webfont.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	
+	}
+	
+	@font-face {
+		font-family: 'open_sanssemibold';		
+		src: url('assets/OpenSans-Semibold-webfont.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	
+	}
+		
+  
+  #map{
+    background:white;
+	width:100%;
+  }
+  
+  #keydiv {
+	z-index:4;
+	height:550px;
+	background:rgba(255,255,255,.75);
+  }
+  
+  #areadrop {
+	z-index:1000;
+	position:absolute;  
+	width:220px;
+	height:72px;
+	right:0px;
+	background:rgba(255,255,255,.75);
+  }
+  
+	#key path {
+	  display: none;
+	  
+	}
+	
+	#key line {
+	  stroke: #666;
+	  shape-rendering: crispEdges;
+	}
+	
+	#key rect {
+	  stroke: #666;
+	  stroke-width:1px;
+	  shape-rendering: crispEdges;
+	}
+	
+	#key g {
+		font-size:11px;
+		fill:#666;
+	}
+	
+	
+	#areaname {
+		text-align:center;
+		height:55px;
+	}
+	
+	@media (min-width: 598px) {
+	
+	#mapPane {
+		width: calc(100% - 220px);
+	}
+	
+	#areaname {
+		margin-top:25px;
+	}
+	
+	#areanm
+	{	
+		
+		font-size:18px;
+		color:#008CBA;
+		min-width:1%;
+		font-family:open_sanssemibold, Arial, Helvetica, sans-serif;
+		text-align:left;
+		padding-left:5px;
+		
+	}
+
+	#areainfo
+	{	
+		
+		font-size:22px;
+		color:#008CBA;
+		font-family:open_sanssemibold, Arial, Helvetica, sans-serif;
+		text-align:left;
+		padding-left:5px;
+	}
+	
+	
+	#areainfo span {	
+		
+		font-size:14px;
+	}
+	
+	#keydiv {
+		
+		width:220px;
+	}
+	
+	}
+	
+	@media (max-width: 597px) {
+
+	
+	#areadrop {
+
+		width:100%;
+		height:85px;
+	}
+	
+	#areanm
+	{	
+		
+		font-size:16px;
+		color:#666;
+		font-family:open_sanssemibold, Arial, Helvetica, sans-serif;
+
+	}
+
+	#areainfo
+	{	
+		
+		font-size:14px;
+		color:#666;
+		font-family:open_sanssemibold, Arial, Helvetica, sans-serif;
+
+	}
+
+	#areainfo span
+	{	
+		
+		font-size:12px;
+	}
+	
+	}
+
+	
+	#chosensel {
+		height:35px;	
+	}
+	
+	#keydiv {
+		
+		
+		height:70px;
+		top: 30px;
+	}
+
+/*	@media (min-width: 598px) {
+	
+	#keydiv {
+		
+		top:72px;
+		width:100px;
+		height:462px;
+		right:33%;
+	}
+	
+
+	#key {
+		width:140px;	
+		height:462px;
+	}
+	}
+*/	
+
+	#key {
+		height:70px;
+	}
+	
+	@media (max-width: 597px) {
+	
+	#mapPane {
+		width: 100%;
+	}
+	
+	#keydiv {
+		top:0px;
+	}
+	
+	#key {
+		height:70px;
+	}
+	.chosen-container {
+		top: 5px;
+		z-index:1002;
+	}
+	}*/
+
+
+
+	.navbar {  
+	  min-height: 0px !important;
+	}
+	
+	#menu {
+		z-index:1001;	
+	}
+	
+	
+	        /* chart */
+		
+        #chartPane:before, /* required */
+        #chartPane:after
+		{
+            content: " "; /* 1 */
+            display: table; /* 2 */
+        }
+		
+		
+		
+        #chartPane:after /* required */
+		{
+			clear: both;
+		}
+		
+		
+
+        #chartPane img /* required */
+		{
+            max-width: 100%;
+            height: auto;
+        }
+		
+		.svgRect{
+			fill: white;	
+		}
+		
+		/* y-axis tick labels */
+		#chartPane  /* required */
+		{
+            background-color:#fff;
+			width:220px;
+			float: left;
+        }
+		
+        #chartPane .axis  /* required */
+		{
+            font-size: 12px;
+            fill: #666;
+        }
+		
+		
+		/* x-axis baseline; not to be confused with centreline. Can consider overlaying this with #centreline */
+        #chartPane .axis path  /* required */
+		{
+            fill: none;
+            stroke: #666;
+            shape-rendering: crispEdges;
+        }
+		
+		
+		#chartPane .axis line /* required */
+		{
+            fill: none;
+            stroke: #ccc;
+            shape-rendering: crispEdges;
+        }
+		
+		/* y-axis line path */
+        #chartPane .axis.y path /* required */
+		{
+			display: none;
+		}
+		
+	
+		
+		/* y-axis full width grid lines */
+        #chartPane .grid .tick /* required */
+		{
+            stroke: #CCC;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+		
+		
+		
+		/* ploted graph line */
+        #chartPane .line /* required */
+		{
+            fill: none; /* must be 'none' */
+            stroke-width: 3px;
+			stroke-linecap:round;
+			stroke-linejoin:round;
+        }
+		
+		
+		
+		/* legend elements */
+        #chartPane .key li/* required */
+		{
+            display: inline-block;
+            margin: 0 18px 0 0;
+            padding: 0;
+            line-height: 15px;
+        }
+		
+		
+
+        /* legend coloured elements */
+        #chartPane .key b/* required */
+		{
+            display: inline-block;
+            width: 35px;
+            height: 15px;
+            margin-right: 6px;
+            float: left;
+			background-color:none;
+			margin-top:8px;
+        }
+
+				
+		
+		/* legend element labels */
+        #chartPane .key label/* required */
+		{
+            white-space: nowrap;
+            font-size: 12px;
+            color: #333;
+            font-weight: normal;
+        }
+		
+		 #chartPane #ylabel/* required */
+		{
+            
+            font-size: 12px;
+            fill: #666;
+            
+        }
+
+		
+		
+		/* y-axis units label */
+        #chartPane .unit/* required */
+		{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            fill: #333333;
+            text-align: left;
+			width:130px;
+			height:20px;
+			display:block;
+			float:none;
+			
+        }
+		
+		#line1 { stroke: #008cba; stroke-width:2px}
+		
+		#line2 { stroke: #666; stroke-width:2px}
+	
+		.dropdown-menu {
+			min-width:100% !important;
+		}	
+		
+		#side{
+			background-color:#FFF;
+		}
+	
+	@media (min-width: 597px) {
+		#time {
+			z-index:10000;
+			position:relative;
+			top: 10px;
+			padding: 0px 10px;
+			margin-right:10px;
+			float:right;
+			font-size:30px;
+			color:#fff;
+			background:rgba(200,200,200,0.8);
+		}
+	}		
+		
+	@media (max-width: 598px) {
+		#time {
+			z-index:10000;
+			position:relative;
+			top: 90px;
+			padding: 0px 10px;
+			margin-right:10px;
+			float:right;
+			font-size:30px;
+			color:#fff;
+			background:rgba(200,200,200,0.8);
+		}
+	}		
+
+		#timeSlider {
+			background:#FFF;	
+		}
+		
+		#ChartFooterDiv, .footer {
+			font-weight:600!important;
+			font-size:14px!important;
+			line-height:24px!important;
+			margin: opx 0!important;
+			padding: 5px 0 3px 0!important;
+			font-family: Helvetica,sans-serif!important;
+			color: #414042!important;
+			box-sizing: border-box!important;
+			margin-top:8px;
+		}
+		
+		#submitbut {
+			background-color:#0F8243;
+			display:block;
+			width:200px;
+			text-align:center;
+			font-size:14px;
+			color:white;
+			font-weight:100;
+			text-decoration:underline;
+			width:70px;
+			height:43px;
+			padding:12px 0px;
+			margin-right:6px;
+			float:left;
+		}
+		#submitbut:hover {
+			cursor:hand;
+			cursor:pointer;
+			display:block;
+			background-color:rgb(11,93,48)!important;
+			width:200px;
+			text-align:center;
+			font-size:14px;
+			color:white;
+			font-weight:100;
+			text-decoration:underline;
+			width:70px;
+			height:43px;
+			padding-top:12px;
+			margin-right:6px;
+			float:left;
+		}
+		#notesdiv {
+			max-width:480px;
+		}
+		
+	  </style>
+</head>
+<body>
+
+   <div class="container-fluid">
+   <div id="graphic">Loading graphic...</div>
+   <div class="row" id="navigation">
+   
+          <div class="col-sm-12 hidden-xs" id="pills">
+          </div>
+          
+          <div class="col-xs-12 visible-xs">
+              <div class="btn-group btn-group col-xs-12" role="group" id="menu">
+                
+                  <button id="varsel" class="btn btn-primary dropdown-toggle btn-block" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Dropdown<span class="caret"></span>
+                  </button>      
+              </div>
+          </div>
+
+   </div>
+  
+
+
+
+   
+   <div class="row" id="side" style="position: relative;">
+          <div id="mapPane" class="col-xs-12">
+          	<div id="map">
+
+            </div>
+          </div>
+
+          <div id="chartPane" class="hidden-xs">
+
+          </div>
+          <div id="keydiv" class="col-xs-12">
+
+          </div>
+          
+      <div class="row" id="areadrop">
+            <div class="col-sm-12 col-xs-12" id="chosensel">
+     		</div>
+          <div class="col-sm-12 col-xs-12" id="areaname">
+                <div id="areanm"></div>
+                <div id="areainfo"></div>
+          </div>
+
+
+	  </div>                  
+
+
+   </div><!-- end row --> 
+
+   <div class="row">
+       <div class="col-sm-2 hidden-xs">
+			<button id="playPause" type="submit" class="col-sm-12 btn btn-primary">
+            	<span class="glyphicon glyphicon-play" aria-hidden="true"></span> Play
+            </button>
+       </div>
+       <div id="timeSlider" class="col-sm-10 col-xs-12">
+       </div>
+
+   </div>
+  </div>
+  <div id="ChartFooterDiv">Note:</div>
+   <div id="notesdiv">  
+   <ol>
+        <li>The Isles of Scilly has been combined with Cornwall for all years because of the very small number of deaths in this area.</li>
+   </ol>
+	</div>
+
+    <div id="ChartFooterDiv">Download this map</div>
+    
+    <a href="fallback.png" target="_blank"><div id="submitbut">Image</div></a>
+    <a href="ASMRs_EW_0115.xls" target="_blank"><div id="submitbut">.xls</div></a>
+
+    
+   
+  
+  
+    <script src="js/jquery.js"></script>
+    <script src="js/chosen.jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-slider.js"></script>
+ 	<script src="js/modernizr.custom.56904.js"></script>
+    <script src="js/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/queue.js" charset="utf-8"></script>
+    <script src="js/ss.js"></script>
+    <script src="js/topojson.js"></script>
+    <script src="js/pym.js" charset="utf-8"></script>
+    <script src="js/colorbrewer.js" charset="utf-8"></script>
+    <script src="js/leaflet.js"></script>
+	<script src="js/script.js"></script>
+    
+    <script>
+	</script>
+
+</body>
+</html>

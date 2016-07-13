@@ -1,0 +1,42 @@
+{
+    "essential" : {
+            "graphic_data_url": ["male15.csv", "female15.csv"],
+            "percent" : true,
+        
+            "dateFormat":"%Y",
+            "legendXY":[2000, 27],
+            "legendLabels" : [],
+            "buttonNames" : ["Percent", "Figures"],
+        
+            "sourceText":["Deaths registered in England and Wales, 2015"],
+            "sourceURL":["https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/deathregistrationssummarytablesenglandandwalesreferencetables"],
+        
+            "annotationChart": ["Male", "Female"],
+            "annotationBullet": [],
+            "annotationXY":[["4000", "50"], ["4000", "50"]],
+            "annotationAlign":["Middle"],
+        
+            "xAxisLabel":"",
+            "xAxisScale":10000,
+            "multiplier": 1000,
+        
+            "margin_centre": [2,2,2]
+    },
+    "optional" : {
+            "margin_sm": [12, 15, 20, 38],
+            "margin_md": [12, 15, 20, 38],
+            "margin_lg": [12, 15, 20, 38],
+
+            "aspectRatio_sm" : [4,5],
+            "aspectRatio_md" : [12,9],
+            "aspectRatio_lg" : [12,6],
+        
+            "mobileBreakpoint" : 510, 
+                           
+            "x_num_ticks_sm_md_lg" : [3,6,6],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+

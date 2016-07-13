@@ -1,0 +1,26 @@
+{"ons":{
+"datanames": ["mortality","mortality_Males","mortality_Females"],
+"varlabel": ["Mortality Total","Mortality Males","Mortality Females"],
+"varcolour": ["#f0f9e8","#bae4bc","#7bccc4","#43a2ca","#0868ac"],
+"varname": ["Mortality Total","Mortality Males","Mortality Females"],
+"varload": "Mortality Total",
+"varunit":[" persons per 100,000"," males per 100,000"," females per 100,000"],
+"varprefix":["","",""],
+"breaks":[[350,950,1100,1250,1400,1600],[400,1100,1250,1400,1550,2050],[300,800,900,1000,1100,1400]],
+"average":[
+    [1236.2,1231.3,1232.1,1163.0,1143.8,1104.3,1091.8,1091.9,1033.8,1017.1,978.6,987.4,985.9,953.0,993.2],
+    [1511.7,1496.7,1482.3,1400.7,1368.4,1324.3,1298.9,1291.7,1229.7,1201.3,1159.5,1159.4,1158.3,1121.3,1156.4],
+    [1046.2,1045.6,1055,992.7,981.2,944.5,939.1,943.2,886.6,876.7,842.1,856.1,852.6,821.9,863.8]
+],
+"averagelabel":"E&W",
+"centre":[53.0,-1.91],
+"zoom":6,
+"sourceLabel":"Office for National Statistics",
+"sourceURL":"https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths",
+"chartLabels":["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15"],
+"timelineLabelsMB":["01", "", "03", "", "05", "", "07", "", "09", "", "11", "", "13", "","15"],
+"timelineLabelsDT":["2001", "", "2003", "", "2005", "", "2007", "", "2009", "", "2011", "", "2013", "","2015"],
+"circles": "false"
+    
+    
+}}
