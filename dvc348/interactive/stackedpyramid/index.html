@@ -124,6 +124,23 @@
 			font-size:12px;	
 			fill:#666;
 		}
+		
+		.toggleBtn{
+			width:150px;
+			height:24px;
+			background: #E9E6E6;
+			border:1px solid #E1DDDD;
+			line-height:1.7em;
+			margin:5px;
+			font-size:13px;
+			color:#666;
+		}
+		
+		.toggleBtn:hover{
+			cursor:pointer;
+			background: #E0DDDD;	
+			border:1px solid #BDBDBD;
+		}
    </style>
         
     <script src="../lib/d3.v3.5.min.js" type="text/javascript"></script>
@@ -529,13 +546,13 @@ function drawGraphic()
 						
 						topRow.style('text-align', 'center')
 						
-						//topRow.append("div").attr("class", "Text").append("text").text("Age");
-						topRow.append("div").attr("class", "toggleText").append("text").text("Numbers");
-						topRow.append('div').attr('id', 'togSwitch')
-								
-								.attr('class', 'toggle-button')
-								.append("button");
-						topRow.append("div").attr("class", "toggleText").append("text").text("Percent");
+//						//topRow.append("div").attr("class", "Text").append("text").text("Age");
+//						topRow.append("div").attr("class", "toggleText").append("text").text("Numbers");
+//						topRow.append('div').attr('id', 'togSwitch')
+//								
+//								.attr('class', 'toggle-button')
+//								.append("button");
+//						topRow.append("div").attr("class", "toggleText").append("text").text("Percent");
 								
 //						innerRow.append('div')
 //								.style('display', 'table-cell')
@@ -546,20 +563,38 @@ function drawGraphic()
 						//dvc.toggle.style("left", dvc.pixelWidth+"px")//.append('text').text('Precent');
 						//if(dvc.toggle.classed("toggle-button-selected")){ 
 						
-						$(document).on('click', '.toggle-button', function() {
-							$(this).toggleClass('toggle-button-selected'); 
+//						$(document).on('click', '.toggle-button', function() {
+//							$(this).toggleClass('toggle-button-selected'); 
+//
+//							if(d3.select(".toggle-button").classed("toggle-button-selected")){ 
+//								//console.log("selected");
+//								
+//								drawPercent();
+//												
+//							} else{
+//								//console.log("NOT selected");
+//								
+//								drawFigs();	
+//							}
+//						});
 
-							if(d3.select(".toggle-button").classed("toggle-button-selected")){ 
-								//console.log("selected");
-								
-								drawPercent();
-												
-							} else{
-								//console.log("NOT selected");
-								
-								drawFigs();	
-							}
-						});
+						dvc.numbers = true;	
+						topRow.append("div")
+								.on('click', function() {
+									
+									if(dvc.numbers == true	){
+										dvc.numbers = false;	
+										d3.select(".toggleBtn").select("text").text("Swap to numbers")
+										drawPercent();
+									} else {
+										dvc.numbers = true;	
+										drawFigs();	
+										d3.select(".toggleBtn").select("text").text("Swap to percent")
+									}
+								})
+								.attr("class", "toggleBtn")
+								.append("text")
+								.text("Swap to percent")	
 
 
 //					d3.select('#tog').on('click', '.toggle-button', function() { console.log("tog on");
@@ -785,7 +820,7 @@ function writeAnnotation(){
 								d3.select('#rollover'+touchNum).attr('opacity', 0.3);
 						 if (parseInt(graphic.style("width")) > dvc.threshold_sm) { 		
 								d.forEach(function(d,i) {	
-												if(d3.select(".toggle-button").classed("toggle-button-selected")){ 
+												if(dvc.numbers == false){ 
 						d3.select('.mData'+i).text( perCt( (workArray[0][dvc.lengData-touchNum-1][i]/dvc.biggestSum[0][dvc.lengData-touchNum-1] )  ) );
 						d3.select('.fData'+i).text( perCt( (workArray[1][dvc.lengData-touchNum-1][i]/dvc.biggestSum[1][dvc.lengData-touchNum-1] )  ) );
 																	}
