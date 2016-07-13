@@ -123,8 +123,6 @@
       topoLayer.eachLayer(handleLayer);
       topoLayer.addTo(map);
 	  
-	  d3.select(".leaflet-overlay-pane").selectAll("path").attr("fill-opacity",0.7).attr("stroke-width",0.7);
-	  
 	  dragging = d3.behavior.drag()
 			.on('dragstart', function () {
 			
@@ -212,7 +210,7 @@
 		d3.select("#areanm").text(areaById[currclass]);
 		
 	
-	format=d3.format(",.0f")
+	format=d3.format(".2f")
 	
 	var subst = dvc.time.substr(2,3);
 	
@@ -309,14 +307,12 @@
 				.append("a")
 				.attr("href", config.ons.sourceURL)
 				.attr("target", "_blank")
-				.html(config.ons.sourceLabel); // and change above url
+				.html(config.ons.sourceLabel); // and change above ur
 
 		
 		//setTimeout(function(){$("#slide").slider('setValue', 3)},5000);
 			pymChild.sendHeight();
 	}
-	
-	
 		
 	function drawChart(currid){
 		
@@ -338,9 +334,7 @@
 			
 			
 			//Start drawing chart
-			natvalues = config2.ons.average[a];
-			
-						
+			natvalues = config2.ons.average[a];	
 			
 			natdata = d3.zip(time,natvalues);
 			
@@ -419,7 +413,8 @@
 		    yAxis = d3.svg.axis()
 		        .scale(ychart)
 		        .orient('left')
-				.ticks(5);
+				.ticks(5)
+				.tickFormat(d3.format(".2f"));
 
 		    //create svg for chart
 		    svg = d3.select('#chartPane').append('svg')
@@ -632,15 +627,15 @@
 		    .orient("bottom")
     		.tickSize(15)
 		    .tickValues(color.domain())
-			.tickFormat(d3.format(".0f"));
+			.tickFormat(d3.format(".2f"));
 
 		
 		var yAxis = d3.svg.axis()
 		    .scale(y)
 		    .orient("left")
     		.tickSize(15)
-		    .tickValues(color.domain())
-			.tickFormat(d3.format(".0f"));
+		    .tickValues(color.domain());
+			//.tickFormat(d3.format(".0f"));
 
 		
 		//horizontal key		
@@ -695,7 +690,7 @@
 			.attr("x",x(0));	
 			
 			
-
+		//changing x label height
 		d3.select("#horiz").selectAll("text").attr("transform",function(d,i){if(i % 2){return "translate(0,10)"}});			
 		
 		g2.append("text").attr("id","keyunit").text(dvc.unittext).attr("transform","translate(0,-10)");
@@ -918,17 +913,15 @@
 			d3.select("#time").text("20" + numb);
 		}
 		
-		format=d3.format(".3n")
+		format=d3.format(".2f")
 		
 		if(myId != null) {
 			highlightArea();
 			d3.select(".leaflet-overlay-pane").selectAll("path").on("mouseout",null).on("mouseover",null);
 			d3.select("#areainfo").html(function(d,i){if (!isNaN(rateById[currclass]))  {return dvc.prefix + format(rateById[currclass]) + "<span>" + dvc.unittext + "</span>"} else {return "Data unavailable"}});
 		}
-		
-		d3.select(".leaflet-overlay-pane").selectAll("path").attr("fill-opacity",0.7).attr("stroke-width",0.7);
-		
-		
+		d3.select(".leaflet-overlay-pane").selectAll("path").attr("stroke-width", 0.7).attr("fill-opacity", 0.7)
+	
 	}	
 	
 
@@ -957,6 +950,7 @@
 			
 			if(config.ons.breaks =="jenks"){
 				breaks = ss.jenks(allvalues, 5);
+				console.log(breaks);
 			} else {
 				breaks = config.ons.breaks[a];
 			};
@@ -991,17 +985,13 @@
 		    }; // End function ready
 	}	
 
-		
-
-
-
 	//Load data and config file
 	queue()
-		.defer(d3.csv, "data/mortality.csv")
+		.defer(d3.csv, "data/fertility.csv")
 		.defer(d3.json, "data/config.json")
 		.await(ready);
 		
-		var loading="mortality";
+		var loading="fertility";
 		
 		
 	
