@@ -9,8 +9,9 @@
            "sourceText":["Deaths by underlying cause, sex and single year of age, 2015, England and Wales"],
             "sourceURL":["https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/deathregistrationssummarytablesenglandandwalesreferencetables/2015/syoacause2015.xls"],
         
-            "annotationChart": [
-            ],
+            "annotationChart": [],
+
+            "annotationBullet": [],
             "annotationXY":[
                 ["52","9000"],
                 ["48","5500"]
