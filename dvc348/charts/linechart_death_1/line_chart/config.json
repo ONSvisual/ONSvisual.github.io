@@ -11,12 +11,12 @@
         
             "annotationChart": [
                 "Number of deaths generally higher for men  than for woman until age 83  when the situation is reversed",
-                "Peak in deaths at age 67  as a result of the increased  population due to post  WWII baby boom"
+                "Peak in deaths at age 68  as a result of the increased  population due to post  WWII baby boom"
             ],
 
             "annotationBullet": [
                 "Number of deaths generally higher for men  than for woman until age 83  when the situation is reversed",
-                "Peak in deaths at age 67  as a result of the increased  population due to post  WWII baby boom"
+                "Peak in deaths at age 68  as a result of the increased  population due to post  WWII baby boom"
             ],
 
             "annotationXY":[
@@ -30,8 +30,8 @@
         
             "circles" : true,    
             "annotationCXCY":[
-                ["83","8800"],
-                ["67","4910"]
+                ["83","9200"],
+                ["68","5284"]
             ],
 
             "xAxisLabel":"Age",
