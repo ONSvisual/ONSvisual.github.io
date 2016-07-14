@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+
+ <!-- 1 -->
+    <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+   <!-- <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/fonts/font.opensans-gentiumbook.css">-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+   
+   <style type="text/css">
+    	
+.tl-timeline{
+	font-family:'Open Sans',sans-serif;
+	font-weight:400;
+	font-size:17px;
+	line-height:1.3em;
+}
+
+.tl-timeline h1,.tl-timeline h2,.tl-timeline h3,.tl-timeline h4,.tl-timeline h5,.tl-timeline h6{
+	font-family:'Open Sans',sans-serif;
+	text-transform:none;
+	font-weight:800;
+	font-size:40px;
+	line-height:40px;
+	padding-bottom: 8px;
+}
+
+
+.tl-timeline h2.tl-headline-title{
+	font-size:58px;
+	line-height:58px;
+
+}
+
+.tl-timeline p{
+	font-family:'Open Sans',sans-serif;
+	font-size:15px;
+	line-height:1.3em;
+	}
+
+.tl-timeline ul{
+	font-family:'Open Sans',sans-serif;
+}
+
+.tl-timeline .tl-media .tl-media-wikipedia h4 a,.tl-timeline .tl-media h4,.tl-timeline .tl-media h4 a{
+	font-family:'Open Sans',sans-serif;
+	font-weight:800;
+	font-size:24px;
+	line-height:24px;
+}
+
+.tl-timeline .tl-caption,.tl-timeline .tl-credit{
+	font-family:'Open Sans',sans-serif;
+}
+
+.tl-timeline .vcard{
+	font-family:'Open Sans',sans-serif !important;
+	font-weight:normal !important;
+}
+
+.tl-timeline .tl-slidenav-next,.tl-timeline .tl-slidenav-previous,.tl-timeline .tl-message,.tl-timeline .tl-timegroup-message{
+	font-family:'Open Sans',sans-serif;
+	font-weight:800;
+	text-transform:none;
+}
+
+.tl-timeline .tl-slidenav-next .tl-slidenav-title,.tl-timeline .tl-slidenav-previous .tl-slidenav-title,.tl-timeline .tl-message .tl-slidenav-title,.tl-timeline .tl-timegroup-message .tl-slidenav-title{
+	line-height:1.3em !important;
+}
+
+.tl-timeline .tl-headline-date,.tl-timeline h3.tl-headline-date{
+	font-family:'Open Sans',sans-serif !important;
+	font-weight:normal !important;
+	text-transform:none !important;
+}
+
+
+.tl-slide .tl-slide-background{
+	opacity: .4!important;
+	
+}
+
+.tl-timeline .tl-headline-date small,.tl-timeline h3.tl-headline-date small{font-weight:normal !important}
+
+.tl-timeline .tl-timenav-slider{
+	font-family:'Open Sans',sans-serif;
+	font-weight:800;
+}
+
+.tl-timeline .tl-timenav-slider h2.tl-headline{font-family:'Open Sans',sans-serif;
+	font-weight:800;
+	text-transform:none;
+}
+
+.tl-timeline .tl-timenav-slider .tl-timeaxis{
+	font-family:'Open Sans',sans-serif;
+	font-weight:800;
+	text-transform:none;
+}
+
+.tl-timeline .tl-menubar{
+	font-family:'Open Sans',sans-serif;
+}
+
+.tl-timeline blockquote,.tl-timeline blockquote p{
+	font-family:'Open Sans',sans-serif;
+	font-style:italic;
+	font-weight:400;
+	line-height:1.3;
+}
+
+input[type="text"].editor-headline{
+	font-family:'Open Sans',sans-serif;
+	text-transform:none;
+	font-weight:800;
+	font-size:40px;
+	line-height:40px;
+}
+
+.tl-timeline .tl-headline-date,.tl-timeline h3.tl-headline-date{
+	margin-bottom:5px !important;
+}
+
+.tl-timeera.tl-timeera-color0 .tl-timeera-background{background-color:#f8f8f9 !important;}
+.tl-timeera.tl-timeera-color1 .tl-timeera-background{background-color:#f8f8f9 !important;}
+.tl-timeera.tl-timeera-color2 .tl-timeera-background{background-color:#f8f8f9 !important;}
+.tl-timeera.tl-timeera-color3 .tl-timeera-background{background-color:#f8f8f9 !important;}
+.tl-timeera.tl-timeera-color4 .tl-timeera-background{background-color:#f8f8f9 !important;}
+.tl-timeera.tl-timeera-color5 .tl-timeera-background{background-color:#f8f8f9 !important;}
+
+.tl-timemarker:hover .tl-timemarker-content-container {
+	background-color: #3e3e3e;
+}
+
+@media (max-width: 480px) {
+
+.tl-timeline p{
+	font-size: 13px;
+	}
+}
+
+    
+    </style>
+   
+   
+   
+    <!-- 2 -->
+    <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+	<script src="lib/d3.v3.5.17.min.js"></script>
+    <script src="lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="lib/pym.js" type="text/javascript"></script>
+	
+
+</head>
+
+ 
+  
+
+
+<body> 
+
+	<div id='graphic' style="width: 100%;
+
+height: 600px"></div>
+  
+   
+    
+     <!-- 3 -->
+     
+      <script type="text/javascript">
+        
+		
+		var graphic = d3.select('#graphic');
+
+function drawGraphic (width){
+			// two arguments: the id of the Timeline container (no '#')
+			// and the JSON object or an instance of TL.TimelineConfig created from
+			// a suitable JSON object
+			window.timeline = new TL.Timeline('graphic', "https://docs.google.com/spreadsheets/d/1IlspKnb9fZSZ-D81isvTUu3higlbnsctU1l0VRs3lD0/pubhtml");
+
+//			window.timeline = new TL.Timeline('graphic', "data.json");
+
+}
+
+
+				//check whether browser can cope with svg	
+		if (Modernizr.svg) {
+					
+				//use pym to create iframed chart dependent on specified variables
+				pymChild = new pym.Child({ renderCallback: drawGraphic}
+
+);
+
+}
+
+ else {
+			 //use pym to create iframe containing fallback image (which is set as default)
+			 pymChild = new pym.Child();
+
+if (pymChild) {
+		        pymChild.sendHeight();
+
+}
+
+
+		}
+
+
+		
+		
+      </script>
+</body>
+</html>
