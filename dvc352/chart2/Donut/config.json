@@ -4,7 +4,7 @@
         
             "dateFormat":"%Y",
 			
-            "legendLabels":[ "Non store retailing" ,	"Predominantly food stores" ,	"Textile, clothing and footware stores" , "Department stores" , "Household goods stores" , "Other stores" ],
+            "legendLabels":[ "No permanent physical store" , "Shops that sell mainly food" ,	"Clothing shops" , "Department stores" , "Household goods stores" , "Shops selling other items" ],
         
 			"sourceText":["Monthly Business Survey for Retail Sales, ONS"],
             "sourceURL":["https://www.ons.gov.uk/businessindustryandtrade/retailindustry/datasets/retailsalesindexinternetsales"],
@@ -13,7 +13,7 @@
                 "2015"
             ],
             "annotationBullet": [
-                "text donut chart annotation1"
+               
             ],
 			
             "annotationXY":[
@@ -34,15 +34,15 @@
             "yAxisBreak_sm_md_lg": [65,65,65]            
     },
     "optional" : {
-            "margin_sm": [10, 50, 35, 40],
-            "margin_md": [10, 50, 35, 40],
-            "margin_lg": [10, 50, 35, 40],
+            "margin_sm": [10, 10, 0, 10],
+            "margin_md": [10, 50, 5, 50],
+            "margin_lg": [10, 50, 5, 50],
         
-            "aspectRatio_sm" : [16,13],
-            "aspectRatio_md" : [16,12],
-            "aspectRatio_lg" : [16,10],
+            "aspectRatio_sm" : [16,12],
+            "aspectRatio_md" : [16,10],
+            "aspectRatio_lg" : [16,9],
         
-            "mobileBreakpoint" : 0, 
+            "mobileBreakpoint" : 500, 
             
             "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%b %y"], 
                 

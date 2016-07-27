@@ -4,7 +4,7 @@
         
             "dateFormat":"",
         
-            "legendLabels" : ["Made online","Made in store"],
+            "legendLabels" : ["Online","In store"],
         
             "sourceText":["Monthly Business Survey for Retail Sales, ONS"],
             "sourceURL":["https://www.ons.gov.uk/businessindustryandtrade/retailindustry/datasets/retailsalesindexinternetsales"],
@@ -26,15 +26,15 @@
             "xAxisBreak_sm_md_lg": [65,65,65]            
     },
     "optional" : {
-            "margin_sm": [20, 20, 35, 170],
-            "margin_md": [20, 20, 35, 170],
-            "margin_lg": [20, 20, 35, 170],
+            "margin_sm": [5, 10, 35, 155],
+            "margin_md": [5, 10, 35, 155],
+            "margin_lg": [5, 70, 35, 155],
         
-            "aspectRatio_sm" : [10,16],
-            "aspectRatio_md" : [16,8],
-            "aspectRatio_lg" : [16,8],
+            "aspectRatio_sm" : [10,15],
+            "aspectRatio_md" : [16,13],
+            "aspectRatio_lg" : [16,7],
         
-            "mobileBreakpoint" : 610, 
+            "mobileBreakpoint" : 410, 
             
             "yAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%b %y"], 
                 

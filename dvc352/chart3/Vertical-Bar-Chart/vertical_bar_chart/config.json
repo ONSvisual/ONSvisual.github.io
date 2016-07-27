@@ -25,13 +25,13 @@
             "yAxisBreak_sm_md_lg": [65,65,65]            
     },
     "optional" : {
-            "margin_sm": [20, 10, 35, 30],
-            "margin_md": [20, 10, 35, 30],
-            "margin_lg": [20, 10, 35, 30],
+            "margin_sm": [20, 10, 0, 25],
+            "margin_md": [20, 10, 0, 25],
+            "margin_lg": [20, 70, 0, 25],
         
             "aspectRatio_sm" : [16,13],
-            "aspectRatio_md" : [16,12],
-            "aspectRatio_lg" : [16,10],
+            "aspectRatio_md" : [16,11],
+            "aspectRatio_lg" : [16,9],
         
             "mobileBreakpoint" : 610, 
                            
