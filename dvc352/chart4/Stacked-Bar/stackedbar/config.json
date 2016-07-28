@@ -4,16 +4,18 @@
         
             "dateFormat":"",
         
-            "legendLabels" : ["Online","In store"],
+            "legendLabels" : ["Online","Not online"],
         
             "sourceText":["Monthly Business Survey for Retail Sales, ONS"],
             "sourceURL":["https://www.ons.gov.uk/businessindustryandtrade/retailindustry/datasets/retailsalesindexinternetsales"],
         
-            "annotationChart": [],
-            "annotationBullet": [],
+            "annotationChart": ["e.g. market stalls,  mail order catalogues  & shopping channels"],
+            "annotationBullet": ["Sales in shops that have no permanent physical store can be made without the internet - these may be: at market stalls, via mail order catalogues or TV shopping channels"],
             "annotationXY":[
+                 ["60","No permanent physical store"]
             ],
             "annotationAlign":[
+                "start"
             ],
         
             "circles" : false,    
@@ -32,7 +34,7 @@
         
             "aspectRatio_sm" : [10,15],
             "aspectRatio_md" : [16,13],
-            "aspectRatio_lg" : [16,7],
+            "aspectRatio_lg" : [16,8],
         
             "mobileBreakpoint" : 410, 
             

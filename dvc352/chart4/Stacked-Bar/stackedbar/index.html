@@ -192,7 +192,7 @@ function drawGraphic(width) {
 	  .attr("class",function(d,i){return "bar-" + i})
       .attr("height", y.rangeBand())
 	  .attr("x", function(d) { 
-	  console.log("0 " + d.x1);
+	  console.log( d);
 			if (d.x1 >=0){
 				return x(d.x0);
 			} else {
@@ -217,7 +217,7 @@ function drawGraphic(width) {
 		function writeAnnotation(){
 			
 		
-			if (graphic.width() < threshold_sm) {
+			if (graphic.width() < 600) {
 				
 					dvc.essential.annotationBullet.forEach(function(d,i) {
 					
@@ -245,12 +245,11 @@ function drawGraphic(width) {
 							.text(dvc.essential.annotationChart[i])
 							.attr("class","annotext" + i)
 							.attr("text-anchor", dvc.essential.annotationAlign[i])
-							.attr('x',x(dvc.essential.annotationXY[i][1]))
-							.attr('y', y(dvc.essential.annotationXY[i][0]));
+							.attr('x',x(75))
+							.attr('y', 10);
 									
 						d3.selectAll(".annotext" + (i))
 							.each(insertLinebreaks)
-							.each(createBackRect);	
 							
 							
 						function insertLinebreaks() {
@@ -266,24 +265,12 @@ function drawGraphic(width) {
 							for (var j = 0; j < words.length; j++) {
 								var tspan = d3.select(this).append('tspan').text(words[j]);
 								if (j > 0)
-									tspan.attr('x', x(dvc.essential.annotationXY[i][1]))		
-										.attr('dy', '22');													
+									tspan.attr('x', x(75))		
+										.attr('dy', '11');													
 									}
 						};					
 												
-						function createBackRect() {
-							
-						var BBox = this.getBBox()
-										
-								svg.insert("rect", ".annotext" + (i))
-									.attr("width", BBox.width +6)
-									.attr("height", BBox.height+6)
-									.attr("x", BBox.x -3)
-									.attr("y", BBox.y -3)
-									.attr("fill", "white")
-									.attr("opacity", 0.4);
-									
-						}; // end function createBackRect()
+						
 					
 					
 						// draw circles, if var 'dvc.essential.circles' is set to true
@@ -310,7 +297,7 @@ function drawGraphic(width) {
 			
 							var words = str.split('  ');
 							
-							d3.select(this/*str*/).text('');
+							d3.select(this/*str*/).text('').attr("y", "-2px");
 						
 							for (var j = 0; j < words.length; j++) {
 								var tspan = d3.select(this).append('tspan').text(words[j]);
@@ -321,7 +308,7 @@ function drawGraphic(width) {
 									}
 			};	
 			
-			d3.selectAll(".x text").each(insertLinebreaksLabels)
+			d3.selectAll(".x .tick text").each(insertLinebreaksLabels)
 				
 			
 			
@@ -366,6 +353,7 @@ function drawGraphic(width) {
 					
 					var x0 = 0;
 					d.vars = varnames.map(function(name){ return {
+								
 								name: name, 
 								x0: x0, 
 								x1: x0 += +d[name],
