@@ -31,9 +31,9 @@
             "yAxisBreak_sm_md_lg": [10,10,10]            
     },
     "optional" : {
-            "margin_sm": [20, 10, 35, 30],
-            "margin_md": [20, 10, 35, 30],
-            "margin_lg": [20, 10, 35, 30],
+            "margin_sm": [20, 10, 5, 30],
+            "margin_md": [20, 10, 5, 30],
+            "margin_lg": [20, 10, 5, 30],
         
             "aspectRatio_sm" : [16,13],
             "aspectRatio_md" : [16,12],
