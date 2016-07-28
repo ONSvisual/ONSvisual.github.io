@@ -6,8 +6,8 @@
         
             "legendLabels" : [],
         
-            "sourceText":["Labour Market Statistics, February 2015, Table A02"],
-            "sourceURL":["http://www.ons.gov.uk/ons/publications/re-reference-tables.html?edition=tcm%3A77-350752"],
+            "sourceText":["Monthly Business Survey for Retail Sales, ONS"],
+            "sourceURL":["https://www.ons.gov.uk/businessindustryandtrade/retailindustry/datasets/retailsalesindexinternetsales"],
         
             "annotationChart": [
             ],
