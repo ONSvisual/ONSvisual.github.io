@@ -1040,13 +1040,32 @@
 	}
 
 
-	
+	 function updateHash() {
+	 	
+		  
+	   window.location.hash = encodeURI(area);
+	 
+	console.log(window.location.hash)
+	}
 										
 			
 			//then, onload, check to see if the web browser can handle 'inline svg'
 			if (Modernizr.svg)
 			{
+				var url = decodeURI(window.location.hash);
+				params = url.split("/");
+				console.log(url)
+				console.log(params)
 				
+				if(url != "") { //if parameters set in url
+						if(params[0]=="null"){
+							var area = null;
+						} else {
+							var area = params[0].split("#")[1]	
+						}
+				} 
+				
+				console.log(area);
 				// open and load configuration file. 					
 				d3.json("config.json", function(error, json)
 				{					
@@ -1138,7 +1157,34 @@
 						.html(function(d,i){ return dvc.source[i][3]})		
 				
 				selectlist();
-						}// end function ready()
+				//if url has custom area select it
+						
+						if(area != null){
+							var reg=document.getElementById("reg" + area);
+							
+							var name =d3.select("#reg" + area).attr("data-nm")
+							
+							 d3.selectAll('.pcon')
+									.append("path")
+									.attr("d", d3.select(reg).attr("d"))
+									.attr("id","selected")
+									.attr("class", "arcSelection")
+									.attr("pointer-events", "none")
+									.style("fill", "none")
+									.style("stroke", "#990000")
+									.style("stroke-width", 2/dvc.scale);
+									
+							details = d3.select("#details")
+							
+							d3.select("#areanm").text(name);
+							
+							$("#occselect").val(area);
+                            
+							$("#occselect").trigger("chosen:updated");
+							
+							d3.selectAll(".pcon").selectAll("path").attr("pointer-events", "none")
+						}
+				}// end function ready()
 			
 
 			function createKey(k, graph_unitWidth, graph_unitHeight, margin, innerPadding){
@@ -1452,6 +1498,8 @@
 						d3.select("#areanm").text("");			
 			
 				}
+			
+			updateHash();
 					
 			});
 	
