@@ -1,0 +1,61 @@
+{
+    "essential" : {
+            "graphic_data_url": "datanontime1.csv",
+        
+            "dateFormat":"%b-%y",
+        
+            "leftRight": ["GDP rank (2012 US$ Billions)","2012 Medal table rank"],
+        
+            "legendLabels" : ["United States","China","Japan","Germany","France","GB & NI","Brazil","Russia","Italy","Australia","Spain","South Korea","Netherlands","Iran","Poland","South Africa","Denmark","Kazakhstan","Czech Republic","New Zealand","Ukraine","Romania","Hungary","Cuba","Belarus","Croatia","Kenya","Ethiopia","North Korea","Jamaica"],
+        
+         "EUorNot" : [0, 1, 0, 1, 1, 1, 1, 0, 0, 1,0,1,0,0,0,0, 1, 0, 1, 1, 1, 1, 0, 0, 1,0,1,0,0,0],
+        
+            "dataper_old": [[46,38,7,11,11,29,3,24,8,7,3,13,6,4,2,3,2,7,4,6,6,2,8,5,2,3,2,3,4,4],[46,38,7,11,11,29,3,24,8,7,3,13,6,4,2,3,2,7,4,6,6,2,8,5,2,3,2,3,4,4]],
+			 "dataper": [[16155,8462,5957,3540,2681,2630,2461,2170,2073,1537,1340,1223,829,587,500,397,325,216,206,177,176,172,127,73,64,56,50,43,16,15],[46,38,7,11,11,29,3,24,8,7,3,13,6,4,2,3,2,7,4,6,6,2,8,5,2,3,2,3,4,4]],
+
+            "sourceText":["worldbank.org"],
+            "sourceURL":["http://data.worldbank.org/indicator/NY.GDP.MKTP.CD?year_high_desc=true"],
+        
+            "annotationChart": [""],
+            "annotationBullet": [],
+            "annotationXY":[
+                ["4","80"],
+                ["Jul-08","73.7"]
+            ],
+            "annotationAlign":[
+                "middle",
+                "middle"
+            ],
+        
+            "circles" : true,    
+            "annotationCXCY":[
+                ["Apr-93","68.4"],
+                ["Apr-08","73"]
+            ],
+        
+            "yAxisLabel":"",
+            "yAxisScale":[46,1],   
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": []            
+    },
+    "optional" : {
+            "margin_sm": [40, 180, 5, 80],
+            "margin_md": [40, 180, 5, 210],
+            "margin_lg": [40, 180, 5, 210],
+        
+            "aspectRatio_sm" : [9,140],
+            "aspectRatio_md" : [9,115],
+            "aspectRatio_lg" : [9,26],
+        
+            "mobileBreakpoint" : 401, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%b %y"], 
+                
+            "x_num_ticks_sm_md_lg" : [6,15,30],    
+            "y_num_ticks_sm_md_lg" : [6,15,30],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+
