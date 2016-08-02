@@ -777,6 +777,8 @@
 //							.text(function(d,i){ 
 //									return headers[k];
 //							});		
+							
+						
 									
 						svg.append("text")
 							.attr("x" , 0)
@@ -785,9 +787,34 @@
 							.attr("class", "areaname")
 //							.attr("font-weight","bold")
 							.attr("fill","#666")
-							.text(function(d,i){ 
-									return headers[k];
-							})
+							.text(function(){
+									var fmt = d3.format(".1f")
+									if(area==undefined){
+										console.log(headers[k]);
+										return headers[k];
+									} else {
+											console.log(area)
+											linevalues =  dvc.data.map(function(d) { return d; }).filter(function(d){ return d.AREACD== area});	
+						
+											
+						
+											console.log(linevalues)
+											vals = d3.keys(linevalues[0]).filter(function(key) {
+												if ( dvc.essential.fieldsToIgnore.indexOf(key) == -1 ) { return key; }
+											});
+											
+											if(linevalues[0][vals[k]]=="0"){
+												return "less than 0.01% "+ headers[i];
+											} else {
+												  console.log(headers[k]);
+												  return /*numFormat*/headers[k]+ ": "+fmt(linevalues[0][vals[k]]) + "%";
+											}
+									}
+								})
+						
+						
+				
+							
 						svg.append("text")
 							.attr("x" , graph_unitWidth-45)
 							.attr("y" , 12 )
@@ -922,6 +949,7 @@
 				
 				console.log(d3.select("#varval_"+i).text())
 				console.log(d3.select("#varval_"+i).html())
+				
 				
 				d3.select("#varval_"+i)
 					//.transition()
@@ -1195,6 +1223,7 @@
 							$("#occselect").trigger("chosen:updated");
 							
 							d3.selectAll(".pcon").selectAll("path").attr("pointer-events", "none")
+															
 						}
 						
 			}// end function ready()
