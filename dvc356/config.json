@@ -39,7 +39,7 @@
             "yAxisBreak_sm_md_lg": []            
     },
     "optional" : {
-            "margin_sm": [40, 180, 5, 80],
+            "margin_sm": [40, 180, 5, 75],
             "margin_md": [40, 180, 5, 210],
             "margin_lg": [40, 180, 5, 210],
         
