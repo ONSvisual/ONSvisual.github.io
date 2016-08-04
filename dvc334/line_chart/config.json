@@ -1,0 +1,56 @@
+
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "dateFormat":"%Y",
+        
+            "legendLabels" : [],
+        
+            "sourceText":["Understanding projected population change at the local authority level, ONS"],
+            "sourceURL":["https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationprojections/compendium/subnationalpopulationprojectionssupplementaryanalysis/2014basedprojections/understandingprojectedpopulationchangeatthelocalauthoritylevel"],
+        
+            "annotationChart": [
+               
+            ],
+            "annotationBullet": [
+              
+            ],
+            "annotationXY":[
+               
+            ],
+            "annotationAlign":[
+               
+            ],
+        
+            "circles" : true,    
+            "annotationCXCY":[
+              
+            ],
+        
+            "yAxisLabel":"% turnover",
+            "yAxisScale":[0, 220],   
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [52, 52, 52]            
+    },
+    "optional" : {
+            "margin_sm": [5, 15, 10, 30],
+            "margin_md": [5, 15, 10, 30],
+            "margin_lg": [5, 15, 10, 30],
+        
+            "aspectRatio_sm" : [16,13],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,10],
+        
+            "mobileBreakpoint" : 610, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%Y"], 
+                
+            "x_num_ticks_sm_md_lg" : [17,17,17],    
+            "y_num_ticks_sm_md_lg" : [7,10,10],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+
