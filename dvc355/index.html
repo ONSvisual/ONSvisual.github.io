@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Responsive iFrame Test With Table</title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <style type="text/css">
+        /* base styles */
+        html { -webkit-text-size-adjust: none; /* prevent font scaling in landscape */ }
+
+       @import url("https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700");
+		
+		body {
+			font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size:14px;
+		}
+		
+        h1 {
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            line-height: 1.3;
+        }
+
+        a, a:link, a:visited {
+            color: #4774CC;
+            text-decoration: none;
+        }
+        a:hover, a:active { opacity: 0.7; }
+
+        .footnotes { margin-bottom: 20px; }
+        .footnotes h4 {
+            margin: 2px 0 7px 0;
+            color: #666;
+            font-size: 11px;
+        }
+        .footnotes p,
+        .footer p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            line-height: 1.3;
+            color: #808080;
+        }
+
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0 0 11px 0;
+            width: 100%;
+        }
+
+        table th {
+            text-align: left;
+            border-bottom: 2px solid #eee;
+            vertical-align: bottom;
+            padding: 0 10px 10px 10px;
+            text-align: right;
+        }
+
+        table td {
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+            padding: 10px;
+            text-align: left;
+			/*text-align: right;*/
+        }
+
+        table th:nth-child(1),
+        table td:nth-child(1) {
+            text-align: left;
+            padding-left: 0;
+            font-weight: bold;
+        }
+
+        /* responsive table */
+        @media screen and (max-width: 680px) {
+            table,
+            tbody {
+                display: block;
+                width: 100%:
+            }
+
+            thead { display: none; }
+
+            table tr,
+            table th,
+            table td {
+                display: block;
+                padding: 0;
+                text-align: left;
+                white-space: normal;
+            }
+
+            table tr {
+                border-bottom: 1px solid #eee;
+                padding-bottom: 11px;
+                margin-bottom: 11px;
+            }
+
+            table th[data-title]:before,
+            table td[data-title]:before {
+                content: attr(data-title) ":\00A0";
+                font-weight: bold;
+            }
+
+            table td {
+                border: none;
+                margin-bottom: 6px;
+                color: #444;
+            }
+            table td:empty { display: none; }
+            table td:first-child {
+                font-size: 13px;
+                font-weight: bold;
+                margin-bottom: 6px;
+                color: #333;
+            }
+            table td:first-child:before { content: ''; }
+        }
+    </style>
+
+</head>
+<body>
+   
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Release and background</th>
+                <th>Post referendum data</th>
+                <th>Economic context</th>
+                <th>Trends to consider</th>
+				<th>Next releases</th>
+            </tr>
+        </thead>
+        <tr>
+            <td data-title="Date">09/08/2016</td>
+            <td data-title="Release and background">
+            	<a href="https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/bulletins/uktrade/may2016" target="_blank">UK Trade, June 2016</a>
+
+                Summarises UK’s export and import performance for goods and services in June and previous months.
+                
+                Covers
+                <ul>
+                    <li>Balance of trade in goods and services</li>
+                    <li>Balance of trade in goods with EU and non-EU countries</li>
+                </ul>
+            </td>
+            <td data-title="Post referendum data">Majority of period was before the referendum</td>
+            <td data-title="Economic context">Data shows how open the UK economy is to imports of goods and services from overseas, and its ability to export goods and services to EU and non-EU countries.</td>
+            <td data-title="Trends to consider">Signs of change in the balance of exports compared with imports.
+
+            The sharp depreciation in sterling post-referendum could be a key influence by making our exports cheaper and imports more expensive.
+            </td>
+            <td data-title="Next releases"><a href="https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/bulletins/uktrade/previousReleases" target="_blank">09/09/2016</a> for July 2016 estimates</td>
+        </tr>
+        <tr>
+            <td data-title="Date">9/08/2016</td>
+            <td data-title="Release and background">
+                <a href="http://www.ons.gov.uk/economy/economicoutputandproductivity/output/bulletins/indexofproduction/previousReleases" target="_blank">Index of Production (IoP), June 2016</a>
+                
+                Summarises UK’s production sector which includes manufacturing in June and previous months.
+                
+                Covers:
+                <ul>
+                    <li>IoP and growth rates</li>
+                    <li>Manufacturing output and growth rates</li>
+                </ul>
+            </td>
+            <td data-title="Post referendum data">Majority of period was before the referendum</td>
+            <td data-title="Economic context">IoP is one of the earliest indicators of growth in the output industry and accounts for 14.6% of total economic activity (GDP)</td>
+            <td data-title="Trends to consider">
+            		<span style="font-weight: 400">Manufacturing is dependent upon both upon domestic and overseas demand for UK produced goods. Changes in output will reflect both domestic demand and how the UK trade is faring in the post Referendum world.</span>
+            </td>
+            <td data-title="Next releases"><a href="http://www.ons.gov.uk/economy/economicoutputandproductivity/output/bulletins/indexofproduction/previousReleases" target="_blank">07/09/2016 for July 2016 estimates</a></td>
+        </tr>
+        <tr>
+<td data-title="Date">12/08/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/businessindustryandtrade/constructionindustry/bulletins/constructionoutputingreatbritain/previousReleases" target="_blank">Output in the Construction</a>
+Industry, June 2016Summarises UK’s construction sector in June and previous months.
+
+Covers:
+<ul>
+ 	<li>All construction work</li>
+ 	<li>All new construction work</li>
+ 	<li>Repair and maintenance</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Majority of period was before the referendum</td>
+<td data-title="Next releases">Provides a short-term indication on how confident businesses and the government are investing in either new properties/infrastructure or repairs and maintenance.</td>
+<td data-title="Next releases"><span style="font-weight: 400">May act as an indicator of how confident enterprises are in investing in buildings and the infrastructure, as longer term assets.</span></td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/businessindustryandtrade/constructionindustry/bulletins/constructionoutputingreatbritain/previousReleases" target="_blank">09/09/2016 for July 2016 estimates</a></td>
+</tr>
+<tr>
+<td data-title="Date">16/08/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/previousReleases" target="_blank">Consumer Price Inflation (CPI), July 2016</a>
+
+Summarises the movements in prices of the items in the designated basket of goods in the year to July.
+
+Covers:
+<ul>
+ 	<li>CPI inflation rate</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Period immediately after referendum</td>
+<td data-title="Economic context">CPI inflation is the rate at which in the prices of goods and services bought by households rise or fall. 2% CPI inflation tells us that £100 a year ago is worth about £98 today.</td>
+<td data-title="Trends to consider">
+
+<span style="font-weight: 400">Movements will reflect both the degree of strength of domestic demand but also changes in the UK prices of imports.</span>
+
+<span style="font-weight: 400">The sharp depreciation of the Pound makes the Sterling price of imports more expensive may be a key factor in coming months</span></td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/previousReleases" target="_blank">13/09/2016 for August 2016 estimates</a></td>
+</tr>
+<tr>
+<td data-title="Date">16/08/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/producerpriceinflation/previousReleases" target="_blank">Producer Prices (PPI), July 2016</a>
+
+Summarises the movements in input and output prices of producers in the production sector in the year to July.
+
+Covers:
+<ul>
+ 	<li>Input indices and growth rates</li>
+ 	<li>Output indices and growth rates</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Period immediately after referendum</td>
+<td data-title="Economic context">Input and output prices both reflect the changing costs for UK manufacturers. They include but not limited to costs of materials and fuels bought by producers as well as labour cost, energy cost and rent.</td>
+<td data-title="Trends to consider"><span style="font-weight: 400">Changes in the output PPI inflation rate could be due to changes in labour and energy cost.</span>
+
+<span style="font-weight: 400">The depreciation of Sterling, to the extent it causes imported inputs to be more expensive could have an upward pressure on input prices, and ultimately output prices. </span></td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/producerpriceinflation/previousReleases" target="_blank">13/09/2016 for August estimates</a></td>
+</tr>
+<tr>
+<td data-title="Date">16/08/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/housepriceindex/previousReleases" target="_blank">House Price Index (HPI), June 2016</a>
+
+Summarises movement in house prices in the year to June. Note that these are still experimental statistics.
+
+Covers:
+<ul>
+ 	<li>House price index</li>
+ 	<li>Annual change in house prices</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Majority of period was before the referendum</td>
+<td data-title="Economic context">In the short term, house prices are an important indicator of household confidence and activity in the housing market. Slower or declining house prices could mean that households are putting off decisions to buy houses.</td>
+<td data-title="Trends to consider"><span style="font-weight: 400">In the longer term, decisions to buy houses may change as households reassess the economic and their financial situations post referendum.</span></td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/housepriceindex/previousReleases" target="_blank">13/09/2016 for July estimates</a></td>
+</tr>
+<tr>
+<td data-title="Date">17/08/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/bulletins/uklabourmarket/previousReleases" >Labour Market Statistics</a>
+, mostly representing averages for the three month period April to June 2016.
+
+Summarises the state of the UK labour market in the 3 months to June and comprises:· April-June 2016 estimates for:
+<ul>
+ 	<li> Employment</li>
+ 	<li>Unemployment</li>
+ 	<li>Average weekly earnings;</li>
+</ul>
+· July 2016 estimates for the claimant count; and
+
+· May-July 2016 estimates for vacancies.
+
+Also included will be estimates of employment by country of birth and nationality (April-June 2016).</td>
+<td data-title="Post referendum data">The monthly Claimant Count estimates will relate to July 2016 which was after the referendum. The remainder of the estimates to be published in the release will mainly be for the April to June period.
+
+</td>
+<td data-title="Economic context">The health of the labour market is important because most people in the UK rely on a job as a source of income. In general, the labour market does better in periods of economic growth and vice versa in periods of recession and uncertainty.</td>
+<td data-title="Trends to consider">
+
+<span style="font-weight: 400">GDP growth in Q2 2016 shows that the economic backdrop to the labour market was generally positive in the period leading up to polling day.  </span>
+
+<span style="font-weight: 400">Published labour market data for March-May show the labour market continued to strengthen in this period.  This period overlaps by two months with the period for April to June covered in this release</span><span style="font-weight: 400">. </span></td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/bulletins/uklabourmarket/previousReleases" target="_blank">14/09/2016 for mostly averages of the three month period May to July 2016</a></td>
+</tr>
+<tr>
+<td data-title="Date">18/08/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/previousReleases" target="_blank">Retail Sales, July 2016</a>
+
+Summarises the change in the value and volume of retail sales for various types of retailers in July and previous 3 months.
+
+Covers:
+<ul>
+ 	<li>Retail sales indices and growth rates</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Period immediately after referendum</td>
+<td data-title="Economic context">Retail sales estimates are considered to be an important short-term economic indicator of consumer confidence and strength of consumer spending due to the timeliness of its release.</td>
+<td data-title="Trends to consider">Changes in retail sales in the year to July could indicate the post referendum vote has effected consumer confidence. But other factors also influence retail sales such as prices, weather, and the overall financial position of households.</td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/previousReleases" target="_blank">15/09/2016 for August estimates</a></td>
+</tr>
+<tr>
+<td data-title="Date">19/08/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/publicsectorfinance/bulletins/publicsectorfinances/previousReleases" target="_blank">Public Sector Finances (PSF), July 2016</a>
+
+Summarises the state of public sector finances in July.
+
+Covers:
+<ul>
+ 	<li>Public sector net borrowing (excluding public sector banks)</li>
+ 	<li>Public sector net debt (excluding public sector banks)</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Period immediately after referendum</td>
+<td data-title="Economic context">Provides information on the UK government’s financial position.</td>
+<td data-title="Trends to consider"><span style="font-weight: 400">Changes in public sector net borrowing and debt may reflect the level of activity in the economy as well as other factors.</span>
+
+<span style="font-weight: 400">The Bank of England's announcement on 4th August 2016 of increasing the ceiling on the scale of asset purchases through the Asset Purchase Facility (APF), will impact on the public sector finances, but will not affect the data to be published on 19th August 2016.</span></td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/publicsectorfinance/bulletins/publicsectorfinances/previousReleases" target="_blank">21/09/2016 for August estimates</a></td>
+</tr>
+<tr>
+<td data-title="Date"</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/leisureandtourism/bulletins/overseastravelandtourism/previousReleases">Overseas Travel and Tourism,</a>
+June 2016Summarises the level of tourism activity by overseas visitors to the UK and UK residents abroad.Covers:
+<ul>
+ 	<li>Overseas residents’ visits and expenditure in the UK</li>
+ 	<li>UK residents’ visits and expenditure abroad</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Majority of period was before the referendum</td>
+<td data-title="Economic context">Provides an indicator of whether UK is still a preferred tourism destination especially for European visitors who make up the majority of overseas visitors to the UK</td>
+<td data-title="Trends to consider"><span style="font-weight: 400">In coming months, releases will show the extent to which overseas tourism patterns into the UK and UK residents’ visits abroad change in the post referendum world. </span>
+
+<span style="font-weight: 400">The sharp depreciation in Sterling may be a significant factor as the UK becomes a cheaper destination and overseas tourism more expensive in Sterling terms.</span></td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/leisureandtourism/bulletins/overseastravelandtourism/previousReleases" target="_blank">23/09/2016 for July estimates</a></td>
+</tr>
+<tr>
+<td data-title="Date">25/08/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/bulletins/migrationstatisticsquarterlyreport/previousReleases" target="_blank">Migration Statistics Quarterly Report</a>
+
+Covers:
+<ul>
+ 	<li>Estimates of long-term international migration (LTIM) for year ending March 2016</li>
+ 	<li>Labour market (LM) information by country of birth and citizenship April to June 2016.</li>
+ 	<li>Number of visas issued for year ending June 2016</li>
+ 	<li>National Insurance registrations for year ending June 2016</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Majority of period was before the referendum</td>
+<td data-title="Economic context">Data shows level of net migration, immigration and emigration for the UK which can be broken down by citizenship and reason for migration. The net migration figures are scrutinised against the Governments ambition to reduce net migration to the tens of thousands</td>
+<td data-title="Trends to consider">In the longer term, the referendum result may influence changes in the composition and level of net migration from the EU and rest of the world. Many other factors such as the relative performance of the UK economy and UK visa policies will also influence future migration estimates.</td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/bulletins/migrationstatisticsquarterlyreport/previousReleases" target="_blank">1/12/2016 for LTIM estimates to year ending June 2016,</a>
+
+LM estimates for July to September 2016, visa and NINo data to year ending September 2016</td>
+</tr>
+<tr>
+<td data-title="Date">25/08/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/articles/populationbycountryofbirthandnationalityreport/previousReleases">Population by Country of Birth and Nationality, 2015</a>
+
+Gives population estimates by nationality and country of birth for the UK and local authorities in England.</td>
+<td data-title="Post referendum data">Covers period prior to referendum</td>
+<td data-title="Economic context">Shows population of those born outside the UK or with non-UK nationality and shows how this varies across England.</td>
+<td data-title="Trends to consider">This release provides estimates up to 2015 only. Estimates for calendar year 2016 will be covered in next year’s release and will contain post referendum data</td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/internationalmigration/articles/populationbycountryofbirthandnationalityreport/previousReleases" target="_blank">August 2017</a></td>
+</tr>
+<tr>
+<td data-title="Date">26/08/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/economy/economicoutputandproductivity/output/bulletins/indexofservices/previousReleases" target="_blank">Index of Services (IoS), June 2016</a>
+
+Summarises the UK services sector performance which includes services such as transport, finance and government services.
+
+Covers:
+<ul>
+ 	<li>IoS and growth rates</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Majority of period was before the referendum</td>
+<td data-title="Economic context">Provides a short-term indicator on the services sector performance which accounts for 78.8% of total economic activity and has been driving economic recovery since 2009</td>
+<td data-title="Trends to consider">In the longer term, look out for the growth rates of IoS and its components parts such as distribution, hotels and restaurants; transport, storage and communication; business services and finance; and government services which have varied in recent periods.</td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/economy/economicoutputandproductivity/output/bulletins/indexofservices/previousReleases" target="_blank">30/09/2016 for July estimates</a></td>
+</tr>
+<tr>
+<td data-title="Date">26/08/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/economy/grossdomesticproductgdp/bulletins/businessinvestment/previousReleases" target="_blank">Business Investment preliminary</a>
+estimate, Q2 2016
+
+Summarises the level of business investment in the UK which is part of gross fixed capital formation (GFCF).Covers:
+<ul>
+ 	<li>Gross fixed capital formation</li>
+ 	<li>Business investment</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Majority of period was before the referendum</td>
+<td data-title="Economic context">Business investment (and GFCF) indicates the total level of investment in the UK economy for the particular quarter. In general, businesses tend to invest more when the economy is doing well and vice versa in periods of recession and uncertainty</td>
+<td data-title="Next releases"><span style="font-weight: 400">Decisions to invest may change reflecting businesses’ assessment of the economic and their financial situations post referendum.</span></td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/economy/grossdomesticproductgdp/bulletins/businessinvestment/previousReleases" target="_blank">30/09/2016 for revised results, 25/11/2016 for provisional Q3 2016 estimate</a></td>
+</tr>
+<tr>
+<td data-title="Date">26/08/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/economy/grossdomesticproductgdp/bulletins/grossdomesticproductpreliminaryestimate/previousReleases" target="_blank">GDP 2nd estimate for Q2 2016</a>
+
+The 2016 Q2 GDP preliminary estimate of 0.6% is based on a combination of both survey data and forecasts.
+
+Therefore, a second estimate for GDP is released as the office gathers more information about the economy between April and June.
+
+Covers:
+<ul>
+ 	<li>Second estimate for GDP for Q2 (April to June)</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Majority of period was before the referendum</td>
+<td data-title="Economic context">GDP measures total activity in the economy and is a key indicator of economic performance.</td>
+<td data-title="Trends to consider">The preliminary estimate could be revised in light of more information about the economy.</td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/economy/grossdomesticproductgdp/bulletins/grossdomesticproductpreliminaryestimate/previousReleases" target="_blank">30/09/2016for 3rd estimate in Quarterly National Accounts, 27/10/2016 for Q3 2016 preliminary estimate</a></td>
+</tr>
+<tr>
+<td data-title="Date">September
+2016 (exact date to be announced)</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/economy/investmentspensionsandtrusts/bulletins/mq5investmentbyinsurancecompaniespensionfundsandtrusts/previousReleases" target="_blank">Investment by insurance companies, pension funds and trusts in the UK (MQ5) for Q2 2016</a>
+ Summarises the net investment of various types of financial companies on various financial assets.Covers:
+<ul>
+ 	<li>Net investment in short-term assets</li>
+ 	<li>Net investment in UK government sterling securities</li>
+ 	<li>Net investment in UK corporate securities</li>
+ 	<li>Net investment in overseas securities</li>
+ 	<li>Net investment in other assets</li>
+</ul>
+</td>
+<td data-title="Economic context">Majority of period was before the referendum</td>
+<td data-title="Trends to consider">MQ5 is an indication about the level of confidence financial investors have in the UK economy and also their various investment strategies.</td>
+<td data-title="Next releases">&nbsp;
+
+<span style="font-weight: 400">Immediately after the referendum result, there was a rush to buy UK government sterling securities as well as some overseas securities that were considered as safe havens. However, the impact on the quarter as a whole remains to be seen.</span>
+
+<span style="font-weight: 400">In the longer term, net investments of the various asset types may indicate the financial investors’ preferred assets and changes in the composition of financial portfolios. </span></td>
+<td data-title="Trends to consider"><a href="https://www.ons.gov.uk/economy/investmentspensionsandtrusts/bulletins/mq5investmentbyinsurancecompaniespensionfundsandtrusts/previousReleases" target="_blank">December 2016 </a>for Q3 2016 estimates</td>
+</tr>
+<tr>
+<td data-title="Date">30/09/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/bulletins/balanceofpayments/previousReleases" target="_blank">Balance of Payments (BoP), Q2 2016</a>
+
+Summarises UK’s total economic transactions between UK residents and the rest of the world in Q2.
+
+Covers:
+<ul>
+ 	<li>Current account</li>
+ 	<li>Capital account</li>
+ 	<li>Financial account</li>
+ 	<li>International Investment Position</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Majority of period was before the referendum</td>
+<td data-title="Economic context">Provides a wide range of estimates about UK’s trade, income and investment flows with the rest of the world which is important as UK is considered to be a very open economy.</td>
+<td data-title="Trends to consider"><span style="font-weight: 400">The current account, capital account and financial account balances give an array of information not only about trends in trade but also about overseas investment into the UK and UK investment out of the UK</span></td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/economy/nationalaccounts/balanceofpayments/bulletins/balanceofpayments/previousReleases" target="_blank">23/12/2016 </a>for Q3 2016 estimates</td>
+</tr>
+<tr>
+<td data-title="Date">30/09/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/economy/nationalaccounts/satelliteaccounts/bulletins/consumertrends/previousReleases" target="_blank">Consumer Trends, Q2 2016</a>
+
+Summarises household expenditure and consumption trends for Q2.
+
+Covers:
+<ul>
+ 	<li>Household expenditure and consumption trends</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Majority of period was before the referendum</td>
+<td data-title="Economic context">Household expenditure accounts for about 60% of total expenditure in the economy and is an important indicator of consumer confidence in the economy and to some extent consumer well-being.</td>
+<td data-title="Trends to consider">In the longer term, spending decisions on goods and services may change as households reassess the economic situation post referendum.</td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/economy/nationalaccounts/satelliteaccounts/bulletins/consumertrends/previousReleases" target="_blank">23/12/2016 </a>for Q3 2016 estimates</td>
+</tr>
+<tr>
+<td data-title="Date">30/09/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/incomeandwealth/bulletins/economicwellbeing/previousReleases" target="_blank">Economic Well-being, Q2 2016</a>
+
+Presents indicators that adjust or supplement more traditional measures such as GDP to give a more rounded and comprehensive basis for assessing changes in economic well-being.</td>
+<td data-title="Post referendum data">Majority of period was before the referendum</td>
+<td data-title="Economic context">This release is published alongside GDP and accounts for some of its well-known limitations. In doing so, it provides an assessment of how changes in the economy are reflected in the material well-being of households.</td>
+<td data-title="Trends to consider">May indicate any effects post referendum of the various dimensions of material well-being.</td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/incomeandwealth/bulletins/economicwellbeing/previousReleases" target="_blank">23/12/2016 </a>for Q3 2016 estimates</td>
+</tr>
+<tr>
+<td data-title="Date">06/10/2016</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/labourproductivity/articles/ukproductivityintroduction/previousReleases" target="_blank">UK Productivity, Q2 2016</a>
+
+Summarises UK productivity
+
+Covers:
+<ul>
+ 	<li>Whole Economy Labour productivity for Q2 2016</li>
+ 	<li>Public Services Productivity (experimental statistics) for Q2 2016</li>
+ 	<li>Quality adjusted labour input for 2015</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Majority of period was before the referendum</td>
+<td data-title="Economic context">Productivity in general is important for economic performance in the long run as it measures how much output a unit of input (such as labour) can produce.</td>
+<td data-title="Trends to consider"><span style="font-weight: 400">In the longer term, UK productivity can be affected several factors, including (but not limited to): the structure of the labour market, investment (public and private) and infrastructure, and the economic environment faced by businesses.</span>
+
+<span style="font-weight: 400"> These and other factors are affected by both domestic UK policy and the UK's relationship with the EU and other countries.</span></td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/labourproductivity/articles/ukproductivityintroduction/previousReleases" target="_blank">06/01/2017 for Q3 2016 estimates</a></td>
+</tr>
+<tr>
+<td data-title="Date">June 2017</td>
+<td data-title="Release and background"><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/bulletins/annualmidyearpopulationestimates/previousReleases" >2016 Mid-year population Estimates for UK, England, Scotland, Wales and Northern Ireland and local authorities across the UK.</a>
+
+Covers:
+<ul>
+ 	<li>UK resident population as at 30 June 2016 by age and sex</li>
+</ul>
+</td>
+<td data-title="Post referendum data">Covers period prior to referendum</td>
+<td data-title="Economic context">Shows how population has changed due to births, deaths and migration (both international migration and internal migration)</td>
+<td data-title="Trends to consider">This release covers the period only up to 30 June 2016 but the June 2018 release will include impact of migration on population growth in the first year after the referendum.
+
+Impact of international migration will not be broken down by citizenship but at the UK level and will be available from the November 2017 MSQR release.</td>
+<td data-title="Next releases"><a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/bulletins/annualmidyearpopulationestimates/previousReleases" target="_blank">June 2018</a></td>
+</tr>
+    </table>
+
+    <div class="footnotes">
+        <h4>Note</h4>
+        <p>Figures for Post referendum data and Economic context 2014 are preliminary.</p>
+    </div>
+
+    <div class="footer">
+        <p>Source: Bureau of Labor Statistics</p>
+        <p>Credit: NPR</p>
+    </div>
+<script type="text/javascript" src="lib/pym.js"></script>
+
+<script>var pymChild = new pym.Child();</script>
+</body>
+</html>
+
+
