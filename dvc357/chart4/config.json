@@ -40,7 +40,7 @@
             
             "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%Y"], 
                 
-            "x_num_ticks_sm_md_lg" : [6,12,25],    
+            "x_num_ticks_sm_md_lg" : [6,12,12],    
             "y_num_ticks_sm_md_lg" : [5,7,7],
         
             "vertical_line" : true,
