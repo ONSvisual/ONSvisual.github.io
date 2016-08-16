@@ -4,14 +4,14 @@
         
             "dateFormat":"%b-%y",
         
-            "leftRight": ["GDP rank (2012 US$ Billions)","2012 Medal table rank"],
+            "leftRight": ["GDP rank (2015 US$ Billions)","2016 Medal table rank"],
         
-            "legendLabels" : ["United States","China","Japan","Germany","France","GB & NI","Brazil","Russia","Italy","Australia","Spain","South Korea","Netherlands","Iran","Poland","South Africa","Denmark","Kazakhstan","Czech Republic","New Zealand","Ukraine","Romania","Hungary","Cuba","Belarus","Croatia","Kenya","Ethiopia","North Korea","Jamaica"],
+            "legendLabels" : ["United States","China","Japan","Germany","Great Britain","France","Italy","Brazil","Canada","South Korea","Australia","Russia","Spain","Netherlands","Switzerland","Poland","Belgium","Thailand","Iran*","Colombia","Greece","Kazakhstan","New Zealand","Hungary","Cuba*","Uzbekistan","Kenya","Croatia","North Korea*","Jamaica"],
         
          "EUorNot" : [0, 1, 0, 1, 1, 1, 1, 0, 0, 1,0,1,0,0,0,0, 1, 0, 1, 1, 1, 1, 0, 0, 1,0,1,0,0,0],
         
             "dataper_old": [[46,38,7,11,11,29,3,24,8,7,3,13,6,4,2,3,2,7,4,6,6,2,8,5,2,3,2,3,4,4],[46,38,7,11,11,29,3,24,8,7,3,13,6,4,2,3,2,7,4,6,6,2,8,5,2,3,2,3,4,4]],
-			 "dataper": [[16155,8462,5957,3540,2681,2630,2461,2170,2073,1537,1340,1223,829,587,500,397,325,216,206,177,176,172,127,73,64,56,50,43,16,15],[46,38,7,11,11,29,3,24,8,7,3,13,6,4,2,3,2,7,4,6,6,2,8,5,2,3,2,3,4,4]],
+			 "dataper": [[17947,10866,4123,3356,2849,2422,1815,1775,1551,1378,1340,1326,1199,753,665,475,454,395,369,292,195,184,174,121,68,67,63,49,40,14],[26,15,7,8,16,7,8,2,2,6,6,11,3,6,2,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2]],
 
             "sourceText":["worldbank.org"],
             "sourceURL":["http://data.worldbank.org/indicator/NY.GDP.MKTP.CD?year_high_desc=true"],
