@@ -1,0 +1,46 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "dateFormat":"%b-%y",
+        
+            "legendLabels" : ["England", "Wales", "Scotland", "Great Britain"],
+        
+           "sourceText0":["Index of private housing rental prices, ONS"], 
+        
+            "sourceURL0":["https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/indexofprivatehousingrentalprices/june2016"],
+      
+            "annotationChart": [],
+            "annotationBullet": [],
+            "annotationXY":[],
+            "annotationAlign":[],
+        
+            "circles" : false,    
+            "annotationCXCY":[],
+        
+            "yAxisLabel":"Index values (January 2011=100)",
+            "yAxisScale":[95,115],   
+            "yAxisBreak": true,
+            "yAxisBreak_sm_md_lg": [95,95,95]            
+    },
+    "optional" : {
+            "margin_sm": [20, 10, 30, 30],
+            "margin_md": [20, 15, 30, 30],
+            "margin_lg": [20, 10, 30, 30],
+        
+            "aspectRatio_sm" : [16,13],
+            "aspectRatio_md" : [16,12],
+            "aspectRatio_lg" : [16,10],
+        
+            "mobileBreakpoint" : 610, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%Y"], 
+                
+            "x_num_ticks_sm_md_lg" : [5,5,5],    
+            "y_num_ticks_sm_md_lg" : [5,5,5],
+            "centre_line" : true,
+            "centre_line_value" : 0
+    }
+}
+
+
