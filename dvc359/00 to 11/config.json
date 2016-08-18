@@ -1,0 +1,53 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",
+        
+            "dateFormat":"%Y",
+        
+            "legendLabels" : ["1995 MSOAs", "selected year MSOAs"],
+        
+            "sourceText":["Number of marriages, marriage rates and period of occurrence, ONS"],
+            "sourceURL":["https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/marriagecohabitationandcivilpartnerships/datasets/numberofmarriagesmarriageratesandperiodofoccurrence"],
+            "NMW": "",
+            "fact":[
+               " ",
+			   " ",
+			   " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " "
+            ], 
+            "annoX":[ 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 , 3 ],
+            "annoY":[ 1900, 1900, 1900,  1900,   1900,   1900,   1900, 1900,   1900,   1900,   1900, 1900 ],
+            "annoAlign":["start","start","start","start","start","start","start","start","start", "start", "start" , "start"],
+            "yearArray":["2000","2001","2002", "2003", "2004", "2005", "2006",	"2007",	"2008",	"2009", "2010", "2011" ],
+            "startYear":0, 
+            "yAxisLabel":"number of marriages",
+            "yAxisScale":[0,100000],   
+            "yAxisBreak": true,
+            "yAxisBreak_sm_md_lg": [65,65,65]            
+    },
+    "optional" : {
+            "margin_sm": [25, 10, 25, 55],
+            "margin_md": [25, 10, 25, 55],
+            "margin_lg": [25, 10, 25, 55],
+        
+            "aspectRatio_sm" : [16,10],
+            "aspectRatio_md" : [16,10],
+            "aspectRatio_lg" : [16,10],
+        
+            "mobileBreakpoint" : 500, 
+            "x_num_ticks_sm_md_lg" : [12,12,12],              
+            "y_num_ticks_sm_md_lg" : [5,5,5],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+
