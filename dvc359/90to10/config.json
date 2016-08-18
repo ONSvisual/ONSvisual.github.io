@@ -6,7 +6,7 @@
         
             "legendLabels" : ["1995 MSOAs", "selected year MSOAs"],
         
-            "sourceText":["Number of marriages, marriage rates and period of occurrence, ONS"],
+             "sourceText":["Number of marriages, marriage rates and period of occurrence, ONS"],
             "sourceURL":["https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/marriagecohabitationandcivilpartnerships/datasets/numberofmarriagesmarriageratesandperiodofoccurrence"],
             "NMW": "",
             "fact":[
@@ -21,12 +21,20 @@
                " ",
                " ",
                " ",
+			   " ",
+			   " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
                " "
             ], 
-            "annoX":[ 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 , 3 ],
-            "annoY":[ 1900, 1900, 1900,  1900,   1900,   1900,   1900, 1900,   1900,   1900,   1900, 1900 ],
-            "annoAlign":["start","start","start","start","start","start","start","start","start", "start", "start" , "start"],
-            "yearArray":["2000","2001","2002", "2003", "2004", "2005", "2006",	"2007",	"2008",	"2009", "2010", "2011" ],
+            "annoX":[ 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 ],
+            "annoY":[ 1900, 1900, 1900,  1900,   1900,   1900,   1900,   1900,   1900,   1900, 1900, 1900, 1900,  1900,   1900,   1900,   1900,   1900,   1900,   1900 ],
+            "annoAlign":["start","start","start","start","start","start","start","start", "start", "start", "start","start","start","start","start","start","start","start", "start", "start"],
+            "yearArray":["1990","1991","1992", "1993", "1994", "1995", "1996",	"1997",	"1998",	"1999" ,"2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010" ],
             "startYear":0, 
             "yAxisLabel":"number of marriages",
             "yAxisScale":[0,100000],   
