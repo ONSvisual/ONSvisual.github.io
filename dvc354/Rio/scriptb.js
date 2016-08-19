@@ -313,27 +313,23 @@
 
 							   
 							   		linegroups.append('text')
-	.attr("class","labelstext2")
-	.text(function(d, i) {
-		return "(" + format1(dvc.essential.dataper[1][i]) + " Golds) " + dvc.essential.legendLabels[i];
-	})
-	.attr('y', function(d,i) {
-		//where 2 countries share a ranking (order is in GDP rank)	
-		if(dvc.essential.legendLabels[i] == "Switzerland" || dvc.essential.legendLabels[i] == "Greece" ||dvc.essential.legendLabels[i] == "Belgium"){
-			return (y(d.value[1].alt) +13);
-		} else if(dvc.essential.legendLabels[i] == "Thailand" || dvc.essential.legendLabels[i] == "Poland"|| dvc.essential.legendLabels[i] == "Iran"){
-			return (y(d.value[1].alt) );
-												
-												
-		
-												
-		//single country	
-		} else {
-			return (y(d.value[1].alt) +5);
-		}
-	})
-	.attr('x', chart_width +30)
-	.attr('text-anchor','start');
+										.attr("class","labelstext2")
+										.text(function(d, i) {
+											return "(" + format1(dvc.essential.dataper[1][i]) + " Golds) " + dvc.essential.legendLabels[i];
+										})
+										.attr('y', function(d,i) {
+											//where 2 countries share a ranking (order is in GDP rank)	
+											if(dvc.essential.legendLabels[i] == "Thailand"){
+												return (y(d.value[1].alt) +13);
+											} else if(dvc.essential.legendLabels[i] == "Belgium"){
+												return (y(d.value[1].alt) );	
+											//single country	
+											} else {
+												return (y(d.value[1].alt) +5);
+											}
+										})
+										.attr('x', chart_width +30)
+										.attr('text-anchor','start');
 
 							   
 							   
