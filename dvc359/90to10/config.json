@@ -36,7 +36,7 @@
             "annoAlign":["start","start","start","start","start","start","start","start", "start", "start", "start","start","start","start","start","start","start","start", "start", "start"],
             "yearArray":["1990","1991","1992", "1993", "1994", "1995", "1996",	"1997",	"1998",	"1999" ,"2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010" ],
             "startYear":0, 
-            "yAxisLabel":"number of marriages",
+            "yAxisLabel":"Number of marriages",
             "yAxisScale":[0,100000],   
             "yAxisBreak": true,
             "yAxisBreak_sm_md_lg": [65,65,65]            

@@ -26,7 +26,7 @@
             "annoAlign":["start","start","start","start","start","start","start","start", "start", "start"],
             "yearArray":["1970","1971","1972", "1973", "1974", "1975", "1976",	"1977",	"1978",	"1979" ],
             "startYear":0, 
-            "yAxisLabel":"number of marriages",
+            "yAxisLabel":"Number of marriages",
             "yAxisScale":[0,100000],   
             "yAxisBreak": true,
             "yAxisBreak_sm_md_lg": [65,65,65]            

@@ -34,7 +34,7 @@
             "annoAlign":["start","start","start","start","start","start","start","start", "start", "start", "start", "start","start","start","start","start","start","start"],
             "yearArray":["1950","1951","1952", "1953", "1954", "1955", "1956",	"1957",	"1958",	"1959",	"1960",	"1961",	"1962",	"1963",	"1964",	"1965",	"1966",	"1967" ],
             "startYear":0, 
-            "yAxisLabel":"number of marriages",
+            "yAxisLabel":"Number of marriages",
             "yAxisScale":[0,100000],   
             "yAxisBreak": true,
             "yAxisBreak_sm_md_lg": [65,65,65]            
