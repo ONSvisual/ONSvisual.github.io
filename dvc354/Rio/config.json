@@ -6,12 +6,12 @@
         
             "leftRight": ["GDP rank (2015 US$ Billions)","2016 Medal table rank"],
         
-            "legendLabels" : ["United States","China","Japan","Germany","GB & NI","France","Italy","Brazil","Canada","South Korea","Australia","Russia","Spain","Netherlands","Argentina*","Poland","Belgium","Thailand","Colombia","Greece","Kazakhstan","New Zealand","Hungary","Ukraine","Cuba*","Uzbekistan","Kenya","Croatia","North Korea*","Jamaica"],
+            "legendLabels" : ["United States","China","Japan","Germany","GB & NI","France","Italy","Brazil","Canada","South Korea","Australia","Russia","Spain","Netherlands","Switzerland","Argentina*","Sweden","Iran*","South Africa","Denmark","Colombia","Greece","Kazakhstan","New Zealand","Hungary","Cuba*","Uzbekistan","Kenya","Croatia","Jamaica"],
         
        
         
             
-			 "dataper": [[17947,10866,4123,3356,2849,2422,1815,1775,1551,1378,1340,1326,1199,753,548,475,454,395,292,195,184,174,121,91,77,67,63,49,17,14],[35,20,12,13,22,8,8,5,4,7,7,12,5,8,3,2,2,2,2,2,3,4,7,2,3,2,4,5,2,5]],
+			 "dataper": [[17947,10866,4123,3356,2849,2422,1815,1775,1551,1378,1340,1326,1199,753,665,548,493,425,313,295,292,195,184,174,121,77,67,63,49,14],[46,26,12,17,27,10,8,7,4,9,8,19,7,8,3,3,2,3,2,2,3,3,3,4,8,5,4,6,5,6]],
 
             "sourceText":["worldbank.org"],
             "sourceURL":["http://data.worldbank.org/indicator/NY.GDP.MKTP.CD?year_high_desc=true"],
