@@ -49,7 +49,7 @@
             "aspectRatio_lg" : [16,10],
         
             "mobileBreakpoint" : 500, 
-            "x_num_ticks_sm_md_lg" : [12,12,12],              
+            "x_num_ticks_sm_md_lg" : [15,15,15],              
             "y_num_ticks_sm_md_lg" : [5,5,5],
             "centre_line" : false,
             "centre_line_value" : 0

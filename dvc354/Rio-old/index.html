@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title></title>
+
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="./lib/globalStyle.css" />
+    <style type="text/css">
+	
+	
+		body {
+			max-width:800px;
+			margin: 0px auto;	
+		}
+
+	
+
+		.slopeEU0 {
+			stroke: #80C325;	
+			stroke-width:2px;	
+		}
+		
+		.slopeEU1 {
+			stroke: #FEAD00;
+			stroke-width:2px;	
+		}
+		
+		.slopeEU2 {
+			stroke: #008A52;	
+			stroke-width:2px;	
+		}
+		
+		.graphic .axis line {
+			fill: none;
+			stroke: none;
+			shape-rendering: crispEdges;
+		}
+
+
+		.border0 { border-top: 2px solid #274796; }
+        .border1 { border-top: 2px solid #F5942F; }
+        .border2 { border-top: 2px solid #E73f40; }
+		.border3 { border-top: 2px solid #7BCAE2; }
+		
+		.title {
+			font-family: 'Open Sans';
+			font-size:16px;
+			color:#666;
+			font-weight:bold;
+			text-align:center;
+			padding-bottom:10px;
+		}
+		
+
+		#graphic2 {
+			
+		}
+		
+		text{
+			font-family: 'Open Sans', sans-serif;
+			font-size:12px;
+		}
+		
+		p{
+			font-family: 'Open Sans', sans-serif;
+			font-size:12px;
+		}
+		
+		.y text {
+			display:none;
+		}
+		
+		.graphic .grid .tick /* required */
+		{
+            stroke: #eee;
+            stroke-width: 1px;
+            shape-rendering: crispEdges;
+        }
+		
+		.fade {
+			opacity:0.1;
+		}
+				
+		.highlight {
+			opacity:1;
+		}
+    
+		.axis path {
+			fill:none;
+			stroke:#fff !important;	
+		}
+		
+		.slopegroup {
+			cursor:pointer;	
+			
+		}
+		
+		.textno0, .textno1, .boldtext {
+			font-weight:bold;	
+		}
+		
+	.textno0 {
+			/*text-anchor:end;*/
+			fill:#fff;
+		}
+		
+		.textno1{
+			/*text-anchor:start;*/
+			fill:#fff;
+		}
+		
+		
+		
+		
+.col-xs-6, .col-sm-6, .col-xs-12, .col-sm-12 {
+  position: relative;
+  min-height: 1px;
+}
+
+.col-xs-12 {
+  width: 100%;
+  float: left;
+}
+
+.col-xs-9 {
+    width: 75%;
+	float: left;
+}
+
+.sparkle {
+	font-weight:bold;
+	fill: #02737d;
+}
+
+.tick text {
+	text-anchor: middle;
+	font-size: 14px;
+	font-weight: bold;
+}
+	
+/*body {
+    background-image: url(images/background.jpg);
+    background-repeat: repeat;
+    background-position: right top;
+    background-size: 100%;
+
+}*/
+
+.olympic-image {
+	position: absolute;
+	z-index: -1;
+	opacity: 0.6;
+
+}
+
+	
+@media (min-width: 635px) {
+	
+	#graphic {
+		
+		width:100%;
+	}
+}
+
+@media (max-width: 400px) {
+	
+	.desk {
+		
+		fill:none;
+	}
+	
+	
+}
+
+
+@media (min-width: 401px) {
+	
+	.mob {
+		
+		fill:none;
+	}
+	
+	
+}
+
+#keypoints/* required. */
+		{
+			
+			margin-bottom:10px;
+			color:#666;
+			font-weight:400 !important;	
+			font-size:13px;
+		}
+
+
+}
+		
+		
+    </style>
+</head>
+<body>
+
+<img class="olympic-image" src="images/background.jpg" alt="olympic pic">
+
+	<div class="graphic">
+    <div class="title col-sm-9 col-xs-9"></div>
+    <div id="graphic">
+    	<img src="fallback.png" alt="[Chart]" />
+    </div>
+    </div>
+    <div id="keypoints">
+    </div>
+
+   <div class="footer">
+   
+   </div>
+    
+    <script src="./lib/jquery.js" type="text/javascript"></script>
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="./lib/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="./lib/pym.js" type="text/javascript"></script>
+    <script src="scriptb.js" type="text/javascript"></script>
+   
+   
+
+</body>
+</html>
