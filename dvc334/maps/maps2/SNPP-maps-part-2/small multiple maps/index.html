@@ -775,6 +775,7 @@
 							.attr("class", "areaname")
 //							.attr("font-weight","bold")
 							.attr("fill","#666")
+							.text(function(){
 									var fmt = d3.format(".1f")
 									if(area==undefined){
 										console.log(headers[k]);
