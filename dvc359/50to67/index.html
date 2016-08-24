@@ -60,8 +60,16 @@
 		#keypoints/* required. */
 		{
 			margin-bottom:10px;
+			display:none;
 			
 		}
+		.fact {
+			font-size:34px;
+			font-weight:bold;
+			fill:#b0b0b0;
+				
+		}
+		
 	.ui-slider-wrapper {
 	margin-top:10px;	
 	}
@@ -517,8 +525,6 @@
 					.attr("id","btnDiv")
 					.attr("class", "col-xs-12 col-sm-5");
 
-	
-				
 			group.append("text")	
 					.attr("class", "displayedYear")
 					.text(dvc.timeArray[dvc.timeIndex])
