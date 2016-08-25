@@ -455,7 +455,7 @@ function buildQuiz(area){
 			if(dvc.questionIndex==dvc.config.config.questions.length-1) {
 					$("#submitDiv").empty();
 					setTimeout(function(){
-						d3.select("#submitDiv").text("People leave the UK as well as enter. " + dvc.format(dvc.areaData[0].Outflow) + " people left "+ dvc.areaName + " intending to live outside the UK for more than a year.")
+						d3.select("#submitDiv").text("People leave the UK as well as enter. It is estimated that " + dvc.format(dvc.areaData[0].Outflow) + " people left "+ dvc.areaName + " intending to live outside the UK for more than a year.")
 						pymChild.sendHeight()
 					},1600);
 			}
