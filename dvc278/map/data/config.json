@@ -1,0 +1,14 @@
+{"ons":{
+"varlabel": ["% not born in the UK"],
+"varcolour": "PuBu[5]",
+"varname": ["pernonuk"],
+"varload": "pernonuk",
+"varunit":["% non-UK born"],
+"varprefix":["",""],
+"breaks":"jenks",
+"average":[13],
+"averagelabel":"UK",
+"centre":[52.344,-1.51],
+"zoom":7
+
+}}

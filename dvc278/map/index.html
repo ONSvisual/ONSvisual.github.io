@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css" media="screen">
+  <link rel="stylesheet" href="css/style-chosen.css">
+
+  <style>
+  *{
+    margin:0;
+    padding:0;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+  }
+  body,html{
+	display:inline-block;
+	width:100%;
+  }
+  
+  #map{
+    height:550px;
+  }
+  
+  body{
+    color:#333;
+    font-family:sans-serif;
+  }
+  
+  @font-face {
+		font-family: 'open_sanslight';		
+		src: url('assets/OpenSans-Light-webfont.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	
+	}
+	
+	@font-face {
+		font-family: 'open_sansitalic';		
+		src: url('assets/OpenSans-Italic-webfont.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	
+	}
+	
+	@font-face {
+		font-family: 'open_sansregular';		
+		src: url('assets/OpenSans-Regular-webfont.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	
+	}
+	
+	@font-face {
+		font-family: 'open_sanssemibold';		
+		src: url('assets/OpenSans-Semibold-webfont.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	
+	}
+		
+  
+  #map{
+    background:white;
+	width:100%;
+  }
+  
+  #keydiv {
+	z-index:4;
+	position:absolute;  
+	height:550px;
+	right:0px;
+	background:rgba(255,255,255,.75);
+  }
+  
+  #areadrop {
+	z-index:5;
+	position:absolute;  
+	width:100%;
+	height:72px;
+	right:0px;
+	background:rgba(255,255,255,.75);
+  }
+  
+	#key path {
+	  display: none;
+	  
+	}
+	
+	#key line {
+	  stroke: #666;
+	  shape-rendering: crispEdges;
+	}
+	
+	#key rect {
+	  stroke: #666;
+	  stroke-width:1px;
+	  shape-rendering: crispEdges;
+	}
+	
+	#key g {
+		font-size:11px;
+		fill:#666;
+	}
+	
+	
+	#areaname {
+		text-align:center;
+		height:55px;
+	}
+	
+	@media (min-width: 768px) {
+	#areanm
+	{	
+		
+		font-size:20px;
+		color:#666;
+		min-width:1%;
+		font-family:open_sanssemibold, Arial, Helvetica, sans-serif;
+		text-align:center;
+		
+	}
+
+	#areainfo
+	{	
+		
+		font-size:22px;
+		color:#666;
+		font-family:open_sanssemibold, Arial, Helvetica, sans-serif;
+	}
+	
+	#areainfo span
+	{	
+		
+		font-size:18px;
+	}
+	
+	}
+	
+	@media (max-width: 767px) {
+	#areanm
+	{	
+		
+		font-size:16px;
+		color:#666;
+		font-family:open_sanssemibold, Arial, Helvetica, sans-serif;
+
+	}
+
+	#areainfo
+	{	
+		
+		font-size:16px;
+		color:#666;
+		font-family:open_sanssemibold, Arial, Helvetica, sans-serif;
+
+	}
+
+	#areainfo span
+	{	
+		
+		font-size:12px;
+	}
+	}
+
+	
+	#chosensel {
+		height:50px;	
+	}
+
+	@media (min-width: 768px) {
+
+	#keydiv {
+		top:72px;
+		width:140px;
+		height:462px;
+	}
+
+	
+
+	.grey{
+		margin:10px 0px 0px 10px;	
+	}
+
+
+
+	#key {
+		width:140px	
+	}
+	}
+
+	
+
+	@media (max-width: 767px) {
+
+	#keydiv {
+
+		width:100%;
+		height:80px;
+		top: 470px;
+	}
+
+	
+
+	.grey{
+		margin:-15px 0px 0px 10px;	
+	}
+
+	
+
+	#key {
+		width:100%;	
+		height:43px;
+	}
+
+	.chosen-container {
+		top: -10px;
+		z-index:1002;
+	}
+	}
+
+	.navbar {  
+	  min-height: 0px !important;
+	}
+
+	
+
+	#menu {
+		z-index:1001;	
+	}
+
+
+	.grey b{
+
+		display: inline-block;
+		float: left;
+		height: 12px;
+		margin: 4px 7px 10px 10px;
+		width: 12px;
+		background-color: #ffffff;
+  		width: 12px !important;
+		border:1px solid #878787;
+	}
+
+	.grey li{
+
+		display: inline-block;
+		line-height: 15px;
+		margin: 0 18px 0 0;
+		padding: 0;
+	}
+
+	
+
+	.grey label{
+		color: #333333;
+		font-family: sans-serif;
+		font-size: 11px;
+		font-weight: normal;
+		white-space: nowrap;
+
+	}
+	
+	
+	  </style>
+</head>
+<body>
+
+   <div class="container-fluid">
+   <div id="graphic">Loading graphic...</div>
+   <div class="row" id="navigation">
+   
+          <div class="col-sm-12 hidden-xs" id="pills">
+          </div>
+          
+          <div class="col-xs-12 visible-xs">
+              <div class="btn-group btn-group col-xs-12" role="group" id="menu">
+                
+                  <button id="varsel" class="btn btn-primary dropdown-toggle btn-block" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Dropdown<span class="caret"></span>
+                  </button>      
+              </div>
+          </div>
+
+   </div>
+  
+
+
+
+   
+   <div class="row" style="position: relative;">
+          <div id="mapPane" class="col-sm-12 col-xs-12">
+          	<div id="map">
+
+            </div>
+          </div>
+      <div class="row" id="areadrop">
+          <div class="col-sm-9 col-xs-12" id="areaname">
+                <div id="areanm"></div>
+                <div id="areainfo"></div>
+          </div>
+      <div class="col-sm-3 col-xs-12" id="chosensel">
+      </div>
+	  </div>                  
+      <div id="keydiv"></div>
+
+	</div><!-- end row --> 
+    
+    
+     </div>
+  
+  
+    <script src="js/jquery.js"></script>
+    <script src="js/chosen.jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+ 	<script src="js/modernizr.custom.56904.js"></script>
+    <script src="js/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/queue.js" charset="utf-8"></script>
+    <script src="js/ss.js"></script>
+    <script src="js/topojson.js"></script>
+    <script src="js/pym.js" charset="utf-8"></script>
+    <script src="js/colorbrewer.js" charset="utf-8"></script>
+    <script src="js/leaflet.js"></script>
+	<script src="js/script.js"></script>
+	<script>
+	
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37894017-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();    
+    
+    </script>
+</body>
+</html>

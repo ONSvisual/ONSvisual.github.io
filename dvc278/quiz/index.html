@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>How well do you know migration?</title>
+    <link rel="stylesheet" href="js/jquery-ui.min.css"/>
+    
+    <style>
+		
+		body {
+            padding:15px;
+			margin:0px;
+			font-family: "Open Sans", Freesans, Helvetica, Arial, sans-serif, Roboto;
+			color:#404040;
+			display:table;
+			/*padding-bottom:	100px;*/
+		}
+
+        .iconPlain  {
+                fill:#d9d9d9;   
+            }
+            
+        .iconSelected  {
+                fill:#0094eb;
+				
+            }
+			
+		.trafalger {
+			font-size:36px;
+			font-weight:bold;
+			line-height:40px;					
+		}
+		
+		.doublepica {
+			font-size:24px;	
+			font-weight:bold;
+			line-height:28px;					
+		
+		}	
+		
+		.picaarticle {
+			font-size:18px;
+			line-height:24px;					
+			
+		}
+		
+		.fontw {
+			font-weight:bold;
+		}
+		
+		#pcText {
+			width: 130px;
+			height:21px;
+			padding: 3px;
+			color: #999999;
+		}
+		
+		@media (max-width: 300px) {
+			.picaarticle {
+				font-size:15px;
+			    line-height:20px;					
+			}
+			
+			.doublepica {
+				font-size:20px;
+				line-height:24px;					
+					
+			}
+			
+			.trafalger {
+				font-size:20px;
+				line-height:24px;					
+			}
+			
+			
+		}
+
+		@media (min-width: 301px) {
+			.picaarticle {
+				font-size:16px;
+				line-height:22px;					
+			}
+			
+			.doublepica {
+				font-size:20px;
+				line-height:24px;					
+			}
+			
+			.trafalger {
+				font-size:24px;
+				line-height:28px;					
+			}
+			
+		}
+		
+		@media (min-width: 700px) {
+			.picaarticle {
+				font-size:16px;
+				line-height:22px;					
+			}
+			
+			.doublepica {
+				font-size:24px;
+				line-height:28px;					
+			}
+			
+			.trafalger {
+				font-size:32px;
+				line-height:36px;					
+			}
+			
+		}
+
+		@media (min-width: 1000px) {
+			.picaarticle {
+				font-size:18px;
+				line-height:24px;					
+				
+			}
+			
+			.doublepica {
+				font-size:24px;	
+				font-weight:bold;
+				line-height:28px;					
+			}
+			
+			.trafalger {
+				font-size:36px;
+				font-weight:bold;
+				line-height:40px;					
+			}
+		}
+
+        #quiz    {
+			max-width:850px;
+			margin:0px auto;
+			display:block;
+
+        }
+		
+		
+
+/*		#quizSubtext {
+			padding:6px 0px;
+		}*/
+        
+        svg {
+        }
+        
+        #uiContainer    {
+			padding-bottom:10px;
+        }
+   
+        .backBar    {
+            fill:#dedede;   
+        }
+		
+		.barReveal {
+            background-color:#dedede;  
+			height:15px; 
+			display:inline;
+			margin-bottom:20px;
+		}
+		
+		.barReveal2 {
+            background-color:rgb(0,148,235);
+			height:15px; 
+			/*width:0%;*/
+			position:relative;
+			z-index:+2;
+		}
+        
+        #guessBar,#actualBar,#natBar    {
+            fill:#00b2b2;
+        }
+        
+        #answerBar    {
+            fill:#f7931e;   
+        }
+        
+        #sliderVal {
+            float:left;
+            display:inline-block;
+            white-space: nowrap;
+            height:50px;
+            padding-top:15px;
+			width:100%
+
+	   }
+        
+
+		
+		.labelt{
+			padding:5px 10px 0px 10px;
+			padding-left:10px;
+		}
+		
+		.valuet {
+			padding:10px 10px 0px 10px;
+			color:#0084d1;
+			width:50px;
+			text-align:left;
+		}
+		
+		.valuet2 {
+			color:#0084d1;
+			width:50px;
+			text-align:left;
+		}
+		
+		.labels {
+			height:90px;
+			text-align:left;
+	
+		}
+		
+		.labels2 {
+			/*height:40px;*/
+			text-align:left;
+			margin:10px 0px 5px 0px;
+			display:block;
+	
+		}
+		
+		
+		.btnEnable {
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			width: 110px;
+			border: none;
+			padding: 6px 0;
+			background-color: #0084d1;
+			font: 700 16px Arial;
+			color: #FFF;
+			filter: inherit;
+			-webkit-appearance: button;
+			cursor: pointer;
+		}
+		
+		.btnDisable {
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			width: 110px;
+			border: none;
+			padding: 6px 0;
+			background-color: #0084d1;
+			opacity:0.5;
+			font: 700 16px Arial;
+			color: #FFF;
+			filter: inherit;
+			-webkit-appearance: button;
+			cursor: pointer;
+			pointer-events:none;
+			
+		}
+		
+		#score {
+			font-weight:bold;
+			color:#007F7F;
+
+			
+		}
+		
+		#score span {
+			font-weight:normal;
+			color:#404040;
+
+			
+		}
+		
+		#submitDiv {
+			padding-bottom:10px;	
+			display:block;
+			font-size:17px;
+			color:rgb(64,64,64);
+			margin-left:-15px;
+			margin-right:-15px;
+		}
+		
+		#results {
+		
+			text-align:center;
+			
+		}
+		
+		#share {
+		
+			padding-top:40px;	
+		}
+		
+		#aboutQuiz {
+			text-decoration:none;
+			font-weight:bold;
+			color:#1f4f82;
+			cursor:pointer;	
+			text-align:left;
+		}
+		
+		#aboutQuiz:hover {
+			text-decoration:underline;
+	
+		}
+		
+		#credit{
+			text-align:left;
+		}
+
+		
+		
+/* Bootstrap Grid */	
+
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+  float: left;
+}
+.col-xs-12 {
+  width: 100%;
+}
+.col-xs-11 {
+  width: 91.66666667%;
+}
+.col-xs-10 {
+  width: 83.33333333%;
+}
+.col-xs-9 {
+  width: 75%;
+}
+.col-xs-8 {
+  width: 66.66666667%;
+}
+.col-xs-7 {
+  width: 58.33333333%;
+}
+.col-xs-6 {
+  width: 50%;
+}
+.col-xs-5 {
+  width: 41.66666667%;
+}
+.col-xs-4 {
+  width: 33.33333333%;
+}
+.col-xs-3 {
+  width: 25%;
+}
+.col-xs-2 {
+  width: 16.66666667%;
+}
+.col-xs-1 {
+  width: 8.33333333%;
+}
+
+@media (min-width: 700px) {
+	#submitDiv {
+			font-size:19px;
+	}
+	
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-sm-11 {
+    width: 91.66666667%;
+  }
+  .col-sm-10 {
+    width: 83.33333333%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-8 {
+    width: 66.66666667%;
+  }
+  .col-sm-7 {
+    width: 58.33333333%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-5 {
+    width: 41.66666667%;
+  }
+  .col-sm-4 {
+    width: 33.33333333%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-2 {
+    width: 16.66666667%;
+  }
+  .col-sm-1 {
+    width: 8.33333333%;
+  }
+}
+
+	</style>
+    
+
+  </head>
+  
+    
+  <body>
+ 	<div id="quiz">
+    <h1 class="trafalger" id="quizTitle">Quiz - What is migration like in your area?</h1>
+    <p id="test" class="picaarticle">Enter your postcode and test yourself with two simple questions.</p>
+    <div class="col-sm-12 col-xs-12" id="postcode">
+    		<form id="pcForm">
+            	<input id="pcText" class="picaarticle" type="text" tabindex="1" placeholder="e.g. NP10 8XG">
+           		<button class="btnEnable" id="submitPost" type="submit">GO!</button>
+            </form>
+            <div id="pcError" class="picaarticle">Sorry, that's not a valid postcode. Try an English, Welsh or Scottish postcode eg PO15 5RR.</div>
+            <div id="pcNodata" class="picaarticle">Sorry, we don't have data for a few areas. Unfortunately your area is one of these.</div>
+    </div>
+    <div class="col-sm-12 col-xs-12" id="uiContainer">
+        <div id="quizText">
+            <div id="quizQuestion" class="doublepica"></div>
+            <div id="quizSubtext" class="picaarticle"></div>
+            <div id="questionHint" class="picaarticle"></div>
+        </div>
+    </div>
+    
+    <div class="col-sm-12 col-xs-12" id="quizContent">
+    	<div class="col-sm-10 col-xs-12" id="picto" style="display: none;">
+        </div> 
+        <div class="col-sm-2 col-xs-12" id="pictoText" style="display: none;">
+			<div class="labels col-sm-12 col-xs-4">
+                <div class="labelt doublepica" id="pictoGuessLabel">Guess</div>
+                <div class="valuet trafalger" id="pictoGuessValue">0</div>
+            </div>
+            <div class="labels col-sm-12 col-xs-4">
+                <div class="labelt doublepica" id="pictoActualLabel">Actual</div>
+                <div class="valuet trafalger" id="pictoActualValue"></div>
+            </div>
+            <div class="labels col-sm-12 col-xs-4">
+                <div class="labelt doublepica">UK</div>
+                <div class="valuet trafalger" id="pictoNatValue"></div>
+            </div>
+        
+        </div>   
+        <div class="col-sm-12 col-xs-12" id="bar" style="display: none;">
+                <div class="labels2 doublepica">Guess</div>
+            	<div id="guessValue" class="valuet2 trafalger"></div>
+	        	<div class="barReveal col-sm-12 col-xs-12"></div>
+	        	<div id="guessReveal" class="barReveal2 trafalger"></div>    
+
+               	<div class="labels2 doublepica">Actual</div>            
+            	<div id="actualValueText" class="valuet2 trafalger"></div>
+	        	<div class="barReveal col-sm-12 col-xs-12"></div>
+                <div id="actualReveal" class="barReveal2 trafalger"></div>  
+ 
+<!--            	<div class="labels2 doublepica natValLabel">National</div>
+            	<div id="natValueText" class="valuet2 trafalger"></div>
+	        	<div class="barReveal col-sm-12 col-xs-12"></div>
+                <div id="natReveal" class="barReveal2 trafalger"></div>     -->           
+
+
+        
+        </div> 
+        
+        <div class="col-sm-12 col-xs-12" id="results" style="display: none;">
+        		<div class="picaarticle">You scored:</div>
+        		<div id="score" class="trafalger"></div>
+                <div class="picaarticle">
+	                <p>Rating<br>
+                	<span class="fontw"> 0-25</span>: Postcode loss-ary; <span class="fontw"> 26-50</span>: Grey area<br>
+                    <span class="fontw"> 51-75</span>: Cunning constituent; <span class="fontw"> 76-100</span>: First-class citizen</p>
+                </div>
+                <div id="share" class="picaarticle">Share your result</div>
+                
+                <br><br>
+                
+                <div id="aboutQuiz" class="picaarticle"><a src="??" target="_top">More about this quiz</a></div>           
+                <div class="picaarticle" id="credit"></div>
+                
+                
+                
+        </div> 
+  
+    
+    
+    <div class="col-sm-12 col-xs-12">
+         <div id="sliderVal"></div>
+   
+    </div>
+    
+        <div class="col-sm-12 col-xs-12" id="submitDiv">
+            <button class="btnEnable" id="submitBtn" type="submit">SUBMIT</button>
+            <button class="btnEnable" id="nextBtn" type="submit">NEXT</button>
+        </div>
+    
+    </div>
+    </div>
+
+	<script data-main="main" src="require.js"></script>
+    <script>
+	
+    	var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37894017-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		  
+ 	</script>
+
+  </body>
+</html>
+
