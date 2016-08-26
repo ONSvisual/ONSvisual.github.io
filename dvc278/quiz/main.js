@@ -451,7 +451,7 @@ function buildQuiz(area){
 			if(dvc.questionIndex==dvc.config.config.questions.length-1) {
 					$("#submitDiv").empty();
 					setTimeout(function(){
-						d3.select("#submitDiv").html("People leave the UK as well as enter. It is estimated that " + dvc.format(dvc.areaData[0].Outflow) + " people left "+ dvc.areaName + " intending to live outside the UK for more than a year.<br><p class='footnote'>Remember, these are estimates and we cannot 100% certain of the exact number. For more information on how these are calculated see <a href='https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/methodologies/methodologyguideformid2015ukpopulationestimatesenglandandwalesjune2016#international-migration' target='_blank'>https://www.ons.gov.uk/peoplepopulationandcommunity/p...</a></p>")
+						d3.select("#submitDiv").html("People leave the UK as well as enter. It is estimated that " + dvc.format(dvc.areaData[0].Outflow) + " people left "+ dvc.areaName + " intending to live outside the UK for more than a year.<br><p class='footnote'>Remember, these are estimates and we cannot be 100% certain of the exact number. For more information on how these are calculated see <a href='https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/methodologies/methodologyguideformid2015ukpopulationestimatesenglandandwalesjune2016#international-migration' target='_blank'>https://www.ons.gov.uk/peoplepopulationandcommunity/p...</a></p>")
 						pymChild.sendHeight()
 					},1600);
 			}
