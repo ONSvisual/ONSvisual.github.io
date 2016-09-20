@@ -1,0 +1,70 @@
+{
+    "essential" : {
+            "graphic_data_url": "datanontime1.csv",
+        
+            "dateFormat":"%b-%y",
+        
+            "leftRight": ["Girls rank (2005)","Girls rank (2015)"],
+        
+            "legendLabels" : ["Amelia ","Olivia ","Emily ","Isla ","Ava ","Ella ","Jessica ","Isabella ","Mia ","Poppy ","Sophie ","Grace ","Chloe ","Charlotte ","Lucy ","Ellie "],
+			
+			"rank05" : [1,2,3,4,5,6,7,8,9,10,11,14,18,25,32,47],
+			"rank15" : [15,4,2,125,82,10,1,24,18,35,3,7,6,9,8,5],
+			
+			
+			"actual2015" : ["5158","4853","3893","3474","3414","3028","2937","2876","2842","2816","2779","2658","2158","1951","1525","1185"],
+			
+			"actual2005" : ["2976","4282","4752","432","657","3220","5030","2065","2539","1574","4422","3653","4017","3499","3534","4049"],
+
+        
+            "EUorNot" : [0, 1, 0, 1, 1, 1, 1, 0, 0, 1,0,1,0,0,0,0, 1, 0, 1, 1, 1, 1, 0, 0, 1,0,1,0,0,0],
+        
+            "dataper_old": [[46,38,7,11,11,29,3,24,8,7,3,13,6,4,2,3,2,7,4,6,6,2,8,5,2,3,2,3,4,4],[46,38,7,11,11,29,3,24,8,7,3,13,6,4,2,3,2,7,4,6,6,2,8,5,2,3,2,3,4,4]],
+			 "dataper": [[17947,10866,4123,3356,2849,2422,1815,1775,1551,1378,1340,1326,1199,753,665,475,454,395,369,292,195,184,174,121,68,67,63,49,40,14],[26,15,7,8,16,7,8,2,2,6,6,11,3,6,2,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2]],
+
+            "sourceText":["Baby Names Statistics Girls"],
+            "sourceURL":["https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/babynamesenglandandwalesbabynamesstatisticsgirls"],
+        
+            "annotationChart": [""],
+            "annotationBullet": [],
+            "annotationXY":[
+                ["4","80"],
+                ["Jul-08","73.7"]
+            ],
+            "annotationAlign":[
+                "middle",
+                "middle"
+            ],
+        
+            "circles" : true,    
+            "annotationCXCY":[
+                ["Apr-93","68.4"],
+                ["Apr-08","73"]
+            ],
+        
+            "yAxisLabel":"",
+            "yAxisScale":[18,1],   
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": []            
+    },
+    "optional" : {
+            "margin_sm": [40, 180, 5, 75],
+            "margin_md": [40, 180, 5, 210],
+            "margin_lg": [40, 180, 5, 210],
+        
+            "aspectRatio_sm" : [1,8],
+            "aspectRatio_md" : [1,7],
+            "aspectRatio_lg" : [1,1.5],
+        
+            "mobileBreakpoint" : 401, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%b %y"], 
+                
+            "x_num_ticks_sm_md_lg" : [18,18,18],    
+            "y_num_ticks_sm_md_lg" : [18,18,18],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+
