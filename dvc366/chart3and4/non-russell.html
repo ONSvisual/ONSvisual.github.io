@@ -688,7 +688,8 @@
 		
 					$("#occselect").val(LAs[counter]);
 					$("#occselect").trigger("chosen:updated");
-					d3.select(".search-choice-close").style("display", "none").attr("pointer-events", "none")
+					d3.select(".chosen-container").style("opacity",0.6).style("pointer-events","none");
+					d3.select(".search-choice-close").style("display", "none").attr("pointer-events", "none");
 					hoverLine(LAs[counter]);		
 			setTimeout(function () {
 					
@@ -717,7 +718,8 @@
 			d3.selectAll('.selected_out').remove();
 			$("#occselect").val("");
 			$("#occselect").trigger("chosen:updated");
-		d3.select(".search-choice-close").style("display", "block").attr("pointer-events", "auto")
+			d3.select(".search-choice-close").style("display", "block").attr("pointer-events", "auto")
+			d3.select(".chosen-container").style("opacity",1).style("pointer-events","auto")
 			d3.selectAll(".line")
 				.on("mouseover",function(){
 					 currclass = d3.select(this).attr("id").substr(2,15);
