@@ -1,0 +1,9 @@
+{"config":{
+"questions":[
+["For every 100 people who live here, how many were born outside the UK?","pernonuk",0,100,"person","in 2015",""],
+["How many international migrants entered the area intending to stay for more than a year?","Inflow",0,15000,"bar","In the year ending June 2015",""]
+],
+"sources":[],
+"urls":[]
+}
+}

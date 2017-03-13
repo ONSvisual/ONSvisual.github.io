@@ -1,0 +1,69 @@
+{
+    "essential" : {
+            "graphic_data_url": "datanontime1.csv",
+        
+            "dateFormat":"%b-%y",
+        
+            "leftRight": ["Boys rank (2005)","Boys rank (2015)"],
+        
+            "legendLabels" : ["Oliver ","Jack ","Harry ","George ","Jacob ","Charlie ","Noah ","William ","Thomas ","Oscar ","James ","Joshua ","Joseph ","Samuel ","Daniel "],
+			
+			"rank15" : [5,	1,	9,	17,	21,	12,	51,	8,	3,	55,	4,	2,	10,	7,	6],
+			"rank05" : [1,	2,	3,	4,	5,	6,	7,	8,	9,	10,	11,	16,	21,	23,	24],
+			
+			"actual2015" : ["6941","5371","5308","4869","4850","4831","4148","4083","4075","4066","3912","3394","2786","2705","2622"],
+			
+			"actual2005" : [5516,7434,4638,3540,3057,4033,1346,5106,6792,1262,	5654,7167,4523,5219,5270],
+
+        
+            "EUorNot" : [0, 1, 0, 1, 1, 1, 1, 0, 0, 1,0,1,0,0,0,0, 1, 0, 1, 1, 1, 1, 0, 0, 1,0,1,0,0,0],
+        
+            "dataper_old": [[46,38,7,11,11,29,3,24,8,7,3,13,6,4,2,3,2,7,4,6,6,2,8,5,2,3,2,3,4,4],[46,38,7,11,11,29,3,24,8,7,3,13,6,4,2,3,2,7,4,6,6,2,8,5,2,3,2,3,4,4]],
+			 "dataper": [[17947,10866,4123,3356,2849,2422,1815,1775,1551,1378,1340,1326,1199,753,665,475,454,395,369,292,195,184,174,121,68,67,63,49,40,14],[26,15,7,8,16,7,8,2,2,6,6,11,3,6,2,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2]],
+
+            "sourceText":["Baby Names Statistics Boys, ONS"],
+            "sourceURL":["https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/babynamesenglandandwalesbabynamesstatisticsboys"],
+        
+            "annotationChart": [""],
+            "annotationBullet": [],
+            "annotationXY":[
+                ["4","80"],
+                ["Jul-08","73.7"]
+            ],
+            "annotationAlign":[
+                "middle",
+                "middle"
+            ],
+        
+            "circles" : true,    
+            "annotationCXCY":[
+                ["Apr-93","68.4"],
+                ["Apr-08","73"]
+            ],
+        
+            "yAxisLabel":"",
+            "yAxisScale":[18,1],   
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": []            
+    },
+    "optional" : {
+            "margin_sm": [40, 180, 5, 75],
+            "margin_md": [40, 180, 5, 210],
+            "margin_lg": [40, 180, 5, 210],
+        
+            "aspectRatio_sm" : [1,8],
+            "aspectRatio_md" : [1,7],
+            "aspectRatio_lg" : [1,1.5],
+        
+            "mobileBreakpoint" : 401, 
+            
+            "xAxisTextFormat_sm_md_lg" : ["%y", "%Y", "%b %y"], 
+                
+            "x_num_ticks_sm_md_lg" : [18,18,18],    
+            "y_num_ticks_sm_md_lg" : [18,18,18],
+            "centre_line" : false,
+            "centre_line_value" : 0
+    }
+}
+
+

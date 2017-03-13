@@ -84,6 +84,8 @@
 		        .range([height, 0]);
 
 		    x.domain(d3.extent(graphic_data, function(d) { return d.date; }));	
+			
+			console.log(x.domain());
 
 		    var xAxis = d3.svg.axis()
 		        .scale(x)
