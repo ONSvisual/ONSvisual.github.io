@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <title>Crime Risk Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css" media="screen">
+    <link rel="stylesheet" href="css/globalStyle.css" />
+
+    
+    <style>
+		body {
+			font-family: 'Open Sans', sans-serif;
+			color:#666;
+			background-color:none; /*#ede3d4;*/
+			min-height:1050px;
+		}
+        .container{
+			background-color:white;
+			max-width:700px;
+			padding-left:0px; 
+			padding-right:0px; 
+        }
+        .row{
+            margin-left:0px;
+            margin-right:0px;
+            margin-top:10px;
+            margin-bottom:20px;
+        }
+		.submit {
+			margin-top:15px;
+			padding-top:10px;
+			height: 60px;
+		}
+
+		
+		/* BUTTON STYLING */
+		
+		.btn, .btn-group{
+			border-radius:0px;
+			border-color:white;
+			padding-left:0px; 
+			padding-right:0px; 
+			font-weight:bold!important;
+		}
+		.col-sm-offset-2, col-sm-8, col-xs-12 {
+			padding-left:0px; 
+			padding-right:0px; 
+		}
+		.btn:focus, .btn:hover {
+			border-color:white!important;
+			color:#1167AB;
+		}
+		.btn:hover {
+			background-color:#e7e7e7!important;
+		}
+		
+		
+		
+		.franksbutton{
+			border-radius:0px !important;
+			border-color:white!important;
+			color:white!important;
+			background-color: #007F7F!important;			
+		}
+		.franksdropdown{
+			border-radius:0px !important;
+			border-color:white!important;
+			color:white!important;
+			background-color: #007F7F!important;			
+		}
+		
+		.dropdown-menu {
+  			width: 100%; 
+			text-align:center;	
+		} 
+		#manpic, #womanpic {
+			height:40px;
+			display: block;
+			margin-left: 10px;;
+			margin-right: auto;
+			margin-top:0px;
+			float:left;
+		}
+		
+		.manOption, .womanOption {
+			cursor:hand;
+			cursor:pointer;	
+		}
+	
+	
+		.sectionheader{
+			margin-top:0px;
+		}
+		.share {
+			padding-left:0px!important;
+			padding-right:0px!important;
+			padding-top:0px!important;
+			margin-top:0px!important;
+			cursor:pointer;
+			opacity:0.7;
+		}
+		
+		.share:hover {
+			
+			opacity:1;
+		}
+		#AboutCalculator {
+			font-size:12px;
+			color:#EAEEF1;
+			text-align:right;
+		}
+				#AboutCalculator:hover {
+					font-size:12px;
+					color:#007F7F;
+					text-align:right;
+					text-decoration:underline;
+					cursor:pointer;
+					cursor:hand;
+		        }
+		
+		#ReadBut {
+			background-color:#007F7F;
+			width:100px;
+			text-align:center;
+			font-size:14px;
+			color:white;
+		}
+		#ReadBut:hover {
+			cursor: pointer;
+			cursor: hand;
+			background-color:#386890;
+			width:100px;
+			text-align:center;
+			color:white;
+		}
+		
+		#submitbuttext {
+			padding-bottom:10px;
+			padding-top:10px;
+			margin-bottom:0!important;
+		}
+		
+		#barcontainer {
+		background-color:#CCC;
+		width:100%;
+		padding-bottom:5px;
+		padding-top:5px;
+		padding-left:5px;
+		padding-right:5px;
+		}
+		
+		#barmeasure {
+			height:40px;
+			width:50%;
+			background-color:#007F7F;
+		}
+		
+		#postcode {
+			margin-left:0px;
+			margin-right:0px;
+			padding-left:0px;
+			padding-right:0px;
+		}
+		
+		#pcText {
+			width: 20%;
+			min-width:140px;
+			height:40px;
+			color: #999999;
+			margin-left:0px;
+			font-family: 'Open Sans', sans-serif;
+			font-size: 15px;
+			margin-top:10px;
+			float:left;
+		}
+		
+		.picaarticle {
+			font-size:15px;
+			line-height:24px;	
+			font-family: 'Open Sans', sans-serif;
+			margin-top:10px;			
+		}
+	
+		.btnEnable {
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			width: 49%;
+			height:38px;
+			border: none;
+			background-color: #007F7F;
+			color: #FFF;
+			filter: inherit;
+			-webkit-appearance: button;
+			cursor: pointer;
+			font-family: 'Open Sans', sans-serif;
+		}	
+		.btnEnable:hover {
+			opacity:0.9;
+		}			
+		
+	
+    .resultsText {
+		font-size:12px;
+		padding-left:0px;
+		padding-right:0px;
+	}
+
+	.answerText {
+		
+	}
+	.blue {
+		fill:#007F7F;
+		font-size:13px;
+	}
+	.orange {
+		fill:#801350;
+		font-size:13px;
+	}
+	#submitPost{
+		background-color:#007F7F;
+		color:white;
+	}
+	#submitPost:hover{
+		background-color:#3C6B91;
+		color:white;
+	}
+	
+	#nextButton{
+		background-color:#007F7F;
+		height:40px;
+		width:100px;
+		color:white;	
+		font-weight:bold;
+		text-align:center;
+		padding-top:8px;
+		margin-top:20px;
+		margin-bottom:20px;	
+	}
+	
+	#nextButton:hover{
+		background-color:#315C7E;
+		cursor:hand;
+		cursor:pointer;
+	}
+	
+	#pcError {
+		color:grey;	
+	}
+	
+	.iButtons {
+		cursor:pointer;
+		cursor:hand;
+	}
+	.tick{
+		fill:grey;
+		stroke:#dadada;
+		text-align:center;
+	}
+	
+	.crimeType {
+		color:grey!important;	
+		stroke:none;
+		
+	}
+	
+	.unemployedBar {
+		float:left;
+		background-color:rgb(231, 231, 231); 
+		border: white solid 2px;
+		padding-bottom: 8px;
+		padding-left: 12px;
+		padding-right: 12px;
+		padding-top: 8px;
+		height:45px;
+	}
+	.barText {
+		float:left;
+		padding-top:10px; 
+		color:rgb(51, 51, 51);
+		font-family:"Open Sans",sans-serif;
+		font-size:15px;
+	}
+	.chlab {
+		fill:grey;
+		font-family:"Open Sans",sans-serif;
+		font-size:14px;
+		font-weight:300;
+	}
+	.age {
+		padding-top:10px;
+		padding-bottom:10px;
+	}
+	
+
+input:focus {
+    border:2px solid #007F7F;
+}
+
+
+#pcForm {
+	
+}
+
+#pcGo {
+	
+}
+
+#pcGo:hover {
+	cursor:pointer;
+	curser:hand;
+}
+
+#yAxis {
+	transform:translate(-150,-16);
+    font-size:14px;
+	colour:grey;
+	text-anchor:start; 
+}
+
+.tick {
+	stroke:none;
+}
+
+.chlab {
+	transform:translate(70,0);
+	text-anchor:end; 
+}
+				
+#xAxis0 text, #xAxis1 text, #xAxis2 text, #xAxis3 text {
+	transform:translate(0px,5px);
+	fill:#b0b0b0;	
+	font-size:14px;
+	font-weight:bold;
+	text-anchor:middle;
+	stroke:none;
+}
+
+#moreMethodology {
+	cursor:pointer;
+	cursor:hand;
+}
+
+
+.sec3{
+	height:130px!important;
+}
+
+.YourBar {
+	height:10px;
+	margin-top:0px;
+	background-color:#007F7F;
+}
+.AverageBar {
+	height:10px;
+	margin-top:1px;
+	margin-bottom:5px;
+	background-color:#801350;
+}
+.crimeHeading{
+	margin-bottom:0;
+}
+
+.countryAverages{
+	margin-bottom:0px;	
+}
+        
+.yoNum {
+    color:#007F7F;
+    font-weight: bold;
+    font-size: 14px;
+}
+.avNum {
+    color:#801350;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+			
+
+	</style>
+
+
+  </head>
+         
+
+<div class="container hidden">
+
+<!--
+  ___                  _   _                 
+ / _ \ _   _  ___  ___| |_(_) ___  _ __  ___ 
+| | | | | | |/ _ \/ __| __| |/ _ \| '_ \/ __|
+| |_| | |_| |  __/\__ \ |_| | (_) | | | \__ \
+ \__\_\\__,_|\___||___/\__|_|\___/|_| |_|___/-->
+                                            
+<script src="https://code.jquery.com/jquery-git2.min.js"></script>
+
+<!--<img src="images/FPs.png" id="fingerprints" style="width:80%; margin-left:10%; margin-right:10%;">-->
+
+<p style="color:#007F7F; font-size:34px; text-align:center; font-weight:bold; margin-top:10px; margin-bottom:60px; ">Crime: How at risk are you?</p>
+
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>
+<p style="text-align:center; font-weight:bold;">Are you male or female?</p>
+   
+<div class="row">
+    <div class="btn-group col-sm-offset-3 col-sm-6 col-xs-12">
+        <a id="man" href="#" data-nm="Male" class="gender btn btn-default col-sm-6 col-xs-6"><img id="manpic" src="images/man.png"><p style="margin-top:10px;">Male</p></a>
+        <a id="woman" href="#" data-nm="Female" class="gender btn btn-default col-sm-6 col-xs-6"><img id="womanpic" src="images/woman.png"><p style="margin-top:10px;">Female</p></a>
+    </div>
+</div>
+
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>
+<p style="text-align:center; font-weight:bold;">How old are you?</p>
+<div class="row">
+    <div class="btn-group col-sm-offset-2 col-sm-8 col-xs-12">
+        <a href="#" data-nm="16-29" class="age btn btn-default col-sm-4 col-xs-4">16 to 29</a>
+        <a href="#" data-nm="30-59" class="age btn btn-default col-sm-4 col-xs-4">30 to 59</a>
+        <a href="#" data-nm="60+" class="age btn btn-default col-sm-4 col-xs-4">60+</a>
+    </div>
+</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>
+<p style="text-align:center; font-weight:bold;">Is your home rented or owned?</p>
+<div class="row">
+    <div class="col-sm-offset-2 col-sm-8 col-xs-12">
+        <button id="qtwo" type="button" class="btn btn-default dropdown-toggle col-sm-12 col-xs-12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+        Please select<span class="caret"></span>
+        </button>
+        
+        <ul id="qtwolist" class="dropdown-menu">
+            <li><a href="#" data-nm="Owners">Owned or owned with mortgage</a></li>
+            <li><a href="#" data-nm="Social renter">Social renter</a></li>
+            <li><a href="#" data-nm="Private renter">Private renter</a></li>
+        </ul>
+    </div>
+</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------> 
+<p style="text-align:center; font-weight:bold;">Are you...?</p>  
+<div class="row">
+    <div class="col-sm-offset-2 col-sm-8 col-xs-12">
+        <button id="qEmp" type="button" class="btn btn-default dropdown-toggle col-sm-12 col-xs-12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+        Please select <span class="caret"></span>
+        </button>
+        
+        <ul id="qfourlist" class="dropdown-menu">
+            <li><a href="#" data-nm="Employed">In paid work: employed or self employed?</a></li>
+            <li><a href="#" data-nm="Student">A student</a></li>
+            <li><a href="#" data-nm="Retired">Retired</a></li>
+            <li><a href="#" data-nm="Unemployed/Other economically inactive">Unemployed and seeking work</a></li>
+            <li><a href="#" data-nm="Unemployed/Other economically inactive">Looking after family or home</a></li>
+            <li><a href="#" data-nm="Unemployed/Other economically inactive">Long-term or temp sick or ill</a></li>
+            <li><a href="#" data-nm="Unemployed/Other economically inactive">Unemployed other</a></li>
+        </ul>
+    </div>
+</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id="inputPcode" class="wrapperOutline" style="margin-left:0px; margin-right:0px; display:none; opacity:0">                                  
+    <p style="margin-top:30px; text-align:center; font-weight:bold; margin-bottom:0px;">Where do you live?</p>   
+        <div class="col-sm-12 col-xs-12" id="postcode">
+            
+            <div class="row">
+            	<div class="col-sm-offset-4 col-sm-4 col-xs-offset-2 col-xs-8" style="padding-left:0px; padding-right:0px;">
+                    <form id="pcForm">
+                  	  <input style="width:80%; margin-left:0px; margin-right:0px; margin-top:20px; margin-bottom:7px; text-align:center;" id="pcText" class="picaarticle" type="text" tabindex="1" placeholder="enter your postcode">
+                    </form>
+                    <div id="pcGo" style="float:left; height:40px; width:20%; color:white; background-color:#007F7F; margin-top:20px; padding-top:7px; text-align:center;"> Go </div>
+                </div>
+            </div>
+            
+            
+            <p id="pcError" style="width:60%; margin-left:20%; margin-right:20%; padding-top:7px; text-align:center;" class="picaarticle"></p>
+            </div>
+        
+        
+        <div id="empText" style="display:none; opacity:0; text-align:center;">Crime may be higher in areas with low employment.</div>
+        <div id="empTextPopulate" style="display:none; opacity:0; text-align:center; font-weight:bold;"></div>
+        
+        <div class="row unemploymentRow">
+        	<div class="col-sm-offset-2 col-sm-8 col-xs-12">                                    
+                <div class="unemployedBar unemployedBar1" style="width:20%;"></div>
+                <div class="unemployedBar unemployedBar2" style="width:60%;"></div> 
+                <div class="unemployedBar unemployedBar3" style="width:20%;"></div> 
+                <div class="barText" style="width:40%; text-align:left;">20% least deprived </div>
+                <div class="barText" style="width:20%; text-align:center;">Other </div> 
+                <div class="barText" style="width:40%; text-align:right;">20% most deprived </div>                                               
+        	</div>
+        </div>
+</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>
+<!--
+  ____ _                _         ____                             _   _               
+ / ___| |__   __ _ _ __| |_ ___  |  _ \ _ __ __ ___      ___ __   | | | | ___ _ __ ___ 
+| |   | '_ \ / _` | '__| __/ __| | | | | '__/ _` \ \ /\ / / '_ \  | |_| |/ _ \ '__/ _ \
+| |___| | | | (_| | |  | |_\__ \ | |_| | | | (_| |\ V  V /| | | | |  _  |  __/ | |  __/
+ \____|_| |_|\__,_|_|   \__|___/ |____/|_|  \__,_| \_/\_/ |_| |_| |_| |_|\___|_|  \___|
+-->  
+
+<div id="resultsGrid" class="col-sm-offset-2 col-sm-8 col-xs-12" style="display:none; background-color:#fff; margin-top:30px;">
+<p style="padding-right:20px; padding-right-40px; margin-bottom:25px;">Over a 12 month period, people like you had the following risk of...</p>
+<!--
+<div class="key" style="margin-bottom:30px;">
+    <div style="background-color:#007F7F; float:left; width:22px; height:20px; margin-right:10px;"></div>
+        <p style="margin-bottom:2px;">Your risk</p>  
+    <div style="background-color:#801350; float:left; width:22px; height:20px; margin-right:10px;"></div>
+        <p class="countryAverages">somewhwew average</p>  
+</div>
+--> 
+<p style="font-weight:bold; float:absolute; font-size:18px;  margin-top:25px; margin-bottom:10px;">Personal crimes</p>
+<div style="background-color:#dadada; height:1px; width:100%; margin-bottom:10px;"></div>
+
+    <p class="crimeHeading">Violence</p>
+    <p style="margin-bottom:5px;"><span class="yoNum yoNum1"></span><span class="avNum avNum1"></span></p>
+    	<div class="YourBar ViolenceBar" style="width:0%;"></div>
+    	<div class="AverageBar ViolenceBarA" style="width:0%;"></div> 
+    
+    <p class="crimeHeading">Robbery and theft from the person</p>
+    <p style="margin-bottom:5px;"><span class="yoNum yoNum2"></span><span class="avNum avNum2"></span></p>
+    	<div class="YourBar RobberyandtheftfromthepersonBar" style="width:0%;"></div>
+    	<div class="AverageBar RobberyandtheftfromthepersonBarA" style="width:0%;"></div>
+    
+    <p class="crimeHeading">Other theft of personal property*</p>
+    <p style="margin-bottom:5px;"><span class="yoNum yoNum3"></span><span class="avNum avNum3"></span></p>
+    	<div class="YourBar OthertheftofpersonalpropertyBar" style="width:0%;"></div>
+    	<div class="AverageBar OthertheftofpersonalpropertyBarA" style="width:0%;"></div>
+    
+<p style="font-weight:bold; font-size:18px;  margin-top:25px; margin-bottom:10px;">Household crimes</p>
+<div style="background-color:#dadada; height:1px; width:100%; margin-bottom:10px;"></div>
+
+    <p class="crimeHeading">Burglary</p>
+    <p style="margin-bottom:5px;"><span class="yoNum yoNum4"></span><span class="avNum avNum4"></span></p>
+    	<div class="YourBar BurglaryBar" style="width:0%;"></div>
+    	<div class="AverageBar BurglaryBarA" style="width:0%;"></div>
+    
+    <p class="crimeHeading">Other household theft**</p>
+    <p style="margin-bottom:5px;"><span class="yoNum yoNum5"></span><span class="avNum avNum5"></span></p>
+    	<div class="YourBar OtherhouseholdtheftBar" style="width:0%;"></div>
+   		<div class="AverageBar OtherhouseholdtheftBarA" style="width:0%;"></div> 
+    
+    <p class="crimeHeading">Criminal damage</p>
+    <p style="margin-bottom:5px;"><span class="yoNum yoNum6"></span><span class="avNum avNum6"></span></p>
+    	<div class="YourBar CriminaldamageBar" style="width:0%;"></div>
+    	<div class="AverageBar CriminaldamageBarA" style="width:0%;"></div>  
+    
+<p style="font-weight:bold; font-size:18px; margin-top:25px; margin-bottom:10px;">Vehicle crimes <span style="font-weight:normal;"> (if you own one) </span></p>
+<div style="background-color:#dadada; height:1px; width:100%; margin-bottom:10px;"></div>
+
+	<p class="crimeHeading">Vehicle related theft</p>
+    <p style="margin-bottom:5px;"><span class="yoNum yoNum7"></span><span class="avNum avNum7"></span></p>
+    	<div class="YourBar VehiclerelatedtheftBar" style="width:0%;"></div>
+    	<div class="AverageBar VehiclerelatedtheftBarA" style="width:0%;"></div>
+      
+    
+     <!--Footnotes-->                              
+<p style="font-size:12px; margin-top:50px;">*covers thefts away from the home where no force is used, there was no direct contact between the offender and victim and the victim was not carrying the items when they were stolen.</p>
+<p style="font-size:12px;">**mostly includes theft from outside a dwelling. This also includes theft from inside the home where the offender had the right to be there; e.g. workmen or an acquaintance of the victim.</p>
+<p style="font-size:12px;">***the survey used to produce the data in this calculator did not sample enough people with your circumstances to give a robust estimate of your likelihood of victimisation for this crime.</p>
+<p style="font-size:12px;">For more detailed information on the methodology used to produce this calculator, see the <a href="methodology/risk of crime calculator.html">related ONS methodology page</a>.</p>
+</div>
+
+<div style="padding-top:0px; padding-bottom:15px; margin-left:5px; display:none;" class="col-sm-12 col-xs-12" id="share">
+        <p style="text-align:center; margin-bottom:15px; margin-top:15px;">Why not share this calculator?</p>
+            <div style="padding-bottom:0px; padding-top:0px; padding-left:0px; margin-bottom:0px;" id="share1" class="col-sm-offset-5 col-sm-1 col-xs-1"></div>
+            <div style="padding-bottom:0px; padding-left:0px; margin-bottom:0px;" id="share2" class="col-sm-1 col-xs-1"></div>
+</div>   
+
+
+
+
+ <!-- Methodology 
+ <div style="margin-top:80px; margin-left:20%; margin-right:20%;">
+ <p style="font-weight:bold; font-size:14px;">Methodology</p>
+ <p id="methodologytext1" style="font-size:14px;">These estimations are based on data from the CSEW victimisation survey...</p>
+ 
+ <p id="methodologytext2" style="font-size:14px; display:none;">Characteristics fed into the estimate for risk of violent crime, other personal theft and robbery; include; age, sex, employment status and the level of employment deprivation (or involuntary unemployment) in your local area based on the <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2015">English Indices of Deprivation, 2015</a> and the <a href="http://gov.wales/statistics-and-research/welsh-index-multiple-deprivation/?lang=en">Welsh Indices of Deprivation, 2014</a></p>
+ <p id="methodologytext3" style="font-size:14px;"></p>
+ <p id="methodologytext4" style="font-size:14px;"></p>
+ 
+ <p id="moreMethodology" style="font-weight:bold; color:#007F7F; text-decoration:underline">More...</p>
+ </div>
+ -->
+ 
+ 
+
+</div><!--end form-->
+
+<div id="altern" class="hidden"><p>Unfortunately your browser cannot display this graphic. You might need to upgrade to a modern browser - Find out more information here <a href="https://www.gov.uk/help/browsers">https://www.gov.uk/help/browsers</a></p></div>
+
+
+<noscript>
+ For full functionality of this content it is necessary to enable JavaScript.
+ Here are the <a href="http://www.enable-javascript.com/" target="_blank"> instructions how to enable JavaScript in your web browser</a>.
+</noscript>                                      
+
+<!-- Constant libraries / frameworks -->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+ 	<script src="js/modernizr.custom.56904.js"></script>
+    <script src="js/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/pym.js" charset="utf-8"></script>
+	<script></script>
+
+<!--Main code-->
+
+    <script src="js/script.js"></script>
+
+
+
+
+  </body>
+</html>

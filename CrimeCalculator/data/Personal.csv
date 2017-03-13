@@ -1,0 +1,75 @@
+Age,Sex,EmploymentDeprivation,EmploymentStatus,Chancein1000ofbeingavictimofviolentCrime,Chancein1000ofbeingavictimofrobberyortheftfromtheperson,Chancein1000ofbeingavictimofotherpersonaltheft
+16-29,Female,20% least deprived,Employed,1.70351866,2.261657718,2.981947642
+16-29,Female,20% least deprived,Retired,..,..,..
+16-29,Female,20% least deprived,Student,0.914163854,2.896882726,4.48174568
+16-29,Female,20% least deprived,Unemployed/Other economically inactive,3.839443322,1.830923718,2.400029545
+16-29,Female,20% most deprived,Employed,2.834889851,2.262104849,3.306979288
+16-29,Female,20% most deprived,Retired,..,..,..
+16-29,Female,20% most deprived,Student,1.812501968,0.679058482,2.584702952
+16-29,Female,20% most deprived,Unemployed/Other economically inactive,3.942257425,2.765864645,1.267968501
+16-29,Female,Other,Employed,2.864897905,2.476317752,2.873973321
+16-29,Female,Other,Retired,..,..,..
+16-29,Female,Other,Student,1.838868327,3.565126637,1.797597368
+16-29,Female,Other,Unemployed/Other economically inactive,3.322246423,1.691554828,2.281458535
+16-29,Male,20% least deprived,Employed,5.410789206,2.239208942,3.364044994
+16-29,Male,20% least deprived,Retired,..,..,Fewer than 1
+16-29,Male,20% least deprived,Student,3.937516609,4.937204613,3.375610256
+16-29,Male,20% least deprived,Unemployed/Other economically inactive,6.919335151,8.745967982,1.810581357
+16-29,Male,20% most deprived,Employed,4.197593821,2.411553136,1.973749684
+16-29,Male,20% most deprived,Retired,..,..,..
+16-29,Male,20% most deprived,Student,4.01162928,3.105424669,4.26619669
+16-29,Male,20% most deprived,Unemployed/Other economically inactive,6.62158602,2.711242566,0.90969553
+16-29,Male,Other,Employed,4.573161784,1.929523642,2.822780419
+16-29,Male,Other,Retired,..,..,..
+16-29,Male,Other,Student,4.000038283,1.768621132,2.5470917
+16-29,Male,Other,Unemployed/Other economically inactive,4.969870484,3.413249277,2.826819212
+30-59,Female,20% least deprived,Employed,1.045304366,0.695580518,1.596431393
+30-59,Female,20% least deprived,Retired,1.429906673,0.360849339,2.095710625
+30-59,Female,20% least deprived,Student,..,..,..
+30-59,Female,20% least deprived,Unemployed/Other economically inactive,1.839462945,0.985299088,0.594563087
+30-59,Female,20% most deprived,Employed,2.021746064,1.267292792,1.738208373
+30-59,Female,20% most deprived,Retired,2.291903586,0,5.242812795
+30-59,Female,20% most deprived,Student,Fewer than 1,0,1.172493151
+30-59,Female,20% most deprived,Unemployed/Other economically inactive,2.225751074,1.185805332,0.793549547
+30-59,Female,Other,Employed,1.231271724,0.892025163,1.774003558
+30-59,Female,Other,Retired,0.342958439,0.819212258,2.091749563
+30-59,Female,Other,Student,1.50663281,1.783866998,2.950305214
+30-59,Female,Other,Unemployed/Other economically inactive,1.745677539,1.245397686,0.614860654
+30-59,Male,20% least deprived,Employed,1.538079444,0.904979669,1.95893463
+30-59,Male,20% least deprived,Retired,0.525522231,1.011916586,Fewer than 1
+30-59,Male,20% least deprived,Student,..,..,..
+30-59,Male,20% least deprived,Unemployed/Other economically inactive,1.359186075,Fewer than 1,0.986935497
+30-59,Male,20% most deprived,Employed,2.480690987,0.989674735,1.656987304
+30-59,Male,20% most deprived,Retired,..,..,..
+30-59,Male,20% most deprived,Student,..,..,..
+30-59,Male,20% most deprived,Unemployed/Other economically inactive,4.480785459,1.365415905,1.500216152
+30-59,Male,Other,Employed,2.045346377,0.818458301,1.422092253
+30-59,Male,Other,Retired,1.125684283,1.874108607,1.237952841
+30-59,Male,Other,Student,Fewer than 1,Fewer than 1,Fewer than 1
+30-59,Male,Other,Unemployed/Other economically inactive,3.424258642,2.051371959,1.223426216
+60+,Female,20% least deprived,Employed,0.439016544,0.876068023,1.560739588
+60+,Female,20% least deprived,Retired,0.126549435,0.601561024,0.568328491
+60+,Female,20% least deprived,Student,..,..,..
+60+,Female,20% least deprived,Unemployed/Other economically inactive,Fewer than 1,1.625124419,Fewer than 1
+60+,Female,20% most deprived,Employed,0.463375371,0.368554046,0.662532808
+60+,Female,20% most deprived,Retired,0.16866203,1.441799165,0.990506193
+60+,Female,20% most deprived,Student,..,..,..
+60+,Female,20% most deprived,Unemployed/Other economically inactive,0.903230841,2.463778479,0.619874451
+60+,Female,Other,Employed,0.551668933,0.564720564,1.481931984
+60+,Female,Other,Retired,0.189824197,0.635216651,0.63573594
+60+,Female,Other,Student,..,..,..
+60+,Female,Other,Unemployed/Other economically inactive,0.500660768,0.408193726,1.013809807
+60+,Male,20% least deprived,Employed,0.364263079,Fewer than 1,0.860808515
+60+,Male,20% least deprived,Retired,0.202587625,0.298432483,0.570761247
+60+,Male,20% least deprived,Student,..,..,..
+60+,Male,20% least deprived,Unemployed/Other economically inactive,Fewer than 1,Fewer than 1,Fewer than 1
+60+,Male,20% most deprived,Employed,0.772915104,0.980486611,0.943490951
+60+,Male,20% most deprived,Retired,0.718768032,0.506951511,0.660500681
+60+,Male,20% most deprived,Student,..,..,..
+60+,Male,20% most deprived,Unemployed/Other economically inactive,Fewer than 1,1.876523126,0.563984684
+60+,Male,Other,Employed,1.08588318,0.19977525,1.398940328
+60+,Male,Other,Retired,0.406362781,0.244928379,0.522335744
+60+,Male,Other,Student,..,..,Fewer than 1
+60+,Male,Other,Unemployed/Other economically inactive,1.412958741,1.062314127,1.311550659
+All in England,All in England,All in England,All in England,1.783890092,1.199716651,1.573949149
+All in Wales,All in Wales,All in Wales,All in Wales,2.396275896,0.580702698,1.619993078

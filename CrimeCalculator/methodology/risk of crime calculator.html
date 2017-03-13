@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>
+    Crime calculator methodology
+ - Office for National Statistics</title>
+
+        <meta content="width=device-width,initial-scale=1.0,user-scalable=1" name="viewport">
+        <meta content="on" http-equiv="cleartype">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="theme-color" content="#58595B">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#58595B">
+
+		<!--[if IE]><![endif]-->
+		<!--[if lte IE 8]>
+		<link rel="stylesheet" href="/assets/css/old-ie.css"/>
+		<![endif]-->
+        <!--[if IE 9]>
+              <link rel="stylesheet" type="text/css" href="/assets/css/ie-9.css">
+        <![endif]-->
+		<!--[if gt IE 9]><!-->
+        <link rel="stylesheet" type="text/css" href="https://onsdigital.github.io/ons-pattern-library-starter/sixteens/css/main.css">
+
+        <!--[endif]---->
+	</head>
+	<body class="bulletin">
+		
+		<script type="text/javascript">
+var _mfq = _mfq || [];
+  (function() {
+    var mf = document.createElement("script");
+    mf.type = "text/javascript"; mf.async = true;
+    mf.src = "//cdn.mouseflow.com/projects/b55c5530-f892-4e94-ba67-8e5a0d8206e0.js";
+    document.getElementsByTagName("head")[0].appendChild(mf);
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<header>
+
+    <a class="skiplink" href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016#main" tabindex="0">
+        Skip to main content
+    </a>
+
+	<div id="pagePath" class="hide">/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016</div>
+
+	<div class="beta-banner">
+		<div class="wrapper">
+
+		</div>
+	</div>
+
+		<div class="wrapper">
+			<div class="header col-wrap">
+				<div class="col col--lg-one-third col--md-one-third">
+					<a href="https://www.ons.gov.uk/">
+						<img class="main-logo" src="./retailsales/ons-logo.svg" alt="Office for National Statistics">
+					</a>
+				</div>
+                <div class="col col--lg-two-thirds col--md-two-thirds hide--sm print--hide language--js__container">
+
+                    <dl class="language js--hide">
+                        <dt class="language__title">Language:</dt>
+
+                            <dd class="language__item">
+                                <a href="https://cy.www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016" class="language__link icon--hide">Cymraeg (CY)</a>
+                            </dd>
+
+                    </dl>
+                    <form class="language language--js js--show">
+                        <label class="language--js__label" for="lang">Language:</label>
+                        <select class="language--js__select" id="lang" name="lang">
+                            <option value="english" data-url="
+
+    //www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016
+
+
+" selected="selected">English (EN)</option>
+                            <option value="welsh" data-url="
+
+
+
+    //cy.www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016
+">Cymraeg (CY)</option>
+                        </select>
+                    </form>
+                </div>
+				<div class="secondary-nav col col--lg-two-thirds col--md-two-thirds print--hide">
+					<ul class="secondary-nav__list js-nav-clone__list">
+                        <li class="secondary-nav__item">
+                            <a class="secondary-nav__link  js-nav-clone__link" href="https://www.ons.gov.uk/releasecalendar">Release calendar</a>
+                        </li>
+                        <li class="secondary-nav__item">
+                            <a class="secondary-nav__link  js-nav-clone__link" href="https://www.ons.gov.uk/methodology">Methodology</a>
+                        </li>
+                        <li class="secondary-nav__item">
+                            <a class="secondary-nav__link  js-nav-clone__link" href="https://www.ons.gov.uk/news">Media</a>
+                        </li>
+						<li class="secondary-nav__item">
+							<a class="secondary-nav__link  js-nav-clone__link" href="https://www.ons.gov.uk/aboutus">About</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+	<div class="primary-nav print--hide">
+		<nav>
+
+			<ul class="nav--controls">
+				<li class="nav--controls__item">
+					<a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016#nav-primary" id="menu-toggle" aria-controls="nav-primary" class="nav--controls__menu">
+						<span class="nav--controls__text">Menu</span>
+					</a>
+				</li>
+				<li class="nav--controls__item ">
+					<a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016#nav-search" id="search-toggle" aria-controls="nav-search" class="nav--controls__search">
+						<span class="nav--controls__text">Search</span>
+					</a>
+				</li>
+			</ul>
+
+			<div class="wrapper nav-main--hidden" id="nav-primary">
+				<ul class="primary-nav__list">
+					<li class="primary-nav__item  js-nav hide--sm old-ie--display-block"><a class="primary-nav__link col col--md-7 col--lg-9" href="https://www.ons.gov.uk/">Home</a></li>
+
+
+
+
+
+
+
+					<li class="primary-nav__item js-nav js-expandable primary-nav__child">
+						<a class="primary-nav__link col col--md-8 col--lg-10" href="https://www.ons.gov.uk/businessindustryandtrade" aria-haspopup="true">Business, industry and trade</a>
+						<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
+
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/businessindustryandtrade/business">Business</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/businessindustryandtrade/changestobusiness">Changes to business</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/businessindustryandtrade/constructionindustry">Construction industry</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/businessindustryandtrade/itandinternetindustry">IT and internet industry</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/businessindustryandtrade/internationaltrade">International trade</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/businessindustryandtrade/manufacturingandproductionindustry">Manufacturing and production industry</a>
+							</li>
+
+							<li class="primary-nav__child-item primary-nav__child-item--active js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry">Retail industry</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/businessindustryandtrade/tourismindustry">Tourism industry</a>
+							</li>
+
+						</ul>
+					</li>
+
+
+
+
+
+
+
+					<li class="primary-nav__item js-nav js-expandable ">
+						<a class="primary-nav__link col col--md-8 col--lg-10" href="https://www.ons.gov.uk/economy" aria-haspopup="true">Economy</a>
+						<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
+
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/economy/economicoutputandproductivity">Economic output and productivity</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/economy/environmentalaccounts">Environmental accounts</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes">Government, public sector and taxes</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/economy/grossdomesticproductgdp">Gross Domestic Product (GDP)</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/economy/grossvalueaddedgva">Gross Value Added (GVA)</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/economy/inflationandpriceindices">Inflation and price indices</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/economy/investmentspensionsandtrusts">Investments, pensions and trusts</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/economy/nationalaccounts">National accounts</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/economy/regionalaccounts">Regional accounts</a>
+							</li>
+
+						</ul>
+					</li>
+
+
+
+
+
+					<li class="primary-nav__item js-nav js-expandable ">
+						<a class="primary-nav__link col col--md-8 col--lg-10" href="https://www.ons.gov.uk/employmentandlabourmarket" aria-haspopup="true">Employment and labour market</a>
+						<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
+
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork">People in work</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/employmentandlabourmarket/peoplenotinwork">People not in work</a>
+							</li>
+
+						</ul>
+					</li>
+
+
+
+
+
+
+
+
+
+					<li class="primary-nav__item js-nav js-expandable ">
+						<a class="primary-nav__link col col--md-8 col--lg-10" href="https://www.ons.gov.uk/peoplepopulationandcommunity" aria-haspopup="true">People, population and community</a>
+						<ul class="primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content js-nav-hidden jsEnhance" aria-expanded="false" aria-label="submenu">
+
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages">Births, deaths and marriages</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice">Crime and justice</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity">Cultural identity</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/peoplepopulationandcommunity/educationandchildcare">Education and childcare</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/peoplepopulationandcommunity/elections">Elections</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare">Health and social care</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/peoplepopulationandcommunity/householdcharacteristics">Household characteristics</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/peoplepopulationandcommunity/housing">Housing</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/peoplepopulationandcommunity/leisureandtourism">Leisure and tourism</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances">Personal and household finances</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration">Population and migration</a>
+							</li>
+
+							<li class="primary-nav__child-item  js-expandable__child">
+								<a class="primary-nav__child-link" tabindex="-1" href="https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing">Well-being</a>
+							</li>
+
+						</ul>
+					</li>
+
+
+
+
+
+
+
+
+
+					<li class="primary-nav__item  js-nav">
+						<a class="primary-nav__link  col col--md-8 col--lg-10" href="https://www.ons.gov.uk/surveys">
+							Taking part in a survey?
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+
+		<div class="search nav-search--hidden print--hide" id="searchBar">
+			<div class="wrapper" role="search">
+				<form class="col-wrap search__form" action="https://www.ons.gov.uk/search">
+					<label class="search__label col col--md-23 col--lg-24" for="nav-search">Search for a keyword(s) or time series ID</label>
+					<input type="search" autocomplete="off" class="search__input col col--md-21 col--lg-32" id="nav-search" name="q" value="">
+					<button type="submit" class="search__button col--md-3 col--lg-3" id="nav-search-submit">
+					<span class="visuallyhidden">Search</span>
+					<span class="icon icon-search--light"></span>
+					</button>
+				</form>
+			</div>
+		</div>
+
+</header>
+
+<main id="main" role="main" tabindex="-1">
+
+    <div class="page-intro background--gallery">
+	<div class="wrapper">
+		<div class="col-wrap">
+			<div class="col">
+
+				<nav>
+<!--    <div class="breadcrumb print--hide">
+        <ol class="breadcrumb__list">
+
+                <li class="breadcrumb__item">
+                    <a class="breadcrumb__link" href="https://www.ons.gov.uk/">Home</a>
+                </li>
+
+                <li class="breadcrumb__item">
+                    <a class="breadcrumb__link" href="https://www.ons.gov.uk/businessindustryandtrade">Business, industry and trade</a>
+                </li>
+
+                <li class="breadcrumb__item">
+                    <a class="breadcrumb__link" href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry">Retail industry</a>
+                </li>
+
+
+
+            <li class="breadcrumb__item">
+                Retail Sales
+            </li>
+        </ol>
+    </div>-->
+</nav>
+
+
+
+				<div class="col col--md-47 col--lg-48">
+					<h1 class="page-intro__title " style="margin-top:40px;">Risk of crime calculator: Methodology notes</h1>
+
+
+<p class="page-intro__content">This page contains an overview of the methodology used in the creation of our <a href="http://visual.ons.gov.uk/">risk of crime calculator</a>.</p>
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+			<div class="alert">
+				<div class="wrapper">
+					<div class="col-wrap">
+						<div class="col">
+
+
+
+
+<!--		<p class="alert__title">This is the latest release</p>
+        <a class="alert__link" href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/previousReleases">View previous releases</a>-->
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+		<!--<div class="meta-wrap">
+            <div class="wrapper">
+                <div class="col-wrap">
+
+
+
+<p class="col col--md-16 col--lg-20 meta__item">
+     <a class="icon--hide" href="https://www.statisticsauthority.gov.uk/national-statistician/types-of-official-statistics/"><img class="meta__image" src="./retailsales/national-statistics.png" alt="National Statistics logo"></a>
+	<span>Contact: </span><br><a href="mailto:retail.sales.enquiries@ons.gsi.gov.uk" data-ga-event="" data-ga-event-category="mailto" data-ga-event-label="retail.sales.enquiries@ons.gsi.gov.uk">Melanie Richard</a>
+</p>
+
+
+
+
+<p class="col col--md-16 col--lg-20 meta__item">
+	<span>Release date: </span><br>21 July 2016<br>
+
+</p>
+
+
+
+
+
+<p class="col col--md-16 col--lg-20 meta__item">
+    <span>Next release: </span><br>18 August 2016
+</p>
+
+
+
+                </div>
+            </div>
+        </div>-->
+
+
+</div>
+<div class="page-content border-top--iron-sm border-top--iron-md">
+
+    <div class="wrapper">
+
+        <div class="col-wrap border-bottom--iron-md">
+
+            <div class="col col--md-31 col--lg-41 margin-left-md--1">
+	<!--<div class="table-of-contents js-sticky-toc print--avoid-break">
+		<h2 class="table-of-contents__title">Table of contents</h2>
+		<ol id="toc" class="table-of-contents__list">
+
+			<li class="table-of-contents__item">
+				<a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016#main-points" class="js-scroll" data-ga-event="" data-ga-event-category="toc-link" data-ga-event-label="Main points">Main points</a>
+			</li>
+
+			<li class="table-of-contents__item">
+				<a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016#statisticians-quote" class="js-scroll" data-ga-event="" data-ga-event-category="toc-link" data-ga-event-label="Statistician’s Quote">Statistician’s Quote</a>
+			</li>
+
+			<li class="table-of-contents__item">
+				<a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016#things-you-need-to-know-about-this-release" class="js-scroll" data-ga-event="" data-ga-event-category="toc-link" data-ga-event-label="Things you need to know about this release">Things you need to know about this release</a>
+			</li>
+
+			<li class="table-of-contents__item">
+				<a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016#non-food-stores-drive-year-on-year-growth" class="js-scroll" data-ga-event="" data-ga-event-category="toc-link" data-ga-event-label="Non food stores drive year on year growth">Non food stores drive year on year growth</a>
+			</li>
+
+			<li class="table-of-contents__item">
+				<a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016#where-do-we-spend-our-money" class="js-scroll" data-ga-event="" data-ga-event-category="toc-link" data-ga-event-label="Where do we spend our money?">Where do we spend our money?</a>
+			</li>
+
+			<li class="table-of-contents__item">
+				<a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016#whats-the-story-in-online-sales" class="js-scroll" data-ga-event="" data-ga-event-category="toc-link" data-ga-event-label="What’s the story in online sales?">What’s the story in online sales?</a>
+			</li>
+
+			<li class="table-of-contents__item">
+				<a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016#links-to-related-statistics" class="js-scroll" data-ga-event="" data-ga-event-category="toc-link" data-ga-event-label="Links to related statistics">Links to related statistics</a>
+			</li>
+
+			<li class="table-of-contents__item">
+				<a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016#quality-and-methodology" class="js-scroll" data-ga-event="" data-ga-event-category="toc-link" data-ga-event-label="Quality and methodology">Quality and methodology</a>
+			</li>
+
+
+
+		</ol>
+	</div>-->
+</div>
+
+
+
+
+<!--<div class="col col--md-15 col--lg-16 margin-bottom-sm--2 margin-top-md--7 margin-bottom-md--2 margin-left-lg--2 padding-bottom-sm--2 padding-left-sm--1 padding-bottom-md--1 border-top--iron-sm border-right--iron-sm border-bottom--iron-sm border-left--iron-sm border-top--iron-md border-right--iron-md border-bottom--iron-md border-left--iron-md js-print-pdf print--hide">
+    <p class="text-right--md padding-top-md--0 padding-bottom-md--0 height--5 margin-bottom-md--0 print--hide nojs--hide js--show">
+        <a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016" class="link-complex nojs--hide js--show js-print-page" data-ga-event="" data-ga-event-category="print" data-ga-event-label="Retail Sales - June 2016">
+            Print this <span class="lowercase">
+Statistical bulletin
+
+
+
+</span>
+        </a>
+        <span class="icon icon-print--dark"></span>
+    </p>
+    <p class="text-right--md padding-top-md--0 padding-bottom-md--0 height--5 margin-top-md--1 print--hide">
+        <a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016/pdf" class="link-complex js-pdf-dl-link" data-ga-event="" data-ga-event-category="pdf" data-ga-event-label="Retail Sales - June 2016">
+            Download as PDF
+        </a>
+        <span class="icon icon-download--dark"></span>
+    </p>
+</div>-->
+
+        </div>
+
+
+		<div class="hide--md margin-top-sm--1">
+
+
+
+	<div class=" margin-bottom-sm--2 margin-bottom-md--2 print--hide">
+		<!--<a class="btn btn--primary btn--full-width" href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016/relateddata">
+
+
+				View all data used in this <span class="lowercase">
+Statistical bulletin
+
+
+</span>
+
+
+
+
+		</a>-->
+	</div>
+</div>
+
+
+        <article class="col col--md-36 col--lg-39 page-content__main-content js-sticky-toc__trigger">
+
+                <section id="main-points" class="section__content--markdown js-sticky-toc__section">
+                    <header>
+                        <!--<h2><span class="section__content-number">1.</span> Main points</h2>-->
+                    </header>
+                    
+   <p style="margin-top:40px;">
+        The <a href="http://visual.ons.gov.uk/">risk of crime calculator</a> is based on 3-years worth of <a href="http://www.crimesurvey.co.uk/">Crime Survey for England and Wales (CSEW)</a> data. Data have been combined for the years ending March 2014, March 2015 and March 2016. The data is based on responses from adults (from the resident household population), about their experiences of different crime types in the 12-month period preceding their interview. A number of other questions are also asked, and the interviewer also collects a variety of personal and household demographic information from respondents. The figure that the calculator generates is based on the estimated proportion of adults aged 16 and over (who have characteristics similar to those selected in the calculator) that have been a victim of a crime in the 12 months prior to their CSEW interview. 
+        </p>
+        
+        <p>
+        Characteristics fed into the estimate for risk of violent crime, other personal theft and robbery; include; age, sex, employment status and the level of employment deprivation (or involuntary unemployment) in your local area based on the <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2015">English Indices of Deprivation, 2015</a> and the <a href="http://gov.wales/statistics-and-research/welsh-index-multiple-deprivation/?lang=en">Welsh Index of Multiple Deprivation, 2014</a>.
+        </p>
+        
+        <p>
+        Characteristics which are fed into the risk of burglary, other household theft, criminal damage and vehicle crime include; age, sex, housing tenure as well as the recorded level of employment deprivation in your local area. 
+        </p>
+        
+        <p>
+        For data quality reasons, we are unable to supply estimates which are based on less than 50 respondents. 
+        </p>
+        
+        <p>
+        Whilst there is an association between these characteristics and crime victimisation, it is important to note, that there is no evidence to show that sex, age, employment status or home ownership have a direct causal relationship with likelihood of experiencing crime. There are a number of other factors measured and unmeasured by the CSEW, that may mitigate or enhance associations between characteristics and the risk of victimisation (such as safety and risk taking behaviours). It is also likely that a number of lifestyle factors associated with these characteristics, contribute to the relationships observed by the CSEW. 
+        </p>
+        
+        <p>
+        Below are more detailed explanations of the types of crimes measured by the survey and the breakdowns used for personal and household demographic information which relate directly to the <a href="http://visual.ons.gov.uk/">calculator</a>. ONS also publish more detailed data from the CSEW in annual demographic tables, the <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/crimeinenglandandwalesannualtrendanddemographictables">latest versions </a> of which, along with <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/bulletins/crimeinenglandandwales/yearendingmar2016">additional commentary </a> are published on our website. 
+        </p>
+        
+        
+        <header>
+            <h2>Definitions</h2>
+        </header>
+        
+        <p>
+        <span style="font-weight:bold;">Violence</span> includes wounding, assault with minor injury and violence against the person that results in no injury. 
+        </p>
+        
+        <p>
+        <span style="font-weight:bold;">Robbery</span> is an incident or offence in which force or the threat of force is used either during or immediately prior to a theft or attempted theft. 
+        </p>
+        
+        <p>
+        <span style="font-weight:bold;">Theft from the person</span> covers theft (including attempts) directly from the victims’ person, but without the use of physical force against the victim, or the threat of it. This may be a snatch theft or a stealth theft such as pick pocketing.
+        </p>
+        
+        <p>
+        <span style="font-weight:bold;">Other theft of personal property</span> covers thefts away from the home where no force is used, there was no direct contact between the offender and victim and the victim was not holding or carrying the items when they were stolen (for example, thefts of unattended property).
+        </p>
+        
+        <p>
+        <span style="font-weight:bold;">Burglary</span> is an unauthorised entry into the victim’s dwelling or non-connected building to a dwelling, but does not necessarily involve forced entry; it may be through an open window, or by entering the property under false pretences (for example, impersonating an official).
+        </p>
+        
+        <p>
+        <span style="font-weight:bold;">Other household theft</span> mostly includes theft from outside a dwelling. This also includes theft from inside the home where the offender had the right to be there; for example workmen or an acquaintance of the victim.
+        </p>
+        
+        <p>
+        <span style="font-weight:bold;">Criminal damage</span> is defined as the intentional and malicious damage to the home, other property or vehicles. Criminal damage in the CSEW ranges from arson to graffiti.
+        </p>
+        
+        <p>
+        <span style="font-weight:bold;">Vehicle-related theft</span> offences cover; cars, vans, motorbikes, motor-scooters or mopeds and includes attempted thefts as well as actual thefts from and of these vehicles. 
+        </p>
+        
+        <p>
+        <span style="font-weight:bold;">Employment status</span> - The CSEW uses the following categories for employment status, which are based on the National Statistics harmonised classification but include further breakdowns for those in the ‘economically inactive’ category. 
+        </p>
+
+            <p>•	In employment: includes people doing paid work in the last week; working on a government-supported training scheme; or doing unpaid work for own/family business.</p>
+            <p>•	Unemployed: actively seeking work or waiting to take up work.</p>
+            <p>•	Economically inactive: those who are retired; going to school or college full-time; looking after home/family; are temporarily or permanently sick; or doing something else.</p>
+        
+        <p>
+        <span style="font-weight:bold;">Tenure</span> - The following definition of tenure is used by the CSEW based on the National Statistics harmonised classification:
+        </p>
+
+            <p>•	Owners: households who own their homes outright, or are buying with a mortgage (includes shared owners, who own part of the equity and pay part of the mortgage/rent).</p>
+            <p>•	Social-rented sector tenants: households renting from a council, housing association or other social-rented sector.</p>
+            <p>•	Rented privately: households privately renting unfurnished or furnished property. This includes tenants whose accommodation comes with their job, even if their landlord is a housing association or local authority.</p>
+        
+        
+        
+        <header>
+            <h2>Indices of Deprivation</h2>
+        </header>
+        
+        <p style="margin-bottom:40px;">Local area deprivation is measured in this report using the <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2015">English Indices of Deprivation, 2015</a> and the <a href="http://gov.wales/statistics-and-research/welsh-index-multiple-deprivation/?lang=en">Welsh Index of Multiple Deprivation, 2014</a>. There are seven domains of deprivation: income; employment; health and disability; education, skills and training; barriers to housing and services; living environment; and crime. There are a number of indicators of deprivation in each of these domains, such as level of unemployment and incapacity benefit claimants, which are combined into a single deprivation score for each local area on that domain. The analysis in the <a href="http://visual.ons.gov.uk/">calculator</a> uses the employment deprivation indicator. Since these indices are not directly comparable, the calculator feeds back numbers based on your individual and household characteristics and compares these numbers to  either the the overall estimate for England or the overall estimate for Wales.</p>
+        
+        
+        
+
+                </section>
+
+
+
+            <!-- Accordion -->
+
+        </article>
+
+        <div class="col col--md-11 col--lg-20 margin-top-md--3">
+
+
+
+
+
+
+	<!--<div class=" margin-bottom-sm--2 margin-bottom-md--2 print--hide">
+		<a class="btn btn--primary btn--full-width" href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016/relateddata">
+
+
+				View all data used in this <span class="lowercase">
+Statistical bulletin
+
+</span>
+
+
+
+
+		</a>
+	</div>-->
+
+
+    <!--<div class="tiles__item tiles__item--nav-type flush-col">
+	<h3 class="tiles__title-h3 tiles__title-h3--nav">
+		Contact details for this <span class="lowercase">
+Statistical bulletin
+
+</span>
+	</h3>
+	<div class="tiles__content--nav">
+		<address>
+			Melanie Richard<br>
+			<a href="mailto:retail.sales.enquiries@ons.gsi.gov.uk" data-ga-event="" data-ga-event-category="mailto" data-ga-event-label="retail.sales.enquiries@ons.gsi.gov.uk">retail.sales.enquiries@ons.gsi.gov.uk</a><br>
+			Telephone: +44 (0)1633 455602
+		</address>
+	</div>
+</div>-->
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+</main>
+
+
+	<footer class="print--hide">
+	<h2 class="visuallyhidden">Footer links</h2>
+	<div class="footer">
+		<div class="wrapper">
+			<nav>
+                <div class="footer-nav col-wrap">
+                    <div class="col col--lg-one-third col--md-one-third">
+                        <h3 class="footer-nav__heading">Help</h3>
+                        <ul class="footer-nav__list">
+                            <li class="footer-nav__item">
+                                <a href="https://www.ons.gov.uk/help/accessibility">Accessibility</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://www.ons.gov.uk/help/cookiesandprivacy">Cookies and privacy</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://www.ons.gov.uk/help/termsandconditions">Terms and conditions</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col col--lg-one-third col--md-one-third">
+                        <h3 class="footer-nav__heading">About ONS</h3>
+                        <ul class="footer-nav__list">
+                            <li class="footer-nav__item">
+                                <a href="https://www.ons.gov.uk/aboutus/whatwedo">What we do</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://www.ons.gov.uk/aboutus/careers">Careers</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://www.ons.gov.uk/aboutus/contactus">Contact us</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://www.ons.gov.uk/news">News</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://www.ons.gov.uk/aboutus/transparencyandgovernance/freedomofinformationfoi">Freedom of Information</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col col--lg-one-third col--md-one-third">
+                        <h3 class="footer-nav__heading">Connect with us</h3>
+                        <ul class="footer-nav__list">
+                            <li class="footer-nav__item">
+                                <a href="https://twitter.com/ONS" class="icon--hide">Twitter</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://www.facebook.com/ONS" class="icon--hide">Facebook</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://www.linkedin.com/company/office-for-national-statistics" class="icon--hide">LinkedIn</a>
+                            </li>
+                            <li class="footer-nav__item">
+                                <a href="https://public.govdelivery.com/accounts/UKONS/subscribers/new" class="icon--hide">Email alerts</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+			</nav>
+		</div>
+		<div class="wrapper">
+			<div class="footer-license">
+				<img class="footer-license__img" alt="OGL" width="60" src="./retailsales/ogl.png">
+				<p class="footer-license__text margin-left-sm--0">
+					All content is available under the <a class="icon--hide" href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a> <span class="icon icon-external--light-small"></span>, except where otherwise stated
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+<!--[if gt IE 8]><!--><a id="bugherd-feedback" href="mailto:project-cwz4globzxvnj84jsovora@bugs.bugherd.com?subject=Feedback%20-%20www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016&amp;body=Page%20Title:%20%20%20%20Retail%20Sales%0D%0APage%20URI:www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/june2016%0D%0A%0D%0AYour%20feedback:%0D%0A" tabindex="0" class="mini print--hide">Send Feedback</a><!--[endif]---->
+
+
+
+
+
+
+
+
+        <!--[if gt IE 8]><!-->
+
+            <script type="text/javascript" src="./retailsales/babbage.js"></script>
+
+        <!--[endif]---->
+        
+
+</body></html>
