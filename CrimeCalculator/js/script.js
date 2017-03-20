@@ -197,6 +197,11 @@ function checkIfFinished() {
 	if(clicked1 == true && clicked2 == true && clicked3 == true && clicked4 == true) {
 		d3.select("#inputPcode").style("display","block");
 		d3.select("#inputPcode").transition().duration(750).style("opacity",1);
+		
+		
+			if (pymChild) {
+				pymChild.sendHeight();
+			}
 	}
 };
 
@@ -265,6 +270,10 @@ function lookupArea(firstFour,myValue2) {
 		lookupAreaData = data;
 		
 		lookupArea2(lookupAreaData);
+		
+		if (pymChild) {
+			pymChild.sendHeight();
+		}
 	})
 };
 
@@ -308,6 +317,10 @@ function lookupArea2(lookupAreaData) {
 			};
 			
 
+		}
+		
+		if (pymChild) {
+			pymChild.sendHeight();
 		}
 };
 
@@ -691,6 +704,10 @@ function PopulateResults(){
 	$("#share2").empty();
 	d3.select("#share").style("display","block");
 	fireSocial();
+	
+	if (pymChild) {
+			pymChild.sendHeight();
+	}
 };
 
 
@@ -849,7 +866,11 @@ var chartDivs = d3.select("#vehicle").selectAll('div')
 	//.style("width","85%")
 	.style("float","left")
 	
-	drawGraphic(vehicleArray,3);                        
+	drawGraphic(vehicleArray,3);     
+	
+	if (pymChild) {
+			pymChild.sendHeight();
+		}                   
 }
 
 // End draw charts :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
