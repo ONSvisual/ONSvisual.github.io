@@ -172,6 +172,12 @@ d3.select("#qtwolist").selectAll("a").on("click",function(){
 })
 
 d3.select("#qfourlist").selectAll("a").on("click",function(){
+	
+	if (pymChild) {
+			pymChild.sendHeight();
+		}
+		
+		
 		var eleText = $(this).text()
 		d3.select("#qEmp").html(eleText + " <span class='caret'></span>");
 		d3.selectAll(".qfourlist").classed("franksdropdown" ,false);
