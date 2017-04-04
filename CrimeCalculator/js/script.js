@@ -396,9 +396,9 @@ function lookup(){
 						.style("opacity","1");
 						
 					//sorts bar					
-					d3.selectAll(".unemployedBar").style("background-color","rgb(231, 231, 231)");
-					d3.select(".unemploymentRow").style("display","block");
-					d3.select(".unemploymentRow").transition().duration(750).style("opacity",1);
+					d3.selectAll(".unemployedBar").style("background-color","rgb(255, 255, 255)");
+					// d3.select(".unemploymentRow").style("display","block");
+					// d3.select(".unemploymentRow").transition().duration(750).style("opacity",1);
 					
 					d3.select(".unemployedBar1").transition().duration(750).style("background-color","#007F7F");
 					
@@ -417,9 +417,9 @@ function lookup(){
 						.style("opacity","1");
 						
 					//sorts bar	
-					d3.selectAll(".unemployedBar").style("background-color","rgb(231, 231, 231)");
-					d3.select(".unemploymentRow").style("display","block");
-					d3.select(".unemploymentRow").transition().duration(750).style("opacity",1);
+					d3.selectAll(".unemployedBar").style("background-color","rgb(255, 255, 255)");
+					// d3.select(".unemploymentRow").style("display","block");
+					// d3.select(".unemploymentRow").transition().duration(750).style("opacity",1);
 					
 					d3.select(".unemployedBar3").transition().duration(750).style("background-color","#007F7F");
 					
@@ -439,9 +439,9 @@ function lookup(){
 						.style("opacity","1");
 						
 					//sorts bar	
-					d3.selectAll(".unemployedBar").style("background-color","rgb(231, 231, 231)");
-					d3.select(".unemploymentRow").style("display","block");
-					d3.select(".unemploymentRow").transition().duration(750).style("opacity",1);
+					d3.selectAll(".unemployedBar").style("background-color","rgb(255, 255, 255)");
+					// d3.select(".unemploymentRow").style("display","block");
+					// d3.select(".unemploymentRow").transition().duration(750).style("opacity",1);
 					
 					d3.select(".unemployedBar2").transition().duration(750).style("background-color","#007F7F");
 					
@@ -578,6 +578,9 @@ finalArray = null;
 function PopulateResults(){
 	d3.select("#resultsGrid").style("display","block");
 	d3.select("#resultsGrid").transition().duration(750).style("opacity",1);
+
+	d3.select("#resultsGridcol").style("display","block");
+	d3.select("#resultsGridcol").transition().duration(750).style("opacity",1);
 
     //we'll draw our charts and update numbers here
     

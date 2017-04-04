@@ -98,11 +98,11 @@ svg:not(:root) {
 figure {
   margin: 1em 40px;
 }
-hr {
+/*hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
-}
+}*/
 pre {
   overflow: auto;
 }
@@ -898,7 +898,7 @@ body {
   line-height: 1.42857143;
   color: #222222;
   background-color: #fafafa;
-;
+
 }
 input,
 button,
@@ -959,10 +959,8 @@ img {
   border-radius: 50%;
 }
 hr {
-  margin-top: 21px;
-  margin-bottom: 21px;
-  border: 0;
-  border-top: 1px solid #dddddd;
+
+  border: 1px solid #e7e7e7;
 }
 .sr-only {
   position: absolute;

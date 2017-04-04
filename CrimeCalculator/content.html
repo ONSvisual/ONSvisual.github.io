@@ -79,7 +79,7 @@
 		#manpic, #womanpic {
 			height:40px;
 			display: block;
-			margin-left: 10px;;
+			margin-left: 10px;
 			margin-right: auto;
 			margin-top:0px;
 			float:left;
@@ -167,7 +167,7 @@
 		
 		#pcText {
 			width: 20%;
-			/*min-width:140px;*/
+			min-width:140px;
 			height:40px;
 			color: #999999;
 			margin-left:0px;
@@ -178,7 +178,7 @@
 		}
 		
 		.picaarticle {
-			font-size:15px;
+			font-size:16px;
 			line-height:24px;	
 			font-family: 'Open Sans', sans-serif;
 			margin-top:10px;			
@@ -268,13 +268,13 @@
 	
 	.unemployedBar {
 		float:left;
-		background-color:rgb(231, 231, 231); 
-		border: white solid 2px;
+		background-color:rgb(255, 255, 255); 
+		border: #e9f2f2 solid 2px;
 		padding-bottom: 8px;
-		padding-left: 0px;
-		padding-right: 0px;
+		padding-left: 12px;
+		padding-right: 12px;
 		padding-top: 8px;
-		height:45px;
+		height:0px;
 	}
 	.barText {
 		float:left;
@@ -378,7 +378,20 @@ input:focus {
     font-size: 14px;
 }
 
-			
+/*#inputPcode {
+	background-color: rgba(17,127,126,0.1);
+}*/
+
+
+#resultsGridcol {
+	margin-top: -20px;
+	overflow: hidden;
+	/*background-color: rgba(17,127,126,0.1);*/
+}
+
+#resultsGrid {
+	/*background-color: #e9f2f2;*/
+}
 
 	</style>
 
@@ -399,7 +412,7 @@ input:focus {
 
 <!--<img src="images/FPs.png" id="fingerprints" style="width:80%; margin-left:10%; margin-right:10%;">-->
 
-<p style="color:#007F7F; font-size:34px; text-align:center; font-weight:bold; margin-top:10px; margin-bottom:60px; ">Crime: How at risk are you?</p>
+<p style="color:#007F7F; font-size:34px; text-align:center; font-weight:bold; margin-top:10px; margin-bottom:40px; ">Crime: How at risk are you?</p>
 
 
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------>
@@ -446,7 +459,7 @@ input:focus {
         </button>
         
         <ul id="qfourlist" class="dropdown-menu">
-            <li><a href="#" data-nm="Employed">In paid work: employed or self employed?</a></li>
+            <li><a href="#" data-nm="Employed">In paid work: employed or self employed</a></li>
             <li><a href="#" data-nm="Student">A student</a></li>
             <li><a href="#" data-nm="Retired">Retired</a></li>
             <li><a href="#" data-nm="Unemployed/Other economically inactive">Unemployed and seeking work</a></li>
@@ -458,16 +471,16 @@ input:focus {
 </div>
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------>
 
-<div id="inputPcode" class="wrapperOutline" style="margin-left:0px; margin-right:0px; display:none; opacity:0">                                  
-    <p style="margin-top:30px; text-align:center; font-weight:bold; margin-bottom:0px;">Where do you live?</p>   
+<div id="inputPcode" class="wrapperOutline" style="margin-left:0px; margin-right:0px; margin-top:0px; padding-top:5px; padding-bottom:10px; display:none; opacity:0">                                  
+    <p style="margin-top:0px; text-align:center; font-weight:bold; margin-bottom:0px;">Where do you live?</p>   
         <div class="col-sm-12 col-xs-12" id="postcode">
             
             <div class="row">
             	<div class="col-sm-offset-4 col-sm-4 col-xs-offset-2 col-xs-8" style="padding-left:0px; padding-right:0px;">
                     <form id="pcForm">
-                  	  <input style="width:80%; margin-left:0px; margin-right:0px; margin-top:20px; margin-bottom:7px; text-align:center;" id="pcText" class="picaarticle" type="text" tabindex="1" placeholder="enter your postcode">
+                  	  <input style="width:80%; margin-left:0px; margin-right:0px; margin-top:10px; margin-bottom:7px; text-align:center;" id="pcText" class="picaarticle" type="text" tabindex="1" placeholder="enter your postcode">
                     </form>
-                    <div id="pcGo" style="float:left; height:40px; width:20%; color:white; background-color:#007F7F; margin-top:20px; padding-top:7px; text-align:center;"> Go </div>
+                    <div id="pcGo" style="float:left; height:40px; width:20%; color:white; background-color:#007F7F; margin-top:10px; padding-top:7px; text-align:center;"> Go </div>
                 </div>
             </div>
             
@@ -479,7 +492,7 @@ input:focus {
         <div id="empText" style="display:none; opacity:0; text-align:center;">Crime may be higher in areas with low employment.</div>
         <div id="empTextPopulate" style="display:none; opacity:0; text-align:center; font-weight:bold;"></div>
         
-        <div class="row unemploymentRow">
+        <div class="row unemploymentRow" style="display:none;">
         	<div class="col-sm-offset-2 col-sm-8 col-xs-12">                                    
                 <div class="unemployedBar unemployedBar3" style="width:20%;"></div>
                 <div class="unemployedBar unemployedBar2" style="width:60%;"></div> 
@@ -499,74 +512,77 @@ input:focus {
  \____|_| |_|\__,_|_|   \__|___/ |____/|_|  \__,_| \_/\_/ |_| |_| |_| |_|\___|_|  \___|
 -->  
 
-<div id="resultsGrid" class="col-sm-offset-2 col-sm-8 col-xs-12" style="display:none; background-color:#fff; margin-top:30px;">
-<p style="padding-right:20px; padding-right-40px; margin-bottom:25px;">Over a 12 month period, people like you had the following risk of...</p>
-<!--
-<div class="key" style="margin-bottom:30px;">
-    <div style="background-color:#007F7F; float:left; width:22px; height:20px; margin-right:10px;"></div>
-        <p style="margin-bottom:2px;">Your risk</p>  
-    <div style="background-color:#801350; float:left; width:22px; height:20px; margin-right:10px;"></div>
-        <p class="countryAverages">somewhwew average</p>  
+<div id="resultsGridcol" class="wrapperOutline" style="display:none; opacity:0">
+	<div id="resultsGrid" class="col-sm-offset-2 col-sm-8 col-xs-12" style="display:none; margin-top:30px;">
+		<hr width="1" size="40" style="margin-bottom:25px;"/>
+		<p style="padding-right:20px; padding-right-40px; margin-bottom:25px; text-align: center;">Over a 12 month period, people like you<br/>had the following risk of...</p>
+		<!--
+		<div class="key" style="margin-bottom:30px;">
+		    <div style="background-color:#007F7F; float:left; width:22px; height:20px; margin-right:10px;"></div>
+		        <p style="margin-bottom:2px;">Your risk</p>  
+		    <div style="background-color:#801350; float:left; width:22px; height:20px; margin-right:10px;"></div>
+		        <p class="countryAverages">somewhwew average</p>  
+		</div>
+		--> 
+		<p style="font-weight:bold; float:absolute; font-size:18px;  margin-top:25px; margin-bottom:10px;">Personal crimes</p>
+		<div style="background-color:#666; height:1px; width:100%; margin-bottom:10px;"></div>
+
+	    <p class="crimeHeading">Violence</p>
+	    <p style="margin-bottom:5px;"><span class="yoNum yoNum1"></span><span class="avNum avNum1"></span></p>
+	    <div class="YourBar ViolenceBar" style="width:0%;"></div>
+	    <div class="AverageBar ViolenceBarA" style="width:0%;"></div> 
+	    
+	    <p class="crimeHeading">Robbery and theft from the person</p>
+	    <p style="margin-bottom:5px;"><span class="yoNum yoNum2"></span><span class="avNum avNum2"></span></p>
+	    <div class="YourBar RobberyandtheftfromthepersonBar" style="width:0%;"></div>
+	    <div class="AverageBar RobberyandtheftfromthepersonBarA" style="width:0%;"></div>
+	    
+	    <p class="crimeHeading">Other theft of personal property*</p>
+	    <p style="margin-bottom:5px;"><span class="yoNum yoNum3"></span><span class="avNum avNum3"></span></p>
+	    <div class="YourBar OthertheftofpersonalpropertyBar" style="width:0%;"></div>
+	    <div class="AverageBar OthertheftofpersonalpropertyBarA" style="width:0%;"></div>
+	    
+		<p style="font-weight:bold; font-size:18px;  margin-top:25px; margin-bottom:10px;">Household crimes</p>
+		<div style="background-color:#666; height:1px; width:100%; margin-bottom:10px;"></div>
+
+	    <p class="crimeHeading">Burglary</p>
+	    <p style="margin-bottom:5px;"><span class="yoNum yoNum4"></span><span class="avNum avNum4"></span></p>
+	    <div class="YourBar BurglaryBar" style="width:0%;"></div>
+	    <div class="AverageBar BurglaryBarA" style="width:0%;"></div>
+	    
+	    <p class="crimeHeading">Other household theft**</p>
+	    <p style="margin-bottom:5px;"><span class="yoNum yoNum5"></span><span class="avNum avNum5"></span></p>
+	    <div class="YourBar OtherhouseholdtheftBar" style="width:0%;"></div>
+	   	<div class="AverageBar OtherhouseholdtheftBarA" style="width:0%;"></div> 
+	    
+	    <p class="crimeHeading">Criminal damage</p>
+	    <p style="margin-bottom:5px;"><span class="yoNum yoNum6"></span><span class="avNum avNum6"></span></p>
+	    <div class="YourBar CriminaldamageBar" style="width:0%;"></div>
+	    <div class="AverageBar CriminaldamageBarA" style="width:0%;"></div>  
+	    
+		<p style="font-weight:bold; font-size:18px; margin-top:25px; margin-bottom:10px;">Vehicle crimes <span style="font-weight:normal;"> (if you own one) </span></p>
+		<div style="background-color:#666; height:1px; width:100%; margin-bottom:10px;"></div>
+
+		<p class="crimeHeading">Vehicle related theft</p>
+	    <p style="margin-bottom:5px;"><span class="yoNum yoNum7"></span><span class="avNum avNum7"></span></p>
+	    <div class="YourBar VehiclerelatedtheftBar" style="width:0%;"></div>
+	    <div class="AverageBar VehiclerelatedtheftBarA" style="width:0%;"></div>
+	      
+	    
+		     <!--Footnotes-->                              
+		<p style="font-size:12px; margin-top:50px;">*covers thefts away from the home where no force is used, there was no direct contact between the offender and victim and the victim was not carrying the items when they were stolen.</p>
+		<p style="font-size:12px;">**mostly includes theft from outside a dwelling. This also includes theft from inside the home where the offender had the right to be there; e.g. workmen or an acquaintance of the victim.</p>
+		<p style="font-size:12px;">***the survey used to produce the data in this calculator did not sample enough people with your circumstances to give a robust estimate of your likelihood of victimisation for this crime.</p>
+		<p style="font-size:12px;">For more detailed information on the methodology used to produce this calculator, see the <a href="methodology/risk of crime calculator.html" target="_blank">related ONS methodology page</a>.</p>
+	</div>
 </div>
---> 
-<p style="font-weight:bold; float:absolute; font-size:18px;  margin-top:25px; margin-bottom:10px;">Personal crimes</p>
-<div style="background-color:#dadada; height:1px; width:100%; margin-bottom:10px;"></div>
 
-    <p class="crimeHeading">Violence</p>
-    <p style="margin-bottom:5px;"><span class="yoNum yoNum1"></span><span class="avNum avNum1"></span></p>
-    	<div class="YourBar ViolenceBar" style="width:0%;"></div>
-    	<div class="AverageBar ViolenceBarA" style="width:0%;"></div> 
-    
-    <p class="crimeHeading">Robbery and theft from the person</p>
-    <p style="margin-bottom:5px;"><span class="yoNum yoNum2"></span><span class="avNum avNum2"></span></p>
-    	<div class="YourBar RobberyandtheftfromthepersonBar" style="width:0%;"></div>
-    	<div class="AverageBar RobberyandtheftfromthepersonBarA" style="width:0%;"></div>
-    
-    <p class="crimeHeading">Other theft of personal property*</p>
-    <p style="margin-bottom:5px;"><span class="yoNum yoNum3"></span><span class="avNum avNum3"></span></p>
-    	<div class="YourBar OthertheftofpersonalpropertyBar" style="width:0%;"></div>
-    	<div class="AverageBar OthertheftofpersonalpropertyBarA" style="width:0%;"></div>
-    
-<p style="font-weight:bold; font-size:18px;  margin-top:25px; margin-bottom:10px;">Household crimes</p>
-<div style="background-color:#dadada; height:1px; width:100%; margin-bottom:10px;"></div>
-
-    <p class="crimeHeading">Burglary</p>
-    <p style="margin-bottom:5px;"><span class="yoNum yoNum4"></span><span class="avNum avNum4"></span></p>
-    	<div class="YourBar BurglaryBar" style="width:0%;"></div>
-    	<div class="AverageBar BurglaryBarA" style="width:0%;"></div>
-    
-    <p class="crimeHeading">Other household theft**</p>
-    <p style="margin-bottom:5px;"><span class="yoNum yoNum5"></span><span class="avNum avNum5"></span></p>
-    	<div class="YourBar OtherhouseholdtheftBar" style="width:0%;"></div>
-   		<div class="AverageBar OtherhouseholdtheftBarA" style="width:0%;"></div> 
-    
-    <p class="crimeHeading">Criminal damage</p>
-    <p style="margin-bottom:5px;"><span class="yoNum yoNum6"></span><span class="avNum avNum6"></span></p>
-    	<div class="YourBar CriminaldamageBar" style="width:0%;"></div>
-    	<div class="AverageBar CriminaldamageBarA" style="width:0%;"></div>  
-    
-<p style="font-weight:bold; font-size:18px; margin-top:25px; margin-bottom:10px;">Vehicle crimes <span style="font-weight:normal;"> (if you own one) </span></p>
-<div style="background-color:#dadada; height:1px; width:100%; margin-bottom:10px;"></div>
-
-	<p class="crimeHeading">Vehicle related theft</p>
-    <p style="margin-bottom:5px;"><span class="yoNum yoNum7"></span><span class="avNum avNum7"></span></p>
-    	<div class="YourBar VehiclerelatedtheftBar" style="width:0%;"></div>
-    	<div class="AverageBar VehiclerelatedtheftBarA" style="width:0%;"></div>
-      
-    
-     <!--Footnotes-->                              
-<p style="font-size:12px; margin-top:50px;">*covers thefts away from the home where no force is used, there was no direct contact between the offender and victim and the victim was not carrying the items when they were stolen.</p>
-<p style="font-size:12px;">**mostly includes theft from outside a dwelling. This also includes theft from inside the home where the offender had the right to be there; e.g. workmen or an acquaintance of the victim.</p>
-<p style="font-size:12px;">***the survey used to produce the data in this calculator did not sample enough people with your circumstances to give a robust estimate of your likelihood of victimisation for this crime.</p>
-<p style="font-size:12px;">For more detailed information on the methodology used to produce this calculator, see the <a href="methodology/risk of crime calculator.html" target="_blank">related ONS methodology page</a>.</p>
-</div>
-
-<div style="padding-top:0px; padding-bottom:15px; margin-left:5px; display:none;" class="col-sm-12 col-xs-12" id="share">
+<!-- <div style="padding-top:0px; padding-bottom:15px; margin-left:5px; display:none;" class="col-sm-12 col-xs-12" id="share">
         <p style="text-align:center; margin-bottom:15px; margin-top:15px;">Why not share this calculator?</p>
             <div style="padding-bottom:0px; padding-top:0px; padding-left:0px; margin-bottom:0px;" id="share1" class="col-sm-offset-5 col-sm-1 col-xs-1"></div>
             <div style="padding-bottom:0px; padding-left:0px; margin-bottom:0px;" id="share2" class="col-sm-1 col-xs-1"></div>
 </div>   
-
+ -->
 
 
 
