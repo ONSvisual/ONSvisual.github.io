@@ -11,13 +11,13 @@
         
             "dateStart": ["1957"],
         
-            "dateCutOff": ["2010"],
+            "dateCutOff": ["2017"],
 
             "dateBegin": ["2017"],
 
             "clampStart": ["1957"],
         
-            "clampEnd": ["2009"],
+            "clampEnd": ["2017"],
         
             "domMax": 250000,
             "domMin": 0,
@@ -52,8 +52,8 @@
     },
     "optional" : {
             "margin_sm": [30, 15, 30, 65],
-            "margin_md": [30, 38, 30, 40],
-            "margin_lg": [30, 38, 30, 40],
+            "margin_md": [30, 38, 30, 65],
+            "margin_lg": [30, 38, 30, 65],
         
             "aspectRatio_sm" : [16,16],
             "aspectRatio_md" : [16,18],
