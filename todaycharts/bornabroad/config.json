@@ -1,0 +1,71 @@
+{
+    "essential" : {
+        
+            "dataURL": "bornabroad.csv",
+        
+            "period": "year",
+        
+            "dateFormat": ["%Y"],
+        
+            "dateMxMn": ["2008"],
+        
+            "dateStart": ["1951"],
+        
+            "dateCutOff": ["2011"],
+
+            "dateBegin": ["2011"],
+
+            "clampStart": ["1951"],
+        
+            "clampEnd": ["2010"],
+        
+            "domMax": 25,
+            "domMin": 0,
+        
+            "legendLabels" : [ ],
+        
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/"],
+        
+            "annotationChart": ["Click and Drag", "drag" ],
+        
+            "annotationBullet": [ ],
+        
+            "annotationXY":["2010", 14],
+        
+            "annotationAlign":["end"],
+        
+            "circles" : false,    
+            "annotationCXCY":[ ],
+        
+            "xAxisLabel":[],
+        
+            "yAxisLabel": "%",
+            "yAxisScaleDivisor": 1,
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65],
+        
+            "feedback": ["You guessed ", "%. Didn't this that and many other things happened during this 60 years.", "Didn't this that and many other things happened during this 60 years."],
+			
+			"appendText": ["The number of job vacancies is close to the highest since comparable records began in 2001. There were 770,000 vacancies for the 3 months to May, an increase of 24,000 since the same period last year. Nearly 90% of all vacancies were in services sectors."]
+								
+    },
+    "optional" : {
+            "margin_sm": [30, 38, 30, 35],
+            "margin_md": [30, 38, 30, 40],
+            "margin_lg": [30, 38, 30, 40],
+        
+            "aspectRatio_sm" : [16,16],
+            "aspectRatio_md" : [16,18],
+            "aspectRatio_lg" : [14,16],
+        
+            "mobileBreakpoint" : [400,600], 
+            "xAxisTextFormat_sm_md_lg" :["%y", "%Y", "%Y"], 
+            "x_num_ticks_sm_md_lg" : [4,10,10],    
+            "y_num_ticks_sm_md_lg" : [6,6,6],    
+            "centre_line" : false,
+            "centre_line_value" :0    
+    }
+}
+
+

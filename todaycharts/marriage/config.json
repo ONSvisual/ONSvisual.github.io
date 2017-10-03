@@ -1,0 +1,71 @@
+{
+    "essential" : {
+        
+            "dataURL": "marriage.csv",
+        
+            "period": "year",
+        
+            "dateFormat": ["%Y"],
+        
+            "dateMxMn": ["2008"],
+        
+            "dateStart": ["1957"],
+        
+            "dateCutOff": ["2013"],
+
+            "dateBegin": ["2013"],
+
+            "clampStart": ["1957"],
+        
+            "clampEnd": ["2012"],
+        
+            "domMax": 70,
+            "domMin": 0,
+        
+            "legendLabels" : [ ],
+        
+            "sourceText":["Office for National Statistics"],
+            "sourceURL":["http://www.ons.gov.uk/"],
+        
+            "annotationChart": ["Hold and Drag", "drag" ],
+        
+            "annotationBullet": [ ],
+        
+            "annotationXY":[["2011", 24], ["2000", 9]],
+        
+            "annotationAlign":["end"],
+        
+            "circles" : false,    
+            "annotationCXCY":[ ],
+        
+            "xAxisLabel":[],
+        
+            "yAxisLabel": "Marriage rate for females per thousand",
+            "yAxisScaleDivisor": 1,
+            "yAxisBreak": false,
+            "yAxisBreak_sm_md_lg": [65,65,65],
+        
+              "feedback": ["Congratulations! Your answer of ", "% is correct", "Amazing job! Your guess of ", "% was close to the real rate in 1957, which was 52%", "You think ", "%? Almost! The real marriage rate in 1957 was 52%.", "Unfortunately your guess of ", "% is quite far away from the real marriage rate in 1957 of 52%.", "Nope! ", "% is far off the mark. You may be shocked to find that actually the marriage rate in 1957 was 52%. That's over a 60% decrease in 60 years.", "Oh dear", "Didn't fancy a guess then. Try the next one."],
+			
+			"appendText": ["The number of job vacancies is close to the highest since comparable records began in 2001. There were 770,000 vacancies for the 3 months to May, an increase of 24,000 since the same period last year. Nearly 90% of all vacancies were in services sectors."]
+								
+    },
+    "optional" : {
+            "margin_sm": [30, 38, 30, 35],
+            "margin_md": [30, 38, 30, 40],
+            "margin_lg": [30, 38, 30, 40],
+        
+            "aspectRatio_sm" : [16,16],
+            "aspectRatio_md" : [16,18],
+            "aspectRatio_lg" : [14,16],
+        
+            "mobileBreakpoint" : [400,600], 
+            "xAxisTextFormat_sm_md_lg" :["%y", "%y", "%Y"], 
+            "x_num_ticks_sm_md_lg" : [4,10,10],    
+            "y_num_ticks_sm_md_lg" : [6,6,6],    
+            "centre_line" : false,
+            "centre_line_value" :0    
+    }
+}
+
+
