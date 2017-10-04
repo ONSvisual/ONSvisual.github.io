@@ -45,7 +45,7 @@
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
         
-            "feedback": ["Amazing job! Your guess was close to the real average house price in 1968, which was £3,595", "Almost! The real average house price in 1957 was £3,595", "Unfortunately your guess was quite far away from the real average price of £3,595", "Are you stupid or something", "Didn't fancy a guess then. Try the next one."],
+            "feedback": ["You guessed ", "%. Didn't this that and many other things happened during this 60 years.", "Didn't this that and many other things happened during this 60 years."],
 			
 			"appendText": ["The number of job vacancies is close to the highest since comparable records began in 2001. There were 770,000 vacancies for the 3 months to May, an increase of 24,000 since the same period last year. Nearly 90% of all vacancies were in services sectors."]
 								
