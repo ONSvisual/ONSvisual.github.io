@@ -11,13 +11,13 @@
         
             "dateStart": ["1950"],
         
-            "dateCutOff": ["2010"],
+            "dateCutOff": ["2012"],
 
             "dateBegin": ["2012"],
 
             "clampStart": ["1950"],
         
-            "clampEnd": ["2009"],
+            "clampEnd": ["2012"],
         
             "domMax": 100,
             "domMin": 50,

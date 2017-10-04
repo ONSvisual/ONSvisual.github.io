@@ -19,7 +19,7 @@
 		  font-family: “Open Sans”,Helvetica,Arial,sans-serif;
 		  font-family: open sans;
 		  margin: 0px;
-		  overflow: hidden;
+		 /* overflow: hidden;*/
 		  font-size: 16px;
 		  font-weight: 400;
 		}
@@ -32,6 +32,7 @@
 			font-size: 14px;
 		  font-weight: 600;
 		  fill: #E65C00;
+		  text-anchor:end;
 		}
 				.gridDash{
 					stroke-dasharray: 3 3;
@@ -61,7 +62,7 @@
 			}
 			
 		.area{
-		  fill: #8cadbf;
+		  fill: #007f7f;
 		  opacity: 0.5;
 		}
 		.area2{
@@ -80,10 +81,10 @@
 			
 				.btn {
 				  font-family: “Open Sans”,Helvetica,Arial,sans-serif;
-				  background-color: #0F8243;
+				  background-color: #007f7f;
 				  opacity:1;
 				  color: #fff;
-				  font-weight: 400;
+				  font-weight: 700;
 				  font-size: 16px;
 				  display: inline-block;
 				  width: auto;
@@ -97,11 +98,10 @@
 				  text-decoration: none;
 				  line-height: 24px;
 				  -webkit-font-smoothing: antialiased;
-				  /*d3.select('button').style('opacity', 1).style("cursor", "pointer");*/
 				}
 				
 			   .btn:hover,.btn:focus {
-				  background-color:#0b5d30 ;
+				 /* background-color:#0b5d30 ;*/
 				}
 	
 		#textResponse{
@@ -276,7 +276,7 @@
 				
 				svg.append("text")
 					 .attr('class', 'unit')
-					 .attr('transform',"translate(" + (-margin.left - 20) + ", -15)") //+margin.left
+					 .attr('transform',"translate(" + (-margin.left) + ", -15)") //+margin.left
 					 .attr("cursor", "default")
 					 .text(function(d,i) { return dvc.essential.yAxisLabel});		
 						
@@ -383,10 +383,27 @@
 		
 		d3.select('#showMe').on('click', (function (e) { showMe(); }) );
 		
-		svg.append("text").attr("id", "currYVal")
-							.attr("y", -margin.top + 34)
-							.attr("x", -30)
-							.text(" ");
+		svg.append("g").attr("id", "currYValG")
+			.attr("opacity",0)
+			.append("text").attr("id", "currYVal")
+			.attr("y", -margin.top + 34)
+			.attr("x", -13)
+			.text("20")
+
+							
+							
+		var text = d3.select("#currYVal");
+		var bbox = text.node().getBBox();
+		var padding = 2;
+				
+				svg.select("#currYValG").insert("rect","#currYVal")
+					.attr("id","backgroundrect")
+					.attr("x", bbox.x - padding)
+					.attr("y", bbox.y - padding)
+					.attr("width", bbox.width + (padding*2))
+					.attr("height", bbox.height + (padding*2))
+					.style("fill", "rgba(255,255,255,0.9)");
+
 		 
 		 
 		if ( parseInt(d3.select('#graphic').style("width") ) < threshold_sm) { //console.log("block me");
@@ -446,10 +463,12 @@
 					//console.log(formatMyTime(x.invert(pos[0])), x(parseMyTime(year)), y(debt) );
 					//console.log(debt, y(debt));
 					var fomat = d3.format(".0f");
-					d3.select("#currYVal").transition()
+					d3.select("#currYValG").transition()
 											.duration(100)
 											.attr('transform',"translate(0, " + y(debt) + ")")
-											.text(fomat(debt) );
+											.attr("opacity",1);
+											
+					d3.select("#currYVal").text(fomat(debt));
 					
 					
 					
@@ -507,7 +526,7 @@
 			d3.select('#graphic').style("pointer-events", "none");
 			
 			d3.select("#annotext").remove();
-			d3.select("#currYVal").remove();
+			d3.select("#currYValG").remove();
 			d3.select("#showMe").remove();
 						
 			clipRect1.transition().duration(1000).attr('transform',"translate(" + x(firstChart) + ", 0)").attr('width', x(beginChart) );
@@ -536,8 +555,8 @@
 				d3.select("#textResponse").select("p").text(dvc.essential.feedback[8] + fmat(myResult) + dvc.essential.feedback[9]);
 			}
 			
-			//d3.select("#textResponse").select("p").text(dvc.essential.appendText);
-				//console.log(clipWidth, height, x(cutOff), x(firstChart), x(beginChart) ); // 0 300 522 0 522
+			d3.select("#textResponse").append("p").html(dvc.essential.appendText);
+				//console.log(clipWidth, height, x(cutOff), x(firstCharft), x(beginChart) ); // 0 300 522 0 522
 								 var clipDivorce = svg.append('clipPath#clip2')
 													  .append('rect')
 													  .attr('width', clipWidth) //x(cutOff)  end date - start date = area shown  === formatMyTime(cutOff)
@@ -558,8 +577,11 @@
 								.attr('y',y(dvc.essential.annotationXY[1][1]))
 								.attr('x',x(parseMyTime(dvc.essential.annotationXY[1][0])) )
 								.attr("cursor", "none")
+								.attr("opacity","0")
 								.transition()
+								.duration(2000)
 								.delay(2000)
+								.attr("opacity","1")
 								.text("Divorce");
 								
 		//svg.append('path.line2').delay(1000).attr('d', function(){ return line2(data); });
@@ -595,7 +617,7 @@
 							.attr("cy", y(myY))
 							.attr("r", rad) // ration of height
 							//.style("cursor", "pointer")
-							.attr("fill", "#D2376D");
+							.attr("fill", "#E65C00");
 							
 				pulse();		
 	}
@@ -610,7 +632,7 @@
 					.attr("cx", x(parseMyTime(dvc.essential.dateCutOff)) )
 					.attr("cy", y(myY) )
 					.attr("stroke-width", 1)
-					.attr("fill", "#D2376D")
+					.attr("fill", "#E65C00")
 					.attr("opacity", 0)
 					
 				  .transition()
