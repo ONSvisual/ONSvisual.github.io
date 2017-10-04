@@ -19,7 +19,7 @@
         
             "clampEnd": ["2010"],
         
-            "domMax": 25,
+            "domMax": 20,
             "domMin": 0,
         
             "legendLabels" : [ ],
