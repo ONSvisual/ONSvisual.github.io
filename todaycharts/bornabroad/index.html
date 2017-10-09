@@ -519,7 +519,7 @@
 				diff = (Math.abs(myResult - result)/result) * 100;
 			console.log(result, myResult, diff);
 
-			if (yourData[0].defined === true ){  //  or  d3.mean(yourData, format('defined')) < 0.5 ie less than 50% achieved
+			if (yourData[0].defined === true ){  //  or d3.mean(yourData, format('defined')) < 0.5 ie less than 50% achieved
 				d3.select("#textResponse").select("p").text(dvc.essential.feedback[0] + formt(myResult) + "%.");
                 if(myResult < 2){
             				d3.select("#textResponse").append("p").text(dvc.essential.feedback[3]);
