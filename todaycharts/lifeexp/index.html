@@ -118,7 +118,7 @@
 </div>
 
  <div id="buttonRow" style="text-align:center;">
- 			<button type="button" id="showMe" class="btn" >Reveal all?</button>
+ 			<button type="button" id="showMe" class="btn" >Show me the answer</button>
    </div>
 
 	<div id="textResponse" style="text-align:center;"><p></p></div>
@@ -532,6 +532,7 @@
 
 			// MAYBE onlydo this if the last obj is defined true ?????????????
 
+<<<<<<< HEAD
 			if (yourData[0].defined != true){  // d3.mean(yourData, format('defined')) < 0.8 less than 80% achieved
 				d3.select("#textResponse").select("p").text(dvc.essential.feedback[dvc.essential.feedback.length - 1]);
 			}else //if(Math.abs(fmat(myResult) - fmat(result)) === 0){
@@ -547,6 +548,23 @@
 //			}
 
 			//d3.select("#textResponse").select("p").text(dvc.essential.appendText);
+=======
+      if (yourData[0].defined === true ){  //  or  d3.mean(yourData, format('defined')) < 0.5 ie less than 50% achieved
+        //d3.select("#textResponse").select("p").text(dvc.essential.feedback[0] + formt(myResult) + "%.");
+                if(myResult <= 66.6){
+                    d3.select("#textResponse").append("p").text(dvc.essential.feedback[2] + fmat(myResult) + dvc.essential.feedback[4]);
+                    d3.select("#textResponse").append("p").html(dvc.essential.appendText);
+                  }else if(myResult < 68.6 && myResult > 66.6){
+                    d3.select("#textResponse").append("p").text(dvc.essential.feedback[0] + fmat(myResult) + dvc.essential.feedback[1]);
+                    d3.select("#textResponse").append("p").html(dvc.essential.appendText);
+                  }else if(myResult >= 68.6){
+                    d3.select("#textResponse").append("p").text(dvc.essential.feedback[2] + fmat(myResult) + dvc.essential.feedback[3]);
+                    d3.select("#textResponse").append("p").html(dvc.essential.appendText);
+                  }
+      }else{
+			d3.select("#textResponse").append("p").html(dvc.essential.appendText);
+      }
+>>>>>>> master
 
 
 		var clipDivorce = svg.append('clipPath#clip2')
@@ -611,6 +629,29 @@
 							.attr("fill", "#E65C00");
 
 				pulse();
+<<<<<<< HEAD
+=======
+	}
+
+	function pulse(){
+
+				svg.append("g")
+				 	.attr("class", "animatedCircles")
+					.append("circle")
+				   	.attr("class", "marker")
+					.attr("r", 10)
+					.attr("cx", x(parseMyTime(dvc.essential.dateCutOff)) )
+					.attr("cy", y(myY) )
+					.attr("stroke-width", 1)
+					.attr("fill", "#E65C00")
+					.attr("opacity", 0)
+
+				  .transition()
+					.duration(500)
+					.each(slide);
+
+
+>>>>>>> master
 	}
 
   function pulse(){
@@ -648,6 +689,7 @@
 				}
 
 
+<<<<<<< HEAD
         function writeAnnotation(){
       							// draw annotation text based on content of var annotationArray ...
       							svg.append("text")
@@ -670,6 +712,27 @@
 
       			}// end function writeAnnotation()
 
+=======
+	function writeAnnotation(){
+							// draw annotation text based on content of var annotationArray ...
+							svg.append("text")
+								.attr("id","annotext"/* + i*/)
+								.attr("text-anchor", dvc.essential.annotationAlign/*[i]*/)
+								.attr('y',y(dvc.essential.annotationXY[0][1]))
+								.attr('x',x(parseMyTime(dvc.essential.annotationXY[0][0])) )
+								.text(function(){ if( parseInt(d3.select('#graphic').style("width")) < threshold_sm){
+
+																return dvc.essential.annotationChart/*[i]*/[1];
+																} else
+																{ return dvc.essential.annotationChart/*[i]*/[0];
+																}
+								})
+								.attr("cursor", "default");
+
+				return;
+
+			}// end function writeAnnotation()
+>>>>>>> master
 
   }// end drawGraphic
 

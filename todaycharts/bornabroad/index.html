@@ -114,7 +114,7 @@
 </div>
 
  <div id="buttonRow" style="text-align:center;">
- 			<button type="button" id="showMe" class="btn" >Reveal all?</button>
+ 			<button type="button" id="showMe" class="btn" >Show me the answer</button>
    </div>
 
 	<div id="textResponse" style="text-align:center;"><p></p></div>
@@ -446,14 +446,8 @@
 
 					d3.select("#currYVal").text(fomat(debt));
 
-          // if(pos[0] - margin.right/2 > 0){
-          //                     d3.select("#annotext").transition().duration(50).attr('transform',"translate(" + (pos[0] - margin.right/2 - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.top/2 - y(dvc.essential.annotationXY[1])) + ") ")
-          //                                           .text("Keep going");
-          //                     } else {
-          //                         d3.select("#annotext").transition().duration(50).attr('transform',"translate(" + (pos[1] - margin.left/20 - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.bottom/2 - y(dvc.essential.annotationXY[1])) + ") ")
-          //                     }
-          console.log(pos);
-					if(pos[0] - margin.right/2 > 100){
+
+					if(pos[0] - margin.right/2 > 0){
 					d3.select("#annotext").transition().duration(100).attr('transform',"translate(" + (pos[0] - margin.right/2 - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.top/2 - y(dvc.essential.annotationXY[1])) + ") ")
 										  .text("Keep going");
 					}
@@ -517,15 +511,23 @@
 			console.log(result, myResult, diff);
 
 			if (yourData[0].defined === true ){  //  or  d3.mean(yourData, format('defined')) < 0.5 ie less than 50% achieved
-				d3.select("#textResponse").select("p").text(dvc.essential.feedback[0] + formt(myResult) + dvc.essential.feedback[1]);
-//			}else if(diff < 500){
-//				d3.select("#textResponse").select("p").text(dvc.essential.feedback[0]);
-//			}else if(diff < 1000){
-//				d3.select("#textResponse").select("p").text(dvc.essential.feedback[1]);
-//			}else if(diff < 2000){
-//				d3.select("#textResponse").select("p").text(dvc.essential.feedback[2]);
-			}else {
-				d3.select("#textResponse").select("p").text(dvc.essential.feedback[2]);
+				d3.select("#textResponse").select("p").text(dvc.essential.feedback[0] + formt(myResult) + "%.");
+                if(myResult < 2){
+            				d3.select("#textResponse").append("p").text(dvc.essential.feedback[3]);
+                    d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
+                    d3.select("#textResponse").append("p").text(dvc.essential.feedback[2]);
+            			}else if(myResult < 4 && myResult > 2){
+            				d3.select("#textResponse").append("p").text(dvc.essential.feedback[4]);
+                    d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
+                    d3.select("#textResponse").append("p").text(dvc.essential.feedback[2]);
+                	}else if(myResult > 4){
+                    d3.select("#textResponse").append("p").text(dvc.essential.feedback[5]);
+                    d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
+                    d3.select("#textResponse").append("p").text(dvc.essential.feedback[2]);
+                  }
+			}else{
+				d3.select("#textResponse").select("p").text(dvc.essential.feedback[1]);
+        d3.select("#textResponse").append("p").text(dvc.essential.feedback[2]);
 			}
 
 			//d3.select("#textResponse").select("p").text(dvc.essential.appendText);
@@ -605,27 +607,27 @@
 				}
 
 
-	function writeAnnotation(){
-							// draw annotation text based on content of var annotationArray ...
-							svg.append("text")
-								.attr("id","annotext"/* + i*/)
-								.attr("text-anchor", dvc.essential.annotationAlign/*[i]*/)
-								.attr('y',y(dvc.essential.annotationXY/*[i]*/[1]))
-								.attr('x',x(parseMyTime(dvc.essential.annotationXY/*[i]*/[0])) )
-                .style('pointer-events', 'none')
-								.text(function(){ if( parseInt(d3.select('#graphic').style("width")) < threshold_sm){
+        function writeAnnotation(){
+      							// draw annotation text based on content of var annotationArray ...
+      							svg.append("text")
+      								.attr("id","annotext"/* + i*/)
+      								.attr("text-anchor", dvc.essential.annotationAlign/*[i]*/)
+      								.attr('y',y(dvc.essential.annotationXY/*[i]*/[1]))
+      								.attr('x',x(parseMyTime(dvc.essential.annotationXY/*[i]*/[0])) )
+                      .style('pointer-events', 'none')
+      								.text(function(){ if( parseInt(d3.select('#graphic').style("width")) < threshold_sm){
 
-																return dvc.essential.annotationChart/*[i]*/[1];
-																} else
-																{ return dvc.essential.annotationChart/*[i]*/[0];
-																}
-								})
+      																return dvc.essential.annotationChart/*[i]*/[1];
+      																} else
+      																{ return dvc.essential.annotationChart/*[i]*/[0];
+      																}
+      								})
 
-								.attr("cursor", "default");
+      								.attr("cursor", "default");
 
-				return;
+      				return;
 
-			}// end function writeAnnotation()
+      			}// end function writeAnnotation()
 
   }// end drawGraphic
 
