@@ -586,22 +586,6 @@
 
 	}
 
-  function pulse(){
-              svg.append("g")
-                  .attr("class", "animatedCircles")
-                  .append("circle")
-                  .attr("class", "marker")
-                  .attr("r", 10)
-                  .attr("cx", x(parseMyTime(dvc.essential.dateCutOff)) )
-                  .attr("cy", y(myY) )
-                  .attr("stroke-width", 1)
-                  .attr("fill", "#E65C00")
-                  .attr("opacity", 0)
-        .style('pointer-events', 'none')
-                .transition()
-                  .duration(500)
-                  .each(slide);
-  }
 
 			function slide() {
 						  var circle = d3.select(this);
