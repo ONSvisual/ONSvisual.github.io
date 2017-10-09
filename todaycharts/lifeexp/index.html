@@ -666,8 +666,8 @@
       							svg.append("text")
       								.attr("id","annotext"/* + i*/)
       								.attr("text-anchor", dvc.essential.annotationAlign/*[i]*/)
-      								.attr('y',y(dvc.essential.annotationXY/*[i]*/[1]))
-      								.attr('x',x(parseMyTime(dvc.essential.annotationXY/*[i]*/[0])) )
+      								.attr('y',y(dvc.essential.annotationXY[0][1]))
+      								.attr('x',x(parseMyTime(dvc.essential.annotationXY[0][0])) )
                       .style('pointer-events', 'none')
       								.text(function(){ if( parseInt(d3.select('#graphic').style("width")) < threshold_sm){
 
