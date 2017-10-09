@@ -440,7 +440,6 @@
 					d3.select("#currYVal").text(fomat(debt));
 
 
-<<<<<<< HEAD
           if (pos[0] - margin.right / 2 > 100) {
               d3.select("#annotext").transition().duration(100).attr('transform', "translate(" + (pos[0] - margin.right / 2 - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.top / 2 - y(dvc.essential.annotationXY[1])) +
                   ") ")
@@ -453,14 +452,7 @@
               d3.select("#annotext").remove();
             }
 
-=======
-					if(pos[0] - margin.right/2 > 0){
-					d3.select("#annotext").transition().duration(100).attr('transform',"translate(" + (pos[0] - margin.right/2 - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.top/2 - y(dvc.essential.annotationXY[1])) + ") ")
-										  .text("Keep going");
-					} else {
-						d3.select("#annotext").remove();
-					}
->>>>>>> master
+
 
 								yourData.forEach(function(d){
 										  //if (Math.abs(formatMyTime(d.year) - year) < 0.5){
@@ -513,18 +505,7 @@
 				diff = (Math.abs(myResult - result)/result) * 100;
 			console.log(result, myResult, diff);
 
-<<<<<<< HEAD
-			if (yourData[0].defined === true ){  //  or  d3.mean(yourData, format('defined')) < 0.5 ie less than 50% achieved
-				d3.select("#textResponse").select("p").text(dvc.essential.feedback[0] + formt(myResult) + dvc.essential.feedback[1]);
-//			}else if(diff < 500){
-//				d3.select("#textResponse").select("p").text(dvc.essential.feedback[0]);
-//			}else if(diff < 1000){
-//				d3.select("#textResponse").select("p").text(dvc.essential.feedback[1]);
-//			}else if(diff < 2000){
-//				d3.select("#textResponse").select("p").text(dvc.essential.feedback[2]);
-			}else {
-				d3.select("#textResponse").select("p").text(dvc.essential.feedback[2]);
-=======
+
       if (yourData[0].defined === true ){  //  or  d3.mean(yourData, format('defined')) < 0.5 ie less than 50% achieved
 				d3.select("#textResponse").select("p").text(dvc.essential.feedback[0] + formt(myResult) + "%.");
                 if(myResult < 2){
@@ -543,7 +524,6 @@
 			}else{
 				d3.select("#textResponse").select("p").text(dvc.essential.feedback[1]);
 
->>>>>>> master
 			}
 
 			//d3.select("#textResponse").select("p").text(dvc.essential.appendText);
@@ -582,8 +562,7 @@
 							.attr("fill", "#E65C00");
 
 				pulse();
-<<<<<<< HEAD
-=======
+
 	}
 
 	function pulse(){
@@ -604,7 +583,7 @@
 					.each(slide);
 
 
->>>>>>> master
+
 	}
 
   function pulse(){
@@ -641,30 +620,7 @@
 				}
 
 
-<<<<<<< HEAD
-        function writeAnnotation(){
-      							// draw annotation text based on content of var annotationArray ...
-      							svg.append("text")
-      								.attr("id","annotext"/* + i*/)
-      								.attr("text-anchor", dvc.essential.annotationAlign/*[i]*/)
-      								.attr('y',y(dvc.essential.annotationXY/*[i]*/[1]))
-      								.attr('x',x(parseMyTime(dvc.essential.annotationXY/*[i]*/[0])) )
-                      .style('pointer-events', 'none')
-      								.text(function(){ if( parseInt(d3.select('#graphic').style("width")) < threshold_sm){
 
-      																return dvc.essential.annotationChart/*[i]*/[1];
-      																} else
-      																{ return dvc.essential.annotationChart/*[i]*/[0];
-      																}
-      								})
-
-      								.attr("cursor", "default");
-
-      				return;
-
-      			}// end function writeAnnotation()
-
-=======
 	function writeAnnotation(){
 							// draw annotation text based on content of var annotationArray ...
 							svg.append("text")
@@ -685,7 +641,6 @@
 				return;
 
 			}// end function writeAnnotation()
->>>>>>> master
 
   }// end drawGraphic
 
