@@ -40,7 +40,7 @@
 
             "xAxisLabel":[],
 
-            "yAxisLabel": "Marriage rate for males per thousand",
+            "yAxisLabel": "Rate per thousand",
             "yAxisScaleDivisor": 1,
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
