@@ -451,7 +451,7 @@
 
 					d3.select("#currYVal").text(fomat(debt));
 
-					if(pos[0] - margin.right/2 > 0){
+          if(pos[0] - margin.right/2 > 100){
 					d3.select("#annotext").attr("display", "auto")
 										  .style("pointer-events", "none")
 										  .transition()
@@ -460,7 +460,18 @@
 										  .text("Keep going");
 
 													if(formatMyTime(x.invert(pos[0]) ) > dvc.essential.dateBegin[0] ){ d3.select("#annotext").attr("display", "none");}
-					} else {
+					}
+
+          else if(pos[0] > 0){
+          d3.select("#annotext").attr("display", "auto")
+                      .style("pointer-events", "none")
+                      .transition()
+                      .duration(100)
+                      .attr('transform',"translate(" + (x(parseMyTime(year)) + 50+margin.right - x(parseMyTime(dvc.essential.annotationXY[0])) ) + ", " + (y(debt) - margin.top/2 - y(dvc.essential.annotationXY[1]) ) + ") ")
+                      .text("Keep going");
+
+                          if(formatMyTime(x.invert(pos[0]) ) > dvc.essential.dateBegin[0] ){ d3.select("#annotext").attr("display", "none");}
+          } else {
 							d3.select("#annotext").attr("display", "none");
 							}
 
@@ -587,7 +598,7 @@
                   .attr("stroke-width", 1)
                   .attr("fill", "#E65C00")
                   .attr("opacity", 0)
-        .style('pointer-events', 'none')
+                  .style('pointer-events', 'none')
                 .transition()
                   .duration(500)
                   .each(slide);
