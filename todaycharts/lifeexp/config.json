@@ -9,15 +9,15 @@
 
             "dateMxMn": ["2008"],
 
-            "dateStart": ["1950"],
+            "dateStart": ["1957"],
 
-            "dateCutOff": ["2012"],
+            "dateCutOff": ["2014"],
 
-            "dateBegin": ["2012"],
+            "dateBegin": ["2014"],
 
-            "clampStart": ["1950"],
+            "clampStart": ["1957"],
 
-            "clampEnd": ["2012"],
+            "clampEnd": ["2014"],
 
             "domMax": 100,
             "domMin": 50,
@@ -31,7 +31,7 @@
 
             "annotationBullet": [ ],
 
-            "annotationXY":[["2010", 83], ["2000", 82]],
+            "annotationXY":[["2012", 83], ["2000", 82]],
 
             "annotationAlign":["end"],
 
