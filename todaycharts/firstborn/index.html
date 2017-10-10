@@ -454,10 +454,15 @@ svg{
 					d3.select("#currYVal").text(fomat(debt));
 					
 					if(pos[0] - margin.right/2 > 0){
-					d3.select("#annotext").transition().duration(100).attr('transform',"translate(" + (pos[0] - margin.right/2 - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.top/2 - y(dvc.essential.annotationXY[1])) + ") ")
+					d3.select("#annotext").attr("display", "auto")
+										  .style("pointer-events", "none")
+										  .style("font-weight", 400)
+										  .transition()
+										  .duration(100)
+										  .attr('transform',"translate(" + (pos[0] - margin.right/2 - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.top/2 - y(dvc.essential.annotationXY[1])) + ") ")
 										  .text("Keep going");
 					} else {
-						d3.select("#annotext").remove();
+						d3.select("#annotext").attr("display", "none");
 					}
 														
 								yourData.forEach(function(d){
@@ -543,19 +548,31 @@ svg{
 	
 	function firstMarker(){	
 		
-				var startMark = svg.append("g").attr("id", "startMark");
-				var fmt = d3.format(".1f");	 
+				var fmt2 = d3.format(".1f");	 
 						 							
 				var drawMark = svg.append("g").attr("id", "drawMark");
 						
 					data.forEach(function(d) { //console.log(formatMyTime(d.year) === formatMyTime(cutOff));
 												if(formatMyTime(d.year) === formatMyTime(cutOff))  myY = d.debt;
 											});
-						 
+					
+					if( parseInt(d3.select('#graphic').style("width")) > threshold_sm){	
+					svg.append("text")
+							.attr("id", "startNum")
+							.attr("x", x(parseMyTime(dvc.essential.dateCutOff)) + 14)
+							.attr("y", y(myY) + 5)
+							.style("font-size", 14+"px")
+							.style("font-weight", 400)
+							.style("opacity", 0.5)
+							.attr("text-anchor", "start")
+							.style("cursor", "none")
+							.text(fmt2(myY) );
+				}
+					 
 					drawMark.append("circle")
 							.attr("cx", x(parseMyTime(dvc.essential.dateCutOff)) )
 							.attr("cy", y(myY))
-							.attr("r", rad) // ration of height
+							.attr("r", 8) // ration of height
 							.attr("cursor", "pointer")
 							.attr("fill", "#E65C00");
 							
@@ -568,14 +585,13 @@ svg{
 				 	.attr("class", "animatedCircles")
 					.append("circle")
 				   	.attr("class", "marker")
-					.attr("r", 10)
+					.attr("r", 20)
 					.attr("cx", x(parseMyTime(dvc.essential.dateCutOff)) )
 					.attr("cy", y(myY) )
 					.attr("stroke-width", 1)
 					.attr("fill", "#E65C00")
 					.attr("opacity", 0)
-					
-				  .transition()
+				 	.transition()
 					.duration(500)
 					.each(slide);
 					
@@ -587,12 +603,12 @@ svg{
 						  (function repeat() {
 							
 							circle = circle.transition()
-								.duration(1500)
-								.attr("r", 8)
+								.duration(1000)
+								.attr("r", 12)
 								.attr("opacity", 0)
 								.transition()
-								.duration(1500)
-								.attr("r", 8)
+								.duration(1000)
+								.attr("r", 12)
 								.attr("opacity", 1)
 								.on("end", repeat);
 						  })();
@@ -606,6 +622,7 @@ svg{
 								.attr("text-anchor", dvc.essential.annotationAlign/*[i]*/)
 								.attr('y',y(dvc.essential.annotationXY/*[i]*/[1]))
 								.attr('x',x(parseMyTime(dvc.essential.annotationXY/*[i]*/[0])) )
+								.style("font-weight", 600)
 								.text(function(){ if( parseInt(d3.select('#graphic').style("width")) < threshold_sm){
 											
 																return dvc.essential.annotationChart/*[i]*/[1];

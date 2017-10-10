@@ -31,7 +31,7 @@
         
             "annotationBullet": [ ],
         
-            "annotationXY":["2010", 28],
+            "annotationXY":["2012", 29],
         
             "annotationAlign":["end"],
         
@@ -45,7 +45,7 @@
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
         
-            "feedback": ["You guessed ", "%. Didn't this that and many other things happened during this 60 years.", "Didn't this that and many other things happened during this 60 years."],
+            "feedback": ["You guessed ", ". Didn't this that and many other things happened during this 60 years.", "Didn't this that and many other things happened during this 60 years."],
 			
 			"appendText": ["The number of job vacancies is close to the highest since comparable records began in 2001. There were 770,000 vacancies for the 3 months to May, an increase of 24,000 since the same period last year. Nearly 90% of all vacancies were in services sectors."]
 								
