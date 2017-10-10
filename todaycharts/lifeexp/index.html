@@ -361,7 +361,7 @@
 
 
 		//create centre line if required
-			if (dvc.optional.centre_line == true){ console.log("centreline");
+			if (dvc.optional.centre_line == true){ //console.log("centreline");
 				svg.append("line")
 					.attr("id","centreline")
 					.attr('y1',y(dvc.optional.centre_line_value))
@@ -450,7 +450,8 @@
 
 		 var drag = d3.drag()
 				  .on('drag', function(){
-
+					pymChild.sendMessage('tracking', 'chart-interacted');
+							
 					if(document.getElementsByClassName('animatedCircles') ) d3.select(".animatedCircles").remove();
 
 					var pos = d3.mouse(this) //console.log("mouse pos:"+pos);
@@ -521,8 +522,7 @@
 										  // if all under format are true then mean will = 1;
 					if (yourData[0].defined === true ) // just the last for complete
 						{
-							pymChild.sendMessage('tracking', 'chart-interacted');
-							console.log("completed");
+							//console.log("completed");
 
 						} //ends if completed
 
@@ -557,7 +557,7 @@
 			var myResult = yourData[0].debt,
 				result = data[0].debt,
 				diff = (Math.abs(myResult - result)/result) * 100;
-			console.log(result, myResult, diff);
+			//console.log(result, myResult, diff);
 
 			// MAYBE onlydo this if the last obj is defined true ?????????????
 
