@@ -500,6 +500,7 @@
 										  // if all under format are true then mean will = 1;
 					if (yourData[0].defined === true ) // just the last for complete
 						{
+							pymChild.sendMessage('tracking', 'chart-interacted');
 							console.log("completed");
 						} //ends if completed
 
@@ -531,7 +532,8 @@
 
       if (yourData[0].defined === true ){  //  or  d3.mean(yourData, format('defined')) < 0.5 ie less than 50% achieved
 				//d3.select("#textResponse").select("p").text(dvc.essential.feedback[0] + formt(myResult) + "%.");
-                if(myResult <= 1000){
+                pymChild.sendMessage('tracking', 'button-clicked-after-interaction');
+		  		if(myResult <= 1000){
             				d3.select("#textResponse").append("p").text(dvc.essential.feedback[2]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[7]);
 
@@ -545,6 +547,7 @@
 
                   }
 			}else{
+				pymChild.sendMessage('tracking', 'button-clicked-before-interaction');
 				d3.select("#textResponse").select("p").text(dvc.essential.feedback[7]);
 
 			}

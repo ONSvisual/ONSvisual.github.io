@@ -462,7 +462,6 @@ svg{
 
 					d3.select("#currYVal").text(fomat(debt));
 
-// <<<<<<< HEAD
           if (pos[0] - margin.right / 2 > 100) {
               d3.select("#annotext").attr("display", "auto")
     										  .style("pointer-events", "none")
@@ -476,14 +475,7 @@ svg{
               d3.select("#annotext").remove();
             }
 
-// =======
-// 					if(pos[0] - margin.right/2 > 0){
-// 					d3.select("#annotext").transition().duration(100).attr('transform',"translate(" + (pos[0] - margin.right/2 - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.top/2 - y(dvc.essential.annotationXY[1])) + ") ")
-// 										  .text("Keep going");
-// 					} else {
-// 						d3.select("#annotext").remove();
-// 					}
-//>>>>>>> master
+
 
 								yourData.forEach(function(d){
 										  //if (Math.abs(formatMyTime(d.year) - year) < 0.5){
@@ -509,6 +501,7 @@ svg{
 										  // if all under format are true then mean will = 1;
 					if (yourData[0].defined === true ) // just the last for complete
 						{
+							pymChild.sendMessage('tracking', 'chart-interacted');
 							console.log("completed");
 						} //ends if completed
 
@@ -539,7 +532,8 @@ svg{
 
       if (yourData[0].defined === true ){  //  or  d3.mean(yourData, format('defined')) < 0.5 ie less than 50% achieved
         //d3.select("#textResponse").select("p").text(dvc.essential.feedback[0] + formt(myResult) + "%.");
-                if(myResult < 23.7){
+          pymChild.sendMessage('tracking', 'button-clicked-after-interaction');
+		  if(myResult < 23.7){
                     d3.select("#textResponse").select("p").text(dvc.essential.feedback[0]+ formt(myResult) +dvc.essential.feedback[6]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
 
@@ -553,7 +547,8 @@ svg{
 
                   }
       }else{
-        d3.select("#textResponse").select("p").text(dvc.essential.feedback[1]);
+       	pymChild.sendMessage('tracking', 'button-clicked-before-interaction');
+		  d3.select("#textResponse").select("p").text(dvc.essential.feedback[1]);
 
       }
 
@@ -608,6 +603,8 @@ svg{
 				pulse();
 
 	}
+
+ }
 
   function pulse(){
               svg.append("g")
@@ -666,7 +663,7 @@ svg{
 
 			}// end function writeAnnotation()
 
-  }// end drawGraphic
+  // end drawGraphic
 
 
 		//then, onload, check to see if the web browser can handle 'inline svg'

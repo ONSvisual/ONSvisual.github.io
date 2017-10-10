@@ -532,6 +532,7 @@
 					if (yourData[0].defined === true ) // just the last for complete
 						{
 							console.log("completed");
+							pymChild.sendMessage('tracking', 'chart-interacted');
 
 						} //ends if completed
 
@@ -567,7 +568,8 @@
 
       if (yourData[0].defined === true ){  //  or  d3.mean(yourData, format('defined')) < 0.5 ie less than 50% achieved
         //d3.select("#textResponse").select("p").text(dvc.essential.feedback[0] + formt(myResult) + "%.");
-                if(myResult <= 65){
+          pymChild.sendMessage('tracking', 'button-clicked-after-interaction');
+		  if(myResult <= 65){
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[0]);
                     d3.select("#textResponse").append("p").html(dvc.essential.appendText);
                   }else if(myResult < 75 && myResult > 65){
@@ -578,7 +580,7 @@
                     d3.select("#textResponse").append("p").html(dvc.essential.appendText);
                   }
       }else{
-
+		  pymChild.sendMessage('tracking', 'button-clicked-before-interaction');
 			d3.select("#textResponse").append("p").html(dvc.essential.appendText);
       }
 
