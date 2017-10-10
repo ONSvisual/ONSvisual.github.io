@@ -1,71 +1,69 @@
 {
     "essential" : {
-        
+
             "dataURL": "1born.csv",
-        
+
             "period": "year",
-        
+
             "dateFormat": ["%Y"],
-        
+
             "dateMxMn": ["2008"],
-        
+
             "dateStart": ["1957"],
-        
+
             "dateCutOff": ["2015"],
 
             "dateBegin": ["2015"],
 
             "clampStart": ["1957"],
-        
+
             "clampEnd": ["2015"],
-        
+
             "domMax": 30,
             "domMin": 20,
-        
+
             "legendLabels" : [ ],
-        
+
             "sourceText":["Office for National Statistics"],
             "sourceURL":["http://www.ons.gov.uk/"],
-        
-            "annotationChart": ["Click and Drag", "drag" ],
-        
+
+            "annotationChart": ["Click and drag", "Drag" ],
+
             "annotationBullet": [ ],
-        
-            "annotationXY":["2012", 29],
-        
+
+            "annotationXY":["2015", 29],
+
             "annotationAlign":["end"],
-        
-            "circles" : false,    
+
+            "circles" : false,
             "annotationCXCY":[ ],
-        
+
             "xAxisLabel":[],
-        
+
             "yAxisLabel": "Age of mother for first born",
             "yAxisScaleDivisor": 1,
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
-        
-            "feedback": ["You guessed ", ". Didn't this that and many other things happened during this 60 years.", "Didn't this that and many other things happened during this 60 years."],
-			
+
+            "feedback": ["Your guess of ", "Since 1972, the average age of first-time mothers has steadily increased, after a period of decreasing during the 1950s. This could be because of women being more likely to go to university and to work. Other factors include the rising cost of childcare and housing, and partnerships being less secure than they used to be.", "","Brilliant! You said "," and you're pretty much spot on! The average age a woman had her first child in 1957 was 24.7."," is too high - the average age a woman had her first child in 1957 was 24.7."," is too low - the average age a woman had her first child in 1957 was 24.7."],
+
 			"appendText": ["The number of job vacancies is close to the highest since comparable records began in 2001. There were 770,000 vacancies for the 3 months to May, an increase of 24,000 since the same period last year. Nearly 90% of all vacancies were in services sectors."]
-								
+
     },
     "optional" : {
             "margin_sm": [30, 38, 30, 30],
             "margin_md": [30, 38, 30, 30],
             "margin_lg": [30, 38, 30, 30],
-        
+
             "aspectRatio_sm" : [16,16],
             "aspectRatio_md" : [16,18],
             "aspectRatio_lg" : [14,16],
-        
-            "mobileBreakpoint" : [400,600], 
-            "xAxisTextFormat_sm_md_lg" :["%y", "%y", "%Y"], 
-            "x_num_ticks_sm_md_lg" : [4,10,10],    
-            "y_num_ticks_sm_md_lg" : [6,6,6],    
+
+            "mobileBreakpoint" : [400,600],
+            "xAxisTextFormat_sm_md_lg" :["%y", "%y", "%Y"],
+            "x_num_ticks_sm_md_lg" : [4,10,10],
+            "y_num_ticks_sm_md_lg" : [6,6,6],
             "centre_line" : false,
-            "centre_line_value" :0    
+            "centre_line_value" :0
     }
 }
-
-

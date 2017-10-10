@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-<title>1st born draw your own</title>
+<title>ukhpi draw your own</title>
 
 	<style type="text/css">
-svg{
+		svg{
 			overflow: visible;
 		}
 
@@ -19,13 +19,9 @@ svg{
 		  font-family: “Open Sans”,Helvetica,Arial,sans-serif;
 		  font-family: open sans;
 		  margin: 0px;
+		  overflow: hidden;
 		  font-size: 16px;
 		  font-weight: 400;
-		}
-
-		.axis, .yr_mx_mn, .unit{
-		  opacity: 0.5;
-		  font-size: 14px;
 		}
 
 		.tick{
@@ -37,12 +33,11 @@ svg{
             user-select: none;
 		}
 
-		#currYVal{
+
+		.axis, .yr_mx_mn, .unit{
+		  opacity: 0.5;
 		  font-size: 14px;
-		  font-weight: 600;
-		  fill: #E65C00;
-		  text-anchor:end;
-        }
+		}
 
 				.gridDash{
 					stroke-dasharray: 3 3;
@@ -57,9 +52,10 @@ svg{
 
 		.line{
 		  fill: none;
-		  stroke: #007f7f;
+		  stroke: #D2376D;
 		  stroke-width: 3px;
 		}
+
 			#centreline{
 				stroke:#666;
 				fill: none;
@@ -68,24 +64,25 @@ svg{
 
 		.area{
 		  /*fill: #dee5ef;*/
-		  fill: #007f7f;
+		  fill: #8cadbf;
 		  opacity: 0.5;
 		}
 
 		.your-line{
 			fill: none;
-		  stroke: #E65C00;
+		  stroke: #E2BC22;
 		  stroke-width: 3;
 		  stroke-dasharray: 5 5;
 		  cursor: pointer;
 		}
 
-	.btn {
+
+				.btn {
 				  font-family: “Open Sans”,Helvetica,Arial,sans-serif;
-				  background-color: #007f7f;
+				  background-color: #0F8243;
 				  opacity:1;
 				  color: #fff;
-				  font-weight: 700;
+				  font-weight: 400;
 				  font-size: 16px;
 				  display: inline-block;
 				  width: auto;
@@ -99,10 +96,12 @@ svg{
 				  text-decoration: none;
 				  line-height: 24px;
 				  -webkit-font-smoothing: antialiased;
+				  cursor:pointer;
+				  /*d3.select('button').style('opacity', 1).style("cursor", "pointer");*/
 				}
 
 			   .btn:hover,.btn:focus {
-				  /* background-color:#0b5d30 ;*/
+				  background-color:#0b5d30 ;
 				}
 
 		#textResponse{
@@ -135,7 +134,7 @@ svg{
 </div>
 
  <div id="buttonRow" style="text-align:center;">
- 			<button type="button" id="showMe" class="btn" >Show me the answer</button>
+ 			<button type="button" id="showMe" class="btn" >Reveal all?</button>
    </div>
 
 	<div id="textResponse" style="text-align:center;"><p></p></div>
@@ -291,13 +290,13 @@ svg{
 
 				svg.append("text")
 					 .attr('class', 'unit')
-					 .attr('transform',"translate(" + (-margin.left) + ", -15)") //+margin.left
+					 .attr('transform',"translate(" + (-margin.left - 20) + ", -15)") //+margin.left
 					 .text(function(d,i) { return dvc.essential.yAxisLabel});
 
 		// gridlines
 			//var x_axis_grid = function() { console.log(xAxis); return xAxis; }
 			//var x_axis_grid = svg.append("g").append("line").attr("id","gridline");
-			data.forEach(function(d,i) { if(i%5 == 3 || i == 0 || i == data.length-1 ){
+			data.forEach(function(d,i) { if(i%5 == 2 || i == 0 || i == data.length-1 ){
 				svg.append("line")
 					.attr("class", "gridDash")
 					.attr("id", function(){ return "gridline"+i} )
@@ -372,26 +371,6 @@ svg{
 		writeAnnotation();
 		d3.select('#showMe').on('click', (function (e) { showMe(); }) );
 
-		svg.append("g").attr("id", "currYValG")
-			.attr("opacity",0)
-			.append("text").attr("id", "currYVal")
-			.attr("y", -margin.top + 34)
-			.attr("x", -13)
-			.text("20")
-
-
-
-		var text = d3.select("#currYVal");
-		var bbox = text.node().getBBox();
-		var padding = 2;
-
-				svg.select("#currYValG").insert("rect","#currYVal")
-					.attr("id","backgroundrect")
-					.attr("x", bbox.x - padding)
-					.attr("y", bbox.y - padding)
-					.attr("width", bbox.width + (padding*2))
-					.attr("height", bbox.height + (padding*2))
-					.style("fill", "rgba(255,255,255,0.9)");
 
 		if ( parseInt(d3.select('#graphic').style("width") ) < threshold_sm) { //console.log("block me");
 
@@ -454,36 +433,12 @@ svg{
 					var debt = clampY(dvc.essential.domMin, dvc.essential.domMax, y.invert(pos[1]));
 					//console.log("year:" + year + "  debt:" + debt, pos[0], pos[1]);
 
-					var fomat = d3.format(".0f");
-					d3.select("#currYValG").transition()
-											.duration(100)
-											.attr('transform',"translate(0, " + y(debt) + ")")
-											.attr("opacity",1);
-
-					d3.select("#currYVal").text(fomat(debt));
-
-// <<<<<<< HEAD
-          if (pos[0] - margin.right / 2 > 100) {
-              d3.select("#annotext").attr("display", "auto")
-    										  .style("pointer-events", "none")
-    										  .style("font-weight", 400).transition().duration(100).attr('transform', "translate(" + (pos[0] - margin.right / 2 - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.top / 2 - y(dvc.essential.annotationXY[1])) + ") ")
-                .text("Keep going");
-            } else if (pos[0] >0) {
-              d3.select("#annotext").transition().duration(50).attr('transform', "translate(" + (pos[1] + margin.right - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.top / 2 - y(dvc.essential.annotationXY[1])) +
-                  ") ")
-                .text("Keep going");
-            } else {
-              d3.select("#annotext").remove();
-            }
-
-// =======
-// 					if(pos[0] - margin.right/2 > 0){
-// 					d3.select("#annotext").transition().duration(100).attr('transform',"translate(" + (pos[0] - margin.right/2 - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.top/2 - y(dvc.essential.annotationXY[1])) + ") ")
-// 										  .text("Keep going");
-// 					} else {
-// 						d3.select("#annotext").remove();
-// 					}
-//>>>>>>> master
+					if(pos[0] - margin.right/2 > 0){
+					d3.select("#annotext").transition().duration(100).attr('transform',"translate(" + (pos[0] - margin.right/2 - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.top/2 - y(dvc.essential.annotationXY[1])) + ") ")
+										  .text("Keep going");
+					} else {
+						d3.select("#annotext").remove();
+					}
 
 								yourData.forEach(function(d){
 										  //if (Math.abs(formatMyTime(d.year) - year) < 0.5){
@@ -521,13 +476,9 @@ svg{
 
 	function showMe(){
 
-			var formt = d3.format(".0f");
-
 			d3.select('#graphic').style("pointer-events", "none");
 
 			d3.select("#showMe").remove();
-
-			d3.select("#currYValG").remove();
 
 			clipRect.transition().duration(1000).attr('transform',"translate(" + x(firstChart) + ", 0)").attr('width', x(beginChart) );
 
@@ -537,26 +488,17 @@ svg{
 				diff = (Math.abs(myResult - result)/result) * 100;
 			console.log(result, myResult, diff);
 
-      if (yourData[0].defined === true ){  //  or  d3.mean(yourData, format('defined')) < 0.5 ie less than 50% achieved
-        //d3.select("#textResponse").select("p").text(dvc.essential.feedback[0] + formt(myResult) + "%.");
-                if(myResult < 23.7){
-                    d3.select("#textResponse").select("p").text(dvc.essential.feedback[0]+ formt(myResult) +dvc.essential.feedback[6]);
-                    d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
-
-                  }else if(myResult < 25.7 && myResult > 23.7){
-                    d3.select("#textResponse").select("p").text(dvc.essential.feedback[3]+ formt(myResult) +dvc.essential.feedback[4]);
-                    d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
-
-                  }else if(myResult > 25.7){
-                    d3.select("#textResponse").select("p").text(dvc.essential.feedback[0]+ formt(myResult) +dvc.essential.feedback[5]);
-                    d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
-
-                  }
-      }else{
-        d3.select("#textResponse").select("p").text(dvc.essential.feedback[1]);
-
-      }
-
+			if (yourData[0].defined != true ){  //  or  d3.mean(yourData, format('defined')) < 0.5 ie less than 50% achieved
+				d3.select("#textResponse").select("p").text(dvc.essential.feedback[4]);
+			}else if(diff < 500){
+				d3.select("#textResponse").select("p").text(dvc.essential.feedback[0]);
+			}else if(diff < 1000){
+				d3.select("#textResponse").select("p").text(dvc.essential.feedback[1]);
+			}else if(diff < 2000){
+				d3.select("#textResponse").select("p").text(dvc.essential.feedback[2]);
+			}else {
+				d3.select("#textResponse").select("p").text(dvc.essential.feedback[3]);
+			}
 
 			//d3.select("#textResponse").select("p").text(dvc.essential.appendText);
 
@@ -577,7 +519,8 @@ svg{
 
 	function firstMarker(){
 
-				var fmt2 = d3.format(".1f");
+				var startMark = svg.append("g").attr("id", "startMark");
+				var fmt = d3.format(".1f");
 
 				var drawMark = svg.append("g").attr("id", "drawMark");
 
@@ -585,28 +528,14 @@ svg{
 												if(formatMyTime(d.year) === formatMyTime(cutOff))  myY = d.debt;
 											});
 
-					if( parseInt(d3.select('#graphic').style("width")) > threshold_sm){
-					svg.append("text")
-							.attr("id", "startNum")
-							.attr("x", x(parseMyTime(dvc.essential.dateCutOff)) + 14)
-							.attr("y", y(myY) + 5)
-							.style("font-size", 14+"px")
-							.style("font-weight", 400)
-							.style("opacity", 0.5)
-							.attr("text-anchor", "start")
-							.style("cursor", "none")
-							.text(fmt2(myY) );
-				}
-
 					drawMark.append("circle")
 							.attr("cx", x(parseMyTime(dvc.essential.dateCutOff)) )
 							.attr("cy", y(myY))
-							.attr("r", 8) // ration of height
+							.attr("r", rad) // ration of height
 							.attr("cursor", "pointer")
-							.attr("fill", "#E65C00");
+							.attr("fill", "#D2376D");
 
 				pulse();
-
 	}
 
   function pulse(){
@@ -614,7 +543,7 @@ svg{
                   .attr("class", "animatedCircles")
                   .append("circle")
                   .attr("class", "marker")
-                  .attr("r", 20)
+                  .attr("r", 10)
                   .attr("cx", x(parseMyTime(dvc.essential.dateCutOff)) )
                   .attr("cy", y(myY) )
                   .attr("stroke-width", 1)
@@ -632,39 +561,39 @@ svg{
 						  (function repeat() {
 
 							circle = circle.transition()
-								.duration(1000)
-								.attr("r", 12)
+								.duration(1500)
+								.attr("r", 8)
 								.attr("opacity", 0)
 								.transition()
-								.duration(1000)
-								.attr("r", 12)
+								.duration(1500)
+								.attr("r", 8)
 								.attr("opacity", 1)
 								.on("end", repeat);
 						  })();
 				}
 
+        function writeAnnotation(){
+      							// draw annotation text based on content of var annotationArray ...
+      							svg.append("text")
+      								.attr("id","annotext"/* + i*/)
+      								.attr("text-anchor", dvc.essential.annotationAlign/*[i]*/)
+      								.attr('y',y(dvc.essential.annotationXY/*[i]*/[1]))
+      								.attr('x',x(parseMyTime(dvc.essential.annotationXY/*[i]*/[0])) )
+                      .style('pointer-events', 'none')
+      								.text(function(){ if( parseInt(d3.select('#graphic').style("width")) < threshold_sm){
 
-	function writeAnnotation(){
-							// draw annotation text based on content of var annotationArray ...
-							svg.append("text")
-								.attr("id","annotext"/* + i*/)
-								.attr("text-anchor", dvc.essential.annotationAlign/*[i]*/)
-								.attr('y',y(dvc.essential.annotationXY/*[i]*/[1]))
-								.attr('x',x(parseMyTime(dvc.essential.annotationXY/*[i]*/[0])) )
-								.style("font-weight", 600)
-								.text(function(){ if( parseInt(d3.select('#graphic').style("width")) < threshold_sm){
+      																return dvc.essential.annotationChart/*[i]*/[1];
+      																} else
+      																{ return dvc.essential.annotationChart/*[i]*/[0];
+      																}
+      								})
 
-																return dvc.essential.annotationChart/*[i]*/[1];
-																} else
-																{ return dvc.essential.annotationChart/*[i]*/[0];
-																}
-								})
+      								.attr("cursor", "default");
 
-								.attr("cursor", "default");
+      				return;
 
-				return;
+      			}// end function writeAnnotation()
 
-			}// end function writeAnnotation()
 
   }// end drawGraphic
 
@@ -674,7 +603,7 @@ svg{
 			{
 
 				// open and load configuration file.
-				d3.json("config.json", function(error, json)
+				d3.json("config1.json", function(error, json)
 				{
 					// strore read in json data from config file as as global dvc. variable ...
 					dvc = json;
