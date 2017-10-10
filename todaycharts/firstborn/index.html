@@ -468,7 +468,7 @@ svg{
                   ") ")
                 .text("Keep going");
             } else if (pos[0] >0) {
-              d3.select("#annotext").transition().duration(50).attr('transform', "translate(" + (pos[1] - margin.right / 20 - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.top / 2 - y(dvc.essential.annotationXY[1])) +
+              d3.select("#annotext").transition().duration(50).attr('transform', "translate(" + (pos[1] + margin.right - x(parseMyTime(dvc.essential.annotationXY[0]))) + ", " + (pos[1] - margin.top / 2 - y(dvc.essential.annotationXY[1])) +
                   ") ")
                 .text("Keep going");
             } else {
