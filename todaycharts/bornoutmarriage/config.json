@@ -27,11 +27,11 @@
             "sourceText":["Office for National Statistics"],
             "sourceURL":["http://www.ons.gov.uk/"],
 
-            "annotationChart": ["Click and drag", "Drag" ],
+            "annotationChart": ["Click and Drag", "drag" ],
 
             "annotationBullet": [],
 
-            "annotationXY":["2010", 50],
+            "annotationXY":["2015", 50],
 
             "annotationAlign":["end"],
 
@@ -45,7 +45,7 @@
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
 
-           "feedback": ["You guessed ", "The proportion of babies born outside marriage has increased steadily over the last 60 years. This trend has gone hand-in-hand with the decline in the marriage rate, as couples choose to get married later in life, or not get married at all.", "","Not quite. In fact, 60 years ago, 4.8% of babies were born outside marriage.","You're pretty close! 60 years ago, 4.8% of babies were born outside marriage.","Too high - in fact, 60 years ago, only 4.8% of babies were born outside marriage."],
+           "feedback": ["You guessed ", "%. Didn't this that and many other things happened during this 60 years.", "Didn't this that and many other things happened during this 60 years."],
 
 			"appendText": ["The number of job vacancies is close to the highest since comparable records began in 2001. There were 770,000 vacancies for the 3 months to May, an increase of 24,000 since the same period last year. Nearly 90% of all vacancies were in services sectors."]
 
