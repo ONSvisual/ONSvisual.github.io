@@ -27,11 +27,11 @@
             "sourceText":["Office for National Statistics"],
             "sourceURL":["http://www.ons.gov.uk/"],
 
-            "annotationChart": ["Click and drag", "Drag" ],
+            "annotationChart": ["Click and Drag", "drag" ],
 
             "annotationBullet": [ ],
 
-            "annotationXY":["2010", 28],
+            "annotationXY":["2014", 29],
 
             "annotationAlign":["end"],
 
@@ -45,7 +45,7 @@
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
 
-            "feedback": ["Your guess of ", "Since 1972, the average age of first-time mothers has steadily increased, after a period of decreasing during the 1950s. This could be because of women being more likely to go to university and to work. Other factors include the rising cost of childcare and housing, and partnerships being less secure than they used to be.", "","Brilliant! You said "," and you're pretty much spot on! The average age a woman had her first child in 1957 was 24.7."," is too high - the average age a woman had her first child in 1957 was 24.7."," is too low - the average age a woman had her first child in 1957 was 24.7."],
+            "feedback": ["You guessed ", "%. Didn't this that and many other things happened during this 60 years.", "Didn't this that and many other things happened during this 60 years."],
 
 			"appendText": ["The number of job vacancies is close to the highest since comparable records began in 2001. There were 770,000 vacancies for the 3 months to May, an increase of 24,000 since the same period last year. Nearly 90% of all vacancies were in services sectors."]
 
