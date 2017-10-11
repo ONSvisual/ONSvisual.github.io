@@ -134,7 +134,7 @@
  			<button type="button" id="showMe" class="btn" >Show me the answer</button>
    </div>
 
-	<div id="textResponse" style="text-align:center;"><p></p></div>
+	<div id="textResponse" style="text-align:left;"><p></p></div>
 
  <script src="../js/d3v4.js"></script>
 
@@ -451,7 +451,7 @@
 		 var drag = d3.drag()
 				  .on('drag', function(){
 					pymChild.sendMessage('tracking', 'chart-interacted');
-							
+
 					if(document.getElementsByClassName('animatedCircles') ) d3.select(".animatedCircles").remove();
 
 					var pos = d3.mouse(this) //console.log("mouse pos:"+pos);
