@@ -27,7 +27,7 @@
             "sourceText":["Office for National Statistics"],
             "sourceURL":["http://www.ons.gov.uk/"],
 
-            "annotationChart": ["Click and drag", "Drag" ],
+            "annotationChart": ["Hold and drag", "Drag" ],
 
             "annotationBullet": [ ],
 
