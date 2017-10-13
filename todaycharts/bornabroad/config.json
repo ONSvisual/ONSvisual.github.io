@@ -40,20 +40,27 @@
 
             "xAxisLabel":[],
 
-            "yAxisLabel": "%",
+            "yAxisLabel": "% in UK",
             "yAxisScaleDivisor": 1,
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
 
-            "feedback": ["You guessed ", "The second half of the 20th century saw the foreign-born population of the UK triple, from 1.6 million in 1951 to 4.9 million in 2001.", "In the 1950s and 1960s, many of the people born abroad came from former British colonies in South Asia and the Caribbean. From 1971 onwards, most migration came from Europe, and during the 2000s, migration increased further, partly as a result of immigration from an expanding European Union.","You underestimated the proportion of people born abroad 60 years ago. The 1951 census showed that 3.3% of the UK population were born abroad.","You're fairly close. The 1951 census showed that 3.3% of the UK population were born abroad.","60 years ago there were fewer people born abroad than you thought. The 1951 census showed that 3.3% of the UK population were born abroad."],
+            "feedback": [
+                "You guessed ", 
+                "The second half of the 20th century saw the foreign-born population of the UK triple, from 1.6 million in 1951 to 4.9 million in 2001. In the 1950s and 1960s, many of the people born abroad came from former British colonies in South Asia and the Caribbean, as well as European countries, particularly Poland, Italy and Germany.", 
+                "Census data shows that from 1971 that the population of those born in Europe continued to increase, and increased further, partly due to the expansion of the European Union. This has resulted in around one-third of those born abroad coming from EU countries. There has also been an increasing number of those born India and Pakistan living in the UK. In 2011 the most common country of origin for those born abroad was India.",
+                "You underestimated the proportion of people born abroad 60 years ago. The 1951 census showed that 4% of the UK population were born abroad.",
+                "You're fairly close. The 1951 census showed that 4% of the UK population were born abroad.",
+                "60 years ago there were fewer people born abroad than you thought. The 1951 census showed that 4% of the UK population were born abroad."
+            ],
 
 			"appendText": ["The number of job vacancies is close to the highest since comparable records began in 2001. There were 770,000 vacancies for the 3 months to May, an increase of 24,000 since the same period last year. Nearly 90% of all vacancies were in services sectors."]
 
     },
     "optional" : {
-            "margin_sm": [30, 38, 30, 30],
-            "margin_md": [30, 38, 30, 30],
-            "margin_lg": [30, 38, 30, 30],
+            "margin_sm": [30, 45, 30, 30],
+            "margin_md": [30, 45, 30, 30],
+            "margin_lg": [30, 45, 30, 30],
 
             "aspectRatio_sm" : [16,16],
             "aspectRatio_md" : [16,18],

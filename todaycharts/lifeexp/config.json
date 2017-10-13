@@ -40,20 +40,26 @@
 
             "xAxisLabel":[],
 
-            "yAxisLabel": "Male life expectancy age",
+            "yAxisLabel": "Male life expectancy in UK ",
             "yAxisScaleDivisor": 1,
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
 
-             "feedback": ["Excellent! Your guess of ", " is not far off male life expectancy in 1957, which was 67.6.", "Your guess of ", " is too high - the real male life expectancy in 1957 was 67.6.", " is too low - in 1957, male life expectancy was 67.6.", " is too low - in 1957, male life expectancy was 67.6."],
+             "feedback": ["Excellent! Your guess of ", 
+                          " is not far off the male life expectancy in 1957, which was 68.", 
+                          "Your guess of ", 
+                          " is too high. Baby boys born in 1957 could expect to live to 68.", 
+                          " is too low. Baby boys born in 1957 could expect to live to 68.", 
+                          " is too low - in 1957, male life expectancy was 68."
+                         ],
 
-			"appendText": ["As health access and progress has continued, life expectancy has risen fairly steadily in the UK. Male life expectancy rose to 79.3 years of age in 2014. Female life expectancy was 73.2 years in 1957, and in 2014 was 83. Women have always tended to have a higher life expectancy than men, although the gap has narrowed somewhat in recent years."]
+			"appendText": ["As healthcare has improved, life expectancy has risen steadily in the UK. Women have always had a higher life expectancy than men, although the gap has narrowed over time."]
 
     },
     "optional" : {
-            "margin_sm": [30, 38, 30, 35],
-            "margin_md": [30, 38, 30, 40],
-            "margin_lg": [30, 38, 30, 40],
+            "margin_sm": [30, 45, 30, 35],
+            "margin_md": [30, 45, 30, 40],
+            "margin_lg": [30, 45, 30, 40],
 
             "aspectRatio_sm" : [16,16],
             "aspectRatio_md" : [16,18],

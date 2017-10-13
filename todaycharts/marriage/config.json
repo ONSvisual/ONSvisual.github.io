@@ -40,20 +40,22 @@
 
             "xAxisLabel":[],
 
-            "yAxisLabel": "Rate per thousand",
+            "yAxisLabel": "Rate per thousand in England and Wales",
             "yAxisScaleDivisor": 1,
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
 
-              "feedback": ["Not quite. In 1957 there were 2 women getting divorced for every 1,000 married women.", "Pretty close. In 1957 there were 2 women getting divorced for every 1,000 married women.", "Too high - in 1957 there were 2 women getting divorced for every 1,000 married women."],
+              "feedback": ["Not quite. In 1957 there were 2 women getting divorced for every 1,000 married women.", 
+                           "Pretty close. In 1957 there were 2 women getting divorced for every 1,000 married women.", 
+                           "Too high - in 1957 there were 2 women getting divorced for every 1,000 married women."],
 
-			"appendText": ["Throughout the 20th century the divorce rate rose steadily, helped along by the Divorce Reform Act 1969 which allowed couples to divorce without either partner having to prove the other was at fault. Since 2003, however, it has been in decline: this could be because of couples marrying later, and choosing to live together instead of get married.<br><br>After a peak in the early 1970s (when people were getting married at a younger age than before), marriage rates have fallen steadily as the average age of brides and grooms has increased and couples opt to live together instead of getting married."]
+			"appendText": ["Throughout the 20th century the divorce rate rose steadily, helped along by the Divorce Reform Act 1969 which allowed couples to divorce without either partner having to prove the other was at fault. Since 2003, however, it has been in decline: this could be because couples are now getting married older, and marriages that begin later in life are more likely to last."]
 
     },
     "optional" : {
-            "margin_sm": [30, 38, 30, 35],
-            "margin_md": [30, 38, 30, 40],
-            "margin_lg": [30, 38, 30, 40],
+            "margin_sm": [30, 45, 30, 35],
+            "margin_md": [30, 45, 30, 40],
+            "margin_lg": [30, 45, 30, 40],
 
             "aspectRatio_sm" : [16,16],
             "aspectRatio_md" : [16,18],

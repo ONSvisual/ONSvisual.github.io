@@ -20,7 +20,7 @@
             "clampEnd": ["2015"],
 
             "domMax": 30,
-            "domMin": 20,
+            "domMin": 16,
 
             "legendLabels" : [ ],
 
@@ -31,7 +31,7 @@
 
             "annotationBullet": [ ],
 
-            "annotationXY":["2015", 29],
+            "annotationXY":["2013", 29.4],
 
             "annotationAlign":["end"],
 
@@ -40,20 +40,26 @@
 
             "xAxisLabel":[],
 
-            "yAxisLabel": "Age of mother for first born",
+            "yAxisLabel": "Age of mother in England and Wales",
             "yAxisScaleDivisor": 1,
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
 
-            "feedback": ["Your guess of ", "Since 1972, the average age of first-time mothers has steadily increased, after a period of decreasing during the 1950s. This could be because of women being more likely to go to university and to work. Other factors include the rising cost of childcare and housing, and partnerships being less secure than they used to be.", "","Brilliant! You said "," and you're pretty much spot on! The average age a woman had her first child in 1957 was 24.7."," is too high - the average age a woman had her first child in 1957 was 24.7."," is too low - the average age a woman had her first child in 1957 was 24.7."],
+            "feedback": ["Your guess of ", 
+                         "Since 1972, the average age of first-time mothers has steadily increased, after a period of decreasing during the 1950s. This could be because of women being more likely to go to university and to work. Other factors include the rising cost of childcare and housing, and partnerships being less secure than they used to be.", 
+                         "",
+                         "Brilliant! You said ",
+                         " and you're pretty much spot on! The average age a woman had her first child in 1957 was 25.",
+                         " is too high - the average age a woman had her first child in 1957 was 25.",
+                         " is too low - the average age a woman had her first child in 1957 was 25."],
 
 			"appendText": ["The number of job vacancies is close to the highest since comparable records began in 2001. There were 770,000 vacancies for the 3 months to May, an increase of 24,000 since the same period last year. Nearly 90% of all vacancies were in services sectors."]
 
     },
     "optional" : {
-            "margin_sm": [30, 38, 30, 30],
-            "margin_md": [30, 38, 30, 30],
-            "margin_lg": [30, 38, 30, 30],
+            "margin_sm": [30, 45, 30, 30],
+            "margin_md": [30, 45, 30, 30],
+            "margin_lg": [30, 45, 30, 30],
 
             "aspectRatio_sm" : [16,16],
             "aspectRatio_md" : [16,18],
