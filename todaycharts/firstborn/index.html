@@ -20,9 +20,8 @@
 		}
 
 		body{
-		  font-family: “Open Sans”,Helvetica,Arial,sans-serif;
-		  font-family: open sans;
-		  margin: 0px;
+		  font-family: open sans,Helvetica,Arial,sans-serif;
+		 margin: 0px;
 		  font-size: 16px;
 		  font-weight: 400;
 		}
@@ -72,7 +71,7 @@
 
 		.area{
 		  /*fill: #dee5ef;*/
-		  fill: #007f7f;
+		  fill: none;
 		  opacity: 0.5;
 		}
 
@@ -562,7 +561,7 @@
 
 	function firstMarker(){
 
-				var fmt2 = d3.format(".1f");
+				var fmt2 = d3.format(".0f");
 
 				var drawMark = svg.append("g").attr("id", "drawMark");
 

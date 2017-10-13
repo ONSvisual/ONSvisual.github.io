@@ -40,20 +40,25 @@
 
             "xAxisLabel":[],
 
-            "yAxisLabel": "%",
+            "yAxisLabel": "% in England and Wales",
             "yAxisScaleDivisor": 1,
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
 
-           "feedback": ["You guessed ", "The proportion of babies born outside marriage has increased steadily over the last 60 years. This trend has gone hand-in-hand with the decline in the marriage rate, as couples choose to get married later in life, or not get married at all.", "","Not quite. In fact, 60 years ago, 4.8% of babies were born outside marriage.","You're pretty close! 60 years ago, 4.8% of babies were born outside marriage.","Too high - in fact, 60 years ago, only 4.8% of babies were born outside marriage."],
+           "feedback": ["You guessed ", 
+                        "The proportion of babies born outside marriage has increased steadily over the last 60 years. This trend began in the 1960s – the years of ‘free love’ – and has continued ever since.", 
+                        "",
+                        "Not quite. In fact, 60 years ago, 5% of babies were born outside marriage.",
+                        "You're pretty close! 60 years ago, 5% of babies were born outside marriage.",
+                        "Too high - in fact, 60 years ago, only 5% of babies were born outside marriage."],
 
 			"appendText": ["The number of job vacancies is close to the highest since comparable records began in 2001. There were 770,000 vacancies for the 3 months to May, an increase of 24,000 since the same period last year. Nearly 90% of all vacancies were in services sectors."]
 
     },
     "optional" : {
-            "margin_sm": [30, 38, 30, 30],
-            "margin_md": [30, 38, 30, 30],
-            "margin_lg": [30, 38, 30, 30],
+            "margin_sm": [30, 45, 30, 30],
+            "margin_md": [30, 45, 30, 30],
+            "margin_lg": [30, 45, 30, 30],
 
             "aspectRatio_sm" : [16,16],
             "aspectRatio_md" : [16,18],

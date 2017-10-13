@@ -40,20 +40,27 @@
 
             "xAxisLabel":[],
 
-            "yAxisLabel": "£",
+            "yAxisLabel": "£, UK",
             "yAxisScaleDivisor": 1,
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
 
-            "feedback": ["Amazing job! Your guess of £", " was close to the real average house price in 1957, which was £2,330", "Houses were cheap, but not THIS cheap in 1957. The average house price back then was £2,330.", "Your guess of £", " is wrong. You may be shocked to find that actually the real average price in 1957 was £2,330.", "", "", "House prices have steadily risen since the 1990s. You can see the impact of economic turndowns in the last century. During the early 1990s, the recession caused house prices to slow down, and it was only towards the end of the decade that they picked up again. Then economic turndown in 2008 affected house prices quite dramatically, with the average house price tumbling by around £40,000."],
+            "feedback": ["Amazing job! Your guess of £", 
+                         " was close to the real average house price in 1957, which was £2,330", 
+                         "House prices were low, but not that low in 1957. The average house price sixty years ago was £2,330.", 
+                         "Your guess of £", 
+                         " is too high. The average house price in 1957 was £2,330.", 
+                         "", 
+                         "", 
+                         "House prices have steadily risen since the 1990s. You can see the impact of economic downturn in the last century. During the early 1990s, the recession caused house prices to fall, and it was only towards the end of the decade that they picked up again. The economic downturn in 2008 affected house prices quite dramatically, with the average house price tumbling by around £40,000."],
 
 			"appendText": ["The number of job vacancies is close to the highest since comparable records began in 2001. There were 770,000 vacancies for the 3 months to May, an increase of 24,000 since the same period last year. Nearly 90% of all vacancies were in services sectors."]
 
     },
     "optional" : {
-            "margin_sm": [30, 15, 30, 65],
-            "margin_md": [30, 38, 30, 65],
-            "margin_lg": [30, 38, 30, 65],
+            "margin_sm": [30, 70, 30, 65],
+            "margin_md": [30, 70, 30, 65],
+            "margin_lg": [30, 70, 30, 65],
 
             "aspectRatio_sm" : [16,16],
             "aspectRatio_md" : [16,18],
