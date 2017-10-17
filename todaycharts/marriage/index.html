@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-<title>Marriages draw your own v1</title>
+<title>Marriages draw your own</title>
 
 	<style type="text/css">
 		#fallback{
@@ -22,10 +22,42 @@
 		  font-family: open sans,Helvetica,Arial,sans-serif;
 		 margin: 0px;
 		 /* overflow: hidden;*/
-		  font-size: 16px;
-		  font-weight: 400;
+		  font-size: 16.5px;
+		  font-weight: normal;
 		}
-
+			
+				#graphic .key{
+					text-align:left;
+					-webkit-padding-start: 0px;
+				}
+				
+				#graphic .key li{
+					display:inline-block;
+					margin:0 18px 0 0;
+					padding:0;
+					line-height:18px;
+					}
+				#graphic .key b{
+					display:inline-block;
+					width:30px;
+					height:3px;
+					margin-right:6px;
+					float:left;
+					background-color:none;
+					margin-top:8px;
+					}
+				#graphic .key label{
+					white-space:normal;
+					font-size:14px;
+					opacity: 0.8;
+					/*color:#333;*/
+					font-weight:normal;
+					
+					}
+				.background1{background:#80004D;}
+				.background0{background:#007f7f;}	
+	
+	
 		.axis, .yr_mx_mn, .unit{
 		  opacity: 0.5;
 		  font-size: 14px;
@@ -58,12 +90,12 @@
 		  			stroke-width: 1px;
 				}
 
-		.line2{
+		.line1{
 		  fill: none;
 		  stroke: #007f7f;
 		  stroke-width: 3px;
 		}
-		.line{
+		.line0{
 		  fill: none;
 		  stroke: #80004D;
 		  stroke-width: 3px;
@@ -119,7 +151,10 @@
 
 		#textResponse{
 			max-width: 600px;
-			margin: auto;
+		}
+		#textResponse p{
+			-webkit-margin-before: 0px;
+			-webkit-margin-after: 20px;
 		}
 
 	</style>
@@ -136,7 +171,7 @@
  			<button type="button" id="showMe" class="btn" >Show me the answer</button>
    </div>
 
-	<div id="textResponse" style="text-align:left;"><p></p></div>
+	<div id="textResponse" style="text-align:left;"></div>
 
  <script src="../js/d3v4.js"></script>
  <script src="../js/modernizr.custom.56904.js"></script>
@@ -196,26 +231,16 @@
 				yAxis.ticks(dvc.optional.y_num_ticks_sm_md_lg[0]);
 
 				var height = 300;
-				rad = 5;
 			 } else /*if (parseInt(d3.select('#graphic').style("width")) <= threshold_md)*/{ //console.log("Tablet");
 				xAxis.ticks(dvc.optional.x_num_ticks_sm_md_lg[1]);
 				yAxis.ticks(dvc.optional.y_num_ticks_sm_md_lg[1]);
 
 				var height = 300;
-				rad = 5;
 			 }
-//			 else { //console.log("Desktop");
-//				xAxis.ticks(dvc.optional.x_num_ticks_sm_md_lg[2]);
-//				yAxis.ticks(dvc.optional.y_num_ticks_sm_md_lg[2]);
-//
-//				var height = 300;
-//				rad = 6;
-//			 }
-				//console.log(margin.top,margin.right,margin.bottom,margin.left);
-				//console.log("w"+parseInt(d3.select('#graphic').style("width")),chart_width+" h "+height);
-
-
-		var svg = d3.select('#graphic').append('svg')
+		
+		createLegend();
+		
+	var svg = d3.select('#graphic').append('svg')
 				.attr("width", chart_width + margin.left + margin.right)
 				.attr("height", height + margin.top + margin.bottom + 25) // for x-axis drop + Safari won't draw outside svg container
 				.append("g")
@@ -354,7 +379,7 @@
 														.attr('clip-path', 'url(#clip)');
 
 									correctSel.append('path.area').attr('d', function(){ return area2(data); });
-									correctSel.append('path.line').attr('d', function(){ return line2(data); });
+									correctSel.append('path.line0').attr('d', function(){ return line2(data); });
 
 									yourDataSel = svg.append('path.your-line');
 
@@ -388,7 +413,7 @@
 
 
 		// historicalVals();
-
+		
 		firstMarker();
 
 		writeAnnotation();
@@ -598,7 +623,7 @@
 
 
 						hideDivorce.append('path.area2').attr('d', function(){ return area(data); });
-						hideDivorce.append('path.line2').attr('d', function(){ return line(data); });
+						hideDivorce.append('path.line1').attr('d', function(){ return line(data); });
 
 						clipDivorce.transition().delay(2000).duration(2000).attr('transform',"translate(" + 0 + ", 0)").attr('width', 522);
 
@@ -615,7 +640,7 @@
 								.attr("opacity","1")
 								.text("Women marrying");
 
-		//svg.append('path.line2').delay(1000).attr('d', function(){ return line2(data); });
+		//svg.append('path.line1').delay(1000).attr('d', function(){ return line2(data); });
 
 				//use pym to calculate chart dimensions with appended text
 				if (pymChild) { pymChild.sendHeight(); }
@@ -699,6 +724,23 @@
 						  })();
 				}
 
+	function createLegend(){
+		if(dvc.essential.legendLabels.length > 1){
+						var legend = d3.select('#graphic').append('ul')
+								.attr('class', 'key')
+								.selectAll('li')
+								.data(dvc.essential.legendLabels)
+								.enter().append('li')
+	
+						legend.append('b')
+								.attr("class",function(d,i){return "background" + (1-i) })
+								
+						legend.append('label')
+							 .html(function(d,i) { return dvc.essential.legendLabels[i]; });						
+				}
+	}// end F createLegend
+
+				
 
 	function writeAnnotation(){
 							// draw annotation text based on content of var annotationArray ...
@@ -720,7 +762,7 @@
 
 				return;
 
-			}// end function writeAnnotation()
+		}// end function writeAnnotation()
 
   }// end drawGraphic
 
