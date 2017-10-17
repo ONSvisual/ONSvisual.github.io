@@ -19,10 +19,10 @@
 
             "clampEnd": ["2014"],
 
-            "domMax": 100,
+            "domMax": 80,
             "domMin": 0,
 
-            "legendLabels" : [ ],
+            "legendLabels" : ["Rate per thousand in England & Wales", "Rate per thousand married women  aged 16 and over in England & Wales"],
 
             "sourceText":["Office for National Statistics"],
             "sourceURL":["http://www.ons.gov.uk/"],
@@ -40,7 +40,7 @@
 
             "xAxisLabel":[],
 
-            "yAxisLabel": "Rate per thousand in England and Wales",
+            "yAxisLabel": [],
             "yAxisScaleDivisor": 1,
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
@@ -53,9 +53,9 @@
 
     },
     "optional" : {
-            "margin_sm": [30, 45, 30, 35],
-            "margin_md": [30, 45, 30, 40],
-            "margin_lg": [30, 45, 30, 40],
+            "margin_sm": [6, 45, 30, 35],
+            "margin_md": [0, 45, 30, 40],
+            "margin_lg": [0, 45, 30, 40],
 
             "aspectRatio_sm" : [16,16],
             "aspectRatio_md" : [16,18],
