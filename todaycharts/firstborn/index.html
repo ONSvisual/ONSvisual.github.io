@@ -509,11 +509,13 @@
 			var formt = d3.format(".0f");
 
 			d3.select('#graphic').style("pointer-events", "none");
-
+			d3.select(".animatedCircles").remove();
 			d3.select("#showMe").remove();
 
 			d3.select("#currYValG").remove();
-
+			if(document.getElementById('mobBlock') ) {	d3.select("#mobBlock").remove();
+																		d3.select("#mobBlockT").remove();
+																	}
 			clipRect.transition().duration(1000).attr('transform',"translate(" + x(firstChart) + ", 0)").attr('width', x(beginChart) );
 
 			//d3.select(".btn").attr("opacity", 1);
@@ -528,20 +530,20 @@
 		  if(myResult < 23.7){
                     d3.select("#textResponse").select("p").text(dvc.essential.feedback[0]+ formt(myResult) +dvc.essential.feedback[6]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
-
+					d3.select("#textResponse").append("p").html('<br>');
                   }else if(myResult < 25.7 && myResult > 23.7){
                     d3.select("#textResponse").select("p").text(dvc.essential.feedback[3]+ formt(myResult) +dvc.essential.feedback[4]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
-
+					d3.select("#textResponse").append("p").html('<br>');
                   }else if(myResult > 25.7){
                     d3.select("#textResponse").select("p").text(dvc.essential.feedback[0]+ formt(myResult) +dvc.essential.feedback[5]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
-
+					d3.select("#textResponse").append("p").html('<br>');
                   }
       }else{
        	pymChild.sendMessage('tracking', 'button-clicked-before-interaction');
 		  d3.select("#textResponse").select("p").text(dvc.essential.feedback[1]);
-
+		  d3.select("#textResponse").append("p").html('<br>');
       }
 
 
