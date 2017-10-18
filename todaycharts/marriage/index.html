@@ -29,6 +29,7 @@
 				#graphic .key{
 					text-align:left;
 					-webkit-padding-start: 0px;
+					-webkit-margin-before: 0px;
 				}
 				
 				#graphic .key li{
@@ -52,8 +53,8 @@
 					opacity: 0.8;
 					/*color:#333;*/
 					font-weight:normal;
-					
 					}
+					
 				.background1{background:#80004D;}
 				.background0{background:#007f7f;}	
 	
@@ -153,9 +154,11 @@
 			max-width: 600px;
 		}
 		#textResponse p{
-			-webkit-margin-before: 0px;
-			-webkit-margin-after: 20px;
+			/*-webkit-margin-before: 0px;
+			-webkit-margin-after: 20px;*/
+			
 		}
+		
 
 	</style>
 
@@ -574,11 +577,13 @@
 			var fmat = d3.format(",.0f");
 
 			d3.select('#graphic').style("pointer-events", "none");
-
+			d3.select(".animatedCircles").remove();
 			d3.select("#annotext").remove();
 			d3.select("#currYValG").remove();
 			d3.select("#showMe").remove();
-
+			if(document.getElementById('mobBlock') ) {	d3.select("#mobBlock").remove();
+																		d3.select("#mobBlockT").remove();
+																	}
 			clipRect1.transition().duration(1000).attr('transform',"translate(" + x(firstChart) + ", 0)").attr('width', x(beginChart) );
 
 
@@ -599,16 +604,20 @@
 		  if(myResult <= 65){
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[0]);
                     d3.select("#textResponse").append("p").html(dvc.essential.appendText);
+					d3.select("#textResponse").append("p").html('<br>');
                   }else if(myResult < 75 && myResult > 65){
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
                     d3.select("#textResponse").append("p").html(dvc.essential.appendText);
+					d3.select("#textResponse").append("p").html('<br>');
                   }else if(myResult >= 75){
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[2]);
                     d3.select("#textResponse").append("p").html(dvc.essential.appendText);
+					d3.select("#textResponse").append("p").html('<br>');
                   }
       }else{
 		  pymChild.sendMessage('tracking', 'button-clicked-before-interaction');
 			d3.select("#textResponse").append("p").html(dvc.essential.appendText);
+			d3.select("#textResponse").append("p").html('<br>');
       }
 
 
