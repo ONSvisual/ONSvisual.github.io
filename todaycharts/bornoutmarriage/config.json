@@ -50,15 +50,12 @@
                         "",
                         "Not quite. In fact, 60 years ago, 5% of babies were born outside marriage.",
                         "You're pretty close! 60 years ago, 5% of babies were born outside marriage.",
-                        "Too high - in fact, 60 years ago, only 5% of babies were born outside marriage."],
-
-			"appendText": ["The number of job vacancies is close to the highest since comparable records began in 2001. There were 770,000 vacancies for the 3 months to May, an increase of 24,000 since the same period last year. Nearly 90% of all vacancies were in services sectors."]
-
+                        "Too high - in fact, 60 years ago, only 5% of babies were born outside marriage."]
     },
     "optional" : {
-            "margin_sm": [30, 15, 30, 30],
-            "margin_md": [30, 45, 30, 30],
-            "margin_lg": [30, 45, 30, 30],
+            "margin_sm": [30, 15, 15, 30],
+            "margin_md": [30, 45, 15, 30],
+            "margin_lg": [30, 45, 15, 30],
 
             "aspectRatio_sm" : [16,16],
             "aspectRatio_md" : [16,18],
