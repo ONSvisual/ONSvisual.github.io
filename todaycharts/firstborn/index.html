@@ -28,6 +28,7 @@
 		 margin: 0px;
 		  font-size: 16.5px;
 		  font-weight: normal;
+			padding-bottom: 10px;
 		}
 
 		.axis, .yr_mx_mn, .unit{
@@ -537,20 +538,16 @@
 		  if(myResult < 23.7){
                     d3.select("#textResponse").select("p").text(dvc.essential.feedback[0]+ formt(myResult) +dvc.essential.feedback[6]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
-					d3.select("#textResponse").append("p").html('<br>');
                   }else if(myResult < 25.7 && myResult > 23.7){
                     d3.select("#textResponse").select("p").text(dvc.essential.feedback[3]+ formt(myResult) +dvc.essential.feedback[4]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
-					d3.select("#textResponse").append("p").html('<br>');
                   }else if(myResult > 25.7){
                     d3.select("#textResponse").select("p").text(dvc.essential.feedback[0]+ formt(myResult) +dvc.essential.feedback[5]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
-					d3.select("#textResponse").append("p").html('<br>');
                   }
       }else{
        	pymChild.sendMessage('tracking', 'button-clicked-before-interaction');
 		  d3.select("#textResponse").select("p").text(dvc.essential.feedback[1]);
-		  d3.select("#textResponse").append("p").html('<br>');
       }
 
 

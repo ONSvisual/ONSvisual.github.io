@@ -14,6 +14,7 @@
 	
 		#graphic{
 			margin-top:10px;
+			max-width: 600px;
 		}
 		#fallback{
 			max-width:600px;
@@ -28,6 +29,7 @@
 		 /* overflow: hidden;*/
 		  font-size: 16.5px;
 		  font-weight: normal;
+			padding-bottom: 10px;
 		}
 			
 				#graphic .key{
@@ -163,7 +165,7 @@
 			
 		}
 		#buttonRow{
-			max-width:600px
+			max-width:600px;
 			}
 
 	</style>
@@ -610,20 +612,16 @@
 		  if(myResult <= 65){
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[0]);
                     d3.select("#textResponse").append("p").html(dvc.essential.appendText);
-					d3.select("#textResponse").append("p").html('<br>');
                   }else if(myResult < 75 && myResult > 65){
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
                     d3.select("#textResponse").append("p").html(dvc.essential.appendText);
-					d3.select("#textResponse").append("p").html('<br>');
                   }else if(myResult >= 75){
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[2]);
                     d3.select("#textResponse").append("p").html(dvc.essential.appendText);
-					d3.select("#textResponse").append("p").html('<br>');
                   }
       }else{
 		  pymChild.sendMessage('tracking', 'button-clicked-before-interaction');
 			d3.select("#textResponse").append("p").html(dvc.essential.appendText);
-			d3.select("#textResponse").append("p").html('<br>');
       }
 
 

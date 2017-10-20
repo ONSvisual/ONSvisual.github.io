@@ -27,6 +27,7 @@
 		  margin: 0px;
 		  font-size: 16.5px;
 		  font-weight: normal;
+		  padding-bottom: 10px;
 		}
 
 		.axis, .yr_mx_mn, .unit{
@@ -544,23 +545,19 @@
             				d3.select("#textResponse").append("p").text(dvc.essential.feedback[3]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[2]);
-					d3.select("#textResponse").append("p").html('<br>');
             			}else if(myResult < 4 && myResult > 2){
             				d3.select("#textResponse").append("p").text(dvc.essential.feedback[4]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[2]);
-					d3.select("#textResponse").append("p").html('<br>');
                 	}else if(myResult > 4){
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[5]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[1]);
                     d3.select("#textResponse").append("p").text(dvc.essential.feedback[2]);
-					d3.select("#textResponse").append("p").html('<br>');
                   }
 			}else{
 				pymChild.sendMessage('tracking', 'button-clicked-before-interaction');
 				d3.select("#textResponse").select("p").text(dvc.essential.feedback[1]);
         		d3.select("#textResponse").append("p").text(dvc.essential.feedback[2]);
-				d3.select("#textResponse").append("p").html('<br>');
 			}
 
 			//d3.select("#textResponse").select("p").text(dvc.essential.appendText);
