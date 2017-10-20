@@ -22,7 +22,7 @@
             "domMax": 80,
             "domMin": 0,
 
-            "legendLabels" : ["Divorces per 1,000 married women in E&W", "Marriages per 1,000 unmarried women in E&W"],
+            "legendLabels" : ["Divorces per 1,000 married women, E&W", "Marriages per 1,000 unmarried women, E&W"],
 
             "sourceText":["Office for National Statistics"],
             "sourceURL":["http://www.ons.gov.uk/"],
@@ -31,7 +31,7 @@
 
             "annotationBullet": [ ],
 
-            "annotationXY":[["2012", 15], ["2010", 40]],
+            "annotationXY":[["2013", 15], ["2010", 40]],
 
             "annotationAlign":["end"],
 
