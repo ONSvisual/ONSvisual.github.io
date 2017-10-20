@@ -605,6 +605,7 @@
   function pulse(){
                  svg.append("g")
                      .attr("class", "animatedCircles")
+                     .style('pointer-events', 'none')
                      .append("circle")
                      .attr("class", "marker")
                      .attr("r", 20)
@@ -613,7 +614,6 @@
                      .attr("stroke-width", 1)
                      .attr("fill", "#E65C00")
                      .attr("opacity", 0)
-                     .style('pointer-events', 'none')
                    .transition()
                      .duration(500)
                      .each(slide);

@@ -22,7 +22,7 @@
             "domMax": 80,
             "domMin": 0,
 
-            "legendLabels" : ["Rate per thousand married women in England & Wales", "Rate per thousand unmarried women in England & Wales"],
+            "legendLabels" : ["Divorces per 1,000 married women in E&W", "Marriages per 1,000 unmarried women in E&W"],
 
             "sourceText":["Office for National Statistics"],
             "sourceURL":["http://www.ons.gov.uk/"],
@@ -53,9 +53,9 @@
 
     },
     "optional" : {
-            "margin_sm": [6, 15, 5, 35],
-            "margin_md": [0, 45, 5, 40],
-            "margin_lg": [0, 45, 5, 40],
+            "margin_sm": [5, 15, 5, 35],
+            "margin_md": [5, 45, 5, 40],
+            "margin_lg": [5, 45, 5, 40],
 
             "aspectRatio_sm" : [16,16],
             "aspectRatio_md" : [16,18],
