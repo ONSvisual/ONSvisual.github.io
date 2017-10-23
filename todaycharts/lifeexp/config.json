@@ -40,7 +40,7 @@
 
             "xAxisLabel":[],
 
-            "yAxisLabel": "Male life expectancy in UK ",
+            "yAxisLabel": "Life expectancy",
             "yAxisScaleDivisor": 1,
             "yAxisBreak": false,
             "yAxisBreak_sm_md_lg": [65,65,65],
