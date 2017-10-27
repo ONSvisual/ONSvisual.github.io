@@ -677,27 +677,7 @@
   }// end drawGraphic
 
 
-		//then, onload, check to see if the web browser can handle 'inline svg'
-			if (Modernizr)
-			{
 
-				// open and load configuration file.
-				d3.json("config.json", function(error, json)
-				{
-					// strore read in json data from config file as as global dvc. variable ...
-					dvc = json;
-						readData();
-				})
-
-			} // end if ...
-			else
-			{
-					 //use pym to create iframe containing fallback image (which is set as default)
-					 pymChild = new pym.Child();
-					if (pymChild) {
-						pymChild.sendHeight();
-					}
-			}
 
 
 
@@ -748,7 +728,27 @@
 								})
 
 	}// end function readData()
+  //then, onload, check to see if the web browser can handle 'inline svg'
+    if (Modernizr)
+    {
 
+      // open and load configuration file.
+      d3.json("config.json", function(error, json)
+      {
+        // strore read in json data from config file as as global dvc. variable ...
+        dvc = json;
+          readData();
+      })
+
+    } // end if ...
+    else
+    {
+         //use pym to create iframe containing fallback image (which is set as default)
+         pymChild = new pym.Child();
+        if (pymChild) {
+          pymChild.sendHeight();
+        }
+    }
 	</script>
   </body>
 </html>
