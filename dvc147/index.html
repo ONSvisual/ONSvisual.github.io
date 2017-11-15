@@ -1,0 +1,1543 @@
+<!doctype html>
+<!--[if IE 9 ]>    <html class="ie9 ie"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> 
+<html xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+    <!--<![endif]-->
+    <head>
+        <title>How Well Do You Know Your Area?</title>
+        <meta name="viewport" content="width=960">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta property="og:title" content="How Well Do You Know Your Area?"/>
+        <meta property="og:type" content="quiz"/>
+        <meta property="og:url" content="http://www.neighbourhood.statistics.gov.uk/HTMLDocs/dvc147/index.html"/>
+        <meta property="og:image" content="http://www.neighbourhood.statistics.gov.uk/HTMLDocs/dvc147/artwork/FBimage.png"/>
+         <!--libraries and frameworks-->
+        <script type="text/javascript" src="lib/modernizr.custom.56904.js" charset="utf-8"></script>
+        <script type="text/javascript" src="lib/jquery-ui-1.10.4/js/jquery-1.10.2.js" charset="utf-8"></script>
+        <script type="text/javascript" src="lib/jquery-ui-1.10.4/js/jquery-ui-1.10.4.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="lib/webtrends.js" charset="utf-8"></script>
+        <script type="text/javascript" src="lib/d3.v3.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;region=GB" charset="utf-8"></script>
+        <script type="text/javascript" src="lib/jquery.ui.touch-punch.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="lib/jquery.xdomainrequest.min.js" charset="utf-8"></script>
+        <!--stylesheets-->
+        <link href="lib/jquery-ui-1.10.4/css/green.css" rel="stylesheet">
+        
+        <style type="text/css">
+            
+            body, html    {
+                width:calc(100% - 20px);
+
+                font-family:sans-serif;
+                font-size:1em;
+                color:#555555;
+            }
+            
+            body    {
+                margin-left: 0.3em;
+				padding:10px;
+            }
+            
+            #sourceDiv  {
+                clear:left;
+                color:#999999;
+                font-size:0.8em;
+                padding-top:0.5em;
+                line-height: 150%;
+            }
+            
+            #bannerDiv  {
+                width:100%;
+                height:5%;
+                padding-left:0.5em;
+                padding-top:0.1em;
+                max-width: 960px;
+                left:0px;
+                top:0px;
+                min-height:102px;
+                max-height:204px;
+                background-image:url('artwork/banner.png');
+                background-repeat: no-repeat;
+                background-size: 100%;
+                color:#29abe2;
+                font-size:0.9em;
+            }
+            
+            #altDiv {
+                width:80%;
+                height:80%;
+                min-width:400px;
+                min-height:400px;
+                background-image:url('artwork/preview.png');
+                background-repeat:no-repeat;
+                background-size: 100%;
+            }
+            
+            #altText    {
+                position:relative;
+                left:5%;
+                top:25%;
+                width:80%;
+                background-color: #dedede;
+                padding:1em;
+            }
+            
+            #headerDiv  {
+                margin-top:0px;
+				margin-left:0px;
+				margin-bottom:0px;
+				padding-left:0px;
+				padding-bottom:0px;
+                max-width:960px;
+                width:100%;
+            }
+            
+             #quizDiv    {
+                 height:90%;
+                 width:100%;
+                 min-width:400px;
+            }
+            
+            #questionDiv    {
+                width:100%;
+                max-width:960px;
+                background-color: #ffffff;
+                font-size:1em;
+                font-weight:normal;
+                color:#666666;
+                padding-bottom:0px;
+                margin-bottom:0px;
+            }
+            
+            span.areaText   {
+                font-size:1em;
+                font-weight:bold;
+            }
+            
+            a   {
+                color:#29abe2;
+                text-decoration: underline;
+            }
+            
+            span.questionText  {
+                font-weight:bold;
+                color:#29abe2;
+            }
+            
+            #hintText   {
+                font-size:1em;
+                font-weight:normal;
+                color:#666666;
+            }
+           
+            #pcForm {
+                width:100%;
+                max-width:960px;
+            }
+            
+            #pcText {
+                width:75%;
+                max-width:520px;
+                 font-size:1.3em;
+                padding:3px;
+                color:#999999;
+            }
+            
+            #instructionDiv {
+                margin-top:0.5em;
+				margin-left:0px;
+				margin-bottom:0.5em;
+                padding:0.5em;
+				padding-left:0em;
+				padding-bottom:0em;
+            }
+
+            #svgDoc {
+                float:left;
+                width:320px;
+                height:320px;
+                overflow:hidden;
+                margin:0.5em;
+            }
+            
+            #sliderContainer {
+                float:left;
+                display: block;
+                width:12px;
+                height:320px;
+                margin-right:2em;
+            }
+            
+            #slider {
+                top:5%;
+                height:95%;
+                width:100%;
+            }
+            
+            #map    {
+                float:left;
+                width:320px;
+                height:320px;
+                margin:0.5em;
+            }
+        
+            .svgBack    {
+                fill:#f8f9f9;   
+            }
+            
+            #guessBar   {
+                fill:#29abe2; 
+            }
+            
+            #answerBar   {
+                fill:#f7931e; 
+            }
+            
+           button, input[type=submit] {
+                background-color:#648f00 ;
+                color:#ffffff;
+                border:none;
+                font-size:1.2em;
+                margin-left:0.5em;
+                -webkit-appearance: none;
+            }
+            
+            #resultDiv  {
+                position:absolute;
+                left:0%;
+                top:0%;
+                width:100%;
+                height:100%;
+                background-color: #111111;
+                opacity:0.7;
+            }
+            
+            #resultText {
+                position:absolute;
+                text-align: center;
+                padding:20px;
+                width:50%;
+                height:30%;
+                left:25%;
+                top:20%;
+                background-color: #efefef;
+                opacity:1;
+            }
+            
+            span.percTxt    {
+                font-size:48px;
+                font-weight:bold;
+                color:#648f00;
+            }
+            
+            #pcError    {
+                color:red;    
+            }
+            
+        </style>
+       
+    </head>
+    <body>
+       
+        <script>
+if (/iphone|ipod|android|blackberry|opera mini|opera mobi|skyfire|maemo|windows phone|palm|iemobile|symbian|symbianos|fennec/i.test(navigator.userAgent.toLowerCase())) {
+    $("meta[name='viewport']").attr("content", "width=400").attr("maximum-scale",2.0).attr("user-scalable",1);
+  }
+        
+var dvc = {};//Data Visualisation Centre namespace
+    dvc.quizIndex=0;//starting question index
+    dvc.userScores=new Array();
+            
+//variables needed to retrieve map
+var latlons = new Array();
+var opengep1 =  "https://mapping.statistics.gov.uk/arcgis/rest/services/WD/WD_DEC_2011_EW_BGC/MapServer/find?searchText=";
+var opengep2 =  "&contains=true&searchFields=&sr=&layers=WD_DEC_2011_EW_BGC&layerDefs=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&dynamicLayers=&returnZ=false&returnM=false&gdbVersion=&f=json&callback=callback";
+            
+//init function
+$(document).ready(function(){
+    dvc.ie9check={};
+        //check for ie9, which is having issues with XmlHttpRequest on NeSS Deli service and regrettably means no support at this stage
+        dvc.ie9check.isIE9 = (function(){
+            var htmlElemClasses = document.querySelector('html').className.split(' ');
+            if (!htmlElemClasses){return false;}
+            for (var i = 0; i < htmlElemClasses.length; i += 1 ){
+            var classSnip = htmlElemClasses[i];
+                if (classSnip === 'ie9'){
+                return true;
+                }
+            }
+            return false;
+        }());
+    
+ //   if (Modernizr.inlinesvg&&dvc.ie9check.isIE9==false)    { 
+	    if (Modernizr.inlinesvg)    { 
+     //basic document layout
+        $("<div/>", {"id":"bannerDiv"}).appendTo("body");
+        $("#bannerDiv").html("<h1>How well <br/> do you know your area?</h1>");
+        $("<div/>", {"id":"headerDiv"}).appendTo("body");
+        $("<div/>", {"id":"questionDiv"}).appendTo("body");
+        $("<div/>", {"id":"uiDiv"}).appendTo("body");
+         $("<form/>", {"id":"answerForm"}).appendTo("#uiDiv");
+        $("<div/>", {"id":"quizDiv"}).appendTo("body");
+        $("<div/>", {"id":"map"}).appendTo("#quizDiv");
+        $("#map").hide();
+        $("<div/>", {"id":"instructionDiv"})
+            .html("Statistics can give us a rich and surprising view of the everyday world around us. Enter your postcode (England & Wales only) in the box below to find out how well you know your local area based on information from the 2011 Census:<p id='pcError'>Sorry, that postcode has not been recognised, please try again using a valid England & Wales postcode</p>")
+            .appendTo("#headerDiv");
+        $("#pcError").hide();
+        $("<div/>", {"id":"statusDiv"}).appendTo("#headerDiv");
+    
+    //read config file
+    $.getJSON("config.json", function(data) {
+        dvc.config=data;
+        dvc.numQuestions=data.config.questions.length;//query number of questions
+        //basic form and handler to get postcode
+        $("<form/>", {"id":"pcForm"}).appendTo("#headerDiv");
+        $("<input/>", {"id":"pcText","type":"text","tabindex":"1","placeholder":"e.g. NP10 8XG"}).appendTo("#pcForm");
+        $("<input/>", {"type":"submit","value":"go!"}).appendTo("#pcForm");
+        $("#pcForm").submit(function(event) {
+            event.preventDefault();
+            var myValue=$("#pcText").val();
+            getCode(myValue);
+        });
+
+        $("#pcText").focus();
+        $("#pcText").focus();
+        
+        
+    });//end read config	
+}//end if modernizr
+    else    {//alternative content for non-compatible browsers
+        $("<div/>", {"id":"altDiv"}).appendTo("body");
+        $("#altDiv").html("<div id='altText'><p>For a safer, faster, better experience online you should upgrade your browser. You will then be able to play with lovely interactive applications such as this one.</p><p> <a href='https://www.gov.uk/support/browsers' target='_blank'>Find out more about browsers</a></p></div>");
+    }
+
+});//end init
+
+//convert postcode to ward code using the NeSS API
+function getCode(myPC)	{
+$.support.cors = true;   
+   dvc.postCode=myPC;
+    var myURIstring=encodeURI("http://neighbourhood.statistics.gov.uk/NDE2/Disco/FindAreas?Postcode="+dvc.postCode+"&LevelType=14&HierarchyId=27");
+    $.ajax({
+        type: "GET",
+        dataType: "xml",
+        url: myURIstring,
+		error: function (xhr, ajaxOptions, thrownError) {
+			//alert(xhr.status);
+			//alert(xhr.responseText);
+			},
+        success: function(data1){
+            //postcode validation - both for incorrect structures and non-England and Wales postcodes
+            var pcValid;
+            var pcGood;
+            var data;
+            if (dvc.ie9check.isIE9==true)
+            {
+           // if IE9 convert IXMLDomDucument2
+              var xmlstring = data1.xml;
+              data = $.parseXML(xmlstring);
+            }
+            else
+           	{
+            	data = data1;
+           	}
+            if (data.firstChild.firstChild.childNodes[0])   {
+                pcValid="true";
+                if (data.firstChild.childNodes[0].firstChild.data=="validationFailure") {
+                    pcGood="false";
+                }   else    {
+                    pcGood="true"   
+                }
+            }   else    {
+                pcValid="false";
+                pcGood="false";
+            }
+            if (pcValid=="false"||pcGood=="false") {
+                $("#pcError").show();
+            }   else    {
+                $("#pcError").hide();
+                dvc.areaCode=data.firstChild.firstChild.firstChild.childNodes[1].childNodes[2].firstChild.data;//careful, this is an internal ness code - not the ONS Geog std
+                dvc.areaName=data.firstChild.firstChild.firstChild.childNodes[1].childNodes[3].firstChild.data;
+                dvc.areaParent=data.firstChild.firstChild.firstChild.childNodes[0].firstChild.childNodes[3].firstChild.data;
+                //get the official ONS area code
+                getSNAC(dvc.areaCode);
+                $("#pcForm").hide();
+                 $("#instructionDiv").html("Loading quiz for the ward of <span class='areaText'>"+dvc.areaName+"</span> in <span class='areaText'>"+dvc.areaParent+"</span>...");
+                //we now have the geo information we need to start making calls to the NeSS API for data
+                initAnswers();
+                }
+            }
+    });
+}
+                 
+//retrieve the ONSG code for our area, which we need to build a map
+function getSNAC(area)  {
+    var myURIString=encodeURI("http://neighbourhood.statistics.gov.uk/NDE2/Disco/GetAreaDetail?AreaId="+area);
+    $.ajax({ 
+        type: "GET",
+        dataType: "xml",
+        url: myURIString,
+        success: function(data1){
+            if (dvc.ie9check.isIE9==true)
+            {
+           // if IE9 convert IXMLDomDucument2
+              var xmlstring = data1.xml;
+              data = $.parseXML(xmlstring);
+            }
+            else
+           	{
+            	data = data1;
+           	};
+        	dvc.snacCode=data.firstChild.childNodes[0].firstChild.firstChild.data;
+            $("#map").fadeIn();
+            getBoundaries(dvc.snacCode);//go build map
+            }
+    }); 
+}
+            
+function initAnswers()   {
+    //initialise arrays for each answer;
+    dvc.topicLength=new Array(dvc.numQuestions);//how many 'topics' [separate calls to NeSS] are needed for each answer
+    dvc.topicIndex=new Array(dvc.numQuestions);//keeps track of the current topic required as we iterate through each answer
+    dvc.topicAnswers=new Array(dvc.numQuestions);//will store the topic answers as they come back from the API
+    dvc.questionTotal=new Array(dvc.numQuestions);//will give us the total for each answer once we have all the topicAnswers populated
+    
+    //populate each answer with defaults
+    $.each(dvc.topicIndex,function(i){dvc.topicIndex[i]=0;});
+    $.each(dvc.questionTotal,function(i){dvc.questionTotal[i]=0;});
+    $.each(dvc.topicLength,function(i){dvc.topicLength[i]=dvc.config.config.questions[i][0].length});
+    $.each(dvc.questionTotal, function(i)  {
+        dvc.topicAnswers[i]=new Array(dvc.topicLength[i]);
+    })
+    
+    //create a single array of all the topics
+    var topicList=new Array();
+    $.each(dvc.questionTotal,function(i){
+        $.each(dvc.topicAnswers[i],function(j){
+            topicList.push(parseInt(dvc.config.config.questions[i][0][j]))
+        });
+    });
+    getData(topicList);//make the call to get the data
+}
+            
+
+function getData(topicList)	{
+    var myString=encodeURI("http://neighbourhood.statistics.gov.uk/NDE2/Deli/getTables?Areas="+dvc.areaCode+"&Variables="+topicList+"&GroupByDataset=No");
+    $.ajax({ 
+        type: "GET",
+        dataType: "xml",
+        url: myString,
+        success: function(data1){
+            if (dvc.ie9check.isIE9==true)
+            {
+           // if IE9 convert IXMLDomDucument2
+              var xmlstring = data1.xml;
+              data = $.parseXML(xmlstring);
+            }
+            else
+           	{
+            	data = data1;
+           	}
+        	var neSSAnswers=new Array();
+            var datasetItems=$(data).find("ns3\\DatasetItem, Value");
+            $(data).find("ns3\\:Topic, Value").each(function(i) {
+                var myId=$(this).find("ns3\\:TopicId, Value").text();
+                var myCode=$(this).find("ns3\\:TopicCode, Value").text();
+                var myItemMatch=$(data).find("ns3\\:DatasetItem, Value").filter(function()   {
+                    return $(this).find("ns3\\:TopicId, Value").text()==myId;
+                });
+                var myValue=$(myItemMatch).find("ns3\\:Value, Value").text();
+                //iterate through each question and within that, each topic, to insert the answer in the correct part of of dvc.topicAnswers
+                $.each(dvc.questionTotal,function(i){
+                    $.each(dvc.topicAnswers[i],function(j){
+                        //topicList.push(parseInt(dvc.config.config.questions[i][0][j]))
+                        if (myCode==dvc.config.config.questions[i][0][j])    {
+                            dvc.topicAnswers[i][j]=parseFloat(myValue);
+                            }
+                    });
+                });
+            });
+            processAnswers();
+        }
+    });
+}
+            
+function processAnswers()
+{   
+    //now we can add up all the totals and calculate the answers to our questions...
+    $.each(dvc.questionTotal, function(i)  {
+        $.each(dvc.topicAnswers[i], function(j) {
+            dvc.questionTotal[i]=dvc.questionTotal[i]+dvc.topicAnswers[i][j];
+        });
+    });
+    
+    //CREATE QUESTION INTERACE
+    $("#instructionDiv").html("Quiz prepared for the ward of <span class='areaText'>"+dvc.areaName+"</span> in <span class='areaText'>"+dvc.areaParent+"</span>");
+    
+    //create svg element for quiz
+    d3.select("#quizDiv").append("svg").attr("xlink","http://www.w3.org/1999/xlink").attr("id","svgDoc").attr("viewBox","0 0 100 100");
+     
+    //slider
+    $("<div/>", {"id":"sliderContainer",}).appendTo("#quizDiv");
+    $("<div/>", {"id":"slider","class":"vertical"}).appendTo("#sliderContainer");
+    dvc.slider=$("#slider").slider({
+      orientation: "vertical",
+      min: 0,
+      max: 100,
+      value: 0,
+      slide: function( event, ui ) {
+           myValue=parseInt(ui.value)
+            d3.select("#guessBar").attr("height",myValue);
+            d3.select("#txtGuess").text(myValue);
+            resetPicto();//reset pictogram first before colouring
+            //now colour in the selected picto objects
+            for (var i=0;i<(myValue);i++) {
+             d3.select("#picto"+i).attr("fill","#f7931e");   
+            }
+            d3.select("#txtPictoGuess").text(myValue);
+      }
+    });
+    $('.ui-slider-handle').attr('tabindex', '2');
+    $('.ui-slider-handle').focus();
+    
+
+    
+    //move the z index of the map
+    $("#map").appendTo("#quizDiv");
+      $("<div/>", {"id":"sourceDiv"}).appendTo("#quizDiv");
+        $("#sourceDiv").html("<p>Source: <a href='http://www.neighbourhood.statistics.gov.uk/dissemination/datasetList.do?$ph=60&updateRequired=true&step=1&CurrentTreeIndex=-1&Expand1=1' target='new'>2011 Census Key and Quick Statistics</a> (rounded to nearest whole number)<br/>Created by <a href='http://bitly.com/onsdatavis' target='new'>ONS Digital</a>, powered by <a href='http://www.neighbourhood.statistics.gov.uk/dissemination/Info.do?page=nde.htm' target='new'>NeSS Data Exchange</a> and <a href='https://geoportal.statistics.gov.uk/geoportal/' target='new'>ONS Open Geography Portal</a><br/><a href='http://www.ons.gov.uk/ons/about-ons/who-ons-are/programmes-and-projects/beyond-2011/index.html' target='new'>Find out more</a> about plans for the future of the census and population statistics.</p>");
+    
+    //define a group for icon 
+    d3.select("#svgDoc").append("defs").append("g").attr("id","iconPict");
+   
+    //person icon
+    d3.select("#svgDoc").append("defs").append("g")
+        .attr("id","iconPerson")
+        .append("path")
+            .attr("d","M3.5,2H2.7C3,1.8,3.3,1.5,3.3,1.1c0-0.6-0.4-1-1-1c-0.6,0-1,0.4-1,1c0,0.4,0.2,0.7,0.6,0.9H1.1C0.7,2,0.4,2.3,0.4,2.6v1.9c0,0.3,0.3,0.6,0.6,0.6h0.2c0,0,0,0.1,0,0.1v1.9c0,0.3,0.2,0.6,0.3,0.6h1.3c0.2,0,0.3-0.3,0.3-0.6V5.3c0,0,0-0.1,0-0.1h0.2c0.3,0,0.6-0.3,0.6-0.6V2.6C4.1,2.3,3.8,2,3.5,2z");
+    
+    //household icon
+    d3.select("defs").append("g")
+        .attr("id","iconHouse")
+        .append("polygon")
+            .attr("points","3.2,0.3 2,1.5 2,1.1 1.4,1.1 1.4,2.1 0.4,3.1 1.1,3.1 1.1,6.1 2.6,6.1 2.6,4.4 3.7,4.4 3.7,6.1 5.2,6.1 5.2,3.1 6,3.1 ");
+    
+    //twitter icon
+    d3.select("defs").append("g")
+        .attr("id","iconTwitter").append("rect")
+            .attr("fill-opacity",0)
+            .attr("width",100)
+            .attr("height",100);
+    d3.select("#iconTwitter").append("path")
+        .attr("fill","#5FA8DC")
+        .attr("d","M3.1,9.2C2,9.2,0.9,8.9,0,8.3c0.2,0,0.3,0,0.5,0c1,0,1.8-0.3,2.5-0.9C2.1,7.4,1.4,6.8,1.1,6c0.1,0,0.3,0,0.4,0C1.7,6,1.9,6,2,6c-0.9-0.2-1.6-1-1.6-2c0,0,0,0,0,0C0.7,4.1,1,4.2,1.3,4.2c-0.6-0.4-0.9-1-0.9-1.7c0-0.4,0.1-0.7,0.3-1c1,1.2,2.5,2.1,4.2,2.1c0-0.2-0.1-0.3-0.1-0.5c0-1.1,0.9-2.1,2.1-2.1c0.6,0,1.1,0.2,1.5,0.6c0.5-0.1,0.9-0.3,1.3-0.5C9.6,1.7,9.2,2.1,8.8,2.3C9.2,2.3,9.6,2.2,10,2C9.7,2.4,9.4,2.8,9,3.1c0,0.1,0,0.2,0,0.3C9,6.1,6.9,9.2,3.1,9.2");
+    
+    //facebook icon
+     d3.select("defs").append("g")
+        .attr("id","iconFB").append("rect")
+            .attr("fill-opacity",0)
+            .attr("width",100)
+            .attr("height",100);
+    d3.select("#iconFB").append("path")
+        .attr("fill","#3D5A98")
+        .attr("d","M9.4,10C9.7,10,10,9.7,10,9.4V0.6C10,0.2,9.7,0,9.4,0H0.6C0.2,0,0,0.2,0,0.6v8.9C0,9.7,0.2,10,0.6,10H9.4z");
+    d3.select("#iconFB").append("path")
+        .attr("fill","#ffffff")
+        .attr("d","M6.9,10V6.1h1.3l0.2-1.5H6.9v-1c0-0.4,0.1-0.7,0.7-0.7l0.8,0V1.6c-0.1,0-0.6-0.1-1.2-0.1c-1.2,0-1.9,0.7-1.9,2v1.1H4v1.5h1.3V10H6.9z");
+    
+    //reload icon
+    d3.select("defs").append("g")
+        .attr("id","iconReload").append("rect")
+            .attr("fill-opacity",0)
+            .attr("width",100)
+            .attr("height",100);
+    d3.select("#iconReload").append("path")
+        .attr("stroke-width","0.5%")
+        .attr("stroke","#111111")
+        .attr("d","M5,9.4c-2.4,0-4.4-2-4.4-4.4c0-2.4,2-4.4,4.4-4.4v1C3.1,1.6,1.6,3.1,1.6,5S3.1,8.4,5,8.4S8.4,6.9,8.4,5h1C9.4,7.4,7.4,9.4,5,9.4z");
+    d3.select("#iconReload").append("polygon")
+        .attr("fill","#111111")
+        .attr("stroke-width","0.5%")
+        .attr("stroke","#111111")
+        .attr("points","4.8,2.2 4.8,0.2 6.4,1.2 6.4,1.2");
+    
+    //ons icon
+    d3.select("defs").append("g")
+        .attr("id","iconONS").append("rect")
+            .attr("fill-opacity",0)
+            .attr("width",100)
+            .attr("height",100);
+    d3.select("#iconONS").append("path")
+        .attr("fill","#AAAD00")
+        .attr("d","M0.4,6c0.1-0.3,0.3-0.6,0.4-0.8C0.7,4.7,0.5,4.2,0.4,3.8C0.4,4.5,0.4,5.3,0.4,6z M1.3,0.4c0,0-0.9,0-0.9,1.1c0,0.1,0,0.3,0,0.6C0.5,3,0.7,4,1,4.8c0.5-0.8,1.1-1.5,1.8-2.1c1.4-1.2,3.3-2,5.8-2.4H1.3z");
+    d3.select("#iconONS").append("path")
+        .attr("fill","#003B4C")
+        .attr("d","M9.6,1C6.6,1.3,4.7,2.1,3.2,3.3C2.5,4,1.9,4.7,1.4,5.6c1.1,2.2,3.2,3.8,6.8,4l0.3,0c0,0,1.1,0,1.1-1.2L9.6,1C9.6,1,9.6,1,9.6,1z M2.1,7.2C1.7,6.8,1.5,6.3,1.2,5.9C0.9,6.5,0.6,7.1,0.4,7.8c0,1,0,1.8,0,1.8l5.8,0C4.4,9.2,3,8.3,2.1,7.2z");
+    //end of defs
+    
+    //background rect for svg element
+    d3.select("#svgDoc").append("rect")
+        .attr("class","svgBack")
+        .attr("width","100")
+        .attr("height","100");
+    
+/*    We will create 2  visual presentations for the quiz - a bar chart and a pictogram. The pictogram will offer us a choice of person or household icons*/
+    //CREATE BAR CHART
+    d3.select("#svgDoc").append("g").attr("id","barChart");
+    
+     //create grid lines
+    for (i=0;i<11;i++)  {
+        d3.select("#barChart").append("line")
+            .attr("x1","0")
+            .attr("x2","100")
+            .attr("y1",function(){
+                return i*10
+            })
+            .attr("y2",function(){return i*10})
+            .attr("stroke-width","0.25")
+            .attr("stroke","#dddddd");
+    }
+    
+    //bars
+    d3.select("#barChart").append("rect")
+        .attr("id","guessBar")
+        .attr("x","20")
+        .attr("width","20")
+        .attr("y","-100")
+        .attr("transform","scale(1, -1)");
+    d3.select("#barChart").append("rect")
+        .attr("id","answerBar")
+        .attr("x","60")
+        .attr("width","20")
+        .attr("height","100")
+        .attr("y","-100")
+        .attr("transform","scale(1, -1)")
+        .attr("opacity","0");
+    
+    //bar labels
+    d3.select("#barChart").append("text")
+        .attr("id","labelGuess")
+        .attr("x","30")
+        .attr("y","85")
+        .text("guess")
+        .attr("font-size","6")
+        .attr("text-anchor","middle")
+        .attr("fill","#111111")
+        .attr("opacity","0");
+    d3.select("#barChart").append("text")
+        .attr("id","labelReal")
+        .attr("x","70")
+        .attr("y","85")
+        .text("actual")
+        .attr("font-size","6")
+        .attr("text-anchor","middle")
+        .attr("fill","#111111")
+        .attr("opacity","0");
+    d3.select("#barChart").append("text")
+        .attr("id","txtReal")
+        .attr("x","70")
+        .attr("y","100")
+        .attr("font-size","200")
+        .attr("font-weight","bold")
+        .attr("text-anchor","middle")
+        .attr("opacity","0")
+        .text(" ");
+     d3.select("#barChart").append("text")
+        .attr("id","txtGuess")
+        .attr("x","30")
+        .attr("y","100")
+        .attr("font-size","18")
+        .attr("fill","#111111")
+        .attr("font-weight","bold")
+        .attr("text-anchor","middle")
+        .attr("opacity","0.7")
+        .text(" ");
+    
+    //CREATE PICTOGRAM
+    //background rectangle
+    d3.select("#svgDoc").append("g")
+        .attr("id","pictoChart").append("rect")
+            .attr("x",0)
+            .attr("y",0)
+            .attr("width","100")
+            .attr("height","100")
+            .attr("fill","#fafafa");
+    
+    //pictogram icons - a grid of 10 x 10 - we use one of the icons in the defs as specified in the config file
+    for (var j=0;j<10;j++)  {
+        for (var k=0;k<10;k++)  {
+            d3.select("#pictoChart").append("use").attr("xlink:href",function() {
+             if(dvc.config.config.questions[dvc.quizIndex][3]=="iconPerson"){
+                            return "#iconPerson";
+                         }  else    {
+                             return "#iconHouse";
+                         }
+            }).attr("fill","#cdcdcd").attr("id",function(){return "picto"+(99-parseInt((j*10)+k))}).attr("x",40+(k*6)).attr("y",5+(j*9.3));
+        }
+    }
+    
+    //text on pictogram
+    d3.select("#pictoChart").append("text")
+        .attr("id","txtPictoGuess")
+        .attr("x","32")
+        .attr("y","95")
+        .attr("font-size","18")
+        .attr("fill","#f7931e")
+        .attr("font-weight","bold")
+        .attr("text-anchor","end")
+        .text("0");
+     d3.select("#pictoChart").append("text")
+        .attr("id","pictoLabelGuess")
+        .attr("x","32")
+        .attr("y","80")
+        .attr("font-size","6")
+        .attr("fill","#f7931e")
+        .attr("text-anchor","end")
+        .text("your guess");
+    d3.select("#pictoChart").append("text")
+        .attr("id","txtPictoReal")
+        .attr("x","150")
+        .attr("y","75")
+        .attr("font-size","200")
+        .attr("opacity","0.3")
+        .attr("fill","#f7931e")
+        .attr("font-weight","bold")
+        .attr("text-anchor","end")
+        .text(" ");
+    d3.select("#pictoChart").append("text")
+        .attr("id","pictoLabelReal")
+        .attr("x","32")
+        .attr("y","58")
+        .attr("font-size","6")
+        .attr("fill","#f7931e")
+        .attr("text-anchor","end")
+        .text(" ");
+    
+    //record the rendering mode for first question
+    if(dvc.config.config.questions[dvc.quizIndex][3]=="graph") {
+        dvc.renderMode="graph";   
+    }  else    {
+        dvc.renderMode="picto";
+    }
+    
+    //submit answer Button
+    $("<input/>", {"id":"answerBtn","type":"submit","value":"submit","tabindex":3}).appendTo("#answerForm");
+    $("#answerForm").submit(function(event) {
+        event.preventDefault();
+        $(dvc.slider).slider( "option", "disabled", true );
+        $('#answerBtn').attr('disabled','disabled');
+        var myAnswer=$("#txtPictoGuess").text();
+        var realAnswer=Math.round(dvc.questionTotal[dvc.quizIndex]);
+        var difference=parseInt(myAnswer-realAnswer);
+        
+        //working out a score to give to user for answer
+        var myScore;
+        if (Math.abs(difference)<15)   {
+            if(difference==0)   {
+             myScore=100/dvc.numQuestions
+            }   else    {
+            myScore=(100/dvc.numQuestions)*(1-Math.abs(difference)/15);
+            }
+        } else  {
+            myScore=0;
+        }
+        
+        dvc.userScores[dvc.quizIndex]=myScore;
+ 
+        var textString;
+        if (difference<0)   {
+            textString="You were <b>"+Math.abs(difference)+"</b> under the actual value - press 'next' to continue...<br/>";
+        }   else if     (difference>0)  {
+            textString="You were <b>"+difference+"</b> over the actual value - press 'next' to continue...<br/>";
+        }   else    {
+            textString="<b>PERFECT!</b> You got the answer <b>spot on!</b> - press 'next' to continue...<br/>";   
+        }
+        
+        //animating the pictogram
+        if(dvc.renderMode=="picto") {
+            var transCount; //calculate how many transitions
+            
+            //got an answer too low
+            if (difference<0)    {
+                d3.select("#txtPictoGuess").attr("fill","#999999");
+                d3.select("#pictoLabelGuess").attr("fill","#999999").text("your guess");
+                transCount=realAnswer-myAnswer;
+                for (var k=0;k<myAnswer;k++)    {
+                     d3.select("#picto"+k).attr("stroke","#888888").attr("stroke-width","0.6%")
+                }
+                for (var i=myAnswer;i<realAnswer;i++)
+                {
+                    d3.select("#picto"+i)
+                        .transition()
+                        .duration(100)
+                        .delay(function(){
+                            return (i-myAnswer)*250
+                        })
+                        .attr("fill","#f7931e");
+                    
+                    d3.select("#txtPictoReal")
+                        .transition()
+                        .duration(1500)
+                        .delay(transCount*250)
+                        .text(realAnswer)
+                        .attr("x","32")
+                        .attr("y","73")
+                        .attr("font-size","18")
+                        .attr("opacity","1")
+                        .each("end",function(i)  {
+                            d3.select("#pictoLabelReal").text("actual");
+                            d3.select("#hintText").html(textString);
+                            $("#btnClick").show();
+                            $("#answerForm").hide();
+                            $("#btnClick").focus();
+                        });
+                } 
+            }
+            
+            //got an answer too high
+            else if (difference>0) {
+                transCount=myAnswer-realAnswer;
+                 d3.select("#txtPictoGuess").attr("fill","#999999");
+                 d3.select("#pictoLabelGuess").attr("fill","#999999").text("your guess");
+               for (var j=myAnswer;j>realAnswer;j--)
+                {
+                    d3.select("#picto"+(j-1))
+                        .transition()
+                        .duration(100)
+                        .delay(function(){
+                            return (myAnswer-j)*250
+                        })
+                        .attr("fill","#999999");
+                    d3.select("#txtPictoReal")
+                        .transition()
+                        .duration(1500)
+                        .delay(transCount*250)
+                        .text(realAnswer)
+                        .attr("x","32")
+                        .attr("y","73")
+                        .attr("font-size","18")
+                        .attr("opacity","1")
+                        .each("end",function(i)  {
+                            d3.select("#pictoLabelReal").text("actual");
+                            d3.select("#hintText").html(textString);
+                            $("#btnClick").show();
+                            $("#answerForm").hide();
+                            $("#btnClick").focus();
+                        });
+                }
+                
+            //got an answer just right
+            }   else    {
+                    d3.select("#pictoLabelGuess").attr("fill","#999999").text("your guess");
+                    d3.select("#txtPictoReal")
+                        .transition()
+                        .duration(1500)
+                        .text(realAnswer)
+                        .attr("x","32")
+                        .attr("y","73")
+                        .attr("font-size","18")
+                        .attr("opacity","1")
+                        .each("end",function(i)  {
+                            d3.select("#pictoLabelReal").text("actual");
+                            d3.select("#hintText").html(textString);
+                            $("#btnClick").show();
+                            $("#answerForm").hide();
+                            $("#btnClick").focus();
+                        });
+            }
+        }//end if pictogram
+                            
+        //animating the graph
+        if(dvc.renderMode=="graph") {    
+            d3.select("#txtGuess").attr("opacity","0.7").text(myAnswer);
+            d3.select("#labelGuess").attr("opacity","0.7").text("guess");
+            d3.select("#txtReal").text(realAnswer);
+            d3.select("#answerBar")
+                .transition()
+                .attr("opacity","1")
+                .transition()
+                .duration(3000)
+                .delay(750)
+                .ease("cubic-out")
+                .attr("height",realAnswer).each("end",function(i)  {
+                    d3.select("#txtReal")
+                        .transition()
+                        .duration(1500)
+                        .attr("font-size","18")
+                        .attr("opacity","0.7")
+                        .each("end",function(i)  {
+                             d3.select("#labelReal").attr("opacity","0.7").text("actual");
+                             d3.select("#hintText").html(textString);
+                             $("#btnClick").show();
+                            $("#answerForm").hide();
+                            $("#btnClick").focus();
+                        });
+                });
+         }//end if graph
+    });//end submit
+    
+    $("<button/>", {"id":"btnClick","onclick":"nextQuestion()"}).html("next").appendTo("#uiDiv");
+    $("#btnClick").hide();
+    
+    //initialise quiz - switch off the pictogram is we are in graph mode
+    if(dvc.renderMode=="graph"){
+        d3.select("#pictoChart").attr("display","none");
+    }//
+    
+    //set the question text
+    $("#questionDiv")
+        .html("<p>Question "+(dvc.quizIndex+1)+" of "+dvc.numQuestions+" about "+dvc.areaName+":<br/><span class='questionText'> "+dvc.config.config.questions[dvc.quizIndex][1]+"?</span><br/><span id='hintText'>"+dvc.config.config.questions[dvc.quizIndex][2]+"</span></p>");
+}
+            
+//reset all pictogram icons to non-selected display
+function resetPicto()   {
+    d3.select("#pictoChart").selectAll("use")
+        .attr("fill","#cdcdcd")
+        .attr("stroke","none");   
+}
+            
+function nextQuestion() {
+    dvc.quizIndex++;
+    $("#btnClick").hide();
+    $(dvc.slider).slider( "option", "disabled", false );
+    $('.ui-slider-handle').focus();
+        $("#answerForm").show();
+        $('#answerBtn').removeAttr('disabled');
+    if (dvc.quizIndex<dvc.numQuestions) {
+        resetGraphs();//get graphs ready for next question
+        $("#questionDiv").html("<p>Question "+(dvc.quizIndex+1)+" of "+dvc.numQuestions+" about "+dvc.areaName+":<br/><span class='questionText'> "+dvc.config.config.questions[dvc.quizIndex][1]+"?</span><br/><span id='hintText'>"+dvc.config.config.questions[dvc.quizIndex][2]+"</span></p>");
+        //do we want a graph or a pictogram
+        if(dvc.config.config.questions[dvc.quizIndex][3]=="graph"){
+            d3.select("#pictoChart").attr("display","none");
+            dvc.renderMode="graph";
+        }   else    {
+            d3.select("#pictoChart").selectAll("use").attr("href",function(){
+             if(dvc.config.config.questions[dvc.quizIndex][3]=="iconPerson"){
+                return "#iconPerson";
+             }  else    {
+                 return "#iconHouse";
+             }   
+            });
+            d3.select("#pictoChart").attr("display","inline");
+            dvc.renderMode="picto";
+        }
+
+    }   else
+    {
+         d3.select("#sliderContainer").remove();
+        //end of quiz - give user feedback
+        var myFinalScore=0;
+        for (var i=0;i<dvc.userScores.length;i++)   {
+         myFinalScore=myFinalScore+dvc.userScores[i]; 
+        }
+
+        var NessLink1="http://www.neighbourhood.statistics.gov.uk/dissemination/NeighbourhoodSummary.do?width=1440&a=7&i=1001&m=0&s=1399379109214&enc=1&profileSearchText="
+        var NessLink2="&searchProfiles=";
+
+        //create panel to give results
+        $("#headerDiv").slideUp();
+        $("#uiDiv").slideUp();
+        $("#questionDiv").slideUp();
+
+         d3.select("#svgDoc").append("rect").attr("width",100).attr("height",100).attr("fill","#efefef").attr("stroke","none");
+        var gRes=d3.select("#svgDoc").append("g").attr("id","gResults").attr("transform","translate(2,0)");
+
+        $("#gResults").hide();
+
+        gRes.append("text").attr("x",0).attr("y",5).attr("font-size","4").text("Your local knowledge rating of");
+        gRes.append("text").attr("x",0).attr("y",10).attr("font-size","4").attr("font-weight","bold").text(dvc.areaName);
+        gRes.append("text").attr("x",0).attr("y",32).attr("font-size","26").attr("font-weight","bold").text(function(d){return Math.round(myFinalScore)+"%"});
+        gRes.append("text").attr("x",0).attr("y",39).attr("font-size","4").text(function(d){
+            var myscore=Math.round(myFinalScore);
+
+            
+            if (myscore<40)    {
+                return " ";
+            }
+            
+            if (myscore>=40&&myscore<70)    {
+                return " ";
+            }
+            
+            if (myscore>=70)    {
+                return "Wow, have you ever considered a career in statistics?";
+            }
+
+           
+
+    
+
+        });
+
+       //TWITTER                 
+        gRes.append("a").attr("tabindex",4).attr("xlink:href",function(){
+            return "http://www.twitter.com?status=How well do you %23knowyourarea ? I scored "+Math.round(myFinalScore)+"%25 for "+dvc.areaName+" in "+dvc.areaParent+"  bit.ly/knowyourarea";
+        })
+            .attr("target","new")
+            .append("use").attr("xlink:href","#iconTwitter").attr("x",0).attr("y",42);
+        gRes.append("text").attr("x",13).attr("y",47).attr("font-size","3.5").attr("fill","#aaaaaa").text(function(d){return "SHARE ON TWITTER"});
+
+        //FACEBOOK
+        gRes.append("a").attr("tabindex",5).attr("xlink:href","http://www.facebook.com/share.php?u="+window.location.href)
+            .attr("target","new")
+            .append("use").attr("xlink:href","#iconFB").attr("x",0).attr("y",57);
+        gRes.append("text").attr("x",13).attr("y",62).attr("font-size","3.5").attr("fill","#aaaaaa").text(function(d){return "SHARE ON FACEBOOK"});
+
+        //PLAY AGAIN
+        gRes.append("a").attr("tabindex",6).attr("xlink:href","#").attr("id","reloadLink")
+            .append("use").attr("xlink:href","#iconReload").attr("x",0).attr("y",72);
+        gRes.append("text").attr("x",13).attr("y",77).attr("font-size","3.5").attr("fill","#aaaaaa").text(function(d){return "PLAY AGAIN FOR ANOTHER AREA"});
+
+        //LINK TO NESS
+         gRes.append("a").attr("tabindex",7).attr("xlink:href",function(){return NessLink1+dvc.postCode+NessLink2})
+            .attr("target","new")
+            .append("use").attr("xlink:href","#iconONS").attr("x",0).attr("y",87);
+        gRes.append("text").attr("x",13).attr("y",92).attr("font-size","3.5").attr("fill","#aaaaaa").text(function(d){return "SEE DETAILED STATISTICS FOR "+(dvc.postCode).toUpperCase()});
+
+        $("#gResults").fadeIn();
+
+        $("#reloadLink").click(function(){
+           window.location.reload();
+        });
+    }
+}
+            
+function resetGraphs()   {
+   $(dvc.slider).slider('value',0);
+    //reset graph
+    d3.select("#txtReal").attr("font-size","200").attr("opacity",0).text(" ");
+    d3.select("#txtGuess").text(" ");
+    d3.select("#labelReal").text(" ");
+    d3.select("#labelGuess").text(" ");
+    d3.select("#guessBar").attr("height",0);
+    d3.select("#answerBar").attr("height",100).attr("opacity",0);
+    //picto
+    resetPicto();
+    d3.select("#txtPictoReal").attr("font-size","200").attr("x",125).attr("y",75).text(" ").attr("opacity",0.3);
+    d3.select("#txtPictoGuess").text("0").attr("fill","#f7931e");
+    d3.select("#pictoLabelReal").text(" ");
+    d3.select("#pictoLabelGuess").attr("fill","#f7931e").text("your guess");
+}
+            
+            /*
+            *************
+            HELPER FUNCTIONS FOR MAP
+            *************
+            
+            /*
+            * Makes the API call to the ONS Open Geography Service, requesting the data
+            * in JSON format and returns the data,
+            * or reports any error.
+            *
+            * @param filt - various parameters that form part of the ONS API call
+            *
+            * @return data - the JSON data returned by the ONS API call
+            */
+            
+              // start process with call to Open Geography
+            function getBoundaries(areaNameOrCode) {
+                //console.log(opengep1 + areaNameOrCode + opengep2);
+                callOpenGeog(opengep1 + areaNameOrCode + opengep2);
+            }
+            
+            function callOpenGeog(url) {
+                // create a new script element 
+                var script = document.createElement('script');
+                // set the src attribute to that url 
+                script.setAttribute('src', url);
+                // insert the script in out page 
+                document.getElementsByTagName('head')[0].appendChild(script);
+            }
+        
+        /*
+             * Callback
+             *
+             * Deals with the response from the ONS Open Geography API.
+             * The response is in JSON format and the boundaries can contain
+             * one or more rings (polygons used to define the area).
+             * The polygons are built up into an array of latitude and longitude values.
+             * The response from the ONS Open Geography API returns coordinates as
+             * eastings and northings. These have to be converted to latitude and longitude
+             * for Google Maps. Some APIs exist that do this. We have used some code to
+             * convert the values.
+             *
+             * @param response - the JSON response from the ONS Open Geograph API
+             */
+            function callback(response) 
+            {
+             
+                //console.log(response);
+      		// get boundaries
+      
+      		if (response.results.length > 0) 
+            {
+               //document.getElementById("foundward").value = response.results[0].attributes.WD11NM;
+
+              var ens = new Array();
+              //alert(response.results[0].geometry.rings.length);
+              for (var k = 0; k < response.results[0].geometry.rings.length; k++) {
+                 ens[k] = response.results[0].geometry.rings[k];
+              }
+      		    // approximate datum correction
+                    var latmeters = 50;
+                    var lonmeters = -100;
+                    var minlat = 360.0;
+                    var maxlat = -360.0;
+                    var minlon = 360.0;
+                    var maxlon = -360.0;
+
+                    // create array of points converted to lat/lon (from easting/northing) and capture mins and maxes
+                    for (var j = 0; j < ens.length; j++) {
+                       //alert('j = ' + j);
+                       latlons[j] = new Array();
+                       for (var i = 0; i < ens[j].length; i++) {
+                           var testpoint = ens[j][i];
+                           var grid = new OsGridRef(testpoint[0] + lonmeters, testpoint[1] + latmeters);
+                           var latlon = OsGridRef.osGridToLatLong(grid);
+                           if (latlon.lon < minlon) {
+                               minlon = latlon.lon;
+                           }
+                           if (latlon.lon > maxlon) {
+                               maxlon = latlon.lon;
+                           }
+                           if (latlon.lat < minlat) {
+                               minlat = latlon.lat;
+                           }
+                           if (latlon.lat > maxlat) {
+                               maxlat = latlon.lat;
+                           }
+                           latlons[j][i] = latlon;
+                       }
+                    }
+
+                    // calculate zoom level
+                    var zoomLevel = getZoom(minlon, maxlon, minlat, maxlat, 472, 330);
+
+                    // calculate centroid
+                    var centroid = getCentroid(minlon, maxlon, minlat, maxlat);
+                    initialize(centroid.lat, centroid.lon, zoomLevel, latlons);
+                } else {
+                    alert("No matching ward found");
+                }
+            }
+            
+         /*
+             * calculate zoom level to fit boundaries on screen
+             *
+             * @param minLng
+             * @param maxLng
+             * @param minLat
+             * @param maxLat
+             * @param pixelWidth
+             * @param pixelHeight
+             *
+             * @return zoom
+             */
+            function getZoom(minLng, maxLng, minLat, maxLat, pixelWidth, pixelHeight) {
+                var GLOBE_HEIGHT = 256; // Height of a google map that displays the entire world when zoomed all the way out
+                var GLOBE_WIDTH = 256; // Width of a google map that displays the entire world when zoomed all the way out
+                var latAngle = maxLat - minLat;
+                if (latAngle < 0) {
+                    latAngle += 360;
+                }
+                latAngle = latAngle * 1.6;
+                var lngAngle = maxLng - minLng;
+                var latZoomLevel = Math.floor(Math.log(pixelHeight * 360 / latAngle / GLOBE_HEIGHT) / Math.LN2);
+                var lngZoomLevel = Math.floor(Math.log(pixelWidth * 360 / lngAngle / GLOBE_WIDTH) / Math.LN2);
+                return (latZoomLevel < lngZoomLevel) ? latZoomLevel : lngZoomLevel;
+            }
+
+            /*
+             * get the centre point of a rectangle
+             *
+             * @param minLng
+             * @param maxLng
+             * @param minLat
+             * @param maxLat
+             *
+             * @return LatLon - coordinate of centre of rectangle
+             */
+            function getCentroid(minLng, maxLng, minLat, maxLat) {
+                var avLng = (minLng + maxLng) / 2;
+                var avLat = (minLat + maxLat) / 2;
+                return new LatLon(avLat, avLng);
+            }
+
+            /*
+             * lat / long object (holds latitude and longitude coordinates)
+             *
+             * @param lat - latitude coordinate
+             * @param lon - longitude coordinate
+             */
+            function LatLon(lat, lon) {
+                this.lat = lat;
+                this.lon = lon;
+            }
+
+            /*
+             * Grid Ref object (holds easting and northing coordinates)
+             *
+             * @param easting coordinate
+             * @param northing coordinate
+             */
+            function OsGridRef(easting, northing) {
+                this.easting = parseInt(easting, 10);
+                this.northing = parseInt(northing, 10);
+            }
+
+            /*
+             * Convert degrees to radians
+             *
+             * @param degrees
+             *
+             * @return radians
+             */
+            function deg2rad(deg) {
+                conv_factor = (2.0 * Math.PI) / 360.0;
+                return (deg * conv_factor);
+            }
+
+            /*
+             * Convert radians to degrees
+             *
+             * @param radians
+             *
+             * @return degrees
+             */
+            function rad2deg(rad) {
+                conv_factor = 360 / (2.0 * Math.PI);
+                return (rad * conv_factor);
+            }
+
+            /* Convert degrees to metres for known latitude
+             *
+             * @param latdeg
+             *
+             * @return latlen (metres for known latitude)
+             */
+            function degtometerslat(latdeg) {
+                lat = deg2rad(latdeg);
+                m1 = 111132.92; // latitude calculation term 1
+                m2 = -559.82; // latitude calculation term 2
+                m3 = 1.175; // latitude calculation term 3
+                m4 = -0.0023; // latitude calculation term 4
+                latlen = m1 + (m2 * Math.cos(2 * lat)) + (m3 * Math.cos(4 * lat)) + (m4 * Math.cos(6 * lat));
+                return latlen;
+            }
+
+            /* Convert degrees to metres for known longitude
+             *
+             * @param latdeg
+             *
+             * @return latlen (metres for known longitude)
+             */
+            function degtometerslon(latdeg) {
+                lat = deg2rad(latdeg);
+                p1 = 111412.84; // longitude calculation term 1
+                p2 = -93.5; // longitude calculation term 2
+                p3 = 0.118; // longitude calculation term 3
+                longlen = (p1 * Math.cos(lat)) + (p2 * Math.cos(3 * lat)) + (p3 * Math.cos(5 * lat));
+                return longlen;
+            }
+
+             // convert degrees to radians
+            Number.prototype.toRad = function () {
+                return this * Math.PI / 180;
+            }
+
+             // convert radians to degrees (signed)
+            Number.prototype.toDeg = function () {
+                return this * 180 / Math.PI;
+            }
+
+            Number.prototype.padLZ = function (w) {
+                var n = this.toString();
+                for (var i = 0; i < w - n.length; i++) n = '0' + n;
+                return n;
+            }
+
+            /**
+             * Convert Ordnance Survey grid reference easting/northing coordinate to (OSGB36) latitude/longitude
+             *
+             * @param {OsGridRef} easting/northing to be converted to latitude/longitude
+             * @return {LatLon} latitude/longitude (in OSGB36) of supplied grid reference
+             */
+            OsGridRef.osGridToLatLong = function (gridref) {
+                var E = gridref.easting;
+                var N = gridref.northing;
+
+                var a = 6377563.396,
+                    b = 6356256.910; // Airy 1830 major & minor semi-axes
+                var F0 = 0.9996012717; // NatGrid scale factor on central meridian
+                var lat0 = 49 * Math.PI / 180,
+                    lon0 = -2 * Math.PI / 180; // NatGrid true origin
+                var N0 = -100000,
+                    E0 = 400000; // northing & easting of true origin, metres
+                var e2 = 1 - (b * b) / (a * a); // eccentricity squared
+                var n = (a - b) / (a + b),
+                    n2 = n * n,
+                    n3 = n * n * n;
+
+                var lat = lat0,
+                    M = 0;
+                do {
+                    lat = (N - N0 - M) / (a * F0) + lat;
+
+                    var Ma = (1 + n + (5 / 4) * n2 + (5 / 4) * n3) * (lat - lat0);
+                    var Mb = (3 * n + 3 * n * n + (21 / 8) * n3) * Math.sin(lat - lat0) * Math.cos(lat + lat0);
+                    var Mc = ((15 / 8) * n2 + (15 / 8) * n3) * Math.sin(2 * (lat - lat0)) * Math.cos(2 * (lat + lat0));
+                    var Md = (35 / 24) * n3 * Math.sin(3 * (lat - lat0)) * Math.cos(3 * (lat + lat0));
+                    M = b * F0 * (Ma - Mb + Mc - Md); // meridional arc
+
+                } while (N - N0 - M >= 0.00001); // ie until < 0.01mm
+
+                var cosLat = Math.cos(lat),
+                    sinLat = Math.sin(lat);
+                var nu = a * F0 / Math.sqrt(1 - e2 * sinLat * sinLat); // transverse radius of curvature
+                var rho = a * F0 * (1 - e2) / Math.pow(1 - e2 * sinLat * sinLat, 1.5); // meridional radius of curvature
+                var eta2 = nu / rho - 1;
+
+                var tanLat = Math.tan(lat);
+                var tan2lat = tanLat * tanLat,
+                    tan4lat = tan2lat * tan2lat,
+                    tan6lat = tan4lat * tan2lat;
+                var secLat = 1 / cosLat;
+                var nu3 = nu * nu * nu,
+                    nu5 = nu3 * nu * nu,
+                    nu7 = nu5 * nu * nu;
+                var VII = tanLat / (2 * rho * nu);
+                var VIII = tanLat / (24 * rho * nu3) * (5 + 3 * tan2lat + eta2 - 9 * tan2lat * eta2);
+                var IX = tanLat / (720 * rho * nu5) * (61 + 90 * tan2lat + 45 * tan4lat);
+                var X = secLat / nu;
+                var XI = secLat / (6 * nu3) * (nu / rho + 2 * tan2lat);
+                var XII = secLat / (120 * nu5) * (5 + 28 * tan2lat + 24 * tan4lat);
+                var XIIA = secLat / (5040 * nu7) * (61 + 662 * tan2lat + 1320 * tan4lat + 720 * tan6lat);
+
+                var dE = (E - E0),
+                    dE2 = dE * dE,
+                    dE3 = dE2 * dE,
+                    dE4 = dE2 * dE2,
+                    dE5 = dE3 * dE2,
+                    dE6 = dE4 * dE2,
+                    dE7 = dE5 * dE2;
+                lat = lat - VII * dE2 + VIII * dE4 - IX * dE6;
+                var lon = lon0 + X * dE - XI * dE3 + XII * dE5 - XIIA * dE7;
+
+                return new LatLon(lat.toDeg(), lon.toDeg());
+            }
+            
+            /*
+             * Initialize - Create Google Map
+             *
+             * @param myLat
+             * @param myLong
+             * @param myZoom
+             * @param latlons
+             */
+            function initialize(myLat, myLong, myZoom, latlons) {
+               // console.log(latlons);
+
+                var myLatLng = new google.maps.LatLng(myLat, myLong);
+                var mapOptions = {
+                    zoom: myZoom,
+                    center: myLatLng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    styles: [
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 65
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 51
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "saturation": -100
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 30
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 40
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "saturation": -100
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.province",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": -25
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#ffff00"
+            },
+            {
+                "saturation": -97
+            },
+            {
+                "lightness": -25
+            }
+        ]
+    }
+]						
+                };
+                var adminBoundaryArea;
+                var targetLayer=document.getElementById('map');
+                
+                var map = new google.maps.Map(targetLayer,mapOptions);
+                if (latlons != null) {
+
+                    for (var j = 0; j < latlons.length;j++)
+                    {
+                       var adminCoordsArea = new Array();
+                       for (var i = 0; i < latlons[j].length; i = i + 1) {
+                           adminCoordsArea[i] = new google.maps.LatLng(latlons[j][i].lat, latlons[j][i].lon);
+                       }
+                       // Construct the polygon
+                       // setting up is attributes, eg, fill colour
+                       adminBoundaryArea = new google.maps.Polygon({
+                           paths: adminCoordsArea,
+                           strokeColor: "#29abe2",
+                           strokeOpacity: 0.8,
+                           strokeWeight: 3,
+                           fillColor: "#648f00",
+                           fillOpacity: 0.3
+                       });
+                       adminBoundaryArea.setMap(map);
+                    }
+                }
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+            /*Analytics */
+		
+        /*Google*/
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-37894017-1']);
+          _gaq.push(['_trackPageview']);
+
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+
+
+            /*webtrends*/
+            var _tag=new WebTrends();
+            _tag.dcsGetId();
+            //]]>
+        </script>
+        
+        
+        <script type="text/javascript">
+            //<![CDATA[
+            _tag.dcsCustom=function(){
+            // Add custom parameters here.
+            //_tag.DCSext.param_name=param_value;
+            }
+            _tag.dcsCollect();
+        </script>
+        <noscript>
+            
+        <div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="//statse.webtrendslive.com/dcsay0hycvz5bd4kzkvzlhgdu_5j1u/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=9.4.0&amp;dcssip=www.statistics.gov.uk"/></div>
+        </noscript>						
+        </script>	
+    </script>
+            
+       
+        
+    </body>
+
+</html>

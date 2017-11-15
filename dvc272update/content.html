@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Page title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/styles.css" media="screen">
+    
+    
+    <style>
+		
+		body {
+			
+			color:#666;
+			background-color:#fff;
+			height:545px;
+		}
+		
+		@font-face {
+			font-family: 'open_sanslight';		
+			src: url('assets/OpenSans-Light-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		@font-face {
+			font-family: 'open_sansitalic';		
+			src: url('assets/OpenSans-Italic-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		@font-face {
+			font-family: 'open_sansregular';		
+			src: url('assets/OpenSans-Regular-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		@font-face {
+			font-family: 'open_sanssemibold';		
+			src: url('assets/OpenSans-Semibold-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		.foot {
+			font-size:12px;
+		}
+		
+		.row {
+			margin-bottom:15px;	
+		}
+		
+		
+	
+		
+		/*Slider CSS*/
+
+		#range{
+			border:none;
+			height:10px;
+		
+		}
+		
+		#slider:before{
+			display:block;
+			/*background-image: url('../img/rangeBar.png');	*/
+			background-position:0px 10px;
+			background-repeat: repeat-x;
+			margin-left:9px;
+			width:calc(100%-9px);
+			height:30px;
+			position:relative;
+			position:absolute;
+			content:""
+		}
+		
+		#range td{
+			border:none;
+		}
+		
+		.rangeGrip{
+			width:30px;
+			height:30px;
+			cursor:ew-resize;
+		  background-color: #ccc;
+		  border: 6px solid #FFF;
+		  border-radius: 18px;
+		  box-shadow: 0 0 2px #888;
+		
+			z-index:8;
+		}
+		
+		
+		.rangeDrag .rangeGrip, .rangeGrip:hover{
+			background-position:right;
+			opacity:0.5;
+		}
+		
+		#text{
+			color:#666;
+			float:right;
+		
+		}
+
+		.first{
+			background:rgb(0,132,209);
+		}
+		
+		.second{
+			background:rgb(255,211,32);
+		}
+		
+		.third{
+			background:rgb(168,189,58);
+		}
+		
+		.fourth{
+			background:rgb(255,66,14);
+		}
+		
+		.fifth{
+			background:rgb(255,149,14);
+		}
+
+		.sixth{
+			background:rgb(144, 176, 201)
+		}
+		
+		.box {
+			width:10px;
+			height:10px;
+			margin: 0 auto;
+			margin-bottom:5px;
+		}
+	
+		#rotate {
+			text-align:center;	
+		}
+	
+		.textsec {
+			text-align:center;
+			font-family: 'open_sansregular';	
+			font-size:14px;
+		}
+		
+		.textsec span {
+			text-align:center;
+			font-family: 'open_sanssemibold';	
+			font-size:20px;
+		}
+	
+		.centretext {
+			font-weight:bold;
+			text-align:center;	
+			border-top: 2px solid #666;
+			margin-top:42px;
+			padding-top: 18px;
+    		padding-bottom: 10px;
+		}
+		
+		/*new grid 10 col wide */
+		
+/*		.col-xs-10 {
+		  width: 100%;
+		}
+		.col-xs-9 {
+		  width: 90%;
+		}
+		.col-xs-8 {
+		  width: 80%;
+		}
+		.col-xs-7 {
+		  width: 70%;
+		}
+		.col-xs-6 {
+		  width: 60%;
+		}
+		.col-xs-5 {
+		  width: 50%;
+		}
+		.col-xs-4 {
+		  width: 40%;
+		}
+		.col-xs-3 {
+		  width: 30%;
+		}
+		.col-xs-2 {
+		  width: 20%;
+		}
+		.col-xs-1 {
+		  width: 10%;
+		}
+*/
+
+@media (min-width: 768px) {
+
+/*  .col-sm-10 {
+    width: 100%;
+  }
+  .col-sm-9 {
+    width: 90%;
+  }
+  .col-sm-8 {
+    width: 80%;
+  }
+  .col-sm-7 {
+    width: 70%;
+  }
+  .col-sm-6 {
+    width: 60%;
+  }
+  .col-sm-5 {
+    width: 50%;
+  }
+  .col-sm-4 {
+    width: 40%;
+  }
+  .col-sm-3 {
+    width: 30%;
+  }
+  .col-sm-2 {
+    width: 20%;
+  }
+  .col-sm-1 {
+    width: 10%;
+  }*/
+}
+		
+	</style>
+
+
+  </head>
+  <body id="childt">
+ 
+    <div id="altern"><p>Unfortunately your browser cannot display this graphic. You might need to upgrade to a modern browser - Find out more information here <a href="https://www.gov.uk/help/browsers">https://www.gov.uk/help/browsers</a></p><img src="images/alt.png"/>
+    </div>
+
+   
+   
+   <div class="container-fluid">   
+   <div id="rotate">
+ 		This interactive works much better in landscape! Please rotate your screen to see it.
+   </div>
+   <div id="main">
+
+	
+    <div class="row">
+    	<div id="text0" class="textsec col-sm-2 col-xs-2">
+            <div class="first box"></div>
+            <div id="textx0">Pensions</div>
+        </div>
+        <div id="text1" class="textsec col-sm-2 col-xs-2">
+            <div class="second box"></div>
+            <div id="textx1">Incapacity, disability & injury benefits</div>            
+        </div>
+        <div id="text2" class="textsec col-sm-2 col-xs-2">
+            <div class="third box"></div>
+            <div id="textx2">Unemployment benefits</div>            
+        </div>
+        <div id="text3" class="textsec col-sm-2 col-xs-2">
+            <div class="fourth box"></div>
+            <div id="textx3">Housing benefits</div>            
+        </div>
+        <div id="text4" class="textsec col-sm-2 col-xs-2">
+            <div class="fifth box"></div>
+            <div id="textx4">Family benefits, income support & tax credits</div>            
+        </div>
+        <div id="text5" class="textsec col-sm-2 col-xs-2">
+            <div class="sixth box"></div>
+            <div id="textx5">Personal social services and other benefits</div>            
+        </div>
+    </div>
+    
+    <div class="row">
+    	<div id="text0" class="textsec col-sm-2 col-xs-2">
+			<div id="textnx0"></div>
+        </div>
+        <div id="text1" class="textsec col-sm-2 col-xs-2">
+			<div id="textnx1"></div>
+        </div>
+        <div id="text2" class="textsec col-sm-2 col-xs-2">
+			<div id="textnx2"></div>
+        </div>
+        <div id="text3" class="textsec col-sm-2 col-xs-2">
+			<div id="textnx3"></div>
+        </div>
+        <div id="text4" class="textsec col-sm-2 col-xs-2">
+			<div id="textnx4"></div>
+        </div>
+        <div id="text5" class="textsec col-sm-2 col-xs-2">
+			<div id="textnx5"></div>
+        </div>
+    </div>    
+    
+    <div class="row">
+          <div class="col-sm-12 col-xs-12">
+
+                <div class="center">
+                    
+                    
+                    <div id="slider">
+                        <table id="range" width="100%" cellspacing="0" cellpadding="0">
+                            <tr id="initialrow">
+<!--                                <td class="first" width="16%"></td>
+                                <td class="second" width="16%"></td>
+                                <td class="third" width="16%"></td>
+                                <td class="fourth" width="16%"></td>
+                                <td class="fifth" width="16%"></td>
+                                <td class="sixth" width="16%"></td>
+-->
+                            </tr>
+                        </table>	
+                    </div>
+            
+                </div>	
+
+          </div>
+	</div><!-- end row --> 
+    
+    <div class="row">
+          <div id="revealslide" class="col-sm-12 col-xs-12"> 
+
+                <div class="center">
+                
+                    <p class="centretext" style="text-align:center;"><b>Actual government welfare spending</b></p>
+                   
+                    <div id="slider">
+                        <table id="range" width="100%" cellspacing="0" cellpadding="0">
+                            <tr id="revealrow">
+                            
+<!--                                <td class="first" width="50%"></td>
+                                <td class="second" width="30%"></td>
+                                <td class="third" width="5%"></td>
+                                <td class="fourth" width="5%"></td>
+                                <td class="fifth" width="5%"></td>
+                                <td class="sixth" width="5%"></td>
+-->                      
+
+          
+                            </tr>
+                        </table>	
+                    </div>
+            
+                </div>	
+
+          </div>
+	</div><!-- end row --> 
+
+    
+    <div class="row">
+    	<div class="col-sm-12 textResult">
+    	<div id="text0" class="textsec col-sm-2 col-xs-2">
+            <div class="first box"></div>
+            <div>Pensions</div>
+        </div>
+        <div id="text1" class="textsec col-sm-2 col-xs-2">
+            <div class="second box"></div>
+            <div>Incapacity, disability & injury benefits</div>            
+        </div>
+        <div id="text2" class="textsec col-sm-2 col-xs-2">
+            <div class="third box"></div>
+            <div>Unemployment benefits</div>            
+        </div>
+        <div id="text3" class="textsec col-sm-2 col-xs-2">
+            <div class="fourth box"></div>
+            <div>Housing benefits</div>            
+        </div>
+        <div id="text4" class="textsec col-sm-2 col-xs-2">
+            <div class="fifth box"></div>
+            <div>Family benefits, income support & tax credits</div>            
+        </div>
+        <div id="text5" class="textsec col-sm-2 col-xs-2">
+            <div class="sixth box"></div>
+            <div>Personal social services and other benefits</div>            
+        </div>        
+       </div>
+    </div>
+
+    <div class="row">
+    	<div class="col-sm-12 textResult">
+    	<div id="textrev0" class="textsec col-sm-2 col-xs-2">
+        </div>
+        <div id="textrev1" class="textsec col-sm-2 col-xs-2">
+        </div>
+        <div id="textrev2" class="textsec col-sm-2 col-xs-2">
+        </div>
+        <div id="textrev3" class="textsec col-sm-2 col-xs-2">
+        </div>
+        <div id="textrev4" class="textsec col-sm-2 col-xs-2">
+        </div>
+        <div id="textrev5" class="textsec col-sm-2 col-xs-2">
+        </div>
+       </div>
+    </div>
+        
+    <div class="col-sm-offset-4 col-sm-4">
+        <button id="submitbutton" type="button" class="btn btn-primary col-sm-12 col-xs-12">Show me the actual split</button> 
+    </div>
+    
+    
+    </div><!--end main -->
+     </div> <!--end container -->
+
+<!-- Constant libraries / frameworks -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+ 	<script src="js/modernizr.custom.56904.js"></script>
+    <script src="js/pym.js" charset="utf-8"></script>
+    <script src="js/d3.v3.min.js"></script>
+    <script src="js/colResizable-1.5.min.js"></script>
+
+	<script></script>
+   
+    <script src="js/script.js"></script>
+
+    <script>
+	
+		  /* Analytics */
+
+		  /* Google */
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37894017-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+    </script>
+
+
+  </body>
+</html>

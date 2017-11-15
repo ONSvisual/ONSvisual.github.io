@@ -1,0 +1,12 @@
+{
+	"config":{
+		"questions":[
+            [["9026","9028","9030","9032","9033"],"For every 100 people, how many are aged under 16","Use the slider below to make your guess then press 'submit' to see if you're right","iconPerson"],
+            [["9057"],"What is the median age","The median age is the age at which half the population are younger and half the population are older","graph"],
+            [["8650"],"For every 100 households, how many are owned with a mortgage or loan","This is not the same as owning outright or renting","iconHouse"],
+            [["9148"],"For every 100 people, how many are Christian","On the 2011 Census form, respondents could choose from 6 religions, specify another, or state 'no religion'","iconPerson"],
+            [["9152"],"For every 100 people, how many are Muslim","On the 2011 Census form, respondents could choose from 6 religions, specify another, or state 'no religion'","iconPerson"],
+            [["10038"],"For every 100 residents aged over 16, how many have a degree level qualification or above","The 2011 Census recorded educational qualifications using 4 levels","iconPerson"],
+            [["9773"],"For every 100 households, how many DO NOT have a car or van?","In the 2011 Census, car and van availability is recorded at the household level","iconHouse"]]
+	}
+}
