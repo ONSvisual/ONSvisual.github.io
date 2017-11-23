@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Annual Survey of Hours & Earnings - Regional Chart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="bootstrap_journal.css" media="screen">-->
+    <link rel="stylesheet" href="css/styles.css" media="screen">
+    <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css">
+
+
+
+    
+    
+    <style>
+		
+		
+		.social {
+			padding-top:25px;
+			padding-left:5px;
+			float:right;
+			opacity:0.5;
+			cursor:pointer;
+		}
+		
+		.social:hover {
+			opacity:1;
+				
+		}
+		
+		
+		.social {
+			
+		}
+		
+		#embedrow {
+			padding-bottom:10px;
+		}
+		
+		
+		#close {
+			padding-bottom:3px;	
+		}
+	
+	</style>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+      <script src="../bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+  
+    <div class="container">
+ 	<div class="bs-docs-section">
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-sm-10">
+            <h1>Regional earnings through time</h1>
+            <p class="lead">Median gross weekly earnings by workplace, UK, April 1997-2015</p>
+          </div>
+          
+          <div class="col-sm-2" id="social">
+            <img class="social" id="twitter" src="images/twitter.svg"/>
+          	<img class="social" id="face" src="images/facebook.svg"/>
+            <img class="social" id="embed" src="images/embed.svg"/>
+            
+          </div>
+          
+          
+        </div>
+      </div>
+   </div>  
+   <div class="row hide" id="embedrow">
+  		 <div class="col-sm-offset-6 col-sm-6 col-xs-12">
+
+        <div id="embedbox">
+                <img class="social" id="close" src="images/cross.svg"/>
+				<label class="control-label" for="inputType"></label>
+                <input type="text" class="form-control" id="inputType" value="ashechart.html">
+        </div>  
+        
+        </div> 
+   </div> 
+   
+   <div class="row" id="frame">
+    	<!--<iframe width=100% height=940px src="ashemap.html" scrolling=no frameborder=0/>-->
+		<div id="example-1"></div>
+    </div>
+    
+     
+    </div><!--End container -->
+
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+ 	<script src="js/modernizr.custom.56904.js"></script>
+    <script src="js/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/pym.js" type="text/javascript"></script>
+    
+    <script>
+	$(document).ready(function () {
+		//add pym chart
+		var pymParent = new pym.Parent('example-1', 'ashechart.html', {});
+		
+			
+		d3.select("#twitter").on("click",tweet);
+		d3.select("#face").on("click",faceb);
+		d3.select("#embed").on("click",embed);
+		d3.select("#close").on("click",embedclose);
+		d3.select("#inputType").attr("value",'<iframe width=940 height=700 src="' + document.URL + '" scrolling=no frameborder=0/>');
+		
+		function faceb() {
+				var face = 'http://www.facebook.com/share.php?u=' + window.location.href;
+				window.open(face);
+		}
+		
+		function tweet() {
+				var myString="http://twitter.com/home?status="+escape("How do your earnings compare in your area? #earnings #map "+ window.location.href +" via @ONS");
+				window.open(myString);
+		}
+		
+		function embed() {
+				d3.select("#embedrow").attr("class","row show");
+		}
+		
+		function embedclose() {
+				d3.select("#embedrow").attr("class","row hide");
+		}
+		
+	
+	});
+    
+    </script>
+  </body>
+</html>

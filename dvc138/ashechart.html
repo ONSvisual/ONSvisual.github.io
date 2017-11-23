@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Annual Survey of Hours & Earnings - Regional Chart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="bootstrap_journal.css" media="screen">-->
+    <link rel="stylesheet" href="css/styles.css" media="screen">
+    <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css">
+
+
+
+    
+    
+    <style>
+		
+		
+
+		@font-face {
+			font-family: 'open_sansregular';		
+			src: url('assets/OpenSans-Regular-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		
+		}
+		
+		#wrapper {
+			font-family:  'open_sansregular', Arial, Helvetica, sans-serif;
+			height:60px;
+			/* [disabled]border:solid; */
+			background: #fff;	
+	
+		}
+		
+		#alt {
+			font-family:Arial, Helvetica, sans-serif;	
+			position: relative;
+   			width: 700px;
+			margin: 10px auto;
+			padding:0px 20px 80px 20px;
+			border:solid;
+			border-color:#ccc;
+			border-width:1px;
+			box-shadow:0px 0px 6px #ddd;
+			display:none;
+			background:#fff;
+		}
+		
+		#suptext {
+			padding:2px 50px;
+		}
+		
+		#suptext p{
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			font-size:14px;
+			color:#666;
+		
+		}
+		
+		#suptext a{
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			font-size:14px;
+			color:#666;
+		
+		}
+		
+		#suptext h1{
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			font-size:24px;
+			color:#666;
+		}
+				
+		#mainChart
+		{
+			font-family:  'open_sansregular', Arial, Helvetica, sans-serif;
+			width:100%;
+			height:450px;
+			background-color:#ffffff;
+			
+		}
+		
+		#mainChart
+		{
+			
+			vertical-align: bottom;
+    		display: inline-block;
+			
+		}
+		@media (min-width: 768px) {
+		#aniControls
+		{	
+			display:block;
+			margin:0px auto; 
+			position:relative;
+ 			left:140px;
+			width:500px;
+			height:55px;
+			font-size:80%;
+
+		}
+		}
+		
+		@media (max-width: 767px) {
+		#aniControls
+		{	
+			display:block;
+			margin:0px auto; 
+			position:relative;
+ 			left:0px;
+			width:400px;
+			height:55px;
+			font-size:80%;
+
+		}
+		}
+		
+		
+		
+		
+		button
+		{
+			float:left;
+			margin: 10px 20px 10px 0px;
+		}
+		
+		#timeSlider
+		
+		{
+			float:left;
+		margin: 25px 20px 10px 0px;
+		width:265px;
+		
+		}
+		
+		
+		@media (max-width: 767px) {	
+		#timeSlider
+		
+		{
+			float:left;
+		margin: 25px 20px 10px 0px;
+		width:200px;
+		
+		}
+		}
+		
+		@media (min-width: 768px) {	
+		#timeSlider
+		
+		{
+			float:left;
+		margin: 25px 20px 10px 0px;
+		width:265px;
+		
+		}
+		}
+		
+	
+	
+		
+		#chartSubtitle, #chartUnits
+		{	
+			color:#666;
+			font-size:16px;
+		}
+		
+		#note{
+			width:470px;
+			position:relative;
+			top:-7px;
+			left:185px;
+		}
+		
+		#txtTime
+		{
+			font-size:36px;
+			font-weight:bold;
+			fill:#bbbbbb;
+			stroke:#FFF;
+			stroke-width:0.1%;
+			font-family:  Arial, Helvetica, sans-serif;
+			text-anchor:end;
+		}
+		
+		.mean rect{
+			fill:orange;
+			stroke:orange;
+			stroke-width:3px;
+		}
+		
+		.mean text{
+			font-size:18px;
+			fill:#999;
+			font-family:  'open_sansregular', Arial, Helvetica, sans-serif;
+
+		}
+		
+		#markText {
+			fill:#bbb;	
+		}
+		
+		.credit
+		{
+			fill:#999;	
+		}
+ 
+		.barText {
+			text-anchor:end;
+			fill:#666;
+			font-family:  'open_sansregular', Arial, Helvetica, sans-serif;
+			font-size:16px;
+		}
+		
+		.axis path,
+		.axis line
+		{
+			fill: none;
+			stroke: #333333;
+			stroke-width: 0.1%
+		}
+		
+		.axis text
+		{
+			font-size:14px;
+			fill: #666;
+			font-family:  'open_sansregular', Arial, Helvetica, sans-serif;
+		}
+		
+		.grid path,
+		.grid line
+		{
+			fill: none;
+			stroke: #cccccc;
+			stroke-width: 0.1%
+		}
+		
+		/*don't need to display the text on the secondary grid element*/
+		.grid text
+		{
+			display:none;
+		}
+		
+		.barMarker
+		{
+			fill:steelblue;
+			fill-opacity:0.5;
+		}
+		
+		.intBar
+		{
+			fill-opacity:0;	
+		}
+		
+		.intBarActive
+		{
+			fill-opacity:0.1;	
+		}
+		
+		.chartBarSel
+		{
+			fill:orange;	
+		}
+		
+		.chartBars
+		{
+			fill:steelblue;
+		}
+		
+		.selText
+		{
+			fill:black;	
+			text-anchor:end;
+		}
+		
+		#form{
+		position:relative;
+		top:10px;
+		float:right;
+		font-size:14px;
+		font-weight:bold;
+		color:#999;
+		}
+		
+		#zoombutt {
+			opacity:1;	
+			cursor:pointer;
+		}
+		
+		
+		#zoombutt:hover {
+			opacity:0.5;	
+		}
+			
+			#foot {
+		background-color:#fff;	
+		padding-top:0px;
+		padding-bottom:10px;
+		font-family: 'open_sansregular';
+		font-size:11px;
+		line-height:1.3;
+		
+	}
+	@media (min-width: 768px) {
+	
+	#rightfoot {
+		text-align: right;
+	}
+	}
+	
+	@media (max-width: 767px) {
+	#rightfoot {
+		text-align: left;
+	}
+	}
+	
+		#navigation {
+			background-color:#fff;	
+		}	
+		
+		
+		#content {
+			background-color:#fff;	
+		}	
+		
+
+			
+	</style>
+    
+    
+  </head>
+  <body id="childt">
+  
+    <div class="container">
+  
+   <div class="row" id="navigation">
+   
+          <div class="col-sm-12 hidden-xs" id="pills">
+          </div>
+          
+          <div class="col-sm-12 visible-xs" id="menu">
+          </div>
+          
+	</div>
+    
+
+    <div class="row" id="content">
+    
+  
+      <div id="graphic"><p>Unfortunately your browser cannot display this graphic. You might need to upgrade to a modern browser - Find out more information here <a href="https://www.gov.uk/help/browsers">https://www.gov.uk/help/browsers</a></p><img src="images/alt.png"/></div>
+      
+      <div class="col-xs-12 col-sm-12">
+      
+     	<svg id="mainChart"></svg>
+   
+      </div>
+    </div>
+    
+    <div id="wrapper" class="col-xs-12 col-sm-12">
+   
+  
+    </div>
+    
+     
+    
+    
+    <div class="row" id="foot">
+     	<div class="col-sm-6">
+            <a>Employees on adult rates, pay unaffected by absence</a><br>
+            <a>Breaks in series in 2004, 2006 and 2011 due to methodological changes</a>
+        </div>	
+        <div class="col-sm-6" id="rightfoot">
+            <a href="http://www.ons.gov.uk/ons/guide-method/method-quality/specific/labour-market/annual-survey-of-hours-and-earnings/index.html" target="_blank">Source: Annual Survey of Hours and Earnings, Office for National Statistics</a><br>
+			<a href="http://www.ons.gov.uk/ons/interactive/index.html" target="_blank">See more from ONS Digital</a><br>
+        </div>	
+    </div>
+   
+
+     
+    </div><!--End container -->
+
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/owl.carousel.min.js" charset="utf-8"></script>-->
+ 	<script src="js/modernizr.custom.56904.js"></script>
+    <script src="js/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/webtrends.js"></script>
+    <script src="js/pym.js"></script>
+    <script src="js/script.js"></script>
+
+    
+    <script>
+
+
+
+				/* Google analytics */
+				  var _gaq = _gaq || [];
+				  _gaq.push(['_setAccount', 'UA-37894017-1']);
+				  _gaq.push(['_trackPageview']);
+				
+				
+				  (function() {
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				  })();
+		  
+		  		/*webtrends*/
+		
+				var _tag=new WebTrends();
+				_tag.dcsGetId();
+				//]]>
+				</script>
+				<script type="text/javascript">
+				//<![CDATA[
+				_tag.dcsCustom=function(){
+				// Add custom parameters here.
+				//_tag.DCSext.param_name=param_value;
+				}
+				_tag.dcsCollect();
+				</script>
+				<noscript>
+				<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="//statse.webtrendslive.com/dcsay0hycvz5bd4kzkvzlhgdu_5j1u/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=9.4.0&amp;dcssip=www.statistics.gov.uk"/></div>
+				</noscript>
+
+    </script>
+  </body>
+</html>
